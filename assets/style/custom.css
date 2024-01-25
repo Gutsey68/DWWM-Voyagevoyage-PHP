@@ -11,36 +11,42 @@
 * {
     min-width: 0;
     font: inherit;
+    font-family: 'Poppins', sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 body {
-    margin : 0;
-    min-height:100dvh;
+    margin: 0;
+    min-height: 100dvh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Playfair Display', serif;
     text-wrap: balance;
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
     text-wrap: pretty;
 }
 
-.green-btn{
-    font-family: 'Poppins', sans-serif;
+.green-btn {
     font-weight: 600;
     color: var(--white);
     background-color: var(--green);
     padding: 10px 30px;
     border: solid var(--green) 2px;
     border-radius: 50px;
-    transition : 1000ms;
+    transition: 1000ms;
     transform: translateY(0);
     display: flex;
     flex-direction: row;
@@ -48,37 +54,38 @@ p {
     cursor: pointer;
 }
 
-.green-btn:hover{
-    transition : 1000ms;
+.green-btn:hover {
+    transition: 1000ms;
     padding: 10px 50px;
-    transform : translateY(-0px);
+    transform: translateY(-0px);
     background-color: var(--white);
     color: var(--green);
     border: solid 2px var(--green);
 }
 
-.orange-btn{
-    font-family: 'Poppins', sans-serif;
+.orange-btn {
     font-weight: 600;
     color: var(--white);
     background-color: var(--orange);
     padding: 10px 30px;
     border: solid var(--orange) 2px;
     border-radius: 50px;
-    transition : 1000ms;
+    transition: 1000ms;
     transform: translateY(0);
     display: flex;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
-    }
-    
-.orange-btn:hover{
-    
-    transition : 1000ms;
+}
+
+.orange-btn:hover {
+
+    transition: 1000ms;
     padding: 10px 50px;
-    transform : translateY(-0px);
+    transform: translateY(-0px);
     background-color: var(--white);
     color: var(--orange);
     border: solid 2px var(--orange);
-    }
+}
+
+/* Navbar */
