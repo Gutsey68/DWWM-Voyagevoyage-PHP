@@ -39,6 +39,12 @@ p {
     font-family: 'Poppins', sans-serif;
 }
 
+span {
+    font-weight: 600;
+}
+
+/* buttons */
+
 .green-btn {
     font-weight: 600;
     color: var(--beige);
@@ -79,7 +85,12 @@ p {
     border: solid 2px var(--orange);
 }
 
-/* Navbar */
+.button-center {
+    display: flex;
+    justify-content: center;
+}
+
+/* nav.php */
 
 .navbar {
     background-color: var(--beige);
@@ -126,6 +137,99 @@ p {
     font-size: 1.5rem;
 }
 
-i.fa-solid.fa-user::before {
+button i {
     padding-right: 1rem;
+}
+
+/* voyage */
+
+#voyage {
+    background-color: var(--beige);
+    padding: 5rem 0;
+}
+
+#voyage img {
+    height: 250px;
+    width: 250px;
+}
+
+#voyage h1 {
+    color: var(--green);
+}
+
+/* histoire */
+
+#histoire {
+    background-color: var(--brown);
+    color: var(--beige);
+    padding: 5rem 0;
+}
+
+#histoire h2 {
+    color: var(--orange);
+}
+
+#histoire img {
+    height: 250px;
+    width: 300px;
+    margin: 4rem 0 1rem 0;
+}
+
+#histoire .margin0 {
+    margin-bottom: 0;
+}
+
+#histoire span {
+    color: var(--orange);
+}
+
+/* echange */
+
+#echange {
+    background-color: var(--beige);
+    padding: 5rem 0;
+}
+
+#echange h2 {
+    color: var(--green);
+}
+
+#echange .card-title {
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-body  {
+    color: var(--brown);
+    background-color: #FDF8ED;
+}
+
+
+/* footer */
+
+footer {
+    background-color: var(--green);
+    color: var(--beige);
+}
+
+footer hr {
+    background-color: var(--beige);
+    border: none;
+    height: 2px;
+    margin: 1rem 0;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    display: inline;
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: inherit;
 }
