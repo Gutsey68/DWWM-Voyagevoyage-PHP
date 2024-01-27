@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid ">
-            <a href="index.html">
+            <a href="index.php">
                 <!-- mettre le logo ici -->
                 <img src="" alt="">
                 <p>Voyage<span class="fst-italic">Voyage</span></p>
@@ -11,13 +11,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill">
                 <li class="nav-item">
-                    <a class="nav-link flex-fill" href=""><i class="fa-solid fa-compass"></i> Explorez</a>
+                    <a class="nav-link flex-fill" href="explore.php"><i class="fa-solid fa-compass"></i> Explorez</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link flex-fill" href="">Racontez</a>
+                    <a class="nav-link flex-fill" href="raconte.php">Racontez</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link flex-fill" href="">Forum</a>
+                    <a class="nav-link flex-fill" href="forum.php">Forum</a>
                 </li>
                 <li class="nav-item">
                     <form class="my-lg-0">

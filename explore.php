@@ -1,0 +1,6 @@
+<?php 
+    $strPage = "explore";
+    $strTitle ="Explorez";
+    include_once("views/_partial/header.php") 
+?>
+<?php include("views/_partial/footer.php") ?>
