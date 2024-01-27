@@ -3,7 +3,7 @@
     <div class="container text-center pt-5 pb-2">
         <div id="border-bottom" class="row">
             <div class="col-md-6 col-12 pb-3">
-                <h3 class="pb-3"></i>Où nous trouver :</h3>
+                <h3 class="pb-3">Où nous trouver :</h3>
                 <p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p>
                 <p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p>
                 <p><i class="fa-solid fa-house"></i> 30 rue kerim le fou</p>
