@@ -26,4 +26,13 @@
 </footer>
 </body>
 <script src="assets/script/bootstrap.bundle.js"></script>
+<?php 
+    if ($strPage == "raconte"){
+?>
+    <script src="assets/script/dnd.js"></script>
+<?php
+    }
+?>		
+
+
 </html>
