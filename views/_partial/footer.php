@@ -1,4 +1,3 @@
-<!-- Footer -->
 <footer>
     <div class="container text-center pt-5 pb-2">
         <div id="border-bottom" class="row">
@@ -24,7 +23,6 @@
         </div>
     </div>
 </footer>
-</body>
 <script src="assets/script/bootstrap.bundle.js"></script>
 <?php 
     if ($strPage == "raconte"){
@@ -34,5 +32,5 @@
     }
 ?>		
 
-
+</body>
 </html>

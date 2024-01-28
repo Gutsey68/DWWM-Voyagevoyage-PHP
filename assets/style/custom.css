@@ -139,10 +139,14 @@ button i , label i {
     font-size: 1.5rem;
 }
 
-/* voyage */
+/* index.php voyage */
 
 #voyage {
     padding: 5rem 0;
+}
+
+#voyage p {
+    color: var(--brown);
 }
 
 #voyage img {
@@ -154,7 +158,7 @@ button i , label i {
     color: var(--green);
 }
 
-/* histoire */
+/* index.php histoire */
 
 #histoire {
     background-color: var(--brown);
@@ -180,7 +184,11 @@ button i , label i {
     color: var(--orange);
 }
 
-/* echange */
+/* index.php echange */
+
+#echange p {
+    color: var(--brown);
+}
 
 #echange {
     padding: 5rem 0;
@@ -199,7 +207,6 @@ button i , label i {
     color: var(--brown);
     background-color: #FDF8ED;
 }
-
 
 /* footer.php */
 
@@ -225,6 +232,7 @@ footer ul li a {
     text-decoration: none;
     color: inherit;
 }
+
 #border-bottom {
     border-bottom: 1px solid var(--beige);
     margin-bottom: 1rem;
@@ -273,4 +281,32 @@ footer ul li a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     line-height: 20px;
+}
+
+/* explore.php */
+
+#recit {
+    padding: 5rem 0;
+}
+
+#recit h1 {
+    color: var(--green);
+}
+
+#recit p {
+    color: var(--brown);
+}
+
+/* forum.php */
+
+#forum {
+    padding: 5rem 0;
+}
+
+#forum h1 {
+    color: var(--green);
+}
+
+#forum p {
+    color: var(--brown);
 }

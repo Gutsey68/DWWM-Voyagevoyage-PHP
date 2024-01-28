@@ -1,5 +1,8 @@
-
-    <?php include("views/_partial/header.php") ?>
+<?php 
+    $strPage = "index";
+    $strTitle ="Acceuil";
+    include_once("views/_partial/header.php") 
+?>
 <!-- voyage -->
     <section id="voyage">
         <div class="container">
