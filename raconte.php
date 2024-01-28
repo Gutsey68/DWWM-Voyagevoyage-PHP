@@ -10,10 +10,10 @@
             <p>Ajoute jusqu'à 20 photos.</p>
         </div>
         <div class="col-12" id="drop-area">
-            <form class="my-form">
+            <form class="my-form pt-5">
                 <input type="file" id="fileElem" multiple accept="image/*">
                 <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoute des photos</label>
-                <div id="gallery"></div>
+                <div id="gallery" class="pt-5"></div>
             </form>
         </div>
     </div>

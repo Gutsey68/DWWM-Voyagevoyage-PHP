@@ -237,10 +237,6 @@ footer ul li a {
     padding: 3rem;
     text-align: center;
 }
-  
-#drop-area:hover {
-    background-color: #F9EAC8;
-}
 
 .button {
     display: inline-block;
