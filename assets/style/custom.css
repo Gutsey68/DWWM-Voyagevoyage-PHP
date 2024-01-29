@@ -92,7 +92,8 @@ span {
 }
 
 
-button i , label i {
+button i,
+label i {
     padding-right: 1rem;
 }
 
@@ -102,17 +103,18 @@ button i , label i {
     width: 100%;
 }
 
-#navbutton  {
+#navbutton {
     background: none;
     color: var(--brown);
     border: none;
 }
 
-#navinput , #navinput::placeholder {
+#navinput,
+#navinput::placeholder {
     background: none;
     color: var(--brown);
     border: none;
-    outline : none;
+    outline: none;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -137,6 +139,10 @@ button i , label i {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     font-size: 1.5rem;
+}
+
+.navbar .fa-magnifying-glass {
+    padding-right: 0rem !important;
 }
 
 /* index.php voyage */
@@ -203,7 +209,7 @@ button i , label i {
     font-family: 'Poppins', sans-serif;
 }
 
-.card-body  {
+.card-body {
     color: var(--brown);
     background-color: #FDF8ED;
 }
@@ -213,7 +219,7 @@ button i , label i {
 footer {
     background-color: var(--green);
     color: var(--beige);
-    border-top-left-radius: 25px; 
+    border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
 
@@ -273,7 +279,7 @@ footer ul li a {
     color: #000000;
     border: none;
     border-radius: 4px;
-    width: 2rem ;
+    width: 2rem;
     height: 1.5rem;
     display: flex;
     align-items: center;
