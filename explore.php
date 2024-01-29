@@ -19,5 +19,5 @@ include_once("views/_partial/header.php");
         </div>
     </div>
 </section>
-
+<?php include("views/utrip.php") ?>
 <?php include("views/_partial/footer.php") ?>

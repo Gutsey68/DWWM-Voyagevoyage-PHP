@@ -11,6 +11,7 @@
 * {
     min-width: 0;
     font: inherit;
+    text-decoration: none !important;
 }
 
 *,
@@ -132,7 +133,6 @@ label i {
 .navbar a {
     color: var(--brown);
     font-weight: 600;
-    text-decoration: none;
 }
 
 .navbar p {
@@ -235,7 +235,6 @@ footer ul li {
 }
 
 footer ul li a {
-    text-decoration: none;
     color: inherit;
 }
 
@@ -315,4 +314,12 @@ footer ul li a {
 
 #forum p {
     color: var(--brown);
+}
+
+/* utrip.php */
+
+#utrip img {
+    height: 250px;
+    width: 300px;
+    margin: 4rem 0 1rem 0;
 }
