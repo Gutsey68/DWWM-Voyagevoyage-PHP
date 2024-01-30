@@ -23,14 +23,9 @@
         </div>
     </div>
 </footer>
-<script src="assets/script/bootstrap.bundle.js"></script>
-<?php 
-    if ($strPage == "raconte"){
-?>
-    <script src="assets/script/dnd.js"></script>
-<?php
-    }
-?>		
+{block name="js_footer"}
+		{/block}
+
 
 </body>
 </html>

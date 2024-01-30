@@ -1,9 +1,12 @@
-<?php 
-    $strPage = "raconte";
-    $strTitle ="Racontez";
-    include_once("views/_partial/header.php") 
-?>
-<!-- système de drag and drop -->
+{extends file="views/layout.tpl"}
+
+{block name="js_footer" append}
+    <script src="assets/script/dnd.js"></script>	
+    <script src="assets/script/bootstrap.bundle.js"></script>
+{/block}
+
+{block name="contenu"}
+    <!-- système de drag and drop -->
 <div id="dragndrop" class="container mt-5 mb-5">
     <div class="row">
         <div class="col-12">
@@ -19,4 +22,4 @@
     </div>
 </div>
 
-<?php include("views/_partial/footer.php") ?>
+{/block}			
