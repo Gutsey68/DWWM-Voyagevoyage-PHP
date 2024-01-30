@@ -214,7 +214,7 @@ label i {
     background-color: #FDF8ED;
 }
 
-/* footer.php */
+/* footer */
 
 footer {
     background-color: var(--green);
@@ -236,6 +236,10 @@ footer ul li {
 
 footer ul li a {
     color: inherit;
+}
+
+footer #copyright {
+    padding-top: 0.4rem;
 }
 
 #border-bottom {

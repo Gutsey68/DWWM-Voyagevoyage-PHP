@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-01-30 15:09:03
+/* Smarty version 4.3.4, created on 2024-01-30 19:18:35
   from 'C:\wamp64\www\projet_2\views\_partial\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65b9110fa8efb5_60774736',
+  'unifunc' => 'content_65b94b8b0c9ab5_47352702',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c404f0875f4fa4dcd161bb9748e36bc25e4752d' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\_partial\\footer.tpl',
-      1 => 1706627342,
+      1 => 1706642313,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65b9110fa8efb5_60774736 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65b94b8b0c9ab5_47352702 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -36,40 +36,43 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
             <div class="col-md-6 col-12">
                 <h3 class="pb-3">Nos résaux sociaux :</h3>
                 <ul>
-                    <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="https://www.instagram.com/guts.sey?igsh=MW54cDV5YjNlZ3FmYQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i
+                                class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/guts.sey?igsh=MW54cDV5YjNlZ3FmYQ%3D%3D&utm_source=qr"
+                            target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
                 </ul>
             </div>
         </div>
-        <div class="col-12">
+        <div id="copyright" class="col-12">
             <p>© 2023 VoyageVoyage Inc. Tous droits réservés</p>
         </div>
     </div>
 </footer>
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_112065426765b9110fa8e027_90685173', "js_footer");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_68906956365b94b8b0c7a24_02304604', "js_footer");
 ?>
 
 
 
 </body>
+
 </html><?php }
 /* {block "js_footer"} */
-class Block_112065426765b9110fa8e027_90685173 extends Smarty_Internal_Block
+class Block_68906956365b94b8b0c7a24_02304604 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'js_footer' => 
   array (
-    0 => 'Block_112065426765b9110fa8e027_90685173',
+    0 => 'Block_68906956365b94b8b0c7a24_02304604',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-		<?php
+<?php
 }
 }
 /* {/block "js_footer"} */

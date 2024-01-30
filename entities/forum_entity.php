@@ -1,14 +1,14 @@
 <?php
-class Utrip
+class Forum
 {
 	// Propriétés
-	private string $_strPrefixe = "utrip_";
+	private string $_strPrefixe = "topic_";
 
 	private int $_id;
-	private string $_name;
-	private string $_description;
-	private string $_budget;
+	private string $_title;
+	private string $_content;
 	private string $_date;
+	private string $_code;
 	private string $_creator;
 
 	// Méthodes
@@ -42,44 +42,44 @@ class Utrip
 	}
 
 	// getter et setter de title
-	public function getName(): string
+	public function getTitle(): string
 	{
-		return $this->_name;
+		return $this->_title;
 	}
-	public function setName(string $strName)
+	public function setTitle(string $strTitle)
 	{
-		$this->_name = $strName;
+		$this->_title = $strTitle;
 	}
 
 	// getter et setter de img
-	public function getDescription(): string
+	public function getContent(): string
 	{
-		return $this->_description;
+		return $this->_content;
 	}
-	public function setDescription(string $strDescription)
+	public function setContent(string $strContent)
 	{
-		$this->_description = $strDescription;
+		$this->_content = $strContent;
 	}
 
-	public function getDescriptionSummary(int $max)
+	public function getContentSummary(int $max)
 	{
-		$strDescription        = $this->_description;
-		if (strlen($strDescription) > $max) {
-			$strDescription    = substr($strDescription, 0, $max) . "...";
+		$strContent        = $this->_content;
+		if (strlen($strContent) > $max) {
+			$strContent    = substr($strContent, 0, $max) . "...";
 		}
-		return $strDescription;
+		return $strContent;
 	}
 
-	// getter et setter de content
-	public function getBudget(): string
+	// getter et setter de code
+	public function getCode(): string
 	{
-		return $this->_budget;
+		return $this->_code;
 	}
-	public function setBudget(string $strBudget)
+	public function setCode(string $strCode)
 	{
-		$this->_budget = $strBudget;
+		$this->_code = $strCode;
 	}
-	// getter et setter de createdate
+	// getter et setter de date
 	public function getDate(): string
 	{
 		return $this->_date;

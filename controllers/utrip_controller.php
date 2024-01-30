@@ -90,10 +90,10 @@ class UtripCtrl extends Ctrl
         $this->_arrData["strStartDate"] = $strStartDate;
         $this->_arrData["strEndDate"]     = $strEndDate;
 
-        $this->_arrData["strPage"]     = "blog";
-        $this->_arrData["strTitle"] = "Blog";
-        $this->_arrData["strDesc"]     = "Page affichant tous les articles, avec une zone de recherche sur les articles";
-        $this->_arrData["arrArticlesToDisplay"] = $arrUtripsToDisplay;
+        $this->_arrData["strPage"]     = "explore";
+        $this->_arrData["strTitle"] = "Explore";
+        $this->_arrData["strDesc"]     = "Découvrez des aventures uniques racontées par des voyageurs passionnés. Laissez-vous inspirer par leurs expériences et partagez les vôtres.";
+        $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
 
         $this->afficheTpl("explore");
     }

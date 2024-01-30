@@ -10,22 +10,25 @@
             <div class="col-md-6 col-12">
                 <h3 class="pb-3">Nos résaux sociaux :</h3>
                 <ul>
-                    <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="https://www.instagram.com/guts.sey?igsh=MW54cDV5YjNlZ3FmYQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i
+                                class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/guts.sey?igsh=MW54cDV5YjNlZ3FmYQ%3D%3D&utm_source=qr"
+                            target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
                 </ul>
             </div>
         </div>
-        <div class="col-12">
+        <div id="copyright" class="col-12">
             <p>© 2023 VoyageVoyage Inc. Tous droits réservés</p>
         </div>
     </div>
 </footer>
 {block name="js_footer"}
-		{/block}
+{/block}
 
 
 </body>
+
 </html>
