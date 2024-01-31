@@ -10,6 +10,13 @@ class Utrip
 	private string $_budget;
 	private string $_date;
 	private string $_creator;
+	private string $_img;
+	private string $_cat;
+	private string $_city;
+	private string $_country;
+	private string $_cont;
+	private string $_like;
+	private string $_com;
 
 	// Méthodes
 	// fonction permettant de remplir l'objet
@@ -51,7 +58,7 @@ class Utrip
 		$this->_name = $strName;
 	}
 
-	// getter et setter de img
+	// getter et setter de description 
 	public function getDescription(): string
 	{
 		return $this->_description;
@@ -70,7 +77,7 @@ class Utrip
 		return $strDescription;
 	}
 
-	// getter et setter de content
+	// getter et setter du budget 
 	public function getBudget(): string
 	{
 		return $this->_budget;
@@ -79,7 +86,7 @@ class Utrip
 	{
 		$this->_budget = $strBudget;
 	}
-	// getter et setter de createdate
+	// getter et setter de la date
 	public function getDate(): string
 	{
 		return $this->_date;
@@ -103,5 +110,68 @@ class Utrip
 	public function setCreator(string $strCreator)
 	{
 		$this->_creator = $strCreator;
+	}
+	// getter et setter de l'image
+	public function getImg(): string
+	{
+		return $this->_img;
+	}
+	public function setImg(string $strImg)
+	{
+		$this->_img = $strImg;
+	}
+	// getter et setter de la categorie
+	public function getCat(): string
+	{
+		return $this->_cat;
+	}
+	public function setCat(string $strCat)
+	{
+		$this->_cat = $strCat;
+	}
+	// getter et setter de la ville
+	public function getCity(): string
+	{
+		return $this->_city;
+	}
+	public function setCity(string $strCity)
+	{
+		$this->_city = $strCity;
+	}
+	// getter et setter du pays
+	public function getCountry(): string
+	{
+		return $this->_country;
+	}
+	public function setCountry(string $strCountry)
+	{
+		$this->_country = $strCountry;
+	}
+	// getter et setter du continent
+	public function getCont(): string
+	{
+		return $this->_cont;
+	}
+	public function setCont(string $strCont)
+	{
+		$this->_cont = $strCont;
+	}
+	// getter et setter du like
+	public function getLike(): string
+	{
+		return $this->_like;
+	}
+	public function setLike(string $strLike)
+	{
+		$this->_like = $strLike;
+	}
+	// getter et setter du commentaire
+	public function getCom(): string
+	{
+		return $this->_com;
+	}
+	public function setCom(string $strCom)
+	{
+		$this->_com = $strCom;
 	}
 }
