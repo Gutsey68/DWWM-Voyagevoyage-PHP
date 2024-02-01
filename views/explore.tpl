@@ -1,3 +1,5 @@
+{* La view de la page entière Explorez avec tous les articles *}
+
 {extends file="views/layout.tpl"}
 
 {block name="contenu"}

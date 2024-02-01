@@ -1,3 +1,5 @@
+{* La view d'un résumé d'un article *}
+
 <article>
 	<div class="container">
 		<div class="row">

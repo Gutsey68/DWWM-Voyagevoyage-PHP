@@ -145,7 +145,7 @@ label i {
     padding-right: 0rem !important;
 }
 
-/* index.php voyage */
+/* home.tpl voyage */
 
 #voyage {
     padding: 5rem 0;
@@ -164,7 +164,7 @@ label i {
     color: var(--green);
 }
 
-/* index.php histoire */
+/* home.tpl histoire */
 
 #histoire {
     background-color: var(--brown);
@@ -190,7 +190,7 @@ label i {
     color: var(--orange);
 }
 
-/* index.php echange */
+/* home.tpl echange */
 
 #echange p {
     color: var(--brown);
@@ -214,7 +214,7 @@ label i {
     background-color: #FDF8ED;
 }
 
-/* footer */
+/* footer.tpl */
 
 footer {
     background-color: var(--green);
@@ -247,7 +247,7 @@ footer #copyright {
     margin-bottom: 1rem;
 }
 
-/* raconte.php drag and drop */
+/* raconte.tpl drag and drop */
 
 #drop-area {
     border: dashed 2px grey;
@@ -292,7 +292,7 @@ footer #copyright {
     line-height: 20px;
 }
 
-/* explore.php */
+/* explore.tpl */
 
 #recit {
     padding: 5rem 0;
@@ -306,7 +306,7 @@ footer #copyright {
     color: var(--brown);
 }
 
-/* forum.php */
+/* forum.tpl */
 
 #forum {
     padding: 5rem 0;
@@ -320,7 +320,7 @@ footer #copyright {
     color: var(--brown);
 }
 
-/* utrip.php */
+/* utrip.tpl */
 
 #utrip img {
     height: 250px;
