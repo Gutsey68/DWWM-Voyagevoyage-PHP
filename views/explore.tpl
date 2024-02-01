@@ -13,7 +13,8 @@
                         leurs expériences et partagez les vôtres.
                     </p>
                     <div class="button-center">
-                        <button class="green-btn"><i class="fa-solid fa-feather"></i> Je raconte la mienne</button>
+                        <a class="green-btn" href="index.php?action=raconte&ctrl=utrip"><i class="fa-solid fa-feather"></i>
+                            Je raconte la mienne</a>
                     </div>
                 </div>
             </div>

@@ -93,7 +93,7 @@ span {
 }
 
 
-button i,
+button i, .green-btn i ,
 label i {
     padding-right: 1rem;
 }
@@ -228,7 +228,7 @@ footer ul {
     list-style-type: none;
 }
 
-footer ul li {
+footer ul li:has(i) {
     display: inline;
     font-size: 2rem;
     padding: 0 1rem;
@@ -240,6 +240,12 @@ footer ul li a {
 
 footer #copyright {
     padding-top: 0.4rem;
+}
+
+footer .footer-plan {
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 0.9rem;
+    margin-top: 0.1rem;
 }
 
 #border-bottom {

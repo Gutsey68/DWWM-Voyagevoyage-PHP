@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-01-30 19:10:29
+/* Smarty version 4.3.4, created on 2024-02-01 19:18:55
   from 'C:\wamp64\www\projet_2\views\explore.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65b949a57ec175_80157268',
+  'unifunc' => 'content_65bbee9fa5ecc7_68374638',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc8284bb958e131ad8fd99730d6316feae1d05f3' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\explore.tpl',
-      1 => 1706641826,
+      1 => 1706815133,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65b949a57ec175_80157268 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65bbee9fa5ecc7_68374638 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
+
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_57562260065b949a57ea8b6_26239155', "contenu");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_94648062165bbee9fa5dc47_10299765', "contenu");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/layout.tpl");
 }
 /* {block "contenu"} */
-class Block_57562260065b949a57ea8b6_26239155 extends Smarty_Internal_Block
+class Block_94648062165bbee9fa5dc47_10299765 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'contenu' => 
   array (
-    0 => 'Block_57562260065b949a57ea8b6_26239155',
+    0 => 'Block_94648062165bbee9fa5dc47_10299765',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,7 +53,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         leurs expériences et partagez les vôtres.
                     </p>
                     <div class="button-center">
-                        <button class="green-btn"><i class="fa-solid fa-feather"></i> Je raconte la mienne</button>
+                        <a class="green-btn" href="index.php?action=raconte&ctrl=utrip"><i class="fa-solid fa-feather"></i>
+                            Je raconte la mienne</a>
                     </div>
                 </div>
             </div>

@@ -51,7 +51,7 @@ class Forum
 		$this->_title = $strTitle;
 	}
 
-	// getter et setter de img
+	// getter et setter du contenu
 	public function getContent(): string
 	{
 		return $this->_content;
@@ -70,7 +70,7 @@ class Forum
 		return $strContent;
 	}
 
-	// getter et setter de code
+	// getter et setter du code
 	public function getCode(): string
 	{
 		return $this->_code;
@@ -95,7 +95,7 @@ class Forum
 		$objDate        = new DateTime($this->_date);
 		return $objDate->format("d/m/Y");
 	}
-	// getter et setter de creator
+	// getter et setter du createur
 	public function getCreator(): string
 	{
 		return $this->_creator;

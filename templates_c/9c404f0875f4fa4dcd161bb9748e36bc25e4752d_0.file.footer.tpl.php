@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-01-30 19:18:35
+/* Smarty version 4.3.4, created on 2024-02-01 19:11:21
   from 'C:\wamp64\www\projet_2\views\_partial\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65b94b8b0c9ab5_47352702',
+  'unifunc' => 'content_65bbecd94ac258_89547237',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c404f0875f4fa4dcd161bb9748e36bc25e4752d' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\_partial\\footer.tpl',
-      1 => 1706642313,
+      1 => 1706814673,
       2 => 'file',
     ),
   ),
@@ -20,20 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65b94b8b0c9ab5_47352702 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65bbecd94ac258_89547237 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
 <footer>
     <div class="container text-center pt-5 pb-2">
         <div id="border-bottom" class="row">
-            <div class="col-md-6 col-12 pb-3">
-                <h3 class="pb-3">Où nous trouver :</h3>
+            <div class="col-md-4 col-12 pb-3">
+                <h3 class="pb-3">Nos coordonnées :</h3>
                 <p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p>
                 <p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p>
                 <p><i class="fa-solid fa-house"></i> 30 rue kerim le fou</p>
             </div>
-            <div class="col-md-6 col-12">
+            <div class="col-md-4 col-12 pb-3">
+                <h3 class="pb-3">Liens utiles :</h3>
+                <ul>
+                    <li class="footer-plan"><a href="">Plan du site</a></li>
+                    <li class="footer-plan"><a href="">Mentions légales</a></li>
+                    <li class="footer-plan"><a href="">Nous contacter</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-12">
                 <h3 class="pb-3">Nos résaux sociaux :</h3>
                 <ul>
                     <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i
@@ -52,7 +60,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     </div>
 </footer>
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_68906956365b94b8b0c7a24_02304604', "js_footer");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_111542132465bbecd94a9dd7_86255126', "js_footer");
 ?>
 
 
@@ -61,12 +69,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_68906956365b94b8b0
 
 </html><?php }
 /* {block "js_footer"} */
-class Block_68906956365b94b8b0c7a24_02304604 extends Smarty_Internal_Block
+class Block_111542132465bbecd94a9dd7_86255126 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'js_footer' => 
   array (
-    0 => 'Block_68906956365b94b8b0c7a24_02304604',
+    0 => 'Block_111542132465bbecd94a9dd7_86255126',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
