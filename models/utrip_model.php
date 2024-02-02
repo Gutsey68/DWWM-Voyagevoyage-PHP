@@ -12,21 +12,21 @@ class UtripModel extends Model
 
 	public function findAll(int $intLimit = 0, $arrSearch = array())
 	{
-		$strQuery     = "	SELECT utrip_name, utrip_description, utrip_budget, utrip_date, 
-								utrip_user_id AS 'utrip_creator' , img_utrip_id AS 'utrip_img' ,
-								cat_id AS 'utrip_cat' , city_id AS 'utrip_city' , country_id AS 'utrip_country' ,
-								cont_id AS 'utrip_cont' , like_utrip_id AS 'utrip_like' , com_utrip_id AS 'utrip_com'
+		$strQuery     = "SELECT utrip_name, utrip_description, utrip_budget, utrip_date, 
+							utrip_user_id AS 'utrip_creator' , img_link AS 'utrip_img' ,
+							cat_lib AS 'utrip_cat' , city_name AS 'utrip_city' , country_name AS 'utrip_country' ,
+							cont_name AS 'utrip_cont' ,like_id AS 'utrip_like' , com_content AS 'utrip_com'
 							FROM utrip
-								INNER JOIN users ON utrip_user_id = user_id
-								INNER JOIN image ON img_utrip_id = utrip_id
-								INNER JOIN categorie_utrip ON cat_utrip_utrip_id = utrip_id
-								INNER JOIN categorie ON cat_id = cat_utrip_cat_id
-								INNER JOIN is_located ON utrip_id = loc_utrip_id
-								INNER JOIN city ON city_id = loc_city_id
-								INNER JOIN country ON country_id = city_country_id
-								INNER JOIN continent ON cont_id = country_cont_id 
-								INNER JOIN likes ON like_utrip_id = utrip_id 
-								INNER JOIN comments ON utrip_id = com_utrip_id ";
+									INNER JOIN users ON utrip_user_id = user_id
+									LEFT OUTER JOIN image ON img_utrip_id = utrip_id
+									LEFT OUTER JOIN categorie_utrip ON cat_utrip_utrip_id = utrip_id
+									LEFT OUTER JOIN categorie ON cat_id = cat_utrip_cat_id
+									LEFT OUTER JOIN is_located ON utrip_id = loc_utrip_id
+									LEFT OUTER JOIN city ON city_id = loc_city_id
+									LEFT OUTER JOIN country ON country_id = city_country_id
+									LEFT OUTER JOIN likes ON like_utrip_id = utrip_id
+									LEFT OUTER JOIN continent ON cont_id = country_cont_id 
+									LEFT OUTER JOIN comments ON utrip_id = com_utrip_id";
 
 
 		$strWhere	= " WHERE ";
