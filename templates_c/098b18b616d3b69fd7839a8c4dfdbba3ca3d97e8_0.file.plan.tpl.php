@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-02 07:52:02
-  from 'C:\wamp64\www\projet_2\views\show404.tpl' */
+/* Smarty version 4.3.4, created on 2024-02-02 07:53:18
+  from 'C:\wamp64\www\projet_2\views\plan.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65bc9f229b8002_01892460',
+  'unifunc' => 'content_65bc9f6e2e5ff5_06712102',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '1f0c6f3fdfb83fecce0fc1355e54219f774bd24c' => 
+    '098b18b616d3b69fd7839a8c4dfdbba3ca3d97e8' => 
     array (
-      0 => 'C:\\wamp64\\www\\projet_2\\views\\show404.tpl',
-      1 => 1706860054,
+      0 => 'C:\\wamp64\\www\\projet_2\\views\\plan.tpl',
+      1 => 1706860331,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65bc9f229b8002_01892460 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65bc9f6e2e5ff5_06712102 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -28,22 +28,22 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16147817665bc9f229b6ce8_46302076', "contenu");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1452754465bc9f6e2e4fe5_73644133', "contenu");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/layout.tpl");
 }
 /* {block "contenu"} */
-class Block_16147817665bc9f229b6ce8_46302076 extends Smarty_Internal_Block
+class Block_1452754465bc9f6e2e4fe5_73644133 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'contenu' => 
   array (
-    0 => 'Block_16147817665bc9f229b6ce8_46302076',
+    0 => 'Block_1452754465bc9f6e2e4fe5_73644133',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-    <div>Error 404</div>
+    <div>plan du site</div>
 <?php
 }
 }

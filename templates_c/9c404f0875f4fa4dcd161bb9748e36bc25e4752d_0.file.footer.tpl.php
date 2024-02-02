@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-01 19:11:21
+/* Smarty version 4.3.4, created on 2024-02-02 07:53:18
   from 'C:\wamp64\www\projet_2\views\_partial\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65bbecd94ac258_89547237',
+  'unifunc' => 'content_65bc9f6e383fe2_35187965',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c404f0875f4fa4dcd161bb9748e36bc25e4752d' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\_partial\\footer.tpl',
-      1 => 1706814673,
+      1 => 1706860396,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65bbecd94ac258_89547237 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65bc9f6e383fe2_35187965 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -36,9 +36,9 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
             <div class="col-md-4 col-12 pb-3">
                 <h3 class="pb-3">Liens utiles :</h3>
                 <ul>
-                    <li class="footer-plan"><a href="">Plan du site</a></li>
-                    <li class="footer-plan"><a href="">Mentions légales</a></li>
-                    <li class="footer-plan"><a href="">Nous contacter</a></li>
+                    <li class="footer-plan"><a href="index.php?action=plan&ctrl=page">Plan du site</a></li>
+                    <li class="footer-plan"><a href="index.php?action=mentions&ctrl=page">Mentions légales</a></li>
+                    <li class="footer-plan"><a href="index.php?action=contact&ctrl=page">Nous contacter</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-12">
@@ -60,7 +60,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     </div>
 </footer>
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_111542132465bbecd94a9dd7_86255126', "js_footer");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_172644792865bc9f6e383178_67552251', "js_footer");
 ?>
 
 
@@ -69,12 +69,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_111542132465bbecd9
 
 </html><?php }
 /* {block "js_footer"} */
-class Block_111542132465bbecd94a9dd7_86255126 extends Smarty_Internal_Block
+class Block_172644792865bc9f6e383178_67552251 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'js_footer' => 
   array (
-    0 => 'Block_111542132465bbecd94a9dd7_86255126',
+    0 => 'Block_172644792865bc9f6e383178_67552251',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -92,8 +92,15 @@ span {
     justify-content: center;
 }
 
+.button-left {
+    display: flex;
+    justify-content: left;
+}
 
-button i, .green-btn i ,
+
+
+button i,
+.green-btn i,
 label i {
     padding-right: 1rem;
 }
@@ -133,6 +140,10 @@ label i {
 .navbar a {
     color: var(--brown);
     font-weight: 600;
+}
+
+.navbar .green-btn {
+    color: var(--beige);
 }
 
 .navbar p {

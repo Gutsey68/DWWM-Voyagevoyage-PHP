@@ -1,3 +1,5 @@
+{* La view qui appelle header/footer/scripts etc...  *}
+
 {include file="views/_partial/header.tpl"}
 
 {block name="js_footer" append}

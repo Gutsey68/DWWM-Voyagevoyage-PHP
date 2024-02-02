@@ -1,7 +1,7 @@
-{* La pages des mentions légales *}
+{* La page du plan du site *}
 
 {extends file="views/layout.tpl"}
 
 {block name="contenu"}
-	mentions légales
+    <div>plan du site</div>
 {/block}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-01-30 18:59:41
+/* Smarty version 4.3.4, created on 2024-02-02 08:05:12
   from 'C:\wamp64\www\projet_2\views\_partial\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65b9471d2ac985_52719087',
+  'unifunc' => 'content_65bca2389d19f7_01205409',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3c9aa3e265b50ceb78604ace6440ea0ed198382e' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\_partial\\nav.tpl',
-      1 => 1706641178,
+      1 => 1706861110,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65b9471d2ac985_52719087 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65bca2389d19f7_01205409 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-expand-lg">
     <div class="container-fluid ">
         <a href="index.php">
@@ -58,7 +58,10 @@ function content_65b9471d2ac985_52719087 (Smarty_Internal_Template $_smarty_tpl)
                     </form>
                 </li>
                 <li class="nav-item ">
-                    <button class="green-btn"><i class="fa-solid fa-user"></i> S'enregistrer / Se connecter </button>
+                    <div class="button-center">
+                        <a class="green-btn" href="index.php?action=login&ctrl=user"><i
+                                class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
+                    </div>
                 </li>
             </ul>
         </div>

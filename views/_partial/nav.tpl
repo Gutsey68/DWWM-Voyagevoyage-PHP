@@ -35,7 +35,10 @@
                     </form>
                 </li>
                 <li class="nav-item ">
-                    <button class="green-btn"><i class="fa-solid fa-user"></i> S'enregistrer / Se connecter </button>
+                    <div class="button-center">
+                        <a class="green-btn" href="index.php?action=login&ctrl=user"><i
+                                class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
+                    </div>
                 </li>
             </ul>
         </div>

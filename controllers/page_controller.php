@@ -23,4 +23,11 @@ class PageCtrl extends Ctrl
         $this->_arrData["strDesc"]     = "Page de contact";
         $this->afficheTpl("contact");
     }
+    public function plan()
+    {
+        $this->_arrData["strPage"]     = "plan";
+        $this->_arrData["strTitle"] = "Plan du site";
+        $this->_arrData["strDesc"]     = "Page du plan du site";
+        $this->afficheTpl("plan");
+    }
 }
