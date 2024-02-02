@@ -22,12 +22,7 @@ class Forum
 			if (method_exists($this, $strSetterName)) {
 				$this->$strSetterName($value);
 			}
-			//$this->set$key($value);
 		}
-
-		/*$this->setId($arrData['article_id']);
-			$this->setTitle($arrData['article_title']);
-			$this->setImg($arrData['article_img']);*/
 	}
 
 	// getter de récupération de la valeur de l'id

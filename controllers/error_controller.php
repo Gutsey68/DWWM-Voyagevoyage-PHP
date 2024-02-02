@@ -9,4 +9,11 @@ class ErrorCtrl extends Ctrl
         $this->_arrData["strDesc"]     = "Page affichant le fait que la page demandée n'a pas été trouvée";
         $this->afficheTpl("show404");
     }
+    public function show403()
+    {
+        $this->_arrData["strPage"]     = "403";
+        $this->_arrData["strTitle"] = "Page non autorisée";
+        $this->_arrData["strDesc"]     = "Page affichant le fait que la page demandée n'est pas autorisée";
+        $this->afficheTpl("show403");
+    }
 }
