@@ -43,7 +43,7 @@ class Utrip
 		$this->_id = $intId;
 	}
 
-	// getter et setter de title
+	// getter et setter du nom de l'article
 	public function getName(): string
 	{
 		return $this->_name;

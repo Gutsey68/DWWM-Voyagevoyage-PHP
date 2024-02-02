@@ -1,7 +1,6 @@
 <?php
 include_once("models/utrip_model.php");
 include_once("entities/utrip_entity.php");
-
 class UtripCtrl extends Ctrl
 {
 
@@ -12,7 +11,7 @@ class UtripCtrl extends Ctrl
 
         /* Utilisation de la classe model */
         $objUtripModel    = new UtripModel;
-        $arrUtrips        = $objUtripModel->findAll();
+        $arrUtrips        = $objUtripModel->findAll(4);
 
         // Parcourir les articles pour créer des objets
         $arrUtripsToDisplay    = array();
@@ -24,7 +23,7 @@ class UtripCtrl extends Ctrl
 
         $this->_arrData["strPage"]     = "index";
         $this->_arrData["strTitle"] = "Accueil";
-        $this->_arrData["strDesc"]     = "Page affichant les 4 derniers articles";
+        $this->_arrData["strDesc"]     = "Page d'acceuil";
         $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
 
         $this->afficheTpl("home");

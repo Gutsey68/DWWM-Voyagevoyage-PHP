@@ -40,26 +40,10 @@
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-md-3">
-                <img src="assets/images/italie.jpg" alt="">
-                <p class="margin0">Le voyage de kerim68</p>
-                <p>à <span class="fst-italic">Rio de Janeiro</span></p>
-            </div>
-            <div class="col-md-3">
-                <img src="assets/images/italie.jpg" alt="">
-                <p class="margin0">Le voyage de kerim68</p>
-                <p>à <span class="fst-italic">Rio de Janeiro</span></p>
-            </div>
-            <div class="col-md-3">
-                <img src="assets/images/italie.jpg" alt="">
-                <p class="margin0">Le voyage de kerim68</p>
-                <p>à <span class="fst-italic">Rio de Janeiro</span></p>
-            </div>
-            <div class="col-md-3">
-                <img src="assets/images/italie.jpg" alt="">
-                <p class="margin0">Le voyage de kerim68</p>
-                <p>à <span class="fst-italic">Rio de Janeiro</span></p>
-            </div>
+            {foreach from=$arrUtripsToDisplay item=objUtrip}
+            {include file="views/_partial/header.tpl"}
+            {include file="views/utrip.tpl"}
+            {/foreach}
         </div>
     </div>
 </section>
