@@ -39,11 +39,17 @@
                 </div>
             </div>
         </div>
+        <article>
+            <div class="container">
+                <div class="row ">
+                    {foreach from=$arrUtripsToDisplay item=objUtrip}
+                    {include file="views/utrip.tpl"}
+                    {/foreach}
+                </div>
+            </div>
+        </article>
         <div class="row text-center">
-            {foreach from=$arrUtripsToDisplay item=objUtrip}
-            {include file="views/_partial/header.tpl"}
-            {include file="views/utrip.tpl"}
-            {/foreach}
+
         </div>
     </div>
 </section>
