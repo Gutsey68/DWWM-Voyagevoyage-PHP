@@ -18,8 +18,8 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
-                    <img src="assets/images/italie.jpg" alt="jolie ruelle italienne">
-                    <img src="assets/images/zanzibar.jpg" alt="magnifique plage à zanzibar">
+                    <img class="resume-img" src="assets/images/italie.jpg" alt="jolie ruelle italienne">
+                    <img class="resume-img" src="assets/images/zanzibar.jpg" alt="magnifique plage à zanzibar">
                 </div>
             </div>
         </div>
@@ -48,9 +48,6 @@
                 </div>
             </div>
         </article>
-        <div class="row text-center">
-
-        </div>
     </div>
 </section>
 <!-- Echangez -->

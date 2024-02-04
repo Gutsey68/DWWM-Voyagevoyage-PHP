@@ -106,6 +106,29 @@ label i {
     padding-right: 1rem;
 }
 
+/* utrips */
+
+.resume-img {
+    height: 250px;
+    width: 250px;
+}
+
+.resume-utrip img {
+    height: 250px;
+    width: 300px;
+    margin: 4rem 0 1rem 0;
+}
+
+.resume-utrip .margin0 {
+    margin-bottom: 0;
+}
+
+.resume-utrip span {
+    color: var(--orange);
+}
+
+
+
 /* nav.php */
 
 .navbar ul {
@@ -167,10 +190,6 @@ label i {
     color: var(--brown);
 }
 
-#voyage img {
-    height: 250px;
-    width: 250px;
-}
 
 #voyage h1 {
     color: var(--green);
@@ -185,20 +204,6 @@ label i {
 }
 
 #histoire h2 {
-    color: var(--orange);
-}
-
-#histoire img {
-    height: 250px;
-    width: 300px;
-    margin: 4rem 0 1rem 0;
-}
-
-#histoire .margin0 {
-    margin-bottom: 0;
-}
-
-#histoire span {
     color: var(--orange);
 }
 
@@ -324,10 +329,16 @@ footer .footer-plan {
     color: var(--brown);
 }
 
+#explore-utrips {
+    background-color: var(--brown);
+    padding: 5rem 0;
+    color: var(--beige);
+}
+
 /* forum.tpl */
 
 #forum {
-    padding: 5rem 0;
+    padding: 5rem 0 2rem 0;
 }
 
 #forum h1 {

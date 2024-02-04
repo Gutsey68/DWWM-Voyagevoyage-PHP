@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 02 fév. 2024 à 15:27
+-- Généré le : dim. 04 fév. 2024 à 10:10
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `cat_parent` int DEFAULT NULL COMMENT 'Catégorie parente',
   PRIMARY KEY (`cat_id`),
   KEY `cat_parent` (`cat_parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -44,7 +44,9 @@ INSERT INTO `categorie` (`cat_id`, `cat_lib`, `cat_parent`) VALUES
 (1, 'Escapade Urbaine', 2),
 (2, 'Histoire et Culture', NULL),
 (3, 'Aventure et Découverte', NULL),
-(4, 'Fusion Culturelle', NULL);
+(4, 'Fusion Culturelle', NULL),
+(5, 'Spiritualité et Religion', NULL),
+(6, 'Photographie et Créativité', NULL);
 
 -- --------------------------------------------------------
 
@@ -60,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `categorie_utrip` (
   PRIMARY KEY (`cat_utrip_id`),
   KEY `cat_utrip_id_utrip_id` (`cat_utrip_utrip_id`),
   KEY `cat_utrip_id_cat_id` (`cat_utrip_cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `categorie_utrip`
@@ -68,7 +70,10 @@ CREATE TABLE IF NOT EXISTS `categorie_utrip` (
 
 INSERT INTO `categorie_utrip` (`cat_utrip_id`, `cat_utrip_utrip_id`, `cat_utrip_cat_id`) VALUES
 (1, 2, 1),
-(2, 2, 1);
+(2, 2, 1),
+(3, 5, 3),
+(4, 5, 5),
+(5, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -83,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `city_country_id` int NOT NULL COMMENT 'Pays de la ville',
   PRIMARY KEY (`city_id`),
   KEY `city_country_id` (`city_country_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `city`
@@ -93,7 +98,9 @@ INSERT INTO `city` (`city_id`, `city_name`, `city_country_id`) VALUES
 (2, 'Istanbul', 3),
 (3, 'Moscou', 2),
 (4, 'Marrakech', 4),
-(5, 'New-york', 5);
+(5, 'New-york', 5),
+(6, 'Varanasi', 6),
+(8, 'Colmar', 7);
 
 -- --------------------------------------------------------
 
@@ -186,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `country_cont_id` int NOT NULL COMMENT 'Continent du pays',
   PRIMARY KEY (`country_id`),
   KEY `country_cont_id` (`country_cont_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `country`
@@ -196,7 +203,9 @@ INSERT INTO `country` (`country_id`, `country_name`, `country_cont_id`) VALUES
 (2, 'Russie', 1),
 (3, 'Turquie', 2),
 (4, 'Maroc', 4),
-(5, 'USA', 3);
+(5, 'USA', 3),
+(6, 'Inde', 1),
+(7, 'France', 2);
 
 -- --------------------------------------------------------
 
@@ -213,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `img_utrip_id` int NOT NULL COMMENT 'Récit de voyage qui contient l''image',
   PRIMARY KEY (`img_id`),
   KEY `img_utrip_id` (`img_utrip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `image`
@@ -223,7 +232,9 @@ INSERT INTO `image` (`img_id`, `img_name`, `img_description`, `img_link`, `img_u
 (1, 'Statue de la liberté', 'Vue du ciel', 'newyork.jpg', 1),
 (2, 'photo2moscou', 'test', 'moscou.jpg', 2),
 (3, '', 'belle img wlh', 'marrakech.jpg', 3),
-(4, 'testtt', 'test', 'istenboule.jpg', 4);
+(4, 'testtt', 'test', 'istenboule.jpg', 4),
+(5, 'varanasi', 'belle photo de varanasi', 'varanasi.jpg', 5),
+(6, 'LE QG', 'Lieu rempli d\'histoire', 'qg.jpg', 6);
 
 -- --------------------------------------------------------
 
@@ -239,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `is_located` (
   PRIMARY KEY (`loc_id`),
   KEY `city` (`loc_city_id`),
   KEY `utrip` (`loc_utrip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `is_located`
@@ -249,7 +260,9 @@ INSERT INTO `is_located` (`loc_id`, `loc_city_id`, `loc_utrip_id`) VALUES
 (1, 3, 2),
 (2, 5, 1),
 (3, 4, 3),
-(5, 2, 4);
+(5, 2, 4),
+(6, 6, 5),
+(7, 8, 6);
 
 -- --------------------------------------------------------
 
@@ -348,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_role_id` int NOT NULL COMMENT 'Role de l''utilisateur',
   PRIMARY KEY (`user_id`),
   KEY `user_role_id` (`user_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -358,7 +371,8 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_firstname`, `user_pseudo`, `u
 (1, 'HOTAK', 'Muhammad Shahid', 'HOTAK', 'me911kkhan@gmail.com', 'sqaan@123', '0782880866', '2024-01-19 10:23:07', 'profil_pic_default', 0, 'bla bla bla bla vas-y. Je suis shahid et j\'aime les voyages et le code !', 3),
 (2, 'DEMIR', 'Kerim', 'Kerimo68', 'Kerim.demir6838@gmail.com', 'azerty123*', '0652428289', '2024-01-19 10:29:03', 'profil_pic_default', 0, 'Coucou les filles c\'est Kerim ^^\r\nAjoutez moi on peut prévoir des voyages ensemble :3', 3),
 (3, 'SEYZERIAT--MEYER', 'Gauthier', 'Guts68', 'gseyzeriat1@gmail.com', '1234', '0788486497', '2024-01-19 10:31:38', 'profil_pic_default', 0, 'Toujours à la recherche de nouvelles aventures', 2),
-(4, 'ACHBANI', 'Sami', 'acoubidou', 'sami.achbani@ccicampus.fr', 'azerty123456', '0782858468', '2024-01-19 10:33:38', 'profil_pic_default', 0, 'Vive les voitures et le voyage\r\n\r\n\r\nRoad trip lover (en dodge)', 1);
+(4, 'ACHBANI', 'Sami', 'acoubidou', 'sami.achbani@ccicampus.fr', 'azerty123456', '0782858468', '2024-01-19 10:33:38', 'profil_pic_default', 0, 'Vive les voitures et le voyage\r\n\r\n\r\nRoad trip lover (en dodge)', 1),
+(5, 'Rochbach', 'Ludovic', 'Ludo', 'ludo68@hotmail.fr', 'azertyuiop', '0389805362', '2024-02-04 09:37:17', '', 0, 'yo c\'est ludo', 4);
 
 -- --------------------------------------------------------
 
@@ -376,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `utrip` (
   `utrip_user_id` int NOT NULL COMMENT 'Identifiant de l''utilisateur (auteur du récit)',
   PRIMARY KEY (`utrip_id`),
   KEY `utrip_user_id` (`utrip_user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utrip`
@@ -386,7 +400,9 @@ INSERT INTO `utrip` (`utrip_id`, `utrip_name`, `utrip_description`, `utrip_budge
 (1, 'La Grosse Pomme en un Week-end : Expédition à New York', 'Bienvenue dans le cœur battant de la ville qui ne dort jamais - New York! Dans cet article, je vais partager avec vous comment vivre une expérience inoubliable en seulement trois jours dans cette métropole éblouissante. De la traversée du pont de Brooklyn au lever du soleil, à la découverte des délices culinaires de Chinatown et Little Italy, chaque moment est une aventure. Explorez Central Park en vélo, admirez les œuvres d\'art au MoMA, et ne manquez pas une comédie musicale à Broadway. Le budget de 1500 USD couvrira vos dépenses pour la nourriture, les visites touristiques et l\'hébergement confortable. Préparez-vous pour une escapade urbaine qui restera gravée dans votre mémoire!', 1500, '2024-01-19 10:39:51', 3),
 (2, 'Mystères et Splendeurs de Moscou', 'Moscou, une ville où l\'histoire ancienne se mêle à l\'opulence moderne. Cet article vous emmène dans un voyage à travers les rues pavées et les places majestueuses de la capitale russe. Découvrez le Kremlin et la Place Rouge, flânez dans le parc Gorki, et émerveillez-vous devant les chefs-d\'œuvre du Tretyakov. Sans oublier les spectacles de ballet au Bolchoï. Un budget de 1000 EUR suffira pour explorer les richesses de Moscou tout en profitant d\'un hébergement agréable et d\'une cuisine locale exquise.', 3000, '2024-01-19 10:40:51', 1),
 (3, 'Charme et Histoire : Une Odyssée à Marrakech', 'Plongez dans l\'exotisme de Marrakech, un mélange de culture, d\'histoire et de couleurs vibrantes. Cet article vous guide à travers les souks animés, les jardins luxuriants comme le Jardin Majorelle, et les palais historiques comme le Palais Bahia. Savourez la cuisine marocaine authentique, détendez-vous dans un hammam traditionnel et vivez l\'hospitalité légendaire des riads locaux. Avec un budget de 800 EUR, Marrakech promet une aventure inoubliable, pleine de découvertes et de détente.', 800, '2024-01-19 10:41:35', 4),
-(4, 'Istanbul : Où l\'Orient Rencontre l\'Occident', 'Istanbul, une ville unique, s\'étendant sur deux continents. Cet article vous emmène dans un voyage à travers ses bazars colorés, ses mosquées impressionnantes et ses points de vue magnifiques sur le Bosphore. Visitez la basilique Sainte-Sophie, explorez le palais de Topkapi et goûtez aux délices culinaires turcs. Avec un budget de 1100 EUR, Istanbul offre une expérience riche en culture, en histoire et en saveurs, un mélange parfait de l\'orient et de l\'occident.', 1100, '2024-01-19 10:42:42', 2);
+(4, 'Istanbul : Où l\'Orient Rencontre l\'Occident', 'Istanbul, une ville unique, s\'étendant sur deux continents. Cet article vous emmène dans un voyage à travers ses bazars colorés, ses mosquées impressionnantes et ses points de vue magnifiques sur le Bosphore. Visitez la basilique Sainte-Sophie, explorez le palais de Topkapi et goûtez aux délices culinaires turcs. Avec un budget de 1100 EUR, Istanbul offre une expérience riche en culture, en histoire et en saveurs, un mélange parfait de l\'orient et de l\'occident.', 1100, '2024-01-19 10:42:42', 2),
+(5, 'Sur les routes d\'Inde : Aventure et spiritualité à Varanasi', 'L\'Inde, avec sa diversité époustouflante, offre une multitude d\'expériences uniques aux voyageurs en quête d\'aventure, de culture, et de spiritualité. Parmi ses joyaux, la ville de Varanasi se dresse comme une destination incontournable. Connue pour être l\'une des plus anciennes villes habitées au monde, Varanasi (également appelée Bénarès) est un mélange vibrant de chaos, de couleurs, de spiritualité et de tradition, située au bord du fleuve sacré Gange, dans le nord de l\'Inde.\r\n\r\nL\'expérience Varanasi : Entre sacré et quotidien\r\n\r\nVaranasi est le cœur battant de la spiritualité hindoue, un lieu où le divin et le terrestre se rencontrent dans un spectacle quotidien. La ville est célèbre pour ses Ghats, ces séries d\'escaliers menant au fleuve, où se déroulent les rituels de vie et de mort. Assister à l\'Aarti du Gange au coucher du soleil, une cérémonie de prières exécutée avec des lampes à huile, est une expérience transcendante, où la musique, les chants, et les danses s\'entremêlent dans une ambiance empreinte de dévotion et de mystère.\r\n\r\nExplorer l\'âme de Varanasi\r\n\r\nLa visite de Varanasi ne se limite pas à ses Ghats et temples. Se perdre dans les ruelles étroites de la vieille ville est une aventure en soi. Chaque coin de rue révèle une surprise : un marché coloré, un atelier de tissage de soie (Varanasi est renommée pour sa soie), ou encore un petit temple oublié. La cuisine de rue est un autre aspect à ne pas manquer, offrant une occasion unique de goûter aux saveurs locales authentiques, comme le chaat, les samosas, ou le célèbre dessert indien, le jalebi.\r\n\r\nQuand partir ?\r\n\r\nLa meilleure période pour visiter Varanasi est de novembre à février, lorsque le climat est plus frais et agréable. Les mois d\'été sont très chauds, et la mousson (juin à septembre) peut rendre les déplacements difficiles.\r\n\r\nEn conclusion, Varanasi est plus qu\'une destination ; c\'est une immersion dans une Inde éternelle et intemporelle, où chaque moment est une leçon de vie, de mort, et de renouveau. Un voyage à Varanasi n\'est pas seulement une aventure géographique, mais aussi un voyage intérieur, offrant à ceux qui s\'y aventurent, une perspective unique sur la vie et la spiritualité. Que vous soyez en quête de tranquillité, de réponses, ou simplement d\'aventure, Varanasi saura vous accueillir et vous transformer.', 1200, '2024-02-04 09:23:56', 3),
+(6, 'Chroniques d\'une Odyssée au QG : L\'aventure insoupçonnée', 'Dans le vaste univers des expéditions humaines, peu de voyages sont aussi universellement partagés, et pourtant aussi peu discutés, que l\'odyssée périodique au QG - un sanctuaire de solitude connu du commun des mortels sous le nom de \"toilettes\". Loin d\'être une simple routine, chaque visite au QG est une aventure en soi, chargée de péripéties, d\'intrigues, et parfois même de révélations.\r\n\r\nL\'appel de la nature : Une quête commence\r\n\r\nNotre histoire commence par un appel impérieux, un signal que tous les aventuriers du quotidien connaissent bien. Ce n\'est pas une suggestion, c\'est un commandement : le QG réclame votre présence. Armé de courage et parfois d\'une lecture de choix, le voyageur s\'engage sur le chemin, prêt à affronter ce qui l\'attend.\r\n\r\nLe passage vers l\'inconnu\r\n\r\nLe trajet vers le QG est souvent court, mais chargé d\'anticipation. Dans cette traversée, le moindre retard peut transformer une expédition de routine en une course désespérée contre le temps. Arrivé à destination, le rituel peut commencer. Mais attention, car le QG, dans sa sagesse infinie, n\'accueille pas deux aventures identiques.\r\n\r\nL\'art de l\'occupation : Une stratégie de survie\r\n\r\nUne fois à l\'intérieur, l\'aventurier se trouve face à un choix : comment occuper ce temps suspendu ? Certains choisissent la contemplation, d\'autres la lecture, tandis que les plus modernes naviguent sur l\'océan sans fin du divertissement numérique. Chaque choix est un fil dans la riche tapisserie de l\'expérience au QG.\r\n\r\nDes péripéties imprévues\r\n\r\nComme toute bonne aventure, une visite au QG peut réserver son lot de surprises. De la découverte tardive d\'une pénurie de papier à l\'intrusion soudaine d\'un insecte audacieux, chaque péripétie teste la résilience et l\'ingéniosité de notre héros.\r\n\r\nLe retour triomphal\r\n\r\nFinalement, après avoir surmonté tous les obstacles, notre voyageur émerge du QG, souvent plus léger et toujours plus sage. Il retourne dans le monde avec une nouvelle appréciation pour les plaisirs simples de la vie - et parfois, une urgence renouvelée pour trouver un spray désodorisant.\r\n\r\nLoin d\'être un simple lieu de passage, le QG est un théâtre où se jouent les drames humains les plus fondamentaux, un lieu de réflexion, de révélation, et oui, parfois de désespoir. Mais plus que tout, chaque voyage au QG est un rappel que, dans ce vaste et tumultueux univers, il existe un petit coin où nous pouvons tous, en toute humilité, prendre un moment pour nous-mêmes.\r\n\r\nAinsi se conclut notre odyssée au QG, cette aventure quotidienne qui, malgré sa banalité apparente, détient le pouvoir de transformer le commun en extraordinaire.', 0, '2024-02-04 09:41:48', 5);
 
 --
 -- Contraintes pour les tables déchargées

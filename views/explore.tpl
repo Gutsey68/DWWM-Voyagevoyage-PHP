@@ -20,4 +20,26 @@
             </div>
         </div>
     </section>
+    <section id="explore-utrips">
+        <div class="container">
+            <div class="row">
+                <article>
+                    <div class="container">
+                        <div class="row ">
+                            {foreach from=$arrUtripsToDisplay item=objUtrip}
+                                {include file="views/utrip.tpl"}
+                            {/foreach}
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                toto
+            </div>
+        </div>
+    </section>
 {/block}

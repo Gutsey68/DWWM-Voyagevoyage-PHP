@@ -14,7 +14,7 @@ class ForumModel extends Model
 	public function findAll(int $intLimit = 0, $arrSearch = array())
 	{
 		$strQuery     = "	SELECT topic_title, topic_content, topic_date, topic_code, 
-								topic_user_id AS 'topic_creator'
+								user_pseudo AS 'topic_creator'
 							FROM topic
 								INNER JOIN users ON topic_user_id = user_id";
 

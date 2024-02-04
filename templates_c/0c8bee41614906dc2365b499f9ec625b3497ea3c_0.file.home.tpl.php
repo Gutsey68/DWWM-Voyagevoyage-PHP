@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-02 15:05:04
+/* Smarty version 4.3.4, created on 2024-02-04 09:10:30
   from 'C:\wamp64\www\projet_2\views\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65bd04a0a39cd4_50520737',
+  'unifunc' => 'content_65bf54866d6b82_41382277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c8bee41614906dc2365b499f9ec625b3497ea3c' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\home.tpl',
-      1 => 1706886281,
+      1 => 1707037829,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:views/utrip.tpl' => 1,
   ),
 ),false)) {
-function content_65bd04a0a39cd4_50520737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65bf54866d6b82_41382277 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -29,16 +29,16 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_74452838165bd04a0a30845_83154928', "contenu");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_145554717465bf54866d0567_05641564', "contenu");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/layout.tpl");
 }
 /* {block "contenu"} */
-class Block_74452838165bd04a0a30845_83154928 extends Smarty_Internal_Block
+class Block_145554717465bf54866d0567_05641564 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'contenu' => 
   array (
-    0 => 'Block_74452838165bd04a0a30845_83154928',
+    0 => 'Block_145554717465bf54866d0567_05641564',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -59,8 +59,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
-                    <img src="assets/images/italie.jpg" alt="jolie ruelle italienne">
-                    <img src="assets/images/zanzibar.jpg" alt="magnifique plage à zanzibar">
+                    <img class="resume-img" src="assets/images/italie.jpg" alt="jolie ruelle italienne">
+                    <img class="resume-img" src="assets/images/zanzibar.jpg" alt="magnifique plage à zanzibar">
                 </div>
             </div>
         </div>
@@ -97,9 +97,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </div>
             </div>
         </article>
-        <div class="row text-center">
-
-        </div>
     </div>
 </section>
 <!-- Echangez -->

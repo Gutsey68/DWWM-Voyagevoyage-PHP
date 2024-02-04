@@ -14,4 +14,13 @@
             </div>
         </div>
     </section>
+    <section class="pb-5">
+        <div class="container">
+            <div class="row ">
+                {foreach from=$arrForumsToDisplay item=objForum}
+                    {include file="views/topic.tpl"}
+                {/foreach}
+            </div>
+        </div>
+    </section>
 {/block}
