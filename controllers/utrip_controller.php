@@ -1,6 +1,8 @@
 <?php
 include_once("models/utrip_model.php");
+include_once("models/forum_model.php");
 include_once("entities/utrip_entity.php");
+include_once("entities/forum_entity.php");
 class UtripCtrl extends Ctrl
 {
 
@@ -21,10 +23,23 @@ class UtripCtrl extends Ctrl
             $arrUtripsToDisplay[] = $objUtrip;
         }
 
+         /* Utilisation de la classe model */
+         $objForumModel    = new ForumModel;
+         $arrForums        = $objForumModel->findAll(2);
+ 
+         // Parcourir les articles pour créer des objets
+         $arrForumsToDisplay    = array();
+         foreach ($arrForums as $arrDetailForum) {
+             $objForum = new Forum();
+             $objForum->hydrate($arrDetailForum);
+             $arrForumsToDisplay[] = $objForum;
+         }
+
         $this->_arrData["strPage"]     = "index";
         $this->_arrData["strTitle"] = "Accueil";
         $this->_arrData["strDesc"]     = "Page d'acceuil";
         $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
+        $this->_arrData["arrForumsToDisplay"] = $arrForumsToDisplay;
 
         $this->afficheTpl("home");
     }
