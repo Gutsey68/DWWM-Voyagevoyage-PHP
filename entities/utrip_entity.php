@@ -1,8 +1,14 @@
 <?php
-class Utrip
+include_once("parent_entity.php");
+/**
+ * Classe entité de l'objet utrip
+ * @author Gauthier
+ * @version 2024
+ */
+class Utrip extends Entity
 {
 	// Propriétés
-	private string $_strPrefixe = "utrip_";
+	protected string $_strPrefixe = "utrip_";
 
 	private int $_id;
 	private string $_name;
@@ -19,50 +25,61 @@ class Utrip
 	private string $_com;
 
 	// Méthodes
-	// fonction permettant de remplir l'objet
-	public function hydrate($arrData)
-	{
 
-		foreach ($arrData as $key => $value) {
-			$strSetterName	= "set" . ucfirst(str_replace($this->_strPrefixe, "", $key));
-			// Si le setter existe dans la classe 
-			if (method_exists($this, $strSetterName)) {
-				$this->$strSetterName($value);
-			}
-		}
-	}
-
-	// getter de récupération de la valeur de l'id
+	/**
+	 * Getter de récupération de la valeur de l'id
+	 * @return identifiant de l'objet
+	 */
 	public function getId(): int
 	{
 		return $this->_id;
 	}
-	// setter de modification de la valeur de l'id
+	/**
+	 * Setter de récupération de la valeur de l'id
+	 * @return identifiant de l'objet
+	 */
 	public function setId(int $intId)
 	{
 		$this->_id = $intId;
 	}
 
-	// getter et setter du nom de l'article
+	/**
+	 * Getter de récupération du nom de l'article
+	 * @return nom de l'objet
+	 */
 	public function getName(): string
 	{
 		return $this->_name;
 	}
+	/**
+	 * Setter de récupération du nom de l'article
+	 * @return nom de l'objet
+	 */
 	public function setName(string $strName)
 	{
 		$this->_name = $strName;
 	}
 
-	// getter et setter de description 
+	/**
+	 * Getter de récupération de la description
+	 * @return description de l'objet
+	 */
 	public function getDescription(): string
 	{
 		return $this->_description;
 	}
+	/**
+	 * Setter de récupération de la description
+	 * @return description de l'objet
+	 */
 	public function setDescription(string $strDescription)
 	{
 		$this->_description = $strDescription;
 	}
-
+	/**
+	 * Getter de récupération du résumé de la description
+	 * @return resume de l'objet
+	 */
 	public function getDescriptionSummary(int $max)
 	{
 		$strDescription        = $this->_description;
@@ -72,99 +89,181 @@ class Utrip
 		return $strDescription;
 	}
 
-	// getter et setter du budget 
+	/**
+	 * Getter de récupération du budget
+	 * @return budget de l'objet
+	 */
 	public function getBudget(): string
 	{
 		return $this->_budget;
 	}
+	/**
+	 * Setter de récupération du budget
+	 * @return budget de l'objet
+	 */
 	public function setBudget(string $strBudget)
 	{
 		$this->_budget = $strBudget;
 	}
-	// getter et setter de la date
+
+	/**
+	 * Getter de récupération de la date de publication
+	 * @return publish_date de l'objet
+	 */
 	public function getDate(): string
 	{
 		return $this->_date;
 	}
+	/**
+	 * Setter de récupération de la date de publication
+	 * @return publish_date de l'objet
+	 */
 	public function setDate(string $strDate)
 	{
 		$this->_date = $strDate;
 	}
-
+	/**
+	 * Getter de récupération de la date de publication sous le format français
+	 * @return identifiant de l'objet
+	 */
 	public function getDateFr()
 	{
 		// Traitement de la date
 		$objDate        = new DateTime($this->_date);
 		return $objDate->format("d/m/Y");
 	}
-	// getter et setter de creator
+
+	/**
+	 * Getter de récupération de l'auteur
+	 * @return auteur de l'objet
+	 */
 	public function getCreator(): string
 	{
 		return $this->_creator;
 	}
+	/**
+	 * Setter de récupération de l'auteur'
+	 * @return auteur de l'objet
+	 */
 	public function setCreator(string $strCreator)
 	{
 		$this->_creator = $strCreator;
 	}
-	// getter et setter de l'image
+
+	/**
+	 * Getter de récupération de l'image
+	 * @return image de l'objet
+	 */
 	public function getImg(): string
 	{
 		return $this->_img;
 	}
+	/**
+	 * Setter de récupération de l'image'
+	 * @return image de l'objet
+	 */
 	public function setImg(string $strImg)
 	{
 		$this->_img = $strImg;
 	}
-	// getter et setter de la categorie
+
+	/**
+	 * Getter de récupération de la catégorie
+	 * @return categorie de l'objet
+	 */
 	public function getCat(): string
 	{
 		return $this->_cat;
 	}
+	/**
+	 * Setter de récupération de la catégorie
+	 * @return categorie de l'objet
+	 */
 	public function setCat(string $strCat)
 	{
 		$this->_cat = $strCat;
 	}
-	// getter et setter de la ville
+
+	/**
+	 * Getter de récupération de la ville
+	 * @return ville de l'objet
+	 */
 	public function getCity(): string
 	{
 		return $this->_city;
 	}
+	/**
+	 * Setter de récupération de la ville
+	 * @return ville de l'objet
+	 */
 	public function setCity(string $strCity)
 	{
 		$this->_city = $strCity;
 	}
-	// getter et setter du pays
+
+	/**
+	 * Getter de récupération du pays
+	 * @return pays de l'objet
+	 */
 	public function getCountry(): string
 	{
 		return $this->_country;
 	}
+	/**
+	 * Setter de récupération du pays
+	 * @return pays de l'objet
+	 */
 	public function setCountry(string $strCountry)
 	{
 		$this->_country = $strCountry;
 	}
-	// getter et setter du continent
+
+	/**
+	 * Getter de récupération du contenu
+	 * @return contenu de l'objet
+	 */
 	public function getCont(): string
 	{
 		return $this->_cont;
 	}
+	/**
+	 * Setter de récupération du contenu
+	 * @return contenu de l'objet
+	 */
 	public function setCont(string $strCont)
 	{
 		$this->_cont = $strCont;
 	}
-	// getter et setter du like
+
+	/**
+	 * Getter de récupération du like
+	 * @return like de l'objet
+	 */
 	public function getLike(): string
 	{
 		return $this->_like;
 	}
+	/**
+	 * Setter de récupération du like
+	 * @return like de l'objet
+	 */
 	public function setLike(string $strLike)
 	{
 		$this->_like = $strLike;
 	}
-	// getter et setter du commentaire
+
+	/**
+	 * Getter de récupération du commentaire
+	 * @return commentaire de l'objet
+	 */
 	public function getCom(): string
 	{
 		return $this->_com;
 	}
+	/**
+	 * Setter de récupération du commentaire
+	 * @return commentaire de l'objet
+	 */
 	public function setCom(string $strCom)
 	{
 		$this->_com = $strCom;

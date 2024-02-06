@@ -29,7 +29,7 @@
             </div>
         </div>
         <div id="copyright" class="col-12">
-            <p>© 2023 VoyageVoyage Inc. Tous droits réservés</p>
+            <p>© {date("Y")} VoyageVoyage Inc. Tous droits réservés</p>
         </div>
     </div>
 </footer>
