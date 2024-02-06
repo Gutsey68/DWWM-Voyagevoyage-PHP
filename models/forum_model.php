@@ -17,7 +17,7 @@ class ForumModel extends Model
 								user_pseudo AS 'topic_creator'
 							FROM topic
 								INNER JOIN users ON topic_user_id = user_id";
-
+		$strWhere	= " WHERE ";
 		if ($intLimit > 0) {
 			$strQuery 	.= " LIMIT :limit";
 		}
