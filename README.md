@@ -29,7 +29,4 @@ AJOUTER LE SVG DU LOGO
 - faire la view(html) des articles (utrips)
 - faire la view du formulaire de recherche
 - faire la view du forum
-- faire la view du log in
 - faire la view du about
-- faire la view du contact
-- faire la view du mentions légales
