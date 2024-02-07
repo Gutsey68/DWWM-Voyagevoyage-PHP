@@ -265,9 +265,8 @@ footer .footer-plan {
     padding-bottom: 0.9rem;
     margin-top: 0.1rem;
 }
-footer 
 
-#border-bottom {
+footer #border-bottom {
     border-bottom: 1px solid var(--beige);
     margin-bottom: 1rem;
 }
@@ -357,4 +356,14 @@ footer
     height: 250px;
     width: 300px;
     margin: 4rem 0 1rem 0;
+}
+
+/* mentions.tpl */
+
+.mentions h1 {
+    font-size: 2rem;
+}
+
+.mentions h2 {
+    font-size: 1.5rem;
 }
