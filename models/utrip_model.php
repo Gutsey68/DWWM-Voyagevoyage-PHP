@@ -12,7 +12,7 @@ class UtripModel extends Model
 
 	public function findAll(int $intLimit = 0, $arrSearch = array())
 	{
-		$strQuery     = "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , city_name AS 'utrip_city'
+		$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , city_name AS 'utrip_city'
 								FROM utrip 
 								LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 								LEFT OUTER JOIN users ON user_id = utrip_user_id
