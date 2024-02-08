@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `cat_parent` int DEFAULT NULL COMMENT 'Catégorie parente',
   PRIMARY KEY (`cat_id`),
   KEY `cat_parent` (`cat_parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `categorie_utrip` (
   PRIMARY KEY (`cat_utrip_id`),
   KEY `cat_utrip_id_utrip_id` (`cat_utrip_utrip_id`),
   KEY `cat_utrip_id_cat_id` (`cat_utrip_cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `categorie_utrip`
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `city_country_id` int NOT NULL COMMENT 'Pays de la ville',
   PRIMARY KEY (`city_id`),
   KEY `city_country_id` (`city_country_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `city`
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`com_id`),
   KEY `com_user_id` (`com_user_id`),
   KEY `com_utrip_id` (`com_utrip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `comments`
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `contact_user_id` int NOT NULL COMMENT 'Utilisateur qui reçoit le message',
   PRIMARY KEY (`contact_id`),
   KEY `contact_user_id` (`contact_user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `contact`
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `continent` (
   `cont_id` int NOT NULL AUTO_INCREMENT COMMENT 'Identifiant du continent',
   `cont_name` varchar(255) NOT NULL COMMENT 'Nom du continent',
   PRIMARY KEY (`cont_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `continent`
@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `country_cont_id` int NOT NULL COMMENT 'Continent du pays',
   PRIMARY KEY (`country_id`),
   KEY `country_cont_id` (`country_cont_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `country`
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `img_utrip_id` int NOT NULL COMMENT 'Récit de voyage qui contient l''image',
   PRIMARY KEY (`img_id`),
   KEY `img_utrip_id` (`img_utrip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `image`
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `is_located` (
   PRIMARY KEY (`loc_id`),
   KEY `city` (`loc_city_id`),
   KEY `utrip` (`loc_utrip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `is_located`
@@ -279,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
   PRIMARY KEY (`like_id`),
   KEY `like_user_id` (`like_user_id`),
   KEY `like_utrip_id` (`like_utrip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `likes`
@@ -299,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `role_id` int NOT NULL AUTO_INCREMENT COMMENT 'Identifiant du role',
   `role_name` varchar(50) NOT NULL COMMENT 'Nom du role',
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `role`
@@ -327,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `topic` (
   `topic_user_id` int NOT NULL COMMENT 'Créareur du topic',
   PRIMARY KEY (`topic_id`),
   KEY `topic_user_id` (`topic_user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `topic`
@@ -361,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_role_id` int NOT NULL COMMENT 'Role de l''utilisateur',
   PRIMARY KEY (`user_id`),
   KEY `user_role_id` (`user_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -390,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `utrip` (
   `utrip_user_id` int NOT NULL COMMENT 'Identifiant de l''utilisateur (auteur du récit)',
   PRIMARY KEY (`utrip_id`),
   KEY `utrip_user_id` (`utrip_user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utrip`
