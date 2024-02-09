@@ -47,6 +47,10 @@ span {
     font-weight: 600;
 }
 
+img {
+    border-radius: 5px;
+}
+
 /* buttons */
 
 .green-btn {
@@ -343,8 +347,8 @@ footer #border-bottom {
 
 .form-control:focus,
 .form-select:focus {
-    border-color: #766156 !important;
-    box-shadow: 0 0 0 0.25rem #8E7567 !important;
+    border-color: #024F38 !important;
+    box-shadow: 0 0 0 0.25rem #04815c !important;
 }
 
 /* explore.tpl */
