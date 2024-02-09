@@ -12,6 +12,7 @@
     min-width: 0;
     font: inherit;
     text-decoration: none !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 *,
@@ -31,7 +32,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+span {
     font-family: 'Playfair Display', serif;
     text-wrap: balance;
 }
@@ -271,7 +273,8 @@ footer #border-bottom {
     margin-bottom: 1rem;
 }
 
-/* raconte.tpl drag and drop */
+/* raconte.tpl */
+/* drag and drop */
 
 #drop-area {
     border: dashed 2px grey;
@@ -314,6 +317,34 @@ footer #border-bottom {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     line-height: 20px;
+}
+
+/* raconte.tpl form */
+#raconte-h1 {
+    color: var(--green);
+}
+
+#raconte-form {
+    margin-bottom: 5rem;
+    color: var(--brown);
+}
+
+#raconte-form .container {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--beige) !important;
+    border: #473A33 1px solid !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #766156 !important;
+    box-shadow: 0 0 0 0.25rem #8E7567 !important;
 }
 
 /* explore.tpl */
@@ -368,9 +399,19 @@ footer #border-bottom {
     font-size: 1.5rem;
 }
 
+
+
 /* Tablette */
 
-@media screen and (min-width: 577px) and (max-width: 1081px) {}
+@media screen and (min-width: 577px) and (max-width: 1081px) {
+
+    /* nav.php */
+    .navbar form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+}
 
 /* Mobile */
 
@@ -385,6 +426,7 @@ footer #border-bottom {
         display: flex;
         justify-content: center;
         margin-bottom: 0.5rem;
+        font-size: 0.8rem;
     }
 
     /* home.tpl */
@@ -426,5 +468,11 @@ footer #border-bottom {
 
     #marge {
         padding: 2rem 0;
+    }
+
+    /* raconte.tpl */
+
+    #dragndrop {
+        padding: 0 1.5rem;
     }
 }
