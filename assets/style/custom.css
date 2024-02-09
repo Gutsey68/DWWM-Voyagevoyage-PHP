@@ -367,3 +367,64 @@ footer #border-bottom {
 .mentions h2 {
     font-size: 1.5rem;
 }
+
+/* Tablette */
+
+@media screen and (min-width: 577px) and (max-width: 1081px) {}
+
+/* Mobile */
+
+@media screen and (max-width: 576px) {
+    /* nav.php */
+
+    .navbar div.inputgroup.col-10 {
+        margin-right: 0 !important;
+    }
+
+    .navbar form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+    /* home.tpl */
+    #voyage {
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    .button-left {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    #voyage #raconte-voyage {
+        margin-bottom: 2rem;
+    }
+
+    #histoire div:has(img) {
+        text-align: center;
+    }
+
+    #echange #echange-voyage {
+        margin-bottom: 2rem;
+    }
+
+    #echange {
+        padding-bottom: 0;
+        text-align: center;
+    }
+
+    /* explore.tpl */
+    #recit {
+        padding-top: 2rem;
+    }
+
+    #explore-utrips {
+        text-align: center;
+    }
+
+    #marge {
+        padding: 2rem 0;
+    }
+}

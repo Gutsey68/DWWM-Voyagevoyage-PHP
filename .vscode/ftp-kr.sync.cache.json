@@ -19,7 +19,22 @@
       "lmtime": 0,
       "modified": true
     },
-    "assets": {},
+    "assets": {
+      "style": {
+        "bootstrap.css": {
+          "type": "-",
+          "size": 280813,
+          "lmtime": 0,
+          "modified": false
+        },
+        "custom.css": {
+          "type": "-",
+          "size": 6650,
+          "lmtime": 1707469683877.8218,
+          "modified": false
+        }
+      }
+    },
     "cgi-bin": {},
     "controllers": {},
     "entities": {},
@@ -80,8 +95,8 @@
       },
       "explore.tpl": {
         "type": "-",
-        "size": 1626,
-        "lmtime": 0,
+        "size": 1661,
+        "lmtime": 1707467939753.561,
         "modified": false
       },
       "forum.tpl": {
@@ -92,8 +107,8 @@
       },
       "home.tpl": {
         "type": "-",
-        "size": 3368,
-        "lmtime": 0,
+        "size": 3549,
+        "lmtime": 1707469608546.6912,
         "modified": false
       },
       "layout.tpl": {
@@ -146,8 +161,8 @@
       },
       "utrip.tpl": {
         "type": "-",
-        "size": 316,
-        "lmtime": 1707380484237.985,
+        "size": 334,
+        "lmtime": 1707467466302.364,
         "modified": false
       }
     }

@@ -8,7 +8,7 @@
     <section id="voyage">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-12">
+                <div id='raconte-voyage' class="col-md-6 col-12">
                     <h1 class="pb-2">Et si vous nous racontiez <span class="fst-italic">votre voyage</span> ?</h1>
                     <p>Partagez vos aventures uniques et découvrez comment votre périple inspire et émerveille notre
                         communauté.</p>
@@ -17,9 +17,11 @@
                                 class="fa-solid fa-feather"></i>Je raconte mon voyage</a>
                     </div>
                 </div>
-                <div class="col-md-6 col-12">
-                    <img class="resume-img" src="assets/images/italie.jpg" alt="jolie ruelle italienne">
-                    <img class="resume-img" src="assets/images/zanzibar.jpg" alt="magnifique plage à zanzibar">
+                <div class="col-md-3 col-12 text-center pt-3 pt-md-0"><img class="resume-img pt-2  "
+                        src="assets/images/italie.jpg" alt="jolie ruelle italienne"></div>
+                <div class="col-md-3 col-12 text-center">
+                    <img class="resume-img pt-2 d-none d-md-block" src="assets/images/zanzibar.jpg"
+                        alt="magnifique plage à zanzibar">
                 </div>
             </div>
         </div>
@@ -35,26 +37,26 @@
                     <div class="button-center">
                         <a class="orange-btn" href="index.php?action=explore&ctrl=utrip"><i
                                 class="fa-solid fa-suitcase-rolling"></i> J'explore les
-                            histoires</a>
-                    </div>
+                        histoires</a>
                 </div>
             </div>
-            <article>
-                <div class="container">
-                    <div class="row ">
-                        {foreach from=$arrUtripsToDisplay item=objUtrip}
-                            {include file="views/utrip.tpl"}
-                        {/foreach}
-                    </div>
-                </div>
-            </article>
         </div>
-    </section>
-    <!-- Echangez -->
-    <section id="echange">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-12">
+        <article>
+            <div class="container">
+                <div class="row ">
+                    {foreach from=$arrUtripsToDisplay item=objUtrip}
+                    {include file="views/utrip.tpl"}
+                    {/foreach}
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+<!-- Echangez -->
+<section id="echange">
+    <div class="container">
+        <div class="row">
+            <div id='echange-voyage' class="col-md-6 col-12">
                     <h2 class="pb-2"><span class="fst-italic">Échangez</span> <br> avec les autres voyageurs</h2>
                     <p>Rejoignez notre forum et connectez-vous avec une communauté passionnée pour partager conseils et
                         expériences de voyage.</p>
