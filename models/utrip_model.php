@@ -75,4 +75,23 @@ class UtripModel extends Model
 		$rqPrep->execute();
 		return $rqPrep->fetchAll();
 	}
+
+	/**
+	 * Méthode permettant d'ajouter un article en BDD 
+	 * @param $objUtrip object Objet Utrip à insérer
+	 */
+	public function insert(object $objArticle)
+	{
+		$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description, utrip-budget, utrip_date , utrip_user_id )
+							VALUES (:titre, :contenu, :image, :budget , NOW(), 1);
+							";
+		// On prépare la requête
+		$rqPrep	= $this->_db->prepare($strQuery);
+		$rqPrep->bindValue(":titre", $objArticle->getName(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":budget", $objArticle->getBudget(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":contenu", $objArticle->getDescription(), PDO::PARAM_STR);
+
+		$rqPrep->execute();
+	}
 }

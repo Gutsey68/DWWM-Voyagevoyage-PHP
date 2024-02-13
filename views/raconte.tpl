@@ -11,7 +11,7 @@
     </div>
 </div>
 <section id='raconte-form'>
-    <form action="" method="post" class="">
+    <form action="index.php?action=raconte&ctrl=utrip" method="post" enctype="multipart/form-data">
         <!-- photos système de drag and drop -->
         <div id="dragndrop" class="container mt-5 mb-5  form-bg">
             <div class="row">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-12" id="drop-area">
                         <div class="my-form pt-5">
-                            <input type="file" id="fileElem" multiple accept="image/*">
+                            <input type="file" id="fileElem" multiple accept="image/*" value="{$objUtrip->getImg()}">
                             <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
                                 photos</label>
                             <div id="gallery" class="pt-5"></div>
@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="articleName"
-                            required></div>
+                            value="{$objUtrip->getName()}" required></div>
                 </div>
             </div>
             <!-- contenu de l'article -->
@@ -42,7 +42,7 @@
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage:</label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="articleContent"
-                            required></textarea></div>
+                            required>{$objUtrip->getDescription()}</textarea></div>
                 </div>
             </div>
             <!-- catégories -->
@@ -68,7 +68,7 @@
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleBudget">Budget approximatif:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget"
-                            name="articleBudget" required></div>
+                            value="{$objUtrip->getBudget()}" name="articleBudget" required></div>
                 </div>
             </div>
             <div class="container mb-3">

@@ -23,17 +23,17 @@ class UtripCtrl extends Ctrl
             $arrUtripsToDisplay[] = $objUtrip;
         }
 
-         /* Utilisation de la classe model */
-         $objForumModel    = new ForumModel;
-         $arrForums        = $objForumModel->findAll(2);
- 
-         // Parcourir les articles pour créer des objets
-         $arrForumsToDisplay    = array();
-         foreach ($arrForums as $arrDetailForum) {
-             $objForum = new Forum();
-             $objForum->hydrate($arrDetailForum);
-             $arrForumsToDisplay[] = $objForum;
-         }
+        /* Utilisation de la classe model */
+        $objForumModel    = new ForumModel;
+        $arrForums        = $objForumModel->findAll(2);
+
+        // Parcourir les articles pour créer des objets
+        $arrForumsToDisplay    = array();
+        foreach ($arrForums as $arrDetailForum) {
+            $objForum = new Forum();
+            $objForum->hydrate($arrDetailForum);
+            $arrForumsToDisplay[] = $objForum;
+        }
 
         $this->_arrData["strPage"]     = "index";
         $this->_arrData["strTitle"] = "Accueil";
@@ -47,23 +47,29 @@ class UtripCtrl extends Ctrl
     public function raconte()
     {
 
-        /* Utilisation de la classe model */
-        $objUtripModel    = new UtripModel;
-        $arrUtrips        = $objUtripModel->findAll();
+        /* 2. Récupérer les informations du formulaire */
+        var_dump($_POST);
+        var_dump($_FILES);
 
-        // Parcourir les articles pour créer des objets
-        $arrUtripsToDisplay    = array();
-        foreach ($arrUtrips as $arrDetailUtrip) {
-            $objUtrip = new Utrip();
-            $objUtrip->hydrate($arrDetailUtrip);
-            $arrUtripsToDisplay[] = $objUtrip;
-        }
+        /* 3. Créer un objet article */
+        $objUtrip = new Utrip();    // instancie un objet Article
+        $objUtrip->hydrate($_POST);    // hydrate (setters) avec les données du formulaire
+
+        /* 4. Enregistrer l'image */
+        $strSource     = $_FILES['image']['tmp_name'];
+        $strImgName    = $_FILES['image']['name'];
+        $strDest    = "uploads/" . $strImgName;
+        move_uploaded_file($strSource, $strDest);
+        $objUtrip->setImg($strImgName);
+
+        /* 5. Enregistrer l'objet en BDD */
+        $objUtripModel    = new UtripModel;
+        $objUtripModel->insert($objUtrip);
 
         $this->_arrData["strPage"]     = "raconte";
         $this->_arrData["strTitle"] = "Racontez";
         $this->_arrData["strDesc"]     = "Page où on écrit un article";
-        $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
-
+        /* 1. Afficher le formulaire */
         $this->afficheTpl("raconte");
     }
 
