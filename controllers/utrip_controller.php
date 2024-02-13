@@ -88,26 +88,6 @@ class UtripCtrl extends Ctrl
                     } else {
                         $arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
                     }
-
-                    /* sans redimensionnement
-						switch ($_FILES['image']['type']){
-							case "image/jpeg": 
-								$strImgName	= bin2hex(random_bytes(5)).".jpg"; // texte aléatoire
-								break;
-							case "image/png": 
-								$strImgName	= bin2hex(random_bytes(5)).".png"; // texte aléatoire
-								break;
-						}
-						$strDest	= "uploads/".$strImgName;
-						// Si la copie de l'image s'est bien passée
-						if (move_uploaded_file($strSource, $strDest)){
-							$objArticle->setImg($strImgName);
-						}else{
-							$arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
-						}*/
-                    // } else {
-                    //     $arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
-                    // }
                 } else {
                     $arrErrors['img'] = "Le type d'image n'est pas autorisé";
                 }
