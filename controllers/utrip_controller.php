@@ -46,18 +46,13 @@ class UtripCtrl extends Ctrl
 
     public function raconte()
     {
-
         /* 2. Récupérer les informations du formulaire */
-        var_dump($_POST);
-        var_dump($_FILES);
-
         /* 3. Créer un objet article */
         $arrErrors = array();
         $objUtrip = new Utrip();    // instancie un objet Utrip
         if (count($_POST) > 0 && count($_FILES) > 0) {
             /* 3. Créer un objet article */
             $objUtrip->hydrate($_POST);    // hydrate (setters) avec les données du formulaire
-
             if ($objUtrip->getName() == "") {
                 $arrErrors['title'] = "Le titre est obligatoire";
             }
@@ -71,14 +66,48 @@ class UtripCtrl extends Ctrl
             /* 4. Enregistrer l'image */
             $strImgName    = $_FILES['image']['name'];
             if ($strImgName != "") {
+                // Si le type d'image est autorisé
                 if (in_array($_FILES['image']['type'], $this->_arrMimesType)) {
                     $strSource     = $_FILES['image']['tmp_name'];
+                    $strImgName    = bin2hex(random_bytes(5)) . ".webp";
                     $strDest    = "uploads/" . $strImgName;
-                    if (move_uploaded_file($strSource, $strDest)) {
+                    /* Avec redimensionnement */
+                    $percent     = 0.5;
+                    // Calcul des nouvelles dimensions
+                    list($width, $height) = getimagesize($strSource);
+                    $newwidth    = $width * $percent;
+                    $newheight    = $height * $percent;
+                    // Création des GdImage
+                    $dest    = imagecreatetruecolor($newwidth, $newheight); // Image vide
+                    $source = imagecreatefrompng($strSource); // Image importée
+                    // Redimensionnement
+                    imagecopyresized($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+                    // Enregistrement du fichier
+                    if (imagewebp($dest, $strDest, IMG_WEBP_LOSSLESS)) {
                         $objUtrip->setImg($strImgName);
                     } else {
                         $arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
                     }
+
+                    /* sans redimensionnement
+						switch ($_FILES['image']['type']){
+							case "image/jpeg": 
+								$strImgName	= bin2hex(random_bytes(5)).".jpg"; // texte aléatoire
+								break;
+							case "image/png": 
+								$strImgName	= bin2hex(random_bytes(5)).".png"; // texte aléatoire
+								break;
+						}
+						$strDest	= "uploads/".$strImgName;
+						// Si la copie de l'image s'est bien passée
+						if (move_uploaded_file($strSource, $strDest)){
+							$objArticle->setImg($strImgName);
+						}else{
+							$arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
+						}*/
+                    // } else {
+                    //     $arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
+                    // }
                 } else {
                     $arrErrors['img'] = "Le type d'image n'est pas autorisé";
                 }
@@ -88,7 +117,11 @@ class UtripCtrl extends Ctrl
             /* 5. Enregistrer l'objet en BDD */
             if (count($arrErrors) == 0) {
                 $objUtripModel    = new UtripModel;
-                $objUtripModel->insert($objUtrip);
+                if ($objUtripModel->insert($objUtrip)) {
+                    header("Location:index.php?ctrl=utrip&action=explore");
+                } else {
+                    $arrErrors[] = "L'insertion s'est mal passée";
+                }
             }
         } else {
             $objUtrip->setName("");

@@ -92,6 +92,6 @@ class UtripModel extends Model
 		$rqPrep->bindValue(":budget", $objArticle->getBudget(), PDO::PARAM_STR);
 		$rqPrep->bindValue(":contenu", $objArticle->getDescription(), PDO::PARAM_STR);
 
-		$rqPrep->execute();
+		return $rqPrep->execute();
 	}
 }

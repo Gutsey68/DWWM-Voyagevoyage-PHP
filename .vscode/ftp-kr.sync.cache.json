@@ -69,8 +69,8 @@
       },
       "utrip_controller.php": {
         "type": "-",
-        "size": 5922,
-        "lmtime": 1707814872900.6128,
+        "size": 7719,
+        "lmtime": 1707826762210.861,
         "modified": false
       }
     },
@@ -128,8 +128,8 @@
       },
       "utrip_model.php": {
         "type": "-",
-        "size": 3554,
-        "lmtime": 1707813539400.138,
+        "size": 3561,
+        "lmtime": 1707826042285.1755,
         "modified": false
       }
     },
@@ -223,8 +223,8 @@
       },
       "utrip.tpl": {
         "type": "-",
-        "size": 334,
-        "lmtime": 1707467466302.364,
+        "size": 328,
+        "lmtime": 1707826076273.8794,
         "modified": false
       }
     }
