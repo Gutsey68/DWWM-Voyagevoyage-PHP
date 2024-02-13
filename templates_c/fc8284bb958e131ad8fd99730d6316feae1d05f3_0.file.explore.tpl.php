@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-04 09:35:21
+/* Smarty version 4.3.4, created on 2024-02-13 15:03:57
   from 'C:\wamp64\www\projet_2\views\explore.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65bf5a593bbf51_01900712',
+  'unifunc' => 'content_65cb84dde843b1_33663132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc8284bb958e131ad8fd99730d6316feae1d05f3' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\explore.tpl',
-      1 => 1707039319,
+      1 => 1707835285,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:views/utrip.tpl' => 1,
   ),
 ),false)) {
-function content_65bf5a593bbf51_01900712 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65cb84dde843b1_33663132 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -29,16 +29,16 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21153710465bf5a593b6289_67157754', "contenu");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_25256485065cb84dde7d103_69707531', "contenu");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/layout.tpl");
 }
 /* {block "contenu"} */
-class Block_21153710465bf5a593b6289_67157754 extends Smarty_Internal_Block
+class Block_25256485065cb84dde7d103_69707531 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'contenu' => 
   array (
-    0 => 'Block_21153710465bf5a593b6289_67157754',
+    0 => 'Block_25256485065cb84dde7d103_69707531',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -85,9 +85,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
     </section>
     <section>
-        <div class="container">
+        <div id="marge" class="container">
             <div class="row">
-                toto
+
             </div>
         </div>
     </section>

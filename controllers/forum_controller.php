@@ -28,5 +28,4 @@ class ForumCtrl extends Ctrl
 
         $this->afficheTpl("forum");
     }
-    
 }

@@ -82,15 +82,30 @@ class UtripModel extends Model
 	 */
 	public function insert(object $objArticle)
 	{
-		$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description, utrip-budget, utrip_date , utrip_user_id )
-							VALUES (:titre, :contenu, :image, :budget , NOW(), 1);
+		$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip-budget, utrip_date , utrip_user_id )
+							VALUES (:titre, :contenu, :budget , NOW(), 1);
 							";
 		// On prépare la requête
 		$rqPrep	= $this->_db->prepare($strQuery);
 		$rqPrep->bindValue(":titre", $objArticle->getName(), PDO::PARAM_STR);
-		$rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
 		$rqPrep->bindValue(":budget", $objArticle->getBudget(), PDO::PARAM_STR);
 		$rqPrep->bindValue(":contenu", $objArticle->getDescription(), PDO::PARAM_STR);
+
+		return $rqPrep->execute();
+
+		// Récupérer l'ID de l'article inséré
+		$lastId = $this->_db->lastInsertId();
+		return $lastId; // Retourner l'ID pour une utilisation ultérieure
+	}
+	public function insertImg(object $objArticle, $utripId)
+	{
+		$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id )
+							VALUES ( :image, :imgUtripId);
+							";
+		// On prépare la requête
+		$rqPrep	= $this->_db->prepare($strQuery);
+		$rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":imgUtripId", $utripId, PDO::PARAM_INT);
 
 		return $rqPrep->execute();
 	}

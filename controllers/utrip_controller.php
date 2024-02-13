@@ -107,6 +107,8 @@ class UtripCtrl extends Ctrl
             $objUtrip->setName("");
             $objUtrip->setDescription("");
         }
+        $utripId = $yourObject->insert($objArticle); // Insère l'article et récupère son ID
+        $yourObject->insertImg($objArticle, $utripId); // Insère l'image en associant l'ID de l'article
         $this->_arrData["objUtrip"]     = $objUtrip;
         $this->_arrData["strPage"]         = "raconte";
         $this->_arrData["strTitle"]     = "Ajouter un article";
