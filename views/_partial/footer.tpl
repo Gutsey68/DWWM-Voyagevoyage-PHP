@@ -3,8 +3,8 @@
         <div id="border-bottom" class="row">
             <div class="col-md-4 col-12 pb-3">
                 <h3 class="pb-3">Nos coordonnées :</h3>
-                <p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p>
-                <p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p>
+                <a href="mailto:voyagevoyage@email.fr" class="coordonnées"><p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p></a>
+                <a href="callto:voyagevoyage@email.fr" class="coordonnées"><p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p></a>
                 <p><i class="fa-solid fa-house"></i> 30 rue kerim le fou</p>
             </div>
             <div class="col-md-4 col-12 pb-3">

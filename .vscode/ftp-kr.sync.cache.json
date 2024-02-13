@@ -6,21 +6,37 @@
       "lmtime": 0,
       "modified": false
     },
+    ".git": {},
+    ".gitignore": {
+      "type": "-",
+      "size": 1,
+      "lmtime": 0,
+      "modified": false
+    },
     ".htaccess": {
       "type": "-",
       "size": 299,
       "lmtime": 0,
       "modified": false
     },
+    ".vscode": {},
     ".well-known": {},
     "README.md": {
       "type": "-",
-      "size": 723,
+      "size": 654,
       "lmtime": 0,
-      "modified": false
+      "modified": true
     },
-    "assets": {},
-    "cgi-bin": {},
+    "assets": {
+      "style": {
+        "custom.css": {
+          "type": "-",
+          "size": 5648,
+          "lmtime": 1707837820302.8953,
+          "modified": false
+        }
+      }
+    },
     "controllers": {},
     "entities": {},
     "index.php": {
@@ -33,8 +49,28 @@
     "models": {},
     "old_views": {},
     "templates_c": {},
+    "uploads": {},
     "views": {
-      "_partial": {},
+      "_partial": {
+        "footer.tpl": {
+          "type": "-",
+          "size": 2190,
+          "lmtime": 1707837837662.8047,
+          "modified": false
+        },
+        "header.tpl": {
+          "type": "-",
+          "size": 1469,
+          "lmtime": 0,
+          "modified": false
+        },
+        "nav.tpl": {
+          "type": "-",
+          "size": 2326,
+          "lmtime": 0,
+          "modified": false
+        }
+      },
       "about.tpl": {
         "type": "-",
         "size": 194,
