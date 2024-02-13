@@ -52,23 +52,53 @@ class UtripCtrl extends Ctrl
         var_dump($_FILES);
 
         /* 3. Créer un objet article */
-        $objUtrip = new Utrip();    // instancie un objet Article
-        $objUtrip->hydrate($_POST);    // hydrate (setters) avec les données du formulaire
+        $arrErrors = array();
+        $objUtrip = new Utrip();    // instancie un objet Utrip
+        if (count($_POST) > 0 && count($_FILES) > 0) {
+            /* 3. Créer un objet article */
+            $objUtrip->hydrate($_POST);    // hydrate (setters) avec les données du formulaire
 
-        /* 4. Enregistrer l'image */
-        $strSource     = $_FILES['image']['tmp_name'];
-        $strImgName    = $_FILES['image']['name'];
-        $strDest    = "uploads/" . $strImgName;
-        move_uploaded_file($strSource, $strDest);
-        $objUtrip->setImg($strImgName);
+            if ($objUtrip->getName() == "") {
+                $arrErrors['title'] = "Le titre est obligatoire";
+            }
+            if (strlen($objUtrip->getName()) < 10) {
+                $arrErrors['title'] = "Le titre doit faire au minimum 10 caractères";
+            }
+            if ($objUtrip->getDescription() == "") {
+                $arrErrors['content'] = "Le contenu est obligatoire";
+            }
 
-        /* 5. Enregistrer l'objet en BDD */
-        $objUtripModel    = new UtripModel;
-        $objUtripModel->insert($objUtrip);
-
-        $this->_arrData["strPage"]     = "raconte";
-        $this->_arrData["strTitle"] = "Racontez";
-        $this->_arrData["strDesc"]     = "Page où on écrit un article";
+            /* 4. Enregistrer l'image */
+            $strImgName    = $_FILES['image']['name'];
+            if ($strImgName != "") {
+                if (in_array($_FILES['image']['type'], $this->_arrMimesType)) {
+                    $strSource     = $_FILES['image']['tmp_name'];
+                    $strDest    = "uploads/" . $strImgName;
+                    if (move_uploaded_file($strSource, $strDest)) {
+                        $objUtrip->setImg($strImgName);
+                    } else {
+                        $arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
+                    }
+                } else {
+                    $arrErrors['img'] = "Le type d'image n'est pas autorisé";
+                }
+            } else {
+                $arrErrors['img'] = "L'image est obligatoire";
+            }
+            /* 5. Enregistrer l'objet en BDD */
+            if (count($arrErrors) == 0) {
+                $objUtripModel    = new UtripModel;
+                $objUtripModel->insert($objUtrip);
+            }
+        } else {
+            $objUtrip->setName("");
+            $objUtrip->setDescription("");
+        }
+        $this->_arrData["objUtrip"]     = $objUtrip;
+        $this->_arrData["strPage"]         = "raconte";
+        $this->_arrData["strTitle"]     = "Ajouter un article";
+        $this->_arrData["strDesc"]         = "Page où on écrit un article";
+        $this->_arrData["arrErrors"]     = $arrErrors;
         /* 1. Afficher le formulaire */
         $this->afficheTpl("raconte");
     }

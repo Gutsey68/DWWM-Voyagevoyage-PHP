@@ -45,7 +45,7 @@ class Utrip extends Entity
 
 	/**
 	 * Getter de récupération du nom de l'article
-	 * @return nom de l'objet
+	 * @return string de l'objet
 	 */
 	public function getName(): string
 	{
@@ -53,11 +53,11 @@ class Utrip extends Entity
 	}
 	/**
 	 * Setter de récupération du nom de l'article
-	 * @return nom de l'objet
+	 * @return name de l'objet
 	 */
 	public function setName(string $strName)
 	{
-		$this->_name = $strName;
+		$this->_name = trim($strName);
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Utrip extends Entity
 	 */
 	public function setDescription(string $strDescription)
 	{
-		$this->_description = $strDescription;
+		$this->_description = trim($strDescription);
 	}
 	/**
 	 * Getter de récupération du résumé de la description

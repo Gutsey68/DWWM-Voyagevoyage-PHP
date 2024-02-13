@@ -3,6 +3,7 @@ class Ctrl
 {
 
     protected array $_arrData = array();
+    protected array $_arrMimesType = array("image/jpeg", "image/png");
 
     public function afficheTpl($strTpl)
     {
