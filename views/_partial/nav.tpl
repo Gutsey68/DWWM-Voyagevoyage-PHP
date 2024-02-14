@@ -1,9 +1,12 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid ">
         <a href="index.php">
-            <!-- mettre le logo ici -->
-            <img src="" alt="">
-            <p>Voyage<span class="fst-italic">Voyage</span></p>
+            <div class="row">
+                <div class="col-4"><img width="50px" height="50px" src="assets/images/logo-projet-2.png" alt=""></div>
+                <div class="col-6">
+                    <p>Voyage<span class="fst-italic">Voyage</span></p>
+                </div>
+            </div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

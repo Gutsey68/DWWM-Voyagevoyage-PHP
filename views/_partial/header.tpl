@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="http://localhost/projet_2/" />
-    <link rel="shortcut icon" href="assets/images/logo.png">
+    <link rel="shortcut icon" href="assets/images/logo-projet-2.png">
     <title>VoyageVoyage | Vos voyages , nos histoires </title>
     <meta name="description"
         content="Rejoignez VoyageVoyage, la communauté passionnée par le partage d'expériences de voyages uniques. Découvrez des destinations époustouflantes, des conseils de voyage pratiques et partagez vos propres récits d'aventure pour inspirer et être inspiré.">

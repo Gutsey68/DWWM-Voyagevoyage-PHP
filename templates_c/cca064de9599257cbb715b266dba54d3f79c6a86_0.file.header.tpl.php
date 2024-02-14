@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-14 15:02:16
+/* Smarty version 4.3.4, created on 2024-02-14 15:19:22
   from 'C:\wamp64\www\projet_2\views\_partial\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65ccd5f8d78b28_97488026',
+  'unifunc' => 'content_65ccd9fa36a1f2_59749539',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cca064de9599257cbb715b266dba54d3f79c6a86' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\_partial\\header.tpl',
-      1 => 1707922930,
+      1 => 1707923960,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:views/_partial/nav.tpl' => 1,
   ),
 ),false)) {
-function content_65ccd5f8d78b28_97488026 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65ccd9fa36a1f2_59749539 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 
@@ -29,7 +29,7 @@ function content_65ccd5f8d78b28_97488026 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="http://localhost/projet_2/" />
-    <link rel="shortcut icon" href="assets/images/logo.png">
+    <link rel="shortcut icon" href="assets/images/logo-projet-2.png">
     <title>VoyageVoyage | Vos voyages , nos histoires </title>
     <meta name="description"
         content="Rejoignez VoyageVoyage, la communauté passionnée par le partage d'expériences de voyages uniques. Découvrez des destinations époustouflantes, des conseils de voyage pratiques et partagez vos propres récits d'aventure pour inspirer et être inspiré.">
