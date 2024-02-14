@@ -14,7 +14,9 @@
 à faire :
 
 Il manque tjr le logo !!!!!!!!!!!!
--réécriture d'url 
+
+- afficher les catégories dans le formulaire sur raconte.tpl
+- réécriture d'url 
 - models / entities:
   - requètes préparées 
 
