@@ -246,6 +246,9 @@ footer {
     border-top-right-radius: 25px;
 }
 
+footer .coordonnées {
+    color: var(--beige) !important;
+}
 
 footer ul {
     list-style-type: none;

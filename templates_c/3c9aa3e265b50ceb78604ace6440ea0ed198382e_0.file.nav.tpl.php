@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-02 08:05:12
+/* Smarty version 4.3.4, created on 2024-02-14 14:57:33
   from 'C:\wamp64\www\projet_2\views\_partial\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65bca2389d19f7_01205409',
+  'unifunc' => 'content_65ccd4dd300b52_47340414',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3c9aa3e265b50ceb78604ace6440ea0ed198382e' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\_partial\\nav.tpl',
-      1 => 1706861110,
+      1 => 1707922651,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65bca2389d19f7_01205409 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65ccd4dd300b52_47340414 (Smarty_Internal_Template $_smarty_tpl) {
 ?><nav class="navbar navbar-expand-lg">
     <div class="container-fluid ">
         <a href="index.php">

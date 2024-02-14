@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-13 14:45:19
+/* Smarty version 4.3.4, created on 2024-02-14 14:42:37
   from 'C:\wamp64\www\projet_2\views\raconte.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65cb807f5a7955_52450863',
+  'unifunc' => 'content_65ccd15d706729_66415814',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da3b614a8f032271c2cdf328de9b6b4a73e721d6' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\raconte.tpl',
-      1 => 1707835276,
+      1 => 1707921755,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65cb807f5a7955_52450863 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65ccd15d706729_66415814 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_210924086565cb807f593129_36320821', "contenu");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10296026865ccd15d6f5458_64259656', "contenu");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/layout.tpl");
 }
 /* {block "contenu"} */
-class Block_210924086565cb807f593129_36320821 extends Smarty_Internal_Block
+class Block_10296026865ccd15d6f5458_64259656 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'contenu' => 
   array (
-    0 => 'Block_210924086565cb807f593129_36320821',
+    0 => 'Block_10296026865ccd15d6f5458_64259656',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,8 +76,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </div>
                     <div class="col-12" id="drop-area">
                         <div class="my-form pt-5">
-                            <input type="file" id="fileElem" multiple accept="image/*" value="<?php echo $_smarty_tpl->tpl_vars['objUtrip']->value->getImg();?>
-">
+                            <input type="file" id="fileElem" multiple accept="image/*" value="image">
                             <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
                                 photos</label>
                             <div id="gallery" class="pt-5"></div>
@@ -90,8 +89,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="articleName"
-                            value="<?php echo $_smarty_tpl->tpl_vars['objUtrip']->value->getName();?>
-" required></div>
+                            value="titre" required></div>
                 </div>
             </div>
             <!-- contenu de l'article -->
@@ -100,7 +98,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage:</label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="articleContent"
-                            required><?php echo $_smarty_tpl->tpl_vars['objUtrip']->value->getDescription();?>
+                            value="contenu" required><?php echo $_smarty_tpl->tpl_vars['objUtrip']->value->getDescription();?>
 </textarea></div>
                 </div>
             </div>
@@ -126,9 +124,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <div class="container mb-5  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleBudget">Budget approximatif:</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget"
-                            value="<?php echo $_smarty_tpl->tpl_vars['objUtrip']->value->getBudget();?>
-" name="articleBudget" required></div>
+                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget" value="budget"
+                            name="articleBudget" required></div>
                 </div>
             </div>
             <div class="container mb-3">

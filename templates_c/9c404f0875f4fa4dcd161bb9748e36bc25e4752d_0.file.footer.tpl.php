@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-06 14:23:44
+/* Smarty version 4.3.4, created on 2024-02-14 15:02:16
   from 'C:\wamp64\www\projet_2\views\_partial\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65c240f0d8bc38_01290721',
+  'unifunc' => 'content_65ccd5f8dfccd7_87151278',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c404f0875f4fa4dcd161bb9748e36bc25e4752d' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\_partial\\footer.tpl',
-      1 => 1707229423,
+      1 => 1707922931,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65c240f0d8bc38_01290721 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65ccd5f8dfccd7_87151278 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -29,8 +29,12 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
         <div id="border-bottom" class="row">
             <div class="col-md-4 col-12 pb-3">
                 <h3 class="pb-3">Nos coordonnées :</h3>
-                <p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p>
-                <p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p>
+                <a href="mailto:voyagevoyage@email.fr" class="coordonnées">
+                    <p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p>
+                </a>
+                <a href="callto:voyagevoyage@email.fr" class="coordonnées">
+                    <p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p>
+                </a>
                 <p><i class="fa-solid fa-house"></i> 30 rue kerim le fou</p>
             </div>
             <div class="col-md-4 col-12 pb-3">
@@ -61,7 +65,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     </div>
 </footer>
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_155880231565c240f0d89247_38895388', "js_footer");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_122730660765ccd5f8dfabb9_12592434', "js_footer");
 ?>
 
 
@@ -70,12 +74,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_155880231565c240f0
 
 </html><?php }
 /* {block "js_footer"} */
-class Block_155880231565c240f0d89247_38895388 extends Smarty_Internal_Block
+class Block_122730660765ccd5f8dfabb9_12592434 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'js_footer' => 
   array (
-    0 => 'Block_155880231565c240f0d89247_38895388',
+    0 => 'Block_122730660765ccd5f8dfabb9_12592434',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
