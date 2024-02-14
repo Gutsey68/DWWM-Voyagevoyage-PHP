@@ -13,13 +13,8 @@
 
 à faire :
 
-AJOUTER LE SVG DU LOGO
-AJOUTER LE SVG DU LOGO
-AJOUTER LE SVG DU LOGO
-AJOUTER LE SVG DU LOGO
-AJOUTER LE SVG DU LOGO
-AJOUTER LE SVG DU LOGO
-
+Il manque tjr le logo !!!!!!!!!!!!
+-réécriture d'url 
 - models / entities:
   - requètes préparées 
 
