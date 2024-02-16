@@ -156,6 +156,11 @@ label i {
     font-family: 'Poppins', sans-serif;
 }
 
+.navbar p {
+    margin-bottom: 0 !important;
+    padding-top: 0.15rem;
+}
+
 .navbar .inputgroup {
     background-color: var(--white);
     border: solid 1px var(--white);
@@ -376,6 +381,13 @@ footer #border-bottom {
 
 /* forum.tpl */
 
+.topic {
+    background-image: url('../images/fond-texture-papier-froisse-vintage') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
 #forum {
     padding: 5rem 0 2rem 0;
 }
@@ -413,9 +425,25 @@ footer #border-bottom {
 @media screen and (min-width: 577px) and (max-width: 1081px) {
 
     /* nav.php */
+
+    .navbar p {
+        padding-left: 0.5rem;
+    }
+
     .navbar form {
         display: flex;
         justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+}
+
+@media screen and (min-width: 577px) and (max-width: 1500px) {
+
+    /* nav.php */
+
+    .navbar div.inputgroup.col-12 {
+        margin-right: 0 !important;
         margin-bottom: 0.5rem;
     }
 }
@@ -425,7 +453,11 @@ footer #border-bottom {
 @media screen and (max-width: 576px) {
     /* nav.php */
 
-    .navbar div.inputgroup.col-10 {
+    .navbar p {
+        padding-left: 0.5rem;
+    }
+
+    .navbar div.inputgroup.col-12 {
         margin-right: 0 !important;
     }
 
@@ -482,4 +514,5 @@ footer #border-bottom {
     #dragndrop {
         padding: 0 1.5rem;
     }
+
 }
