@@ -12,14 +12,14 @@ class UtripModel extends Model
 
 	public function findAll(int $intLimit = 0, $arrSearch = array())
 	{
-		$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , city_name AS 'utrip_city'
+		$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name AS 'utrip_city'
 								FROM utrip 
 								LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 								LEFT OUTER JOIN users ON user_id = utrip_user_id
-								LEFT OUTER JOIN is_located ON utrip_id = loc_utrip_id
-								LEFT OUTER JOIN city ON city_id = loc_city_id
-								LEFT OUTER JOIN country ON city_country_id = country_id
-								LEFT OUTER JOIN continent ON country_cont_id = cont_id
+								LEFT OUTER JOIN cities_utrip ON utrip_id = cities_utrip_utrip_id
+								LEFT OUTER JOIN cities ON cities_id = cities_utrip_id
+								LEFT OUTER JOIN countries ON cities_country_id = countries_id
+								LEFT OUTER JOIN regions ON countries_region_id = regions_id
 								LEFT OUTER JOIN categorie_utrip ON utrip_id = cat_utrip_utrip_id
 								LEFT OUTER JOIN categorie ON cat_utrip_cat_id = cat_id
 								LEFT OUTER JOIN comments ON com_utrip_id = utrip_id
