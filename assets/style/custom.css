@@ -63,7 +63,7 @@ span {
 
 .green-btn:hover {
     background-color: var(--beige) !important;
-    color: var(--green);
+    color: var(--green) !important;
     border: solid 2px var(--green);
 }
 
