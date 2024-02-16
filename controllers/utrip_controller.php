@@ -35,6 +35,8 @@ class UtripCtrl extends Ctrl
             $arrForumsToDisplay[] = $objForum;
         }
 
+
+
         $this->_arrData["strPage"]     = "index";
         $this->_arrData["strTitle"] = "Accueil";
         $this->_arrData["strDesc"]     = "Page d'acceuil";
@@ -107,6 +109,9 @@ class UtripCtrl extends Ctrl
             $objUtrip->setName("");
             $objUtrip->setDescription("");
         }
+
+
+
         $this->_arrData["objUtrip"]     = $objUtrip;
         $this->_arrData["strPage"]         = "raconte";
         $this->_arrData["strTitle"]     = "Ajouter un article";

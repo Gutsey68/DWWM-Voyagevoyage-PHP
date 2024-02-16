@@ -1,6 +1,6 @@
 {* La view d'un résumé d'un topic du forum *}
 
-<div class="col-12 resume-topic mt-3 mb-3">
+<div class="col-12 resume-topic">
     <div class="card">
         <div class="card-header  topic">
             {$objForum->getCreator()}
