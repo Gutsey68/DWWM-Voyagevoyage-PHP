@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="articleName"
-                            value="titre" required></div>
+                            value="" placeholder="Titre" required></div>
                 </div>
             </div>
             <!-- contenu de l'article -->
@@ -49,7 +49,7 @@
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage:</label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="articleContent"
-                            value="contenu" required>{$objUtrip->getDescription()}</textarea></div>
+                            value="" placeholder="Contenu" required>{$objUtrip->getDescription()}</textarea></div>
                 </div>
             </div>
             <!-- catégories -->
@@ -67,15 +67,15 @@
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleCity">Ville:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleCity" name="articleCity"
-                            required></div>
+                            placeholder="Ville" required></div>
                 </div>
             </div>
             <!-- budget -->
             <div class="container mb-5  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleBudget">Budget approximatif:</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget" value="budget"
-                            name="articleBudget" required></div>
+                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget"
+                            placeholder="Budget" value="" name="articleBudget" required></div>
                 </div>
             </div>
             <div class="container mb-3">

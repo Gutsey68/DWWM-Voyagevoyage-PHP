@@ -2,13 +2,8 @@
 
 <div class="col-md-3 resume-utrip">
 	<div>
-		<img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}">
+		<a href="#"><img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}"></a>
 	</div>
-	<div class="row">
-		<div class="">
-			<p class="margin0">Le voyage de {$objUtrip->getCreator()}</p>
-			<p>à <span class="fst-italic">{$objUtrip->getCity()}</span></p>
-		</div>
-	</div>
-
+	<p class="margin0">Le voyage de {$objUtrip->getCreator()}</p>
+	<p>à <span class="fst-italic">{$objUtrip->getCity()}</span></p>
 </div>

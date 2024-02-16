@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-02-14 14:42:37
+/* Smarty version 4.3.4, created on 2024-02-16 12:35:56
   from 'C:\wamp64\www\projet_2\views\raconte.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65ccd15d706729_66415814',
+  'unifunc' => 'content_65cf56accbaa32_46809784',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da3b614a8f032271c2cdf328de9b6b4a73e721d6' => 
     array (
       0 => 'C:\\wamp64\\www\\projet_2\\views\\raconte.tpl',
-      1 => 1707921755,
+      1 => 1708086950,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65ccd15d706729_66415814 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65cf56accbaa32_46809784 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10296026865ccd15d6f5458_64259656', "contenu");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_184494407965cf56acc9a383_48705526', "contenu");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/layout.tpl");
 }
 /* {block "contenu"} */
-class Block_10296026865ccd15d6f5458_64259656 extends Smarty_Internal_Block
+class Block_184494407965cf56acc9a383_48705526 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'contenu' => 
   array (
-    0 => 'Block_10296026865ccd15d6f5458_64259656',
+    0 => 'Block_184494407965cf56acc9a383_48705526',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -89,7 +89,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="articleName"
-                            value="titre" required></div>
+                            value="" placeholder="Titre" required></div>
                 </div>
             </div>
             <!-- contenu de l'article -->
@@ -98,7 +98,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage:</label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="articleContent"
-                            value="contenu" required><?php echo $_smarty_tpl->tpl_vars['objUtrip']->value->getDescription();?>
+                            value="" placeholder="Contenu" required><?php echo $_smarty_tpl->tpl_vars['objUtrip']->value->getDescription();?>
 </textarea></div>
                 </div>
             </div>
@@ -117,15 +117,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleCity">Ville:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleCity" name="articleCity"
-                            required></div>
+                            placeholder="Ville" required></div>
                 </div>
             </div>
             <!-- budget -->
             <div class="container mb-5  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleBudget">Budget approximatif:</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget" value="budget"
-                            name="articleBudget" required></div>
+                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget"
+                            placeholder="Budget" value="" name="articleBudget" required></div>
                 </div>
             </div>
             <div class="container mb-3">
