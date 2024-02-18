@@ -17,7 +17,7 @@ La view de la page entière Explorez avec tous les articles
         </div>
     </section>
     <!-- Tri articles -->
-    <form name="formSearch" method="post" action="#" class="mb-5">
+    <form name="formSearch" method="post" action="" class="mb-5">
         <div class="container">
             <!-- Barre de recherche -->
             <div class="row mb-4">
@@ -37,6 +37,9 @@ La view de la page entière Explorez avec tous les articles
                     <div class="col">
                         <select class="form-select" id="continentSelect" name="continent">
                             <option value="">Choisissez un continent...</option>
+                            {foreach from=$arrUtripsToDisplay item=objUtrip}
+                                <option value="{$objUtrip->getCont()}">{$objUtrip->getCont()}</option>
+                            {/foreach}
                         </select>
                     </div>
                 </div>
@@ -50,6 +53,9 @@ La view de la page entière Explorez avec tous les articles
                     <label for="categorySelect" class="form-label">Catégorie</label>
                     <select class="form-select" id="categorySelect" name="categorie">
                         <option>Choisissez une catégorie...</option>
+                        {foreach from=$arrUtripsToDisplay item=objUtrip}
+                            <option value="{$objUtrip->getCat()}">{$objUtrip->getCat()}</option>
+                        {/foreach}
                     </select>
                 </div>
             </div>

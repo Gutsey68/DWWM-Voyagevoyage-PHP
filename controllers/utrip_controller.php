@@ -135,7 +135,7 @@ class UtripCtrl extends Ctrl
             'keywords'     => $strKeywords,
             'date'         => $strDate,
             'categorie'    => $strCat,
-            'continent'    => $strCont,
+            'continent'    => $strCont
         );
 
         /* Utilisation de la classe model */

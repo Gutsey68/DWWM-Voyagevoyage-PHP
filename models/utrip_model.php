@@ -14,7 +14,7 @@ class UtripModel extends Model
 	{
 		$strQuery     = "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
 		utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
-		 AS 'utrip_city'
+		 AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
 								FROM utrip 
 								LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 								LEFT OUTER JOIN users ON user_id = utrip_user_id
@@ -83,6 +83,7 @@ class UtripModel extends Model
 		}
 		$rqPrep->execute();
 		return $rqPrep->fetchAll();
+	
 	}
 
 	/**
