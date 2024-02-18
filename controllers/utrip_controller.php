@@ -127,17 +127,15 @@ class UtripCtrl extends Ctrl
         // Récupère l'information dans $_POST => car form est en methode post
         $strKeywords     = $_POST['keywords'] ?? "";
         //$strKeywords 	= trim($strKeywords);
-        $intPeriod        = $_POST['period'] ?? 0;
         $strDate        = $_POST['date'] ?? "";
-        $strStartDate    = $_POST['startdate'] ?? "";
-        $strEndDate        = $_POST['enddate'] ?? "";
+        $strCat        = $_POST['categorie'] ?? "";
+        $strCont        = $_POST['continent'] ?? "";
 
         $arrSearch         = array(
             'keywords'     => $strKeywords,
-            'period'     => $intPeriod,
             'date'         => $strDate,
-            'startdate' => $strStartDate,
-            'enddate'     => $strEndDate,
+            'categorie'    => $strCat,
+            'continent'    => $strCont,
         );
 
         /* Utilisation de la classe model */
@@ -153,10 +151,9 @@ class UtripCtrl extends Ctrl
         }
 
         $this->_arrData["strKeywords"]     = $strKeywords;
-        $this->_arrData["intPeriod"]     = $intPeriod;
         $this->_arrData["strDate"]         = $strDate;
-        $this->_arrData["strStartDate"] = $strStartDate;
-        $this->_arrData["strEndDate"]     = $strEndDate;
+        $this->_arrData["strCat"]          = $strCat;
+        $this->_arrData["strCont"]          = $strCont;
 
         $this->_arrData["strPage"]     = "explore";
         $this->_arrData["strTitle"] = "Explore";

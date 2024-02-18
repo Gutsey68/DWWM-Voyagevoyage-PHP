@@ -1,4 +1,4 @@
-{* La view de la page entière Explorez avec tous les articles *}
+La view de la page entière Explorez avec tous les articles
 
 {extends file="views/layout.tpl"}
 
@@ -17,50 +17,48 @@
         </div>
     </section>
     <!-- Tri articles -->
-    <form class="mb-5">
+    <form name="formSearch" method="post" action="#" class="mb-5">
         <div class="container">
             <!-- Barre de recherche -->
-            <div class="row mb-3">
+            <div class="row mb-4">
                 <div class="col">
-                    <input class="form-control" type="search" id="searchBox" name="search"
-                        placeholder="Rechercher un article...">
+                    <div class="input-group">
+                        <input type="search" class="form-control" id="searchBox" name="keywords"
+                            placeholder="Recherchez un article...">
+                    </div>
                 </div>
             </div>
 
             <!-- Filtres -->
-            <div class="row g-3 align-items-center">
-                <!-- Filtre par budget -->
+            <div class="row g-3 align-items-center mb-4">
+                <!-- Filtres par continent -->
                 <div class="col-md">
-                    <label for="budgetRange" class="form-label">Budget</label>
-                    <select class="form-select" id="budgetRange" name="budget">
-                        <option selected>Choisissez...</option>
-                        <option value="1">€ - Abordable</option>
-                        <option value="2">€€ - Modéré</option>
-                        <option value="3">€€€ - Haut de gamme</option>
-                    </select>
+                    <label for="continentSelect" class="form-label">Continent</label>
+                    <div class="col">
+                        <select class="form-select" id="continentSelect" name="continent">
+                            <option value="">Choisissez un continent...</option>
+                        </select>
+                    </div>
                 </div>
-
                 <!-- Filtre par date d'ajout -->
                 <div class="col-md">
                     <label for="dateAdded" class="form-label">Date d'ajout</label>
-                    <input type="date" class="form-control" id="dateAdded" name="dateAdded">
+                    <input type="date" class="form-control" id="dateAdded" name="date">
                 </div>
-
-                <!-- Filtre par nombre de likes -->
+                <!-- Filtre par catégorie -->
                 <div class="col-md">
-                    <label for="likes" class="form-label">Popularité</label>
-                    <select class="form-select" id="likes" name="popularity">
-                        <option selected>Choisissez...</option>
-                        <option value="1">Les plus aimés</option>
+                    <label for="categorySelect" class="form-label">Catégorie</label>
+                    <select class="form-select" id="categorySelect" name="categorie">
+                        <option>Choisissez une catégorie...</option>
                     </select>
                 </div>
             </div>
-
             <!-- Bouton de recherche -->
-            <div class="row mt-3">
+            <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn green-btn"><i
-                            class="fa-solid fa-magnifying-glass"></i>Rechercher</button>
+                    <button type="submit" value="Rechercher" class="btn green-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i> Rechercher
+                    </button>
                 </div>
             </div>
         </div>
@@ -82,7 +80,7 @@
         </div>
     </div>
     <section>
-        <div id="marge" class="container mt-5 mb-5">
+        <div id="marge" class="container mt-5 mb-5 text-center">
             <div class="row">
                 <h2 class="pb-2">Partagez votre <span class="fst-italic">aventure</span></h2>
                 <p class="pb-2">
