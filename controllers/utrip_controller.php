@@ -142,7 +142,9 @@ class UtripCtrl extends Ctrl
         /* Utilisation de la classe model */
         $objUtripModel    = new UtripModel;
         $arrUtrips        = $objUtripModel->findAll(0, $arrSearch);
- 
+
+        
+        
 
         // Parcourir les articles pour créer des objets
         $arrUtripsToDisplay    = array();
