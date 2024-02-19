@@ -66,11 +66,11 @@ class UtripCtrl extends Ctrl
             }
 
             /* 4. Enregistrer l'image */
-            $strImgName    = $_FILES['image']['name'];
+            $strImgName    = $_FILES['img']['name'];
             if ($strImgName != "") {
                 // Si le type d'image est autorisé
-                if (in_array($_FILES['image']['type'], $this->_arrMimesType)) {
-                    $strSource     = $_FILES['image']['tmp_name'];
+                if (in_array($_FILES['img']['type'], $this->_arrMimesType)) {
+                    $strSource     = $_FILES['img']['tmp_name'];
                     $strImgName    = bin2hex(random_bytes(5)) . ".webp";
                     $strDest    = "uploads/" . $strImgName;
                     /* Avec redimensionnement */
@@ -128,19 +128,21 @@ class UtripCtrl extends Ctrl
         $strKeywords     = $_POST['keywords'] ?? "";
         //$strKeywords 	= trim($strKeywords);
         $strDate        = $_POST['date'] ?? "";
-        $strCat        = $_POST['categorie'] ?? "";
-        $strCont        = $_POST['continent'] ?? "";
+        $strCat        = $_POST['cate'] ?? "";
+        $strCont        = $_POST['cont'] ?? "";
 
         $arrSearch         = array(
             'keywords'     => $strKeywords,
             'date'         => $strDate,
-            'categorie'    => $strCat,
-            'continent'    => $strCont
+            'cat'    => $strCat,
+            'cont'    => $strCont
         );
+
 
         /* Utilisation de la classe model */
         $objUtripModel    = new UtripModel;
         $arrUtrips        = $objUtripModel->findAll(0, $arrSearch);
+ 
 
         // Parcourir les articles pour créer des objets
         $arrUtripsToDisplay    = array();
@@ -149,6 +151,7 @@ class UtripCtrl extends Ctrl
             $objUtrip->hydrate($arrDetailUtrip);
             $arrUtripsToDisplay[] = $objUtrip;
         }
+
 
         $this->_arrData["strKeywords"]     = $strKeywords;
         $this->_arrData["strDate"]         = $strDate;

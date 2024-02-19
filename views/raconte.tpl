@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-12" id="drop-area">
                         <div class="my-form pt-5">
-                            <input type="file" id="fileElem" multiple accept="image/*" value="image">
+                            <input type="file" id="fileElem" multiple accept="image/*" value="image" name="img">
                             <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
                                 photos</label>
                             <div id="gallery" class="pt-5"></div>
@@ -39,7 +39,7 @@
             <div class="container mb-3  form-bg">
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre:</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="articleName"
+                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="name"
                             value="" placeholder="Titre" required></div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage:</label></div>
-                    <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="articleContent"
+                    <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="description"
                             value="" placeholder="Contenu" required>{$objUtrip->getDescription()}</textarea></div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
             <div class="container mb-3  form-bg">
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleCategory">Catégorie:</label></div>
-                    <div class="col-md-6 col-12"><select class="form-select" id="articleCategory" name="articleCategory">
+                    <div class="col-md-6 col-12"><select class="form-select" id="articleCategory" name="cat">
                             <option value="">--</option>
                         </select>
                     </div>
@@ -66,7 +66,7 @@
             <div class="container mb-3  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleCity">Ville:</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleCity" name="articleCity"
+                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleCity" name="city"
                             placeholder="Ville" required></div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleBudget">Budget approximatif:</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget"
-                            placeholder="Budget" value="" name="articleBudget" required></div>
+                            placeholder="Budget" value="" name="budget" required></div>
                 </div>
             </div>
             <div class="container mb-3">

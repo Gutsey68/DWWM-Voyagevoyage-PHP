@@ -35,7 +35,7 @@ La view de la page entière Explorez avec tous les articles
                 <div class="col-md">
                     <label for="continentSelect" class="form-label">Continent</label>
                     <div class="col">
-                        <select class="form-select" id="continentSelect" name="continent">
+                        <select class="form-select" id="continentSelect" name="cont">
                             <option value="">Choisissez un continent...</option>
                             {foreach from=$arrUtripsToDisplay item=objUtrip}
                                 <option value="{$objUtrip->getCont()}">{$objUtrip->getCont()}</option>
@@ -51,7 +51,7 @@ La view de la page entière Explorez avec tous les articles
                 <!-- Filtre par catégorie -->
                 <div class="col-md">
                     <label for="categorySelect" class="form-label">Catégorie</label>
-                    <select class="form-select" id="categorySelect" name="categorie">
+                    <select class="form-select" id="categorySelect" name="cat">
                         <option>Choisissez une catégorie...</option>
                         {foreach from=$arrUtripsToDisplay item=objUtrip}
                             <option value="{$objUtrip->getCat()}">{$objUtrip->getCat()}</option>

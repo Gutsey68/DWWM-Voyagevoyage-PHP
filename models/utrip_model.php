@@ -18,12 +18,10 @@ class UtripModel extends Model
 								FROM utrip 
 								LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 								LEFT OUTER JOIN users ON user_id = utrip_user_id
-								LEFT OUTER JOIN cities_utrip ON utrip_id = cities_utrip_utrip_id
-								LEFT OUTER JOIN cities ON cities_id = cities_utrip_id
+								LEFT OUTER JOIN cities ON cities_id = utrip_city
 								LEFT OUTER JOIN countries ON cities_country_id = countries_id
 								LEFT OUTER JOIN regions ON countries_region_id = regions_id
-								LEFT OUTER JOIN categorie_utrip ON utrip_id = cat_utrip_utrip_id
-								LEFT OUTER JOIN categorie ON cat_utrip_cat_id = cat_id
+								LEFT OUTER JOIN categorie ON utrip_cat = cat_id
 								LEFT OUTER JOIN comments ON com_utrip_id = utrip_id
 								LEFT OUTER JOIN likes ON utrip_id = like_utrip_id";
 		$strWhere	= " WHERE ";
@@ -86,13 +84,14 @@ class UtripModel extends Model
 	
 	}
 
+
 	/**
 	 * Méthode permettant d'ajouter un article en BDD 
 	 * @param $objUtrip object Objet Utrip à insérer
 	 */
 	public function insert(object $objUtrip)
 	{
-		$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id )
+		$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id , utrip_city , utrip_cat )
 							VALUES (:titre, :contenu, :budget , NOW(), 1);
 							";
 		// On prépare la requête
@@ -100,23 +99,25 @@ class UtripModel extends Model
 		$rqPrep->bindValue(":titre", $objUtrip->getName(), PDO::PARAM_STR);
 		$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
 		$rqPrep->bindValue(":contenu", $objUtrip->getDescription(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":city", $objUtrip->getCity(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_STR);
 
-		return $rqPrep->execute();
+		$rqPrep->execute();
 
 		// Récupérer l'ID de l'article inséré
-		// $lastId = $this->_db->lastInsertId();
-		// return $lastId; // Retourner l'ID pour une utilisation ultérieure
+		$lastId = $this->_db->lastInsertId();
+		return $lastId; // Retourner l'ID pour une utilisation ultérieure
 	}
-	//  public function insertImg(object $objArticle, $utripId)
-	// {
-	// 	$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id )
-	// 					VALUES ( :image, :imgUtripId);
-	// 						";
-	// 	// On prépare la requête
-	// 	$rqPrep	= $this->_db->prepare($strQuery);
-	// $rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
-	// 	$rqPrep->bindValue(":imgUtripId", $utripId, PDO::PARAM_INT);
+	public function insertImg(object $objArticle, $lastId)
+	{
+		$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id )
+							VALUES ( :image, :imgUtripId);
+							";
+		// On prépare la requête
+		$rqPrep	= $this->_db->prepare($strQuery);
+		$rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":imgUtripId", $lastId, PDO::PARAM_INT);
 
-	// return $rqPrep->execute();
-	// }
+	return $rqPrep->execute();
+	}
 }
