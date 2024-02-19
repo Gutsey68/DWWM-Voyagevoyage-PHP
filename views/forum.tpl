@@ -18,20 +18,20 @@
         <div class="container">
             <!-- Barre de recherche -->
             <div class="row mb-4">
-                <div class="col">
+                <div class="col-10">
                     <div class="input-group">
                         <input type="search" class="form-control" name="keywords" placeholder="Recherchez un topic...">
                     </div>
                 </div>
-            </div>
-            <!-- Bouton de recherche -->
-            <div class="row">
-                <div class="col">
+                <div class="col-2">
+                    <!-- Bouton de recherche -->
                     <button type="submit" value="Rechercher" class="btn green-btn">
                         <i class="fa-solid fa-magnifying-glass"></i> Rechercher
                     </button>
                 </div>
             </div>
+
+
         </div>
     </form>
     <section class="pb-5">
