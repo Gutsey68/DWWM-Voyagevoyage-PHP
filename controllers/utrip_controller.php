@@ -128,7 +128,7 @@ class UtripCtrl extends Ctrl
         $strKeywords     = $_POST['keywords'] ?? "";
         //$strKeywords 	= trim($strKeywords);
         $strDate        = $_POST['date'] ?? "";
-        $strCat        = $_POST['cate'] ?? "";
+        $strCat        = $_POST['cat'] ?? "";
         $strCont        = $_POST['cont'] ?? "";
 
         $arrSearch         = array(
