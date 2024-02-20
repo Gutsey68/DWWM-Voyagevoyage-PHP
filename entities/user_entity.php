@@ -210,4 +210,11 @@ class User extends Entity
     {
         $this->_bio = $strBio;
     }
+    /**
+		* Getter de récupération du mot de passe haché
+		* @return mot de passe haché
+		*/
+		public function getPwdHash():string{ 
+			return password_hash($this->_password, PASSWORD_DEFAULT);
+	}
 }
