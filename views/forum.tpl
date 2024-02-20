@@ -10,6 +10,10 @@
                         Échangez conseils et histoires avec une communauté qui partage votre passion pour l'aventure et la
                         découverte.
                     </p>
+                    <div class="button-center">
+                        <a class="green-btn" href="index.php?action=create_topic&ctrl=forum"><i
+                                class="fa-solid fa-comments"></i> Je crée un topic</a>
+                    </div>
                 </div>
             </div>
         </div>

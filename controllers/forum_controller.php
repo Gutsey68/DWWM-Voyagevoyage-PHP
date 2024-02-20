@@ -36,4 +36,46 @@ class ForumCtrl extends Ctrl
         $this->afficheTpl("forum");
 
     }
+    public function create_topic()
+    {
+        $arrErrors = array();
+			$objForum = new Forum();
+			if (count($_POST) > 0){
+				$objForum->hydrate($_POST);
+				// Vérification des données de l'utilisateur
+				$arrErrors = array();
+                if ($objForum->getTitle() == ""){
+                    $arrErrors['title'] = "Le titre est obligatoire";
+                }
+                if ($objForum->getContent() == ""){
+                    $arrErrors['content'] = "Le contenu est trop court";
+                }elseif (strlen($objForum->getContent()) < 2){
+                    $arrErrors['content'] = "Le contenu est trop court";
+                }
+				if(count($arrErrors) == 0){
+					$objForumModel	= new ForumModel;
+					if ($objForumModel->insert($objForum)){
+						header("Location:index.php?action=create_topic&ctrl=forum");
+					}else{
+						$arrErrors[] = "L'insertion s'est mal passée";
+					}
+				}
+				
+			}else{ // Formulaire non envoyé
+				$objForum->setTitle("");
+				$objForum->setContent("");
+			}
+
+
+
+
+        $this->_arrData["arrErrors"] 	= $arrErrors;
+        $this->_arrData["objUser"]		= $objForum;
+        $this->_arrData["strPage"]     = "create_topic";
+        $this->_arrData["strTitle"] = "Créer un topic";
+        $this->_arrData["strDesc"]     = "Page de création de topic";
+
+        $this->afficheTpl("create_topic");
+
+    }
 }
