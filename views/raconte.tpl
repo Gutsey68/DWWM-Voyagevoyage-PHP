@@ -58,6 +58,9 @@
                     <div class="col-md-6 col-12"><label class="form-label" for="articleCategory">Catégorie:</label></div>
                     <div class="col-md-6 col-12"><select class="form-select" id="articleCategory" name="cat">
                             <option value="">--</option>
+                            {foreach from=$arrCatsToDisplay item=objUtrip}
+                                <option value="{$objUtrip->getCat()}">{$objUtrip->getCat()}</option>
+                            {/foreach}
                         </select>
                     </div>
                 </div>

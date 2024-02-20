@@ -36,10 +36,13 @@ La view de la page entière Explorez avec tous les articles
                     <label for="continentSelect" class="form-label">Continent</label>
                     <div class="col">
                         <select class="form-select" id="continentSelect" name="cont">
-                            <option value="">Choisissez un continent...</option>
-                            {foreach from=$arrUtripsToDisplay item=objUtrip}
-                                <option value="{$objUtrip->getCont()}">{$objUtrip->getCont()}</option>
-                            {/foreach}
+                            <option value="Afrique">Afrique</option>
+                            <option value="Amérique">Amérique</option>
+                            <option value="Asie">Asie</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Océanie">Océanie</option>
+                            <option value="Antarctique">Antarctique</option>
+
                         </select>
                     </div>
                 </div>
@@ -53,7 +56,7 @@ La view de la page entière Explorez avec tous les articles
                     <label for="categorySelect" class="form-label">Catégorie</label>
                     <select class="form-select" id="categorySelect" name="cat">
                         <option>Choisissez une catégorie...</option>
-                        {foreach from=$arrUtripsToDisplay item=objUtrip}
+                        {foreach from=$arrCatsToDisplay item=objUtrip}
                             <option value="{$objUtrip->getCat()}">{$objUtrip->getCat()}</option>
                         {/foreach}
                     </select>

@@ -81,9 +81,14 @@ class UtripModel extends Model
 		}
 		$rqPrep->execute();
 		return $rqPrep->fetchAll();
-	
 	}
 
+	public function findCat()
+	{
+		$strQuery 	= "SELECT cat_lib AS 'utrip_cat'
+						FROM categorie";
+		return $this->_db->query($strQuery)->fetchAll();
+	}
 
 	/**
 	 * Méthode permettant d'ajouter un article en BDD 
@@ -118,6 +123,6 @@ class UtripModel extends Model
 		$rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
 		$rqPrep->bindValue(":imgUtripId", $lastId, PDO::PARAM_INT);
 
-	return $rqPrep->execute();
+		return $rqPrep->execute();
 	}
 }

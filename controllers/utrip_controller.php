@@ -49,6 +49,16 @@ class UtripCtrl extends Ctrl
     public function raconte()
     {
         /* 2. Récupérer les informations du formulaire */
+        /* Utilisation de la classe model */
+        $objUtripModel    = new UtripModel;
+        $arrCats          = $objUtripModel->findCat();
+        // Parcourir les articles pour créer des objets
+        $arrCatsToDisplay    = array();
+        foreach ($arrCats as $arrDetailCat) {
+            $objUtrip = new Utrip();        // instancie un objet Article
+            $objUtrip->hydrate($arrDetailCat);
+            $arrCatsToDisplay[] = $objUtrip;
+        }
         /* 3. Créer un objet article */
         $arrErrors = array();
         $objUtrip = new Utrip();    // instancie un objet Utrip
@@ -117,6 +127,7 @@ class UtripCtrl extends Ctrl
         $this->_arrData["strTitle"]     = "Ajouter un article";
         $this->_arrData["strDesc"]         = "Page où on écrit un article";
         $this->_arrData["arrErrors"]     = $arrErrors;
+        $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
         /* 1. Afficher le formulaire */
         $this->afficheTpl("raconte");
     }
@@ -142,9 +153,8 @@ class UtripCtrl extends Ctrl
         /* Utilisation de la classe model */
         $objUtripModel    = new UtripModel;
         $arrUtrips        = $objUtripModel->findAll(0, $arrSearch);
+        $arrCats          = $objUtripModel->findCat();
 
-        
-        
 
         // Parcourir les articles pour créer des objets
         $arrUtripsToDisplay    = array();
@@ -153,6 +163,15 @@ class UtripCtrl extends Ctrl
             $objUtrip->hydrate($arrDetailUtrip);
             $arrUtripsToDisplay[] = $objUtrip;
         }
+        // Parcourir les articles pour créer des objets
+        $arrCatsToDisplay    = array();
+        foreach ($arrCats as $arrDetailCat) {
+            $objUtrip = new Utrip();        // instancie un objet Article
+            $objUtrip->hydrate($arrDetailCat);
+            $arrCatsToDisplay[] = $objUtrip;
+        }
+
+
 
 
         $this->_arrData["strKeywords"]     = $strKeywords;
@@ -164,6 +183,7 @@ class UtripCtrl extends Ctrl
         $this->_arrData["strTitle"] = "Explore";
         $this->_arrData["strDesc"]     = "Découvrez des aventures uniques racontées par des voyageurs passionnés. Laissez-vous inspirer par leurs expériences et partagez les vôtres.";
         $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
+        $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
 
         $this->afficheTpl("explore");
     }
