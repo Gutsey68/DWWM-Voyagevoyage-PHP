@@ -29,3 +29,4 @@ Il manque tjr le logo !!!!!!!!!!!!
 - faire la view du forum
 - faire la view du about
 - test shahid
+- test sami
