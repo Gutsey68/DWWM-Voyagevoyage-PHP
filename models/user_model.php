@@ -61,4 +61,38 @@ class UserModel extends Model
 		$rqPrep->execute();
 		return $rqPrep->fetch();
 	}
+	/**
+	 * Méthode qui vérifie la présence du mail dans la BDD
+	 * @param string $strEmail Email à chercher dans la table user
+	 * @return bool L'adresse existe ou non dans la table
+	 */
+	public function verifMail(string $strEmail): bool
+	{
+		$strQuery   = "SELECT user_email
+						FROM users
+						WHERE user_email = :mail;";
+
+		$rqPrep = $this->_db->prepare($strQuery);
+
+		$rqPrep->bindValue(":mail", $strEmail, PDO::PARAM_STR);
+
+		$rqPrep->execute();
+		return is_array($rqPrep->fetch());
+	}
+
+	/**
+	 * Méthode d'insertion d'un utilisateur en bdd
+	 * param object $objUser Objet utilisateur
+	 */
+	public function insert(object $objUser)
+	{
+		$strQuery   = "INSERT INTO users (user_name, user_firstname, user_email, user_password, user_phone, user_regisdate, user_pp, user_ban, user_role_id)
+						VALUES (:name, :firstname, :mail, :pwd, '', NOW(), 'profil_pic_default.png', 0, 3);";
+		$rqPrep = $this->_db->prepare($strQuery);
+		$rqPrep->bindValue(":name", $objUser->getName(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":firstname", $objUser->getFirstname(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":mail", $objUser->getEmail(), PDO::PARAM_STR);
+		$rqPrep->bindValue(":pwd", $objUser->getPwdHash(), PDO::PARAM_STR);
+		return $rqPrep->execute();
+	}
 }
