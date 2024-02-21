@@ -28,3 +28,4 @@ Il manque tjr le logo !!!!!!!!!!!!
 - faire la view du formulaire de recherche
 - faire la view du forum
 - faire la view du about
+- test shahid
