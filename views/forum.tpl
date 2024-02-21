@@ -11,7 +11,7 @@
                         découverte.
                     </p>
                     <div class="button-center">
-                        <a class="green-btn" href="index.php?action=create_topic&ctrl=forum"><i
+                        <a class="green-btn" href="forum/create_topic"><i
                                 class="fa-solid fa-comments"></i> Je crée un topic</a>
                     </div>
                 </div>

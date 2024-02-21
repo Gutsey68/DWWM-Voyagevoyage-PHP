@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid ">
         <div class="col-md-3">
-            <a class="{if ($strPage == "home")} active{/if}" href="index.php">
+            <a class="{if ($strPage == "home")} active{/if}" href="">
                 <div class="row">
                     <div class="col-2"><img width="50px" height="50px" src="assets/images/logo-projet-2.png" alt="">
                     </div>
@@ -19,15 +19,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill">
                 <li class="nav-item">
                     <a class="nav-link flex-fill {if ($strPage == "explore")} active{/if}"
-                        href="index.php?action=explore&ctrl=utrip"><i class="fa-solid fa-compass"></i> Explorez</a>
+                        href="utrip/explore"><i class="fa-solid fa-compass"></i> Explorez</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link flex-fill {if ($strPage == "raconte")} active{/if}"
-                        href="index.php?action=raconte&ctrl=utrip">Racontez</a>
+                        href="utrip/raconte">Racontez</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link flex-fill {if ($strPage == "forum")} active{/if}"
-                        href="index.php?action=home&ctrl=forum">Forum</a>
+                        href="forum/home">Forum</a>
                 </li>
                 <li class="nav-item">
                     <div id="nav-form">
@@ -44,7 +44,7 @@
                 </li>
                 <li class="nav-item ">
                     <div class="button-center">
-                        <a class="green-btn" href="index.php?action=login&ctrl=user"><i
+                        <a class="green-btn" href="user/login"><i
                                 class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
                     </div>
                 </li>

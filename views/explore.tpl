@@ -97,7 +97,7 @@ La view de la page entière Explorez avec tous les articles
                     communauté de voyageurs passionnés et partagez les moments qui ont rendu votre expérience inoubliable.
                 </p>
                 <div class="button-center">
-                    <a class="green-btn" href="index.php?action=raconte&ctrl=utrip"><i class="fa-solid fa-feather"></i>
+                    <a class="green-btn" href="utrip/raconte"><i class="fa-solid fa-feather"></i>
                         Je raconte la mienne</a>
                 </div>
             </div>
