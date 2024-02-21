@@ -13,7 +13,7 @@
                     <p>Partagez vos aventures uniques et découvrez comment votre périple inspire et émerveille notre
                         communauté.</p>
                     <div class="button-left">
-                        <a class="green-btn" href="index.php?action=raconte&ctrl=utrip"><i
+                        <a class="green-btn" href="utrip/raconte"><i
                                 class="fa-solid fa-feather"></i>Je raconte mon voyage</a>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <p>Plongez dans un monde de récits captivants où chaque destination dévoile ses mystères et ses
                         merveilles.</p>
                     <div class="button-center">
-                        <a class="orange-btn" href="index.php?action=explore&ctrl=utrip"><i
+                        <a class="orange-btn" href="utrip/explore"><i
                                 class="fa-solid fa-suitcase-rolling"></i> J'explore les
                         histoires</a>
                 </div>
@@ -61,7 +61,7 @@
                     <p>Rejoignez notre forum et connectez-vous avec une communauté passionnée pour partager conseils et
                         expériences de voyage.</p>
                     <div class="button-left">
-                        <a class="green-btn" href="index.php?action=home&ctrl=forum"><i class="fa-solid fa-comments"></i> Je
+                        <a class="green-btn" href="forum/home"><i class="fa-solid fa-comments"></i> Je
                             découvre le forum</a>
                     </div>
                 </div>
