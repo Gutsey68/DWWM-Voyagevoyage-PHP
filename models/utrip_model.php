@@ -41,14 +41,14 @@ class UtripModel extends Model
 			$strWhere	= " AND ";
 		}
 		// Recherche par continent
-		$strCont		= $arrSearch['continent'] ?? "";
+		$strCont		= $arrSearch['cont'] ?? "";
 		if ($strCont != '') {
 			$strQuery 	.= $strWhere . " regions_name = :continent";
 			$strWhere	= " AND ";
 		}
 
 		// Recherche par catégories
-		$strCat		= $arrSearch['categorie'] ?? "";
+		$strCat		= $arrSearch['cat'] ?? "";
 		if ($strCat != '') {
 			$strQuery 	.= $strWhere . " cat_lib = :categorie ";
 			$strWhere	= " AND ";
@@ -87,6 +87,12 @@ class UtripModel extends Model
 	{
 		$strQuery 	= "SELECT cat_lib AS 'utrip_cat'
 						FROM categorie";
+		return $this->_db->query($strQuery)->fetchAll();
+	}
+	public function findRegions()
+	{
+		$strQuery 	= "SELECT regions_name AS 'utrip_cont'
+						FROM regions";
 		return $this->_db->query($strQuery)->fetchAll();
 	}
 
@@ -143,6 +149,4 @@ class UtripModel extends Model
 		$rqPrep->execute();
 		return is_array($rqPrep->fetch());
 	}
-
-
 }

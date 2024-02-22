@@ -36,12 +36,10 @@ La view de la page entière Explorez avec tous les articles
                     <label for="continentSelect" class="form-label">Continent</label>
                     <div class="col">
                         <select class="form-select" id="continentSelect" name="cont">
-                            <option value="Afrique">Afrique</option>
-                            <option value="Amérique">Amérique</option>
-                            <option value="Asie">Asie</option>
-                            <option value="Europe">Europe</option>
-                            <option value="Océanie">Océanie</option>
-                            <option value="Antarctique">Antarctique</option>
+                            <option>Choisissez un continent</option>
+                            {foreach from=$arrRegionsToDisplay item=objUtrip}
+                                <option value="{$objUtrip->getCont()}">{$objUtrip->getCont()}</option>
+                            {/foreach}
 
                         </select>
                     </div>
@@ -64,11 +62,13 @@ La view de la page entière Explorez avec tous les articles
             </div>
             <!-- Bouton de recherche -->
             <div class="row">
-                <div class="col">
-                    <button type="submit" value="Rechercher" class="btn green-btn">
-                        <i class="fa-solid fa-magnifying-glass"></i> Rechercher
-                    </button>
+                <div class="col-2">
+                    <input type="submit" value="Rechercher" class="btn green-btn"></input>
                 </div>
+                <div class="col-2">
+                    <input class="btn green-btn" type="reset" value="Réinitialiser" />
+                </div>
+                <div class="col-8"></div>
             </div>
         </div>
     </form>
@@ -97,7 +97,7 @@ La view de la page entière Explorez avec tous les articles
                     communauté de voyageurs passionnés et partagez les moments qui ont rendu votre expérience inoubliable.
                 </p>
                 <div class="button-center">
-                    <a class="green-btn" href="utrip/raconte"><i class="fa-solid fa-feather"></i>
+                    <a class="green-btn" href="index.php?action=raconte&ctrl=utrip"><i class="fa-solid fa-feather"></i>
                         Je raconte la mienne</a>
                 </div>
             </div>

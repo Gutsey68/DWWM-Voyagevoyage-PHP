@@ -142,6 +142,7 @@ class UtripCtrl extends Ctrl
         $strCat        = $_POST['cat'] ?? "";
         $strCont        = $_POST['cont'] ?? "";
 
+
         $arrSearch         = array(
             'keywords'     => $strKeywords,
             'date'         => $strDate,
@@ -154,7 +155,7 @@ class UtripCtrl extends Ctrl
         $objUtripModel    = new UtripModel;
         $arrUtrips        = $objUtripModel->findAll(0, $arrSearch);
         $arrCats          = $objUtripModel->findCat();
-
+        $arrRegions          = $objUtripModel->findRegions();
 
         // Parcourir les articles pour créer des objets
         $arrUtripsToDisplay    = array();
@@ -170,8 +171,13 @@ class UtripCtrl extends Ctrl
             $objUtrip->hydrate($arrDetailCat);
             $arrCatsToDisplay[] = $objUtrip;
         }
-
-
+        // Parcourir les articles pour créer des objets
+        $arrRegionsToDisplay    = array();
+        foreach ($arrRegions as $arrDetailRegion) {
+            $objUtrip = new Utrip();        // instancie un objet Article
+            $objUtrip->hydrate($arrDetailRegion);
+            $arrRegionsToDisplay[] = $objUtrip;
+        }
 
 
         $this->_arrData["strKeywords"]     = $strKeywords;
@@ -184,6 +190,7 @@ class UtripCtrl extends Ctrl
         $this->_arrData["strDesc"]     = "Découvrez des aventures uniques racontées par des voyageurs passionnés. Laissez-vous inspirer par leurs expériences et partagez les vôtres.";
         $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
         $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
+        $this->_arrData["arrRegionsToDisplay"] = $arrRegionsToDisplay;
 
         $this->afficheTpl("explore");
     }
