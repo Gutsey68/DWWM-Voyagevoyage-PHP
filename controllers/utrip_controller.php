@@ -143,12 +143,10 @@ class UtripCtrl extends Ctrl
         $strCont        = $_POST['cont'] ?? "";
 
 
-        $arrSearch         = array(
-            'keywords'     => $strKeywords,
-            'date'         => $strDate,
-            'cat'    => $strCat,
-            'cont'    => $strCont
-        );
+        $arrSearch         = array('keywords'     => $strKeywords,
+                                    'date'         => $strDate,
+                                    'cat'    => $strCat,
+                                    'cont'    => $strCont,);
 
 
         /* Utilisation de la classe model */
