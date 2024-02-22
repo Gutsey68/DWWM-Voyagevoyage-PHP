@@ -13,8 +13,8 @@ class UtripModel extends Model
 	public function findAll(int $intLimit = 0, $arrSearch = array())
 	{
 		$strQuery     = "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
-		utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
-		 AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
+						utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
+						AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
 								FROM utrip 
 								LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 								LEFT OUTER JOIN users ON user_id = utrip_user_id
@@ -29,7 +29,7 @@ class UtripModel extends Model
 		// Recherche par mot clé
 		$strKeywords = $arrSearch['keywords'] ?? "";
 		if ($strKeywords != '') {
-			$strQuery 	.= $strWhere . " (utrip_name LIKE :keywords
+			$strQuery .= $strWhere." (utrip_name LIKE :keywords
 						OR utrip_description LIKE :keywords) ";
 			$strWhere	= " AND ";
 		}
@@ -37,20 +37,20 @@ class UtripModel extends Model
 		// Recherche par date exacte
 		$strDate		= $arrSearch['date'] ?? "";
 		if ($strDate != '') {
-			$strQuery 	.= $strWhere . " utrip_date = :date ";
+			$strQuery 	.= $strWhere." utrip_date = :date ";
 			$strWhere	= " AND ";
 		}
 		// Recherche par continent
-		$strCont		= $arrSearch['cont'] ?? "";
+		$strCont		= $arrSearch['cont']??"";
 		if ($strCont != '') {
-			$strQuery 	.= $strWhere . " regions_name = :continent";
+			$strQuery 	.= $strWhere." regions_name = :cont";
 			$strWhere	= " AND ";
 		}
 
 		// Recherche par catégories
 		$strCat		= $arrSearch['cat'] ?? "";
 		if ($strCat != '') {
-			$strQuery 	.= $strWhere . " cat_lib = :categorie ";
+			$strQuery 	.= $strWhere. " cat_lib = :cat ";
 			$strWhere	= " AND ";
 		}
 
@@ -71,10 +71,10 @@ class UtripModel extends Model
 			$rqPrep->bindValue(":date", $strDate, PDO::PARAM_STR);
 		}
 		if ($strCat != '') {
-			$rqPrep->bindValue(":categorie", $strCat, PDO::PARAM_STR);
+			$rqPrep->bindValue(":cat", $strCat, PDO::PARAM_STR);
 		}
 		if ($strCont != '') {
-			$rqPrep->bindValue(":continent", $strCont, PDO::PARAM_STR);
+			$rqPrep->bindValue(":cont", $strCont, PDO::PARAM_STR);
 		}
 		if ($intLimit > 0) {
 			$rqPrep->bindValue(":limit", $intLimit, PDO::PARAM_INT);

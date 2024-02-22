@@ -23,7 +23,7 @@ La view de la page entière Explorez avec tous les articles
             <div class="row mb-4">
                 <div class="col">
                     <div class="input-group">
-                        <input type="search" class="form-control" id="searchBox" name="keywords"
+                        <input type="search" class="form-control" id="searchBox" name="keywords" value="{$strKeywords}"
                             placeholder="Recherchez un article...">
                     </div>
                 </div>
@@ -33,12 +33,12 @@ La view de la page entière Explorez avec tous les articles
             <div class="row g-3 align-items-center mb-4">
                 <!-- Filtres par continent -->
                 <div class="col-md">
-                    <label for="continentSelect" class="form-label">Continent</label>
+                    <label for="cont" class="form-label">Continent</label>
                     <div class="col">
-                        <select class="form-select" id="continentSelect" name="cont">
-                            <option>Choisissez un continent</option>
+                        <select class="form-select" id="cont" name="cont">
+                            <option value="">Choisissez un continent</option>
                             {foreach from=$arrRegionsToDisplay item=objUtrip}
-                                <option value="{$objUtrip->getCont()}">{$objUtrip->getCont()}</option>
+                                <option value="">{$objUtrip->getCont()}</option>
                             {/foreach}
 
                         </select>
@@ -46,16 +46,16 @@ La view de la page entière Explorez avec tous les articles
                 </div>
                 <!-- Filtre par date d'ajout -->
                 <div class="col-md">
-                    <label for="dateAdded" class="form-label">Date d'ajout</label>
-                    <input type="date" class="form-control" id="dateAdded" name="date">
+                    <label for="date" class="form-label">Date d'ajout</label>
+                    <input type="date" class="form-control" id="date" value="{$strDate}" name="date">
                 </div>
                 <!-- Filtre par catégorie -->
                 <div class="col-md">
-                    <label for="categorySelect" class="form-label">Catégorie</label>
-                    <select class="form-select" id="categorySelect" name="cat">
-                        <option>Choisissez une catégorie...</option>
+                    <label for="cat" class="form-label">Catégorie</label>
+                    <select class="form-select" id="cat" name="cat">
+                        <option value="">Choisissez une catégorie...</option>
                         {foreach from=$arrCatsToDisplay item=objUtrip}
-                            <option value="{$objUtrip->getCat()}">{$objUtrip->getCat()}</option>
+                            <option value="">{$objUtrip->getCat()}</option>
                         {/foreach}
                     </select>
                 </div>
@@ -74,19 +74,17 @@ La view de la page entière Explorez avec tous les articles
     </form>
     <!-- Grille des articles -->
     <div id="explore-utrips">
-        <div class="container">
-            <div class="row">
-                <article>
-                    <div class="container">
-                        <div class="row ">
-                            {foreach from=$arrUtripsToDisplay item=objUtrip}
-                                {include file="views/utrip.tpl"}
-                            {/foreach}
-                        </div>
-                    </div>
-                </article>
+        <article>
+            <div class="container">
+                <div class="row ">
+                    {foreach from=$arrUtripsToDisplay item=objUtrip}
+                        {include file="views/utrip.tpl"}
+                    {foreachelse}
+                        <p>Pas de résultat</p>
+                    {/foreach}
+                </div>
             </div>
-        </div>
+        </article>
     </div>
     <section>
         <div id="marge" class="container mt-5 mb-5 text-center">
