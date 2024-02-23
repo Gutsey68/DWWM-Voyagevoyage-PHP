@@ -36,11 +36,13 @@ La view de la page entière Explorez avec tous les articles
                     <label for="cont" class="form-label">Continent</label>
                     <div class="col">
                         <select class="form-select" id="cont" name="cont">
-                            <option value="">Choisissez un continent</option>
-                            {foreach from=$arrRegionsToDisplay item=objUtrip}
-                                <option value="">{$objUtrip->getCont()}</option>
-                            {/foreach}
-
+                            <option>Choisissez un continent</option>
+                            <option>Afrique</option>
+                            <option>Amérique</option>
+                            <option>Asie</option>
+                            <option>Europe</option>
+                            <option>Océanie</option>
+                            <option>Antarctique</option>
                         </select>
                     </div>
                 </div>

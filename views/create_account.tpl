@@ -9,9 +9,9 @@
         </div>
     {/if}
     <form action="" method="post">
-    <div class="phppot-container">
-        <a href="user/login">Déja un compte ? Connectez-vous !</a>
-    </div>
+        <div class="phppot-container">
+            <a href="user/login">Déja un compte ? Connectez-vous !</a>
+        </div>
         <div class="">
 
 
@@ -49,14 +49,13 @@
                 <div class="form-label">
                     Password<span class="required error" id="signup-password-info"></span>
                 </div>
-                <input class="input-box-330" type="password"  name="password" id="password">
+                <input class="input-box-330" type="password" name="password" id="password">
             </div>
 
 
             <div class="inline-block">
                 <div class="form-label">
-                    Confirm Password<span class="required error"
-                        id="confirm-password-info"></span>
+                    Confirm Password<span class="required error" id="confirm-password-info"></span>
                 </div>
                 <input class="input-box-330" type="password" name="passwd_confirm" id="passwd_confirm">
             </div>
@@ -64,10 +63,10 @@
             <p>
                 <input type="submit" value="S'enregistrer">
             </p>
-            </form>
-        </div>
+    </form>
     </div>
-</div>
+    </div>
+    </div>
 
 
     </form>
