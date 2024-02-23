@@ -46,7 +46,7 @@
 		 */
 		public function searchUser(string $strEmail, string $strPassword) {
 
-			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_password, user_role
+			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_password, user_role_id
 							FROM users
 							WHERE user_email = :mail;";
 

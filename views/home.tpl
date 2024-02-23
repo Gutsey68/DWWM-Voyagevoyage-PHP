@@ -1,4 +1,4 @@
-La page d'acceuil VoyageVoyage
+{* La page d'acceuil VoyageVoyage *}
 
 {extends file="views/layout.tpl"}
 
