@@ -63,7 +63,7 @@
 			}
 
 			// Tri par ordre décroissant
-			$strQuery 	.= " ORDER BY utrip_date DESC";
+			$strQuery 	.= " ORDER BY utrip_date DESC ";
 			if ($intLimit > 0) {
 				$strQuery 	.= "LIMIT :limit";
 			}

@@ -7,7 +7,13 @@
         </div>
         <div class="card-body  topic">
             <h3 class="card-title">{$objForum->getTitle()}</h3>
-            <p class="card-text">{$objForum->getContent()}</p>
+            <p class="card-text">
+                {if ($strPage == "index")}
+                    {$objForum->getContentSummary(UtripCtrl::MAX_CONTENT)}
+                {else}
+                    {$objForum->getContentSummary(ForumCtrl::MAX_CONTENT)}
+                {/if}
+            </p>
         </div>
     </div>
 </div>

@@ -10,16 +10,17 @@
 
     class UtripCtrl extends Ctrl {
 
-        const MAX_CONTENT = 50;
+        const MAX_CONTENT = 220;
 
 		/**
 		* Méthode qui permet d'afficher la page d'accueil contenant les 4 derniers articles et les 2 derniers topics du forum
 		*/
         public function home() {
-
+            $arrSearch = array();
             /* Utilisation de la classe model pour les articles*/
             $objUtripModel    = new UtripModel;
             $arrUtrips        = $objUtripModel->findAll(4);
+
 
             // Parcourir les articles pour créer des objets
 			// -----  TODO Optimisation => déplacer dans modèle ------- //

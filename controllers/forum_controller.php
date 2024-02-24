@@ -8,6 +8,8 @@
 
     class ForumCtrl extends Ctrl {
 
+        const MAX_CONTENT = 300;
+
 		/**
 		* Méthode qui permet d'afficher la page du forum
 		*/

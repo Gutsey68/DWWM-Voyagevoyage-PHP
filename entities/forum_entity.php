@@ -73,7 +73,7 @@
 		public function getContentSummary(int $max) {
 			$strContent        = $this->_content;
 			if (strlen($strContent) > $max) {
-				$strContent    = substr($strContent, 0, $max) . "...";
+				$strContent    = substr($strContent, 0, $max)."...";
 			}
 			return $strContent;
 		}
