@@ -49,7 +49,7 @@
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage:</label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="description"
-                            value="" placeholder="Contenu" required>{$objUtrip->getDescription()}</textarea></div>
+                            value="" placeholder="Contenu" rows="8" required>{$objUtrip->getDescription()}</textarea></div>
                 </div>
             </div>
             <!-- catégories -->

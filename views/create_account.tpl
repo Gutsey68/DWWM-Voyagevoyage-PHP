@@ -1,6 +1,7 @@
 {extends file="views/layout.tpl"}
 
 {block name="contenu"}
+
     {if (count($arrErrors) >0) }
         <div class="alert alert-danger">
             {foreach from=$arrErrors item=strError}
@@ -8,6 +9,7 @@
             {/foreach}
         </div>
     {/if}
+    
     <form action="" method="post">
         <div class="phppot-container">
             <a href="user/login">Déja un compte ? Connectez-vous !</a>

@@ -44,7 +44,7 @@
                 <div class="container">
                     <div class="row ">
                         {foreach from=$arrUtripsToDisplay item=objUtrip}
-                            {include file="views/utrip.tpl"}
+                            {include file="views/utrip_summary.tpl"}
                         {/foreach}
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <div class="col-md-6 col-12">
                     <section class="pb-5">
                         {foreach from=$arrForumsToDisplay item=objForum}
-                            {include file="views/topic.tpl"}
+                            {include file="views/topic_summary.tpl"}
                         {/foreach}
                     </section>
                 </div>

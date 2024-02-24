@@ -16,7 +16,7 @@
 		* Méthode qui permet d'afficher la page d'accueil contenant les 4 derniers articles et les 2 derniers topics du forum
 		*/
         public function home() {
-            $arrSearch = array();
+
             /* Utilisation de la classe model pour les articles*/
             $objUtripModel    = new UtripModel;
             $arrUtrips        = $objUtripModel->findAll(4);
@@ -192,5 +192,17 @@
             $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
 
             $this->afficheTpl("explore");
+        }
+
+		/**
+		* Méthode qui permet d'afficher une page d'article
+		*/
+        public function utrip() {
+
+            $this->_arrData["strPage"]     = "utrip";
+            $this->_arrData["strTitle"] = "Article";
+            $this->_arrData["strDesc"]     = "Contenu de l'article";
+
+            $this->afficheTpl("utrip");
         }
     }

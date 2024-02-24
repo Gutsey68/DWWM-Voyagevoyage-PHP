@@ -75,7 +75,7 @@
             <div class="container">
                 <div class="row ">
                     {foreach from=$arrUtripsToDisplay item=objUtrip}
-                        {include file="views/utrip.tpl"}
+                        {include file="views/utrip_summary.tpl"}
                     {foreachelse}
                         <p>Pas de résultat</p>
                     {/foreach}

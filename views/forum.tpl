@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row ">
                 {foreach from=$arrForumsToDisplay item=objForum}
-                    {include file="views/topic.tpl"}
+                    {include file="views/topic_summary.tpl"}
                 {/foreach}
             </div>
         </div>

@@ -85,4 +85,16 @@
 
             $this->afficheTpl("create_topic");
         }
+
+        /**
+		* Méthode qui permet de voir un topic
+		*/
+        public function topic() {
+
+            $this->_arrData["strPage"]     = "ctopic";
+            $this->_arrData["strTitle"] = "topic";
+            $this->_arrData["strDesc"]     = "Page d'un topic'";
+
+            $this->afficheTpl("topic");
+        }
     }
