@@ -37,7 +37,7 @@
 			// Recherche par mot clé
 			$strKeywords = $arrSearch['keywords'] ?? "";
 			if ($strKeywords != '') {
-				$strQuery 	.= $strWhere . " (utrip_name LIKE :keywords
+				$strQuery.=$strWhere."(utrip_name LIKE :keywords
 							OR utrip_description LIKE :keywords) ";
 				$strWhere	= " AND ";
 			}
@@ -45,31 +45,31 @@
 			// Recherche par date exacte
 			$strDate		= $arrSearch['date'] ?? "";
 			if ($strDate != '') {
-				$strQuery 	.= $strWhere . " utrip_date = :date ";
+				$strQuery.=$strWhere. " utrip_date = :date ";
 				$strWhere	= " AND ";
 			}
 			// Recherche par continent
 			$strCont		= $arrSearch['cont'] ?? "";
 			if ($strCont != '') {
-				$strQuery 	.= $strWhere . " regions_name = :cont";
+				$strQuery 	.= $strWhere." regions_name = :cont";
 				$strWhere	= " AND ";
 			}
 
 			// Recherche par catégorie
 			$strCat		= $arrSearch['cat'] ?? "";
 			if ($strCat != '') {
-				$strQuery 	.= $strWhere . " cat_lib = :cat ";
+				$strQuery 	.= $strWhere."cat_lib = :cat ";
 				$strWhere	= " AND ";
 			}
 
 			// Tri par ordre décroissant
 			$strQuery 	.= " ORDER BY utrip_date DESC";
 			if ($intLimit > 0) {
-				$strQuery 	.= " LIMIT :limit";
+				$strQuery 	.= "LIMIT :limit";
 			}
 
 			$rqPrep	= $this->_db->prepare($strQuery);
-			if ($strKeywords != '') {$rqPrep->bindValue(":keywords", "%" . $strKeywords . "%", PDO::PARAM_STR);}
+			if ($strKeywords != '') {$rqPrep->bindValue(":keywords", "%" .$strKeywords. "%", PDO::PARAM_STR);}
 			if ($strDate != '') {$rqPrep->bindValue(":date", $strDate, PDO::PARAM_STR);}
 			if ($strCat != '') {$rqPrep->bindValue(":cat", $strCat, PDO::PARAM_STR);}
 			if ($strCont != '') {$rqPrep->bindValue(":cont", $strCont, PDO::PARAM_STR);}

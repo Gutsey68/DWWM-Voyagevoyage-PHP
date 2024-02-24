@@ -146,21 +146,30 @@
         public function explore() {
 
             // Récupère l'information dans $_POST
-            $strKeywords     = $_POST['keywords'] ?? "";
-            $strDate         = $_POST['date'] ?? "";
-            $strCat          = $_POST['cat'] ?? "";
-            $strCont         = $_POST['cont'] ?? "";
+            $strKeywords     = $_POST['keywords']??"";
+            $strDate         = $_POST['date']??"";
+            $strCat          = $_POST['cat']??"";
+            $strCont         = $_POST['cont']??"";
 
             $arrSearch         = array('keywords'     => $strKeywords,
                                         'date'        => $strDate,
                                         'cat'         => $strCat,
                                         'cont'        => $strCont );
-
+                                        
             /* Utilisation de la classe model */
+            $objUtripCatModel    = new UtripModel;
+            $arrCats          = $objUtripCatModel->findCat();
+
+            // Parcourir les articles pour créer des objets (pour afficher les catégories)
+            $arrCatsToDisplay    = array();
+            foreach ($arrCats as $arrDetailCat) {
+                $objUtripCat = new Utrip(); 
+                $objUtripCat->hydrate($arrDetailCat);
+                $arrCatsToDisplay[] = $objUtripCat;
+            }
+
             $objUtripModel    = new UtripModel;
             $arrUtrips        = $objUtripModel->findAll(0, $arrSearch);
-            $arrCats          = $objUtripModel->findCat();
-
 
             // Parcourir les articles pour créer des objets (pour afficher les articles)
             $arrUtripsToDisplay    = array();
@@ -168,13 +177,6 @@
                 $objUtrip = new Utrip(); 
                 $objUtrip->hydrate($arrDetailUtrip);
                 $arrUtripsToDisplay[] = $objUtrip;
-            }
-            // Parcourir les articles pour créer des objets (pour afficher les catégories)
-            $arrCatsToDisplay    = array();
-            foreach ($arrCats as $arrDetailCat) {
-                $objUtrip = new Utrip(); 
-                $objUtrip->hydrate($arrDetailCat);
-                $arrCatsToDisplay[] = $objUtrip;
             }
 
             $this->_arrData["strKeywords"]     = $strKeywords;

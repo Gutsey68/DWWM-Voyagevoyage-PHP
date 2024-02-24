@@ -43,12 +43,8 @@
 			$rqPrep	= $this->_db->prepare($strQuery);
 
 			// On complète les variables de la requête, selon le contexte
-			if ($strKeywords != '') {
-				$rqPrep->bindValue(":keywords", "%" . $strKeywords . "%", PDO::PARAM_STR);
-			}
-			if ($intLimit > 0) {
-				$rqPrep->bindValue(":limit", $intLimit, PDO::PARAM_INT);
-			}
+			if ($strKeywords != '') {$rqPrep->bindValue(":keywords", "%" . $strKeywords . "%", PDO::PARAM_STR);}
+			if ($intLimit > 0) {$rqPrep->bindValue(":limit", $intLimit, PDO::PARAM_INT);}
 			$rqPrep->execute();
 			return $rqPrep->fetchAll();
 		}

@@ -1,4 +1,4 @@
-La view de la page entière Explorez avec tous les articles
+{* La view de la page entière Explorez avec tous les articles *}
 
 {extends file="views/layout.tpl"}
 
@@ -23,12 +23,11 @@ La view de la page entière Explorez avec tous les articles
             <div class="row mb-4">
                 <div class="col">
                     <div class="input-group">
-                        <input type="search" class="form-control" id="searchBox" name="keywords" value="{$strKeywords}"
+                        <input type="search" class="form-control" id="keywords" name="keywords" value="{$strKeywords}"
                             placeholder="Recherchez un article...">
                     </div>
                 </div>
             </div>
-
             <!-- Filtres -->
             <div class="row g-3 align-items-center mb-4">
                 <!-- Filtres par continent -->
@@ -36,7 +35,7 @@ La view de la page entière Explorez avec tous les articles
                     <label for="cont" class="form-label">Continent</label>
                     <div class="col">
                         <select class="form-select" id="cont" name="cont">
-                            <option>Choisissez un continent</option>
+                            <option value="">Choisissez un continent</option>
                             <option>Afrique</option>
                             <option>Amérique</option>
                             <option>Asie</option>
@@ -57,20 +56,16 @@ La view de la page entière Explorez avec tous les articles
                     <select class="form-select" id="cat" name="cat">
                         <option value="">Choisissez une catégorie...</option>
                         {foreach from=$arrCatsToDisplay item=objUtrip}
-                            <option value="">{$objUtrip->getCat()}</option>
+                            <option value="{$objUtrip->getCat()}">{$objUtrip->getCat()}</option>
                         {/foreach}
                     </select>
                 </div>
             </div>
             <!-- Bouton de recherche -->
             <div class="row">
-                <div class="col-2">
+                <div class="">
                     <input type="submit" value="Rechercher" class="btn green-btn"></input>
                 </div>
-                <div class="col-2">
-                    <input class="btn green-btn" type="reset" value="Réinitialiser" />
-                </div>
-                <div class="col-8"></div>
             </div>
         </div>
     </form>

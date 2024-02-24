@@ -16,9 +16,7 @@
             // Récupère l'information dans $_POST
             $strKeywords     = $_POST['keywords'] ?? "";
 
-            $arrSearch         = array(
-                'keywords'     => $strKeywords,
-            );
+            $arrSearch         = array('keywords'     => $strKeywords );
 
             /* Utilisation de la classe model */
             $objForumModel    = new ForumModel;
