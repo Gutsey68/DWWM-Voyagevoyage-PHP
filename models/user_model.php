@@ -32,7 +32,7 @@
 		 */
 		public function get(int $id) {
 
-			$strQuery 	= "SELECT user_firstname 
+			$strQuery 	= "SELECT user_name, user_firstname, user_email, user_password 
 							FROM users
 							WHERE user_id = " . $id;
 			return $this->_db->query($strQuery)->fetch();

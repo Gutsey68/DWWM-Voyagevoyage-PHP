@@ -91,6 +91,7 @@
 		*/
 		public function edit_profile() {
 
+			var_dump($_POST);
 			// Est-ce que l'utilisateur est connecté ?
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
 				header("Location:index.php?ctrl=utrip&action=home");
@@ -126,18 +127,29 @@
 				}
 			
 				// Mise à jour en BDD
-				if(count($arrErrors) == 0){
-					if ($objUserModel->update($objUser)){
+				// if(count($arrErrors) == 0){
+				// 	if ($objUserModel->update($objUser)){
 
-						// Attention si informations de session modifiées => modifier la session
-						$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
-						$_SESSION['user']['user_name'] 		= $objUser->getName();
+				// 		$strPseudo	= trim($_POST['pseudo']);
+				// 		if($strPseudo != ''){
+				// 			$strPseudo	= filter_var($strPseudo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+				// 			setcookie('pseudo', $strPseudo, $this->_arrCookieOptions);
+				// 		}else{
+				// 			setcookie('pseudo', '', array(	'expires'=>time()-1,
+				// 											'path' 		=> '/', 
+				// 											'domain' 	=> '', 
+				// 									));
+				// 		}
+
+				// 		// Attention si informations de session modifiées => modifier la session
+				// 		$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
+				// 		$_SESSION['user']['user_name'] 		= $objUser->getName();
 						
-						header("Location:index.php?ctrl=utrip&action=home");
-					}else{
-						$arrErrors[] = "L'insertion s'est mal passée";
-					}
-				}
+				// 		header("Location:index.php?ctrl=utrip&action=home");
+				// 	}else{
+				// 		$arrErrors[] = "L'insertion s'est mal passée";
+				// 	}
+				// }
 				
 			}
 			

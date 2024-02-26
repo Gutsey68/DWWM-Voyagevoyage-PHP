@@ -43,10 +43,38 @@
                     </div>
                 </li>
                 <li class="nav-item ">
-                    <div class="button-center">
+                    {* <div class="button-center">
                         <a class="green-btn" href="user/login"><i
                                 class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
-                    </div>
+                    </div> *}
+
+                    <div id="user" class="col-4 d-flex justify-content-end align-items-center">
+						{if isset($smarty.session.user.user_id) && $smarty.session.user.user_id != ''}
+						{*if isset($smarty.session.user.user_id)*}
+						<a class="btn btn-sm" href="user/edit_profile" title="Modifier mon compte">
+							<i class="fas fa-user"></i> Bonjour
+							{if isset($smarty.cookies.pseudo)}
+								{$smarty.cookies.pseudo}
+							{else}
+								{$smarty.session.user.user_firstname}
+							{/if}
+						</a>
+						| 
+						<!-- Si connecté -->
+						<a class="btn btn-sm" href="user/logout" title="Se déconnecter">
+							<i class="fas fa-sign-out-alt"></i>
+						</a> 
+						{else}
+						<a class="btn btn-sm" href="user/create_account" title="Créer un compte">
+							<i class="fas fa-user"></i>
+						</a>
+						| 
+						<!-- Si non connecté -->
+						<a class="btn btn-sm" href="user/login" title="Se connecter">
+							<i class="fas fa-sign-in-alt"></i>
+						</a> 
+						{/if}
+					</div>
                 </li>
             </ul>
         </div>
