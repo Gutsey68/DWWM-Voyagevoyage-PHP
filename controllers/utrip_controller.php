@@ -7,6 +7,7 @@
     include_once("models/forum_model.php");
     include_once("entities/utrip_entity.php");
     include_once("entities/forum_entity.php");
+    include_once("entities/img_entity.php");
 
     class UtripCtrl extends Ctrl {
 
@@ -56,7 +57,7 @@
 		* Méthode qui permet d'ajouter un article
 		*/
         public function raconte() {
-
+    
             /* Utilisation de la classe model pour les catégories */
             $objUtripModel    = new UtripModel;
             $arrCats          = $objUtripModel->findCat();
@@ -84,6 +85,13 @@
                 }
                 if ($objUtrip->getDescription() == "") {
                     $arrErrors['content'] = "Le contenu est obligatoire";
+                }
+
+                $arrImagesDet = array();
+                foreach($_FILES['image'] as $key=>$arrImages){
+                    foreach($arrImages as $num => $val){
+                        $arrImagesDet[$num][$key] = $val;
+                    }
                 }
 
                 /* Enregistrer l'image */
@@ -130,7 +138,7 @@
                 $objUtrip->setName("");
                 $objUtrip->setDescription("");
             }
-            
+            var_dump($_FILES);
             $this->_arrData["objUtrip"]     = $objUtrip;
             $this->_arrData["strPage"]         = "raconte";
             $this->_arrData["strTitle"]     = "Ajouter un article";

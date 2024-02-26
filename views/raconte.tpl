@@ -24,17 +24,17 @@
             <div class="row">
                 <div class="col-12">
                     <p>Ajoutez jusqu'à 20 photos.</p>
-                    </div>
-                    <div class="col-12" id="drop-area">
-                        <div class="my-form pt-5">
-                            <input type="file" id="fileElem" multiple accept="image/*" value="image" name="img">
-                            <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
-                                photos</label>
-                            <div id="gallery" class="pt-5"></div>
-                        </div>
+                </div>
+                <div class="col-12" id="drop-area">
+                    <div class="my-form pt-5">
+                        <input type="file" id="fileElem" multiple name="img[]">
+                        <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
+                            photos</label>
+                        <div id="gallery" class="pt-5"></div>
                     </div>
                 </div>
             </div>
+        </div>
             <!-- nom de l'article -->
             <div class="container mb-3  form-bg">
                 <div class="row">

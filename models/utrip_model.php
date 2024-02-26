@@ -119,14 +119,14 @@
 		 * Méthode permettant d'ajouter les images d'un article en BDD 
 		 * @param $objUtrip object Utrip et LastId à insérer
 		 */
-		public function insertImg(object $objArticle, $lastId) {
+		public function insertImg(object $objUtrip, $lastId) {
 			
 			$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id )
 								VALUES ( :image, :imgUtripId);
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
-			$rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":image", $objUtrip->getImg(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":imgUtripId", $lastId, PDO::PARAM_INT);
 
 			return $rqPrep->execute();

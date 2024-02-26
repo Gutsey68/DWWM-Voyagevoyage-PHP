@@ -6,7 +6,7 @@
     class Ctrl {
         // Tableau des données à utiliser dans le template
         protected array $_arrData = array();
-        protected array $_arrMimesType = array("image/jpeg", "image/png");
+        protected array $_arrMimesType = array("image/jpeg", "image/png" , "image/webp");
 
         // Tableau de configuration des cookies
 		protected array $_arrCookieOptions = array ();
