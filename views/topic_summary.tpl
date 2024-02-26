@@ -2,7 +2,7 @@
 
 <div class="col-12 resume-topic">
     <div class="card">
-        <a href="forum/topic">
+        <a href="forum/topic?id={$objForum->getId()}">
             <div class="card-header  topic">
                 {$objForum->getCreator()}
             </div>
