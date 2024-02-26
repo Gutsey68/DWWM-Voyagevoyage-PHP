@@ -98,15 +98,15 @@
 		public function insert(object $objUtrip) {
 
 			$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id , utrip_city , utrip_cat )
-								VALUES (:titre, :contenu, :budget , NOW(), 1);
+								VALUES (:titre, :description, :budget , NOW(), 1, 1 , 1);
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":titre", $objUtrip->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":contenu", $objUtrip->getDescription(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":city", $objUtrip->getCity(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
+			// $rqPrep->bindValue(":city", $objUtrip->getCity(), PDO::PARAM_STR);
+			// $rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_STR);
 
 			$rqPrep->execute();
 
@@ -121,8 +121,8 @@
 		 */
 		public function insertImg(object $objUtrip, $lastId) {
 			
-			$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id )
-								VALUES ( :image, :imgUtripId);
+			$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id , img_description, img_name )
+								VALUES ( :image, :imgUtripId, '' , '');
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
