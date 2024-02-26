@@ -131,4 +131,26 @@
 
 			return $rqPrep->execute();
 		}
+		
+		/**
+		* Méthode permettant de récupérer un article en fonction de son id
+		* @param int $id Identifiant de l'article à récupérer
+		* @return array Le détail de l'Article
+		*/		
+		public function get(int $id) : array|false{
+			$strQuery 	= "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
+							utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
+							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , countries_name AS 'utrip_country'
+									FROM utrip 
+									LEFT OUTER JOIN image ON img_utrip_id = utrip_id
+									LEFT OUTER JOIN users ON user_id = utrip_user_id
+									LEFT OUTER JOIN cities ON cities_id = utrip_city
+									LEFT OUTER JOIN countries ON cities_country_id = countries_id
+									LEFT OUTER JOIN regions ON countries_region_id = regions_id
+									LEFT OUTER JOIN categorie ON utrip_cat = cat_id
+									LEFT OUTER JOIN comments ON com_utrip_id = utrip_id
+									LEFT OUTER JOIN likes ON utrip_id = like_utrip_id
+							WHERE utrip_id = ".$id;
+			return $this->_db->query($strQuery)->fetch();			
+		}
 	}

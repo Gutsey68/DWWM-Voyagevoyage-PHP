@@ -198,10 +198,19 @@
 		* Méthode qui permet d'afficher une page d'article
 		*/
         public function utrip() {
+            $intUtripId	= $_GET['id']??0;
+			
+			$objUtrip 		= new Utrip();	// instancie un objet Article
+			$objUtripModel	= new UtripModel();// instancie le modèle Article
+			
+			$arrUtrip 	= $objUtripModel->get($intUtripId);
+			$objUtrip->hydrate($arrUtrip);
+			
 
             $this->_arrData["strPage"]     = "utrip";
             $this->_arrData["strTitle"] = "Article";
             $this->_arrData["strDesc"]     = "Contenu de l'article";
+			$this->_arrData["objUtrip"]	= $objUtrip;
 
             $this->afficheTpl("utrip");
         }
