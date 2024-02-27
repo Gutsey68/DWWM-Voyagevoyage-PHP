@@ -4,8 +4,16 @@
 	* @author Groupe1
 	*/
     class Ctrl {
-        // Tableau des données à utiliser dans le template
-        protected array $_arrData = array();
+
+		const BASE_URL = "http://localhost/blog/";
+		
+		// Tableau d'erreur 
+		protected array $_arrErrors = array();
+		
+		// Tableau des données à utiliser dans le template
+		protected array $_arrData	= array(); 
+		
+		// Tableau pour les types Mimes
         protected array $_arrMimesType = array("image/jpeg", "image/png" , "image/webp");
 
         // Tableau de configuration des cookies
@@ -35,17 +43,25 @@
 			}
 		}
 			
-		/**
+/**
 		* Méthode d'affichage des templates
 		* @param $strTpl Nom du template à afficher
 		*/
-        public function afficheTpl($strTpl) {
-            include("libs/smarty/Smarty.class.php");
-            $smarty = new Smarty();
+		public function afficheTpl($strTpl, $boolDisplay = true){
+			include_once("libs/smarty/Smarty.class.php");
+			$smarty = new Smarty();
 
-            foreach ($this->_arrData as $key => $value) {
-                $smarty->assign($key, $value);
-            }
-            $smarty->display("views/" . $strTpl . ".tpl");
-        }
+			foreach($this->_arrData as $key=>$value){
+				$smarty->assign($key, $value);
+			}
+			// L'utilisateur en session
+			$smarty->assign("user", $_SESSION['user']??array());
+			$smarty->assign("base_url", self::BASE_URL);
+			
+			if ($boolDisplay){
+				$smarty->display("views/".$strTpl.".tpl");
+			}else{
+				return $smarty->fetch("views/".$strTpl.".tpl");
+			}
+		}
     }

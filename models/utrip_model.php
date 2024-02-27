@@ -22,7 +22,7 @@
 
 			$strQuery     = "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
 							utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
-							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , cat_id AS 'utrip_catId' , cities_id AS 'utrip_cityId'
+							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
 									FROM utrip 
 									LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 									LEFT OUTER JOIN users ON user_id = utrip_user_id
@@ -85,17 +85,20 @@
 		*/
 		public function findCat() {
 
+			$strQuery 	= "SELECT cat_lib AS 'utrip_cat' , cat_id AS 'utrip_catId'
+							FROM categorie";
 
-				// faire une autre fonction pour les villes
+			return $this->_db->query($strQuery)->fetchAll();
+		}
 
+		/**
+		* Méthode de récupération de toutes les villes
+		* @return Tableau des villes
+		*/
+		public function findCity() {
 
-
-
-
-			$strQuery 	= "SELECT cat_lib AS 'utrip_cat' , cat_id AS 'utrip_catId' , cities_id AS 'utrip_cityId'
-							FROM categorie
-							LEFT OUTER JOIN utrip ON utrip_cat = cat_id
-							INNER JOIN cities ON utrip_city = cities_id";
+			$strQuery 	= "SELECT cities_id AS 'utrip_cityId' , cities_name AS 'utrip_city'
+							FROM cities";
 
 			return $this->_db->query($strQuery)->fetchAll();
 		}
@@ -107,15 +110,16 @@
 		public function insert(object $objUtrip) {
 
 			$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id , utrip_city , utrip_cat )
-								VALUES (:titre, :description, :budget , NOW(), 1, 1 , 1);
+								VALUES (:titre, :description, :budget , NOW(), :id, :cat , :city);
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":titre", $objUtrip->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
-			// $rqPrep->bindValue(":city", $objUtrip->getCity(), PDO::PARAM_STR);
-			// $rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":city", $objUtrip->getCityId(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":cat", $objUtrip->getCatId(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":id", $objUtrip->getId(), PDO::PARAM_STR);
 
 			$rqPrep->execute();
 

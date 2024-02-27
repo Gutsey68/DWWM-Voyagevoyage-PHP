@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-12" id="drop-area">
                     <div class="my-form pt-5">
-                        <input type="file" id="fileElem" multiple name="img[]">
+                        <input type="file" id="fileElem" multiple name="image[]">
                         <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
                             photos</label>
                         <div id="gallery" class="pt-5"></div>
@@ -69,8 +69,7 @@
             <div class="container mb-3  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleCity">Ville:</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleCity" name="city"
-                            placeholder="Ville" required></div>
+                    <div class="col-md-6 col-12"><input class="form-control" value="{$objUtrip->getCity()}" type="text" id="articleCity" name="city" required></div>
                 </div>
             </div>
             <!-- budget -->
