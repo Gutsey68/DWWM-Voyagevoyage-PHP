@@ -58,143 +58,148 @@
 		*/
         public function raconte() {
             
-            // Récupère l'information dans $_POST
-            $strName                = $_POST['name']??"";
-            $strDescription         = $_POST['description']??"";
-            $strCat                 = $_POST['cat']??"";
-            $strCity                = $_POST['city']??"";
-            $strBudget              = $_POST['budget']??"";
 
-            $arrRaconte         = array('name'        => $strName,
-                                        'description' => $strDescription,
-                                        'cat'         => $strCat,
-                                        'city'        => $strCity ,
-                                        'budget'      => $strBudget );
-    
-            /* Utilisation de la classe model pour les catégories */
-            $objUtripModel    = new UtripModel;
-            $arrCats          = $objUtripModel->findCat();
+        // Récupère l'information dans $_POST
+        $strName                = $_POST['name']??"";
+        $strDescription         = $_POST['description']??"";
+        $strCat                 = $_POST['cat']??"";
+        $strCity                = $_POST['city']??"";
+        $strBudget              = $_POST['budget']??"";
+        $intCityId                = $_POST['city']??"";
+        $intCatId              = $_POST['cat']??"";
 
-            // Parcourir les articles pour créer des objets
-            $arrCatsToDisplay    = array();
-            foreach ($arrCats as $arrDetailCat) {
-                $objUtrip = new Utrip();
-                $objUtrip->hydrate($arrDetailCat);
-                $arrCatsToDisplay[] = $objUtrip;
-            }
+        $arrRaconte         = array('name'        => $strName,
+                                    'description' => $strDescription,
+                                    'cat'         => $strCat,
+                                    'city'        => $strCity ,
+                                    'budget'      => $strBudget );
 
-            /* Récupérer les informations du formulaire */
-            $arrErrors = array();
-            $objUtripModel    = new UtripModel;
+        /* Utilisation de la classe model pour les catégories */
+        $objUtripModel    = new UtripModel;
+        $arrCats          = $objUtripModel->findCat();
+
+        // Parcourir les articles pour créer des objets
+        $arrCatsToDisplay    = array();
+        foreach ($arrCats as $arrDetailCat) {
             $objUtrip = new Utrip();
-            if (count($_POST) > 0 && count($_FILES) > 0) {
+            $objUtrip->hydrate($arrDetailCat);
+            $arrCatsToDisplay[] = $objUtrip;
+        }
 
-                /* Créer un objet article */
-                $objUtrip->hydrate($arrRaconte);
-                if ($objUtrip->getName() == "") {
-                    $arrErrors['title'] = "Le titre est obligatoire";
-                }
-                if ($objUtrip->getDescription() == "") {
-                    $arrErrors['content'] = "Le contenu est obligatoire";
-                }
-                $newUtripId = $objUtripModel->insert($objUtrip);
+        /* Récupérer les informations du formulaire */
+        $arrErrors = array();
+        $objUtripModel    = new UtripModel;
+        $objUtrip = new Utrip();
+        if (count($_POST) > 0 && count($_FILES) > 0) {
 
-                $arrImagesDet = array();
-                $strPic = $_FILES['img']['name'] ?? "";
+            /* Créer un objet article */
+            $objUtrip->hydrate($arrRaconte);
+            if ($objUtrip->getName() == "") {
+                $arrErrors['title'] = "Le titre est obligatoire";
+            }
+            if ($objUtrip->getDescription() == "") {
+                $arrErrors['content'] = "Le contenu est obligatoire";
+            }
+            $newUtripId = $objUtripModel->insert($objUtrip);
 
-                foreach($_FILES['img'] as $key=>$arrImages){
-                    foreach($arrImages as $num => $val){
-                        $arrImagesDet[$num][$key] = $val;
-                    }
-                }
+            $arrImagesDet = array();
+            $strPic = $_FILES['img']['name'] ?? "";
 
-                foreach ($arrImagesDet as $arrImage) {
-                    $objImg = new Img(); // Instancie un objet Img
-    
-                    // Stockage des données img dans un tableau
-                    $arrImageData = array(
-                        'img_id' => $newUtripId,
-                        'img_name' => $arrImage['name']
-                    );
-    
-                    // Hydrate l'objet avec les données de l'image
-                    $objImg->hydrate($arrImageData);
-    
-                    // Vérification du type MIME de l'image
-                    
-                        if (in_array($arrImage['type'], $this->_arrMimesType)) {
-
-                            // Nom de l'image de sortie 
-                            $strName = bin2hex(random_bytes(5)) . ".webp";
-                            $strLink = "article" . $strName;
-                            $strSource = $arrImage['tmp_name'];
-
-                            // Redimensionnement de l'image
-                            list($width, $height) = getimagesize($strSource);
-                            $newwidth = 500; // Nouvelle largeur souhaitée
-                            $newheight = intval(($height / $width) * $newwidth); // Calcul de la nouvelle hauteur en conservant le ratio
-    
-                            // Création de l'image de destination
-                            $dest = imagecreatetruecolor($newwidth, $newheight);
-    
-    
-    
-                            // Chargement de l'image source en fonction de son type MIME
-                            switch ($arrImage['type']) {
-                                case 'image/jpeg':
-                                    $source = imagecreatefromjpeg($strSource);
-                                    break;
-                                case 'image/png':
-                                    $source = imagecreatefrompng($strSource);
-                                    break;
-                                case 'image/webp':
-                                    $source = imagecreatefromwebp($strSource);
-                                    break;
-                                default:
-                                    // Type MIME non pris en charge
-                                    $arrErrors['img'] = "Type MIME d'image non pris en charge";
-                                    break;
-                            }
-    
-                            if ($source && $dest) {
-                                // Redimensionnement de l'image
-                                imagecopyresampled($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-    
-                                // Enregistrement de l'image redimensionnée au format webp
-                                imagewebp($dest, $strLink, 100); // 80 est la qualité de l'image (entre 0 et 100)
-    
-                                // Libération de la mémoire
-                                imagedestroy($source);
-                                imagedestroy($dest);
-        
-                            } else {
-                                // Erreur lors du chargement de l'image
-                                $arrErrors['img'] = "Erreur lors du chargement de l'image";
-                            }
-                        } else {
-                            // Type MIME non autorisé
-                            $arrErrors['img'] = "Type MIME d'image non autorisé";
-                        }
-                        // Assignation du nom de l'image à l'objet
-                         // $objImg->setPic($strImgName);
-                        // Enregistrement du fichier dans la base de données
-                        $objUtrip->insertImg();
+            foreach($_FILES['img'] as $key=>$arrImages){
+                foreach($arrImages as $num => $val){
+                    $arrImagesDet[$num][$key] = $val;
                 }
             }
-            $this->_arrData["strDescription"]     = $strDescription;
-            $this->_arrData["strName"]         = $strName;
-            $this->_arrData["strCat"]          = $strCat;
-            $this->_arrData["strCity"]          = $strCity;
-            $this->_arrData["strBudget"]          = $strBudget;
 
-            $this->_arrData["objUtrip"]     = $objUtrip;
-            $this->_arrData["strPage"]         = "raconte";
-            $this->_arrData["strTitle"]     = "Ajouter un article";
-            $this->_arrData["strDesc"]         = "Page où on écrit un article";
-            $this->_arrData["arrErrors"]     = $arrErrors;
-            $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
+            foreach ($arrImagesDet as $arrImage) {
+                $objImg = new Img(); // Instancie un objet Img
 
-            $this->afficheTpl("raconte");
+                // Stockage des données img dans un tableau
+                $arrImageData = array(
+                    'img_id' => $newUtripId,
+                    'img_name' => $arrImage['name']
+                );
+
+                // Hydrate l'objet avec les données de l'image
+                $objImg->hydrate($arrImageData);
+
+                // Vérification du type MIME de l'image
+                
+                    if (in_array($arrImage['type'], $this->_arrMimesType)) {
+
+                        // Nom de l'image de sortie 
+                        $strName = bin2hex(random_bytes(5)) . ".webp";
+                        $strLink = "article" . $strName;
+                        $strSource = $arrImage['tmp_name'];
+
+                        // Redimensionnement de l'image
+                        list($width, $height) = getimagesize($strSource);
+                        $newwidth = 500; // Nouvelle largeur souhaitée
+                        $newheight = intval(($height / $width) * $newwidth); // Calcul de la nouvelle hauteur en conservant le ratio
+
+                        // Création de l'image de destination
+                        $dest = imagecreatetruecolor($newwidth, $newheight);
+
+
+
+                        // Chargement de l'image source en fonction de son type MIME
+                        switch ($arrImage['type']) {
+                            case 'image/jpeg':
+                                $source = imagecreatefromjpeg($strSource);
+                                break;
+                            case 'image/png':
+                                $source = imagecreatefrompng($strSource);
+                                break;
+                            case 'image/webp':
+                                $source = imagecreatefromwebp($strSource);
+                                break;
+                            default:
+                                // Type MIME non pris en charge
+                                $arrErrors['img'] = "Type MIME d'image non pris en charge";
+                                break;
+                        }
+
+                        if ($source && $dest) {
+                            // Redimensionnement de l'image
+                            imagecopyresampled($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+                            // Enregistrement de l'image redimensionnée au format webp
+                            imagewebp($dest, $strLink, 100); // 80 est la qualité de l'image (entre 0 et 100)
+
+                            // Libération de la mémoire
+                            imagedestroy($source);
+                            imagedestroy($dest);
+
+                        } else {
+                            // Erreur lors du chargement de l'image
+                            $arrErrors['img'] = "Erreur lors du chargement de l'image";
+                        }
+                    } else {
+                        // Type MIME non autorisé
+                        $arrErrors['img'] = "Type MIME d'image non autorisé";
+                    }
+                    // Assignation du nom de l'image à l'objet
+                    // $objImg->setPic($strImgName);
+                    // Enregistrement du fichier dans la base de données
+                    // $objUtrip->insertImg();
+            }
+        }
+        $this->_arrData["strDescription"]     = $strDescription;
+        $this->_arrData["strName"]         = $strName;
+        $this->_arrData["strCat"]          = $strCat;
+        $this->_arrData["strCity"]          = $strCity;
+        $this->_arrData["intCatId"]          = $intCatId;
+        $this->_arrData["intCityId"]          = $intCityId;
+        $this->_arrData["strBudget"]          = $strBudget;
+
+        $this->_arrData["objUtrip"]     = $objUtrip;
+        $this->_arrData["strPage"]         = "raconte";
+        $this->_arrData["strTitle"]     = "Ajouter un article";
+        $this->_arrData["strDesc"]         = "Page où on écrit un article";
+        $this->_arrData["arrErrors"]     = $arrErrors;
+        $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
+
+        $this->afficheTpl("raconte");
         }
 
 		/**

@@ -24,6 +24,8 @@
 		private string $_cont;
 		private string $_like;
 		private string $_com;
+		private int $_cityId;
+		private int $_catId;
 
 		// Méthodes
 
@@ -263,5 +265,35 @@
 		 */
 		public function setCom(string $strCom) {
 			$this->_com = $strCom;
+		}
+		/**
+		 * Getter de récupération du commentaire
+		 * @return cat_id de l'objet
+		 */
+		public function getCatId(): int {
+			return $this->_catId;
+		}
+
+		/**
+		 * Setter de récupération du commentaire
+		 * @return cat_id de l'objet
+		 */
+		public function setCatId(int $intCatId) {
+			$this->_catId = $intCatId;
+		}
+		/**
+		 * Getter de récupération du commentaire
+		 * @return city_id de l'objet
+		 */
+		public function getCityId(): int {
+			return $this->_cityId;
+		}
+
+		/**
+		 * Setter de récupération du commentaire
+		 * @return city_id de l'objet
+		 */
+		public function setCityId(int $intCityId) {
+			$this->_cityId = $intCityId;
 		}
 	}

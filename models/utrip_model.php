@@ -22,7 +22,7 @@
 
 			$strQuery     = "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
 							utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
-							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
+							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , cat_id AS 'utrip_catId' , cities_id AS 'utrip_cityId'
 									FROM utrip 
 									LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 									LEFT OUTER JOIN users ON user_id = utrip_user_id
@@ -85,8 +85,17 @@
 		*/
 		public function findCat() {
 
-			$strQuery 	= "SELECT cat_lib AS 'utrip_cat'
-							FROM categorie";
+
+				// faire une autre fonction pour les villes
+
+
+
+
+
+			$strQuery 	= "SELECT cat_lib AS 'utrip_cat' , cat_id AS 'utrip_catId' , cities_id AS 'utrip_cityId'
+							FROM categorie
+							LEFT OUTER JOIN utrip ON utrip_cat = cat_id
+							INNER JOIN cities ON utrip_city = cities_id";
 
 			return $this->_db->query($strQuery)->fetchAll();
 		}
