@@ -18,18 +18,12 @@
         <a href="user/create_account">Pas de compte ? Inscrivez vous !</a>
     </div>
 
-        {if (count($arrErrors) >0) }
-            <div class="alert alert-danger">
-                {foreach from=$arrErrors item=strError}
-                    <p>{$strError}</p>
-                {/foreach}
-            </div>
-        {/if}
+
 
         <form action="" method="post">
             <div class="mb-3">
                 <label class="form-label" for="email">E-mail</label>
-                <input class="form-control" id="email" type="email" name="email" value="">
+                <input class="form-control" id="email" type="email" name="email" value="{$email}">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="password">Password</label>
