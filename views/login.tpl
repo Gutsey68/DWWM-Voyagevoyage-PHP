@@ -22,11 +22,11 @@
 
         <form action="" method="post">
             <div class="mb-3">
-                <label class="form-label" for="email">E-mail</label>
+                <label class="form-label" for="email">E-mail <span class="text-danger">*</span></label>
                 <input class="form-control" id="email" type="email" name="email" value="{$email}">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="password">Password</label>
+                <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
                 <input class="form-control" id="password" type="password" name="password">
             </div>
             <input class="btn green-btn" type="submit" value="Se connecter">

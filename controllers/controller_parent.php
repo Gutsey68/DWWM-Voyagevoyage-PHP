@@ -5,7 +5,7 @@
 	*/
     class Ctrl {
 
-		const BASE_URL = "http://localhost/blog/";
+		const BASE_URL = "http://localhost/projet_2/";
 		
 		// Tableau d'erreur 
 		protected array $_arrErrors = array();

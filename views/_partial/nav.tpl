@@ -43,7 +43,18 @@
                 </li>
                 <li class="nav-item ">
                     <div class="button-center">
-                        <a class="green-btn" href="user/login"><i class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
+                    {if isset($user.user_id) && $user.user_id != ''}
+						<a class="btn green-btn" href="{$base_url}user/edit_profile" title="Modifier mon compte">
+							<i class="fas fa-user"></i> Bonjour {$smarty.session.user.user_firstname}
+                        </a>
+						<a class="btn green-btn" href="{$base_url}article/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
+						<!-- Si connecté -->
+						<a class="btn green-btn" href="{$base_url}user/logout" title="Se déconnecter">
+							<i class="fas fa-sign-out-alt"></i>
+						</a> 
+						{else}
+                            <a class="green-btn" href="user/login"><i class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
+						{/if}
                     </div>
                 </li>
             </ul>

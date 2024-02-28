@@ -296,14 +296,29 @@
 		* Méthode qui permet d'afficher une page d'article
 		*/
         public function utrip() {
+
+            $arrErrors = array();
             $intUtripId	= $_GET['id']??0;
-			
-			$objUtrip 		= new Utrip();	// instancie un objet Article
+	
+			/* Récupère l'article */
 			$objUtripModel	= new UtripModel();// instancie le modèle Article
-			
-			$arrUtrip 	= $objUtripModel->get($intUtripId);
+			$arrUtrip 		= $objUtripModel->get($intUtripId);
+
+			$objUtrip 		= new Utrip();	// instancie un objet Article
 			$objUtrip->hydrate($arrUtrip);
+			$objUtrip->setValid(0);
+			$objUtrip->setComment('');
 			
+			if (count($_POST) >0){
+				$objUtrip->setValid($_POST['moderation']);
+				$objUtrip->setComment($_POST['comment']);
+				
+				if(!$objUtrip->getValid() && $objUtrip->getComment() == ''){
+					$arrErrors['comment'] = "Le commentaire est obligatoire quand la validation de l'article est refusée";
+				}else{
+					$objUtripModel->moderate($objUtrip);
+				}
+			}
 
             $this->_arrData["strPage"]     = "utrip";
             $this->_arrData["strTitle"] = "Article";
@@ -312,4 +327,43 @@
 
             $this->afficheTpl("utrip");
         }
+
+        		
+		/**
+		* Méthode permettant d'afficher les articles pour les gérer
+		*/
+		public function manage(){
+			// si l'utilisateur est connecté
+			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+				header("Location:".parent::BASE_URL."error/show403");
+			}
+			
+			$objUtripModel	= new UtripModel;
+			$arrUtrips		= $objUtripModel->findList();
+
+			$arrUtripsToDisplay	= array();
+			foreach($arrUtrips as $arrDetailUtrip){	
+				$objUtrip = new Utrip();		// instancie un objet Article
+				$objUtrip->hydrate($arrDetailUtrip);
+				$arrUtripsToDisplay[] = $objUtrip;
+			}			
+			$this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
+
+			$this->_arrData["strPage"] 	= "manage";
+			$this->_arrData["strTitle"] = "Gérer les articles";
+			$this->_arrData["strDesc"] 	= "Page permettant d'afficher les articles pour les gérer";
+
+			$this->afficheTpl("utrip_manage");
+		}
+	
+		/**
+		* Méthode permettant de supprimer un Article
+		*/
+		public function delete(){
+			// Numéro de l'article à supprimer
+			$intUtripId		= $_GET['id']??0;
+			$objUtripModel	= new UtripModel();
+			$objUtripModel->delete($intUtripId);
+			header("Location:".parent::BASE_URL."utrip/manage");
+		}
     }

@@ -47,7 +47,7 @@
             <div class="container mb-3  form-bg">
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
-                            voyage:</label></div>
+                            voyage: <span class="text-danger">*</span></label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="description"
                             value="" placeholder="Contenu" rows="8" required></textarea></div>
                 </div>
@@ -55,7 +55,7 @@
             <!-- catégories -->
             <div class="container mb-3  form-bg">
                 <div class="row">
-                    <div class="col-md-6 col-12"><label class="form-label" for="articleCategory">Catégorie:</label></div>
+                    <div class="col-md-6 col-12"><label class="form-label" for="articleCategory">Catégorie: <span class="text-danger">*</span></label></div>
                     <div class="col-md-6 col-12"><select class="form-select" id="articleCategory" name="cat">
                             <option value="">--</option>
                             {foreach from=$arrCatsToDisplay item=objUtrip}
@@ -68,7 +68,7 @@
             <!-- ville -->
             <div class="container mb-3  form-bg">
                 <div class="row ">
-                    <div class="col-md-6 col-12g"><label for="articleCity">Ville:</label></div>
+                    <div class="col-md-6 col-12g"><label for="articleCity">Ville: <span class="text-danger">*</span></label></div>
                     <div class="col-md-6 col-12"><input class="form-control" value="{$objUtrip->getCity()}" type="text" id="articleCity" name="city" required></div>
                 </div>
             </div>

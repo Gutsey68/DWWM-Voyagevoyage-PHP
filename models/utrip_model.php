@@ -192,5 +192,52 @@
 			//var_dump($this->_db->lastInsertId());die;
 			return $rqPrep->execute();
 		}
+
+		/**
+		* Méthode d'administration de la gestion des articles
+		*/
+		public function findList(){
+			$strQuery 	= "SELECT utrip_id, utrip_name, utrip_description, utrip_budget, 
+							utrip_valid
+							FROM utrip";
+							
+			if (!in_array($_SESSION['user']['user_role'], array('admin', 'modo'))){
+				$strQuery 	.= " WHERE utrip_user_id = ".$_SESSION['user']['user_id'];
+			}
+			$strQuery 	.= " ORDER BY utrip_date DESC;";
+			return $this->_db->query($strQuery)->fetchAll();			
+			
+		}
+		
+		/**
+		* Methode permettant de mettre à jour l'article avec les informations de modération
+		* @param object $objArticle Objet article
+		*/
+		public function moderate($objUtrip){
+			$strQuery	= "	UPDATE utrip
+							SET utrip_valid = :valid, 
+								utrip_comment = :comment, 
+								utrip_modo = :modo
+							WHERE utrip_id = :id";
+			// On prépare la requête
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":valid", $objUtrip->getValid(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":comment", $objUtrip->getComment(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":modo", $_SESSION['user']['user_id'], PDO::PARAM_INT);
+			$rqPrep->bindValue(":id", $objUtrip->getId(), PDO::PARAM_INT);
+			
+			//var_dump($this->_db->lastInsertId());die;
+			return $rqPrep->execute();			
+		}
+		
+		/**
+		* Méthode permettant de supprimer l'article en BDD
+		* @param int $id Identifiant de l'article à supprimer
+		*/
+		public function delete (int $id){
+			$strQuery 	= "DELETE FROM utrip
+							WHERE utrip_id = ".$id;
+			return $this->_db->exec($strQuery);
+		}
 		
 	}

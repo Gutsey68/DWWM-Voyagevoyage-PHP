@@ -6,4 +6,9 @@
 	</div>
 	<p class="margin0">Le voyage de {$objUtrip->getCreator()}</p>
 	<p>à <span class="fst-italic">{$objUtrip->getCity()}</span></p>
+	{if ( isset($user.user_id) && $user.user_id != '' ) 
+		&& 
+		( $user.user_role == 'admin' || $objUtrip->getCreator_id() == $user.user_id ) }
+		<a href="{$base_url}utrip/raconte?id={$objUtrip->getId()}" alt="Modifier l'article">Modifier l'article</a>
+	{/if}
 </div>

@@ -9,67 +9,47 @@
             {/foreach}
         </div>
     {/if}
-    
+
     <form action="" method="post">
-        <div class="phppot-container">
-            <a href="user/login">Déja un compte ? Connectez-vous !</a>
+        <div class="container mt-3">
+            <div class="text-center mb-3">
+                <a href="user/login" class="btn btn-link">Déjà un compte ? Connectez-vous !</a>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="name" id="name" value="{$objUser->getName()}">
+            </div>
+
+            <div class="form-group">
+                <label for="firstname">Firstname <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="firstname" id="firstname" value="{$objUser->getFirstname()}">
+            </div>
+
+            <div class="form-group">
+                <label for="pseudo">Pseudo <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="pseudo" id="pseudo" value="{$objUser->getPseudo()}">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" name="email" id="email" value="{$objUser->getEmail()}">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" name="password" id="password">
+            </div>
+
+            <div class="form-group">
+                <label for="passwd_confirm">Confirm Password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" name="passwd_confirm" id="passwd_confirm">
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="S'enregistrer" class="btn green-btn">
+            </div>
         </div>
-        <div class="">
-
-
-            <div class="inline-block">
-                <div class="form-label">
-                    Name<span class="required error" id="username-info"></span>
-                </div>
-                <input class="input-box-330" type="text" name="name" id="name" value="{$objUser->getName()}">
-            </div>
-
-            <div class="inline-block">
-                <div class="form-label">
-                    Firstname<span class="required error" id="username-info"></span>
-                </div>
-                <input class="input-box-330" type="text" name="firstname" id="firstname" value="{$objUser->getFirstname()}">
-            </div>
-
-
-            <div class="inline-block">
-                <div class="form-label">
-                    Pseudo<span class="required error" id="username-info"></span>
-                </div>
-                <input class="input-box-330" type="text" name="pseudo" id="pseudo" value="{$objUser->getPseudo()}">
-            </div>
-
-            <div class="inline-block">
-                <div class="form-label">
-                    Email<span class="required error" id="email-info"></span>
-                </div>
-                <input class="input-box-330" type="email" name="email" id="email" value="{$objUser->getEmail()}">
-            </div>
-
-
-            <div class="inline-block">
-                <div class="form-label">
-                    Password<span class="required error" id="signup-password-info"></span>
-                </div>
-                <input class="input-box-330" type="password" name="password" id="password">
-            </div>
-
-
-            <div class="inline-block">
-                <div class="form-label">
-                    Confirm Password<span class="required error" id="confirm-password-info"></span>
-                </div>
-                <input class="input-box-330" type="password" name="passwd_confirm" id="passwd_confirm">
-            </div>
-
-            <p>
-                <input type="submit" value="S'enregistrer">
-            </p>
     </form>
-    </div>
-    </div>
-    </div>
 
-
-    </form>
 {/block}
