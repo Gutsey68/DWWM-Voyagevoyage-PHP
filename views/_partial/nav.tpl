@@ -47,7 +47,7 @@
 						<a class="btn green-btn" href="{$base_url}user/edit_profile" title="Modifier mon compte">
 							<i class="fas fa-user"></i> Bonjour {$smarty.session.user.user_firstname}
                         </a>
-						<a class="btn green-btn" href="{$base_url}article/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
+						<a class="btn green-btn" href="{$base_url}utrip/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
 						<!-- Si connecté -->
 						<a class="btn green-btn" href="{$base_url}user/logout" title="Se déconnecter">
 							<i class="fas fa-sign-out-alt"></i>

@@ -57,7 +57,11 @@
 		* Méthode qui permet d'ajouter un article
 		*/
         public function raconte() {
-            
+						
+		// si l'utilisateur est connecté
+		if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+			header("Location:".parent::BASE_URL."error/show403");
+		}
 
         // Récupère l'information dans $_POST
         $intUtripId	        = $_GET['id']??0;
@@ -65,9 +69,6 @@
         $strCity                = $_POST['city']??"";
         $intCityId                = $_POST['city']??0;
         $intCatId              = $_POST['cat']??0;
-
-        $arrRaconte         = array('cat'         => $strCat,
-                                    'city'        => $strCity);
 
 
         /* Utilisation de la classe model pour les catégories */
@@ -82,21 +83,6 @@
             $arrCatsToDisplay[] = $objUtrip;
         }
 
-        /* Utilisation de la classe model pour les villes */
-        $objUtripModel    = new UtripModel;
-        $arrCity          = $objUtripModel->findCity();
-
-        // Parcourir les articles pour créer des objets
-        $arrCityToDisplay    = array();
-        foreach ($arrCity as $arrDetailCity) {
-            $objUtrip = new Utrip();
-            $objUtrip->hydrate($arrDetailCity);
-            $arrCityToDisplay[] = $objUtrip;
-        }
-
-
-
- 
 			/* 2. Récupérer les informations du formulaire */
 			$arrErrors 			= array();
 			$objUtrip 		= new Utrip();	// instancie un objet Article
@@ -223,7 +209,6 @@
         $this->_arrData["intCityId"]        = $intCityId;
         $this->_arrData["objUtrip"]         = $objUtrip;
         $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
-        $this->_arrData["arrCityToDisplay"] = $arrCityToDisplay;
 
         if ($objUtrip->getId() === 0){
             $this->_arrData["strPage"]      = "raconte";
@@ -319,11 +304,13 @@
 					$objUtripModel->moderate($objUtrip);
 				}
 			}
+			$this->_arrData["objUtrip"]	= $objUtrip;
+			$this->_arrData["arrErrors"] 	= $arrErrors;
 
             $this->_arrData["strPage"]     = "utrip";
             $this->_arrData["strTitle"] = "Article";
             $this->_arrData["strDesc"]     = "Contenu de l'article";
-			$this->_arrData["objUtrip"]	= $objUtrip;
+
 
             $this->afficheTpl("utrip");
         }
@@ -347,6 +334,7 @@
 				$objUtrip->hydrate($arrDetailUtrip);
 				$arrUtripsToDisplay[] = $objUtrip;
 			}			
+			
 			$this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
 
 			$this->_arrData["strPage"] 	= "manage";

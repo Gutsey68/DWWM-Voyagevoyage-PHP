@@ -38,7 +38,7 @@
 				$strPage	= $_GET['ctrl'].'/'.$_GET['action'];
 				
 				if (in_array($strPage, $this->_arrAdminPages) && $_SESSION['user']['user_role_id'] != "1") {
-					header("Location:http://localhost/blog/error/show403");
+					header("Location:".self::BASE_URL."error/show403");
 				}
 			}
 		}

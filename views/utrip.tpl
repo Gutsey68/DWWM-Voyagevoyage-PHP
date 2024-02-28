@@ -75,7 +75,7 @@
         </section>
     </article>
 
-    {if ($modo) }
+    {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin")  }
 		<div class="col-6">
 			<h2>Modération</h2>
 			<form method="post" action="article/read?id={$objUtrip->getId()}">

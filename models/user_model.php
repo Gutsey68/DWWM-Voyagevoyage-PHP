@@ -47,7 +47,7 @@
 		 */
 		public function searchUser(string $strEmail, string $strPassword) {
 
-			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_email, user_password, user_role_id
+			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_email, user_password, user_role
 							FROM users
 							WHERE user_email = :mail;";
 
@@ -56,7 +56,8 @@
 			$rqPrep->bindValue(":mail", $strEmail, PDO::PARAM_STR);
 
 			$rqPrep->execute();
-			return $rqPrep->fetch();
+			//return $rqPrep->fetch();
+			$arrUser = $rqPrep->fetch();
 
 			if(is_array($arrUser) && password_verify($strPassword, $arrUser['user_password'])){
 				unset($arrUser['user_password']);
@@ -110,10 +111,7 @@
 		public function update(object $objUser) {
 
 			$strQuery 	= "UPDATE users 
-
-							SET
-								
-								user_name = :name, 
+							SET user_name = :name, 
 								user_firstname = :firstname, 
 								user_email = :mail";
 			if ($objUser->getPassword() != ''){

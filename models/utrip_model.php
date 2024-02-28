@@ -198,15 +198,15 @@
 		*/
 		public function findList(){
 			$strQuery 	= "SELECT utrip_id, utrip_name, utrip_description, utrip_budget, 
-							utrip_valid
-							FROM utrip";
+							utrip_valid , img_link AS 'utrip_img'
+							FROM utrip
+							INNER JOIN image ON img_utrip_id = utrip_id ";
 							
 			if (!in_array($_SESSION['user']['user_role'], array('admin', 'modo'))){
 				$strQuery 	.= " WHERE utrip_user_id = ".$_SESSION['user']['user_id'];
 			}
 			$strQuery 	.= " ORDER BY utrip_date DESC;";
 			return $this->_db->query($strQuery)->fetchAll();			
-			
 		}
 		
 		/**

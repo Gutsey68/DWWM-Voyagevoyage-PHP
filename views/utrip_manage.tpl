@@ -31,9 +31,9 @@
 			{foreach $arrUtripsToDisplay as $objUtrip}
 			<tr>
 				<td class="text-center">{$objUtrip->getId()}</td>
-				<td class="text-center"><img class="img-thumbnail convertTo64" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getTitle()}" ></td>
-				<td>{$objUtrip->getTitle()}</td>
-				<td>{$objUtrip->getContent()}</td>
+				<td class="text-center"><img class="img-thumbnail convertTo64" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}" ></td>
+				<td>{$objUtrip->getName()}</td>
+				<td>{$objUtrip->getDescription()}</td>
 				<td class="text-center">
 					{if $objUtrip->getValid()}
 					<i class="text-success fa fa-check"></i>
@@ -42,11 +42,11 @@
 					{/if}
 				</td>
 				<td class="text-center">
-					<a class="btn btn-primary" href="{$base_url}article/addedit?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="fa fa-edit"></i></a>
+					<a class="btn btn-primary" href="{$base_url}utrip/raconte?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="fa fa-edit"></i></a>
 					{if (isset($smarty.session.user.user_id) && $smarty.session.user.user_role == "modo")}
-					<a class="btn btn-secondary" href="{$base_url}article/read?id={$objUtrip->getId()}" alt="Modérer l'article"><i class="fa fa-check-double"></i></a>
+					<a class="btn btn-secondary" href="{$base_url}utrip/utrip?id={$objUtrip->getId()}" alt="Modérer l'article"><i class="fa fa-check-double"></i></a>
 					{/if}
-					<a class="btn btn-danger" href="{$base_url}article/delete?id={$objUtrip->getId()}" alt="Supprimer l'article"><i class="fa fa-trash"></i></a>
+					<a class="btn btn-danger" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" alt="Supprimer l'article"><i class="fa fa-trash"></i></a>
 				</td>
 			</tr>
 			{/foreach}
