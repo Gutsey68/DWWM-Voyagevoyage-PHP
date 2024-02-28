@@ -7,7 +7,7 @@
                     <p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p>
                 </a>
                 <a href="callto:voyagevoyage@email.fr" class="coordonnées">
-                    <p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p>
+                    <p><i class="fa-solid fa-phone"></i> 07 88 48 64 85</p>
                 </a>
                 <p><i class="fa-solid fa-house"></i> 30 rue kerim le fou</p>
             </div>
@@ -24,8 +24,7 @@
                 <ul>
                     <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i
                                 class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="https://www.instagram.com/guts.sey?igsh=MW54cDV5YjNlZ3FmYQ%3D%3D&utm_source=qr"
-                            target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a></li>
                     <li><a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>

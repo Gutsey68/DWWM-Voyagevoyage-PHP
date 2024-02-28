@@ -41,22 +41,27 @@
                         </form>
                     </div>
                 </li>
-                <li class="nav-item ">
-                    <div class="button-center">
                     {if isset($user.user_id) && $user.user_id != ''}
-						<a class="btn green-btn" href="{$base_url}user/edit_profile" title="Modifier mon compte">
-							<i class="fas fa-user"></i> Bonjour {$smarty.session.user.user_firstname}
-                        </a>
-						<a class="btn green-btn" href="{$base_url}utrip/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
+                        <li class="nav-item ">
+                            <a class="nav-link flex-fill" href="{$base_url}user/edit_profile" title="Modifier mon compte">
+                                <i class="fas fa-user"></i> Bonjour {$smarty.session.user.user_firstname}
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+						    <a class="nav-link flex-fill" href="{$base_url}utrip/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
+                        </li>
 						<!-- Si connecté -->
-						<a class="btn green-btn" href="{$base_url}user/logout" title="Se déconnecter">
-							<i class="fas fa-sign-out-alt"></i>
-						</a> 
-						{else}
-                            <a class="green-btn" href="user/login"><i class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
-						{/if}
-                    </div>
-                </li>
+                        <li class="nav-item ">
+                            <a class="nav-link flex-fill" href="{$base_url}user/logout" title="Se déconnecter">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </a> 
+                        </li>
+                    {else}
+                        <div class="button-center ps-3">
+                        <a class="green-btn" href="user/login"><i class="fa-solid fa-user"></i>S'enregistrer / Se connecter</a>
+                        </div>
+                    {/if}
+                
             </ul>
         </div>
     </div>

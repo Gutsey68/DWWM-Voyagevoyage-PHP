@@ -1,11 +1,9 @@
 {extends file="views/layout.tpl"}
-
 {block name="contenu"}
-
     <div class="container mb-5">
         <h1 class="mt-5 mb-3">Nouveau sujet</h1>
         {if (count($arrErrors) >0) }
-            <div class="alert alert-danger">
+            <div class="alert alert-danger form-container mt-5 mb-3">
                 {foreach from=$arrErrors item=strError}
                     <p>{$strError}</p>
                 {/foreach}

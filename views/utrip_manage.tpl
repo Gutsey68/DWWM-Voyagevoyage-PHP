@@ -15,61 +15,62 @@
 {/block}
 
 {block name="contenu"}
-	<table id="list_article">
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>img</th>
-				<th>titre</th>
-				<th>contenu</th>
-				<th>validé</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{* mode PHP fonctionne aussi :D *}
-			{foreach $arrUtripsToDisplay as $objUtrip}
-			<tr>
-				<td class="text-center">{$objUtrip->getId()}</td>
-				<td class="text-center"><img class="img-thumbnail convertTo64" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}" ></td>
-				<td>{$objUtrip->getName()}</td>
-				<td>{$objUtrip->getDescription()}</td>
-				<td class="text-center">
-					{if $objUtrip->getValid()}
-					<i class="text-success fa fa-check"></i>
-					{else}
-					<i class="text-danger fa fa-xmark"></i>
-					{/if}
-				</td>
-				<td class="text-center">
-					<a class="btn btn-primary" href="{$base_url}utrip/raconte?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="fa fa-edit"></i></a>
-					{if (isset($smarty.session.user.user_id) && $smarty.session.user.user_role == "modo")}
-					<a class="btn btn-secondary" href="{$base_url}utrip/utrip?id={$objUtrip->getId()}" alt="Modérer l'article"><i class="fa fa-check-double"></i></a>
-					{/if}
-					<a class="btn btn-danger" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" alt="Supprimer l'article"><i class="fa fa-trash"></i></a>
-				</td>
-			</tr>
-			{/foreach}
-		</tbody>
-	</table>
+	<div class="container mt-5 mb-5 alert alert-light">
+		<table id="list_article">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>img</th>
+					<th>titre</th>
+					<th>contenu</th>
+					<th>validé</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach $arrUtripsToDisplay as $objUtrip}
+				<tr>
+					<td class="text-center">{$objUtrip->getId()}</td>
+					<td class="text-center"><img class="img-thumbnail convertTo64" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}" ></td>
+					<td>{$objUtrip->getName()}</td>
+					<td>{$objUtrip->getDescriptionSummary(80)}</td>
+					<td class="text-center">
+						{if $objUtrip->getValid()}
+						<i class="text-success fa fa-check"></i>
+						{else}
+						<i class="text-danger fa fa-xmark"></i>
+						{/if}
+					</td>
+					<td class="text-center">
+						<a class="btn btn-primary" href="{$base_url}utrip/raconte?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="fa fa-edit"></i></a>
+						{if (isset($smarty.session.user.user_id) && $smarty.session.user.user_role == "modo")}
+						<a class="btn btn-secondary" href="{$base_url}utrip/utrip?id={$objUtrip->getId()}" alt="Modérer l'article"><i class="fa fa-check-double"></i></a>
+						{/if}
+						<a class="btn btn-danger" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" alt="Supprimer l'article"><i class="fa fa-trash"></i></a>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+	</div>
 {/block}
 
 {block name="js_footer"}
 	{literal}
-	<script>
-	var table = new DataTable('#list_article', {
-		layout: {
-			topStart: {
-				buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
-			}
-		},
-		language: {
-			url: '//cdn.datatables.net/plug-ins/2.0.0/i18n/fr-FR.json',
-		},
-		columns: [{width: '5%'}, {width: '10%'}, {width: '30%'}, {width: '30%'}, {width: '5%'}, {width: '20%'}],
-		ordering:  false,
-		
-	});
-	</script>
+		<script>
+		var table = new DataTable('#list_article', {
+			layout: {
+				topStart: {
+					buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+				}
+			},
+			language: {
+				url: '//cdn.datatables.net/plug-ins/2.0.0/i18n/fr-FR.json',
+			},
+			columns: [{width: '5%'}, {width: '10%'}, {width: '30%'}, {width: '30%'}, {width: '5%'}, {width: '20%'}],
+			ordering:  false,
+			
+		});
+		</script>
 	{/literal}
 {/block}

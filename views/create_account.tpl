@@ -1,55 +1,53 @@
 {extends file="views/layout.tpl"}
-
 {block name="contenu"}
-
+    <div class="form-container">
+        <h1 class="mt-5 green-title">Créer un compte</h1>
+    </div>
     {if (count($arrErrors) >0) }
-        <div class="alert alert-danger">
+        <div class="alert alert-danger form-container mt-3 mb-3">
             {foreach from=$arrErrors item=strError}
                 <p>{$strError}</p>
             {/foreach}
         </div>
     {/if}
-
-    <form action="" method="post">
-        <div class="container mt-3">
-            <div class="text-center mb-3">
-                <a href="user/login" class="btn btn-link">Déjà un compte ? Connectez-vous !</a>
-            </div>
-
-            <div class="form-group">
-                <label for="name">Name <span class="text-danger">*</span></label>
+    <form class="form-container mt-4 mb-4" action="" method="post">
+        <div class="">
+            <div class="form-group mb-3">
+                <label for="name">Nom <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" name="name" id="name" value="{$objUser->getName()}">
             </div>
 
-            <div class="form-group">
-                <label for="firstname">Firstname <span class="text-danger">*</span></label>
+            <div class="form-group mb-3">
+                <label for="firstname">Prénom <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" name="firstname" id="firstname" value="{$objUser->getFirstname()}">
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="pseudo">Pseudo <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" name="pseudo" id="pseudo" value="{$objUser->getPseudo()}">
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="email">Email <span class="text-danger">*</span></label>
                 <input type="email" class="form-control" name="email" id="email" value="{$objUser->getEmail()}">
             </div>
 
-            <div class="form-group">
-                <label for="password">Password <span class="text-danger">*</span></label>
+            <div class="form-group mb-3">
+                <label for="password">Mot de passe <span class="text-danger">*</span></label>
                 <input type="password" class="form-control" name="password" id="password">
             </div>
 
             <div class="form-group">
-                <label for="passwd_confirm">Confirm Password <span class="text-danger">*</span></label>
+                <label for="passwd_confirm">Confirmer le mot de passe <span class="text-danger">*</span></label>
                 <input type="password" class="form-control" name="passwd_confirm" id="passwd_confirm">
             </div>
 
-            <div class="text-center">
+            <div class="text-center mt-4">
                 <input type="submit" value="S'enregistrer" class="btn green-btn">
             </div>
         </div>
     </form>
-
+    <div class="form-container mb-5">
+        <a href="user/login" class="mt-3 mb-3 form-container lead">Déjà inscrit ? Connectez-vous !</a>
+    </div>
 {/block}

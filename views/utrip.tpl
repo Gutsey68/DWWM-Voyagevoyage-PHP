@@ -5,7 +5,7 @@
 {block name="contenu"}
 
 	{if (count($arrErrors) >0) }
-		<div class="alert alert-danger">
+		<div class="alert alert-danger form-container mt-3 mb-3">
 		{foreach from=$arrErrors item=strError}
 			<p>{$strError}</p>
 		{/foreach}
@@ -17,7 +17,7 @@
             <div class="container pb-3 pt-3">
                 <div class="row">
                     <div class="col-6">
-                        <h1 class="pb-3">{$objUtrip->getName()}</h1>
+                        <h1 class=" green-title">{$objUtrip->getName()}</h1>
                         <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="">{$objUtrip->getCreator()}</a></p>
                         <p><i class="fa-solid fa-list"></i>  Catégorie : {$objUtrip->getCat()}</p>
                         <p><i class="fa-solid fa-wallet"></i>  Budget approximatif : {$objUtrip->getBudget()}</p>
@@ -75,10 +75,10 @@
         </section>
     </article>
 
-    {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin")  }
-		<div class="col-6">
-			<h2>Modération</h2>
-			<form method="post" action="article/read?id={$objUtrip->getId()}">
+    {if ($smarty.session.user.user_role == "modo") }
+		<div class="container mb-5">
+			<h2 class="green-title">Modération</h2>
+			<form method="post" action="utrip/utrip?id={$objUtrip->getId()}">
 				<p>
 					<label>Accepté</label>
 					<input type="radio" name="moderation" value="1" {if ($objUtrip->getValid() == 1) } checked {/if} > Oui

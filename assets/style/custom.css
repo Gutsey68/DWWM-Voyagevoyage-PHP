@@ -51,6 +51,16 @@ img {
     border-radius: 5px;
 }
 
+.form-container {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.green-title {
+    color: var(--green);
+}
+
 /* buttons */
 
 .green-btn {
@@ -238,8 +248,7 @@ label i {
 }
 
 .card-body {
-    color: var(--brown);
-    background-color: #FDF8ED;
+    color: var(--brown);;
 }
 
 /* footer.tpl */
@@ -341,12 +350,6 @@ footer #border-bottom {
     color: var(--brown);
 }
 
-#raconte-form .container {
-    width: 100%;
-    max-width: 50rem;
-    margin: 0 auto;
-}
-
 .form-control,
 .form-select {
     background-color: var(--beige) !important;
@@ -385,12 +388,6 @@ footer #border-bottom {
 
 /* forum.tpl */
 
-.topic {
-    background-image: url('../images/fond-texture-papier-froisse-vintage') !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-}
 
 #forum {
     padding: 5rem 0 2rem 0;

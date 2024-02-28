@@ -57,11 +57,6 @@
 		* Méthode qui permet d'ajouter un article
 		*/
         public function raconte() {
-						
-		// si l'utilisateur est connecté
-		if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-			header("Location:".parent::BASE_URL."error/show403");
-		}
 
         // Récupère l'information dans $_POST
         $intUtripId	        = $_GET['id']??0;
@@ -119,8 +114,12 @@
 			}*/
 
 			if (count($_POST) > 0 && count($_FILES) > 0){
+
 				/* 3. Créer un objet article */
 				$objUtrip->hydrate($_POST);	// hydrate (setters) avec les données du formulaire
+				if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+					$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
+				}
 				if ($objUtrip->getName() == ""){
 					$arrErrors['name'] = "Le titre est obligatoire";
 				}
