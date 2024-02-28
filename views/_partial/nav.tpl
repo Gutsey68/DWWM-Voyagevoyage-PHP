@@ -51,13 +51,10 @@
                     <div id="user" class="col-4 d-flex justify-content-end align-items-center">
 						{if isset($smarty.session.user.user_id) && $smarty.session.user.user_id != ''}
 						{*if isset($smarty.session.user.user_id)*}
-						<a class="btn btn-sm" href="user/edit_profile" title="Modifier mon compte">
-							<i class="fas fa-user"></i> Bonjour
-							{if isset($smarty.cookies.pseudo)}
-								{$smarty.cookies.pseudo}
-							{else}
+                            <a class="btn btn-sm" href="user/edit_profile" title="Modifier mon compte">
+                                <i class="fas fa-user"></i> Bonjour
 								{$smarty.session.user.user_firstname}
-							{/if}
+						
 						</a>
 						| 
 						<!-- Si connecté -->
