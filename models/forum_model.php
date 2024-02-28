@@ -20,7 +20,7 @@
 		*/
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 			
-			$strQuery     = "	SELECT topic_title, topic_content, topic_date, topic_code, 
+			$strQuery     = "	SELECT topic_id, topic_title, topic_content, topic_date, topic_code, 
 									   user_pseudo AS 'topic_creator'
 								FROM topic
 								INNER JOIN users ON topic_user_id = user_id";
@@ -63,5 +63,19 @@
 			$rqPrep->bindValue(":content", $objForum->getContent(), PDO::PARAM_STR);
 
 			return $rqPrep->execute();
+		}
+		
+		/**
+		* Méthode permettant de récupérer un topic en fonction de son id
+		* @param int $id Identifiant du topic à récupérer
+		* @return array Le détail du topic
+		*/		
+		public function get(int $id) : array|false{
+			$strQuery 	= "SELECT topic_id, topic_title, topic_content, topic_date, topic_code, 
+			user_pseudo AS 'topic_creator'
+			FROM topic
+			INNER JOIN users ON topic_user_id = user_id
+							WHERE topic_id = ".$id;
+			return $this->_db->query($strQuery)->fetch();			
 		}
 	}

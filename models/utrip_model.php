@@ -85,8 +85,20 @@
 		*/
 		public function findCat() {
 
-			$strQuery 	= "SELECT cat_lib AS 'utrip_cat'
+			$strQuery 	= "SELECT cat_lib AS 'utrip_cat' , cat_id AS 'utrip_catId'
 							FROM categorie";
+
+			return $this->_db->query($strQuery)->fetchAll();
+		}
+
+		/**
+		* Méthode de récupération de toutes les villes
+		* @return Tableau des villes
+		*/
+		public function findCity() {
+
+			$strQuery 	= "SELECT cities_id AS 'utrip_cityId' , cities_name AS 'utrip_city'
+							FROM cities";
 
 			return $this->_db->query($strQuery)->fetchAll();
 		}
@@ -98,15 +110,16 @@
 		public function insert(object $objUtrip) {
 
 			$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id , utrip_city , utrip_cat )
-								VALUES (:titre, :contenu, :budget , NOW(), 1);
+								VALUES (:titre, :description, :budget , NOW(), :id, :cat , :city);
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":titre", $objUtrip->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":contenu", $objUtrip->getDescription(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":city", $objUtrip->getCity(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":city", $objUtrip->getCityId(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":cat", $objUtrip->getCatId(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":id", $objUtrip->getId(), PDO::PARAM_STR);
 
 			$rqPrep->execute();
 
@@ -119,14 +132,14 @@
 		 * Méthode permettant d'ajouter les images d'un article en BDD 
 		 * @param $objUtrip object Utrip et LastId à insérer
 		 */
-		public function insertImg(object $objArticle, $lastId) {
+		public function insertImg(object $objUtrip, $lastId) {
 			
-			$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id )
-								VALUES ( :image, :imgUtripId);
+			$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id , img_description, img_name )
+								VALUES ( :image, :imgUtripId, '' , '');
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
-			$rqPrep->bindValue(":image", $objArticle->getImg(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":image", $objUtrip->getImg(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":imgUtripId", $lastId, PDO::PARAM_INT);
 
 			return $rqPrep->execute();
@@ -153,4 +166,31 @@
 							WHERE utrip_id = ".$id;
 			return $this->_db->query($strQuery)->fetch();			
 		}
+
+		
+		/**
+		* Méthode permettant de modifier un article en BDD 
+		* @param $objArticle object Objet Article à modifier
+		*/
+		public function update(object $objUtrip){
+			$strQuery	= "	UPDATE utrip
+							SET utrip_name = :name, 
+								utrip_description = :description, 
+								utrip_budget = :budget
+								utrip_city = :city, 
+								utrip_cat = :cat
+							WHERE utrip_id = :id";
+			// On prépare la requête
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":name", $objUtrip->getName(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":id", $objUtrip->getId(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":city", $objUtrip->getCityId(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":cat", $objUtrip->getCatId(), PDO::PARAM_INT);
+			
+			//var_dump($this->_db->lastInsertId());die;
+			return $rqPrep->execute();
+		}
+		
 	}

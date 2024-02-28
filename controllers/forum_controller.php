@@ -61,9 +61,6 @@
                 if ($objForum->getContent() == ""){
                     $arrErrors['content'] = "Le contenu est trop court";
                 }
-                elseif (strlen($objForum->getContent()) < 2){
-                    $arrErrors['content'] = "Le contenu est trop court";
-                }
                 if(count($arrErrors) == 0){
                     $objForumModel	= new ForumModel;
                     if ($objForumModel->insert($objForum)){
@@ -90,10 +87,20 @@
 		* Méthode qui permet de voir un topic
 		*/
         public function topic() {
+            $intForumId	= $_GET['id']??0;
+			
+			$objForum		= new Forum();	// instancie un objet Article
+			$objForumModel	= new ForumModel();// instancie le modèle Article
+			
+			$arrForum 	= $objForumModel->get($intForumId);
+			$objForum->hydrate($arrForum);
+			
 
-            $this->_arrData["strPage"]     = "ctopic";
+
+            $this->_arrData["strPage"]     = "topic";
             $this->_arrData["strTitle"] = "topic";
             $this->_arrData["strDesc"]     = "Page d'un topic'";
+			$this->_arrData["objForum"]	= $objForum;
 
             $this->afficheTpl("topic");
         }

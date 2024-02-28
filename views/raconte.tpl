@@ -24,17 +24,17 @@
             <div class="row">
                 <div class="col-12">
                     <p>Ajoutez jusqu'à 20 photos.</p>
-                    </div>
-                    <div class="col-12" id="drop-area">
-                        <div class="my-form pt-5">
-                            <input type="file" id="fileElem" multiple accept="image/*" value="image" name="img">
-                            <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
-                                photos</label>
-                            <div id="gallery" class="pt-5"></div>
-                        </div>
+                </div>
+                <div class="col-12" id="drop-area">
+                    <div class="my-form pt-5">
+                        <input type="file" id="fileElem" multiple name="image[]">
+                        <label class="button green-btn" for="fileElem"><i class="fa-solid fa-image"></i>Ajoutez des
+                            photos</label>
+                        <div id="gallery" class="pt-5"></div>
                     </div>
                 </div>
             </div>
+        </div>
             <!-- nom de l'article -->
             <div class="container mb-3  form-bg">
                 <div class="row">
@@ -49,7 +49,7 @@
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage:</label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="description"
-                            value="" placeholder="Contenu" rows="8" required>{$objUtrip->getDescription()}</textarea></div>
+                            value="" placeholder="Contenu" rows="8" required></textarea></div>
                 </div>
             </div>
             <!-- catégories -->
@@ -59,7 +59,7 @@
                     <div class="col-md-6 col-12"><select class="form-select" id="articleCategory" name="cat">
                             <option value="">--</option>
                             {foreach from=$arrCatsToDisplay item=objUtrip}
-                                <option value="{$objUtrip->getCat()}">{$objUtrip->getCat()}</option>
+                                <option value="{$objUtrip->getCatId()}">{$objUtrip->getCat()}</option>
                             {/foreach}
                         </select>
                     </div>
@@ -69,8 +69,7 @@
             <div class="container mb-3  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleCity">Ville:</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleCity" name="city"
-                            placeholder="Ville" required></div>
+                    <div class="col-md-6 col-12"><input class="form-control" value="{$objUtrip->getCity()}" type="text" id="articleCity" name="city" required></div>
                 </div>
             </div>
             <!-- budget -->

@@ -128,6 +128,7 @@
 			
 
 				// Mise à jour en BDD
+
 				if(count($arrErrors) == 0){
 					$objUserModel->update($objUser);
 
@@ -141,6 +142,7 @@
 				}else{
 					$arrErrors[] = "L'insertion s'est mal passée";
 				}
+
 				
 			}
 			

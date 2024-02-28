@@ -24,7 +24,6 @@
                 <label for="mail">Email</label>
                 <input type="email" name="mail" id="mail" value="{$objUser->getEmail()}">
             </p>
-
         </fieldset>
         <fieldset>
             <legend>Informations de connexion</legend>
