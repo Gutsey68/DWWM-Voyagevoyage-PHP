@@ -24,10 +24,6 @@
                 <label for="mail">Email</label>
                 <input type="email" name="mail" id="mail" value="{$objUser->getEmail()}">
             </p>
-            {* <p>
-                <label for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo" id="pseudo" value="{if isset($smarty.cookies.pseudo)}{$smarty.cookies.pseudo}{/if}">
-            </p> *}
         </fieldset>
         <fieldset>
             <legend>Informations de connexion</legend>
@@ -37,7 +33,7 @@
             </p>
             <p>
                 <label for="password">Nouveau mot de passe</label>
-                <input type="password" name="pwd" id="password">
+                <input type="password" name="password" id="password">
             </p>
             <p>
                 <label for="passwd_confirm">Confirmation du mot de passe</label>
