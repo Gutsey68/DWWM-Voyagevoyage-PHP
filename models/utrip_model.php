@@ -166,4 +166,31 @@
 							WHERE utrip_id = ".$id;
 			return $this->_db->query($strQuery)->fetch();			
 		}
+
+		
+		/**
+		* Méthode permettant de modifier un article en BDD 
+		* @param $objArticle object Objet Article à modifier
+		*/
+		public function update(object $objUtrip){
+			$strQuery	= "	UPDATE utrip
+							SET utrip_name = :name, 
+								utrip_description = :description, 
+								utrip_budget = :budget
+								utrip_city = :city, 
+								utrip_cat = :cat
+							WHERE utrip_id = :id";
+			// On prépare la requête
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":name", $objUtrip->getName(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":id", $objUtrip->getId(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":city", $objUtrip->getCityId(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":cat", $objUtrip->getCatId(), PDO::PARAM_INT);
+			
+			//var_dump($this->_db->lastInsertId());die;
+			return $rqPrep->execute();
+		}
+		
 	}

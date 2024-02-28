@@ -131,7 +131,7 @@
 					$arrImagesDet[$num][$key] = $val;
 				}
 			}*/
-			
+
 			if (count($_POST) > 0 && count($_FILES) > 0){
 				/* 3. Créer un objet article */
 				$objUtrip->hydrate($_POST);	// hydrate (setters) avec les données du formulaire
@@ -147,7 +147,7 @@
 				if ($objUtrip->getCat() == ""){
 					$arrErrors['cat'] = "La catégorie est obligatoire";
 				}
-				
+             
 				/* 4. Enregistrer l'image */
 				//$strImgName	= $_FILES['image']['name'];
 				
@@ -180,7 +180,7 @@
 								$source = imagecreatefromwebp($strSource); // Image importée
 								break;
 						}
-						
+                        var_dump($_FILES);
 						// Redimensionnement
 						imagecopyresized($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 						// Enregistrement du fichier
@@ -199,7 +199,7 @@
 				/* 5. Enregistrer l'objet en BDD */
 				if (count($arrErrors) == 0){
 					if ($objUtrip->getId() === 0){
-						if ($objUtripModel->insertImg($objUtrip)){
+						if ($objUtripModel->insert($objUtrip)){
                             var_dump($objUtrip);
 							header("Location:".parent::BASE_URL."utrip/raconte");
 						}else{
@@ -217,7 +217,6 @@
 				
 			}
             var_dump($_POST);
-            var_dump($_FILES);
         $this->_arrData["strCat"]           = $strCat;
         $this->_arrData["strCity"]          = $strCity;
         $this->_arrData["intCatId"]         = $intCatId;
