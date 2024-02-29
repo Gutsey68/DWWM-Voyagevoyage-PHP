@@ -24,6 +24,10 @@
 		private string $_cont;
 		private string $_like;
 		private string $_com;
+		private int $_cityId;
+		private int $_catId;
+		private int $_valid;
+		private string $_comment;
 
 		// Méthodes
 
@@ -264,4 +268,65 @@
 		public function setCom(string $strCom) {
 			$this->_com = $strCom;
 		}
+		/**
+		 * Getter de récupération du commentaire
+		 * @return cat_id de l'objet
+		 */
+		public function getCatId(): int {
+			return $this->_catId;
+		}
+
+		/**
+		 * Setter de récupération du commentaire
+		 * @return cat_id de l'objet
+		 */
+		public function setCatId(int $intCatId) {
+			$this->_catId = $intCatId;
+		}
+		/**
+		 * Getter de récupération du commentaire
+		 * @return city_id de l'objet
+		 */
+		public function getCityId(): int {
+			return $this->_cityId;
+		}
+
+		/**
+		 * Setter de récupération du commentaire
+		 * @return city_id de l'objet
+		 */
+		public function setCityId(int $intCityId) {
+			$this->_cityId = $intCityId;
+		}
+
+				/**
+		* Getter de récupération de l'état de validation
+		* @return int état de validation
+		*/
+		public function getValid():int{ 
+			return $this->_valid;
+		}
+		/**
+		* Setter de modification de l'état de validation
+		* @param int état de validation
+		*/
+		public function setValid(int $intValid){ 
+			$this->_valid = $intValid;
+		}		
+		
+		/**
+		* Getter de récupération du commentaire de validation
+		* @return string commentaire de validation
+		*/
+		public function getComment():string{ 
+			return $this->_comment;
+		}
+		/**
+		* Setter de modification du commentaire de validation
+		* @param string commentaire de validation
+		*/
+		public function setComment(string $strComment){ 
+			$this->_comment = trim($strComment); // Enlève les espaces avant et après
+			$this->_comment = filter_var($this->_comment, FILTER_SANITIZE_FULL_SPECIAL_CHARS); // nettoyage
+		}		
 	}

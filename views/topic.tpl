@@ -3,7 +3,7 @@
 {extends file="views/layout.tpl"}
 
 {block name="contenu"}
-    <article id="utrip">
+    <article>
         <section id="utrip-title">
             <div class="container pb-3 pt-3">
                 <div class="row">

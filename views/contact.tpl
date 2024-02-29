@@ -1,7 +1,5 @@
 {* Page de Contact *}
-
 {extends file="views/layout.tpl"}
-
 {block name="contenu"}
 
 	{if (count($arrErrors) >0) }

@@ -21,7 +21,7 @@
 		 */
 		public function findAll() {
 
-			$strQuery 	= "SELECT user_id, user_firstname 
+			$strQuery 	= "SELECT user_id, user_firstname
 							FROM users";
 			return $this->_db->query($strQuery)->fetchAll();
 		}
@@ -32,7 +32,8 @@
 		 */
 		public function get(int $id) {
 
-			$strQuery 	= "SELECT user_firstname 
+			$strQuery 	= "SELECT user_id, user_name, user_firstname, user_email, user_password 
+
 							FROM users
 							WHERE user_id = " . $id;
 			return $this->_db->query($strQuery)->fetch();
@@ -46,7 +47,7 @@
 		 */
 		public function searchUser(string $strEmail, string $strPassword) {
 
-			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_password, user_role_id
+			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_email, user_password, user_role
 							FROM users
 							WHERE user_email = :mail;";
 
@@ -55,7 +56,8 @@
 			$rqPrep->bindValue(":mail", $strEmail, PDO::PARAM_STR);
 
 			$rqPrep->execute();
-			return $rqPrep->fetch();
+			//return $rqPrep->fetch();
+			$arrUser = $rqPrep->fetch();
 
 			if(is_array($arrUser) && password_verify($strPassword, $arrUser['user_password'])){
 				unset($arrUser['user_password']);
@@ -111,20 +113,75 @@
 			$strQuery 	= "UPDATE users 
 							SET user_name = :name, 
 								user_firstname = :firstname, 
-								user_mail = :mail";
-			if ($objUser->getPwd() != ''){
-				$strQuery 	.= ", user_pwd = :pwd";
+								user_email = :mail";
+			if ($objUser->getPassword() != ''){
+				$strQuery 	.= ", user_password = :pwd";
 			}
 			$strQuery 	.= " WHERE user_id = :id	;";
 			$rqPrep	= $this->_db->prepare($strQuery);
 			
 			$rqPrep->bindValue(":name", $objUser->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":firstname", $objUser->getFirstname(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":mail", $objUser->geteMail(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":mail", $objUser->getEmail(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":id", $objUser->getId(), PDO::PARAM_INT);
 			if ($objUser->getPassword() != ''){
 				$rqPrep->bindValue(":pwd", $objUser->getPwdHash(), PDO::PARAM_STR);
 			}
 			return $rqPrep->execute();
 		}
+		
+		/**
+		* Méthode qui récupère l'identifiant d'un utilisateur en fonction de son mail
+		* @param string $strEmail Email à chercher dans la table user
+		* @return int Identifiant de l'utilisateur
+		*/
+		public function getByMail(string $strEmail):int|false{
+			$strQuery 	= "SELECT user_id
+							FROM users
+							WHERE user_mail = :mail;";
+
+			$rqPrep	= $this->_db->prepare($strQuery);			
+
+			$rqPrep->bindValue(":mail", $strEmail, PDO::PARAM_STR);
+
+			$rqPrep->execute();
+			$arrUser	= $rqPrep->fetch();
+			if (is_array($arrUser)){
+				return $arrUser['user_id'];
+			}		
+
+			return false;
+		}
+
+		public function updateReco(string $strCode, int $intId):bool{
+			$strQuery 	= "UPDATE users 
+							SET user_recocode = '".$strCode."',
+								user_recodate = NOW(),
+								user_recoexp = DATE_ADD(NOW(), INTERVAL 15 MINUTE)
+							WHERE user_id = ".$intId.";";
+			return $this->_db->exec($strQuery);				
+		}
+
+		public function searchByCode($strCode){
+			$strQuery 	= "SELECT * 
+							FROM users
+							WHERE user_recocode = :code
+							AND user_recoexp > NOW()";
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":code", $strCode, PDO::PARAM_STR);
+			$rqPrep->execute();
+			return $rqPrep->fetch();
+		}
+
+		public function updatePwd($strPassword){
+			$strQuery 	= "UPDATE users
+							SET user_password = :pwd
+							WHERE user_id = ".$_SESSION['user_recovery'].";";
+			$rqPrep	= $this->_db->prepare($strQuery);
+
+			$rqPrep->bindValue(":pwd", password_hash($strPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
+
+			return $rqPrep->execute();
+		}
+
 	}

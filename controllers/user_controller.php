@@ -91,9 +91,10 @@
 		*/
 		public function edit_profile() {
 
+			var_dump($_POST);
 			// Est-ce que l'utilisateur est connecté ?
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-				header("Location:index.php?ctrl=utrip&action=home");
+				header("Location:http://localhost/projet_2/index.php");
 			}
 			
 			$arrErrors	= array();
@@ -125,19 +126,23 @@
 					}
 				}
 			
-				// Mise à jour en BDD
-				if(count($arrErrors) == 0){
-					if ($objUserModel->update($objUser)){
 
-						// Attention si informations de session modifiées => modifier la session
-						$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
-						$_SESSION['user']['user_name'] 		= $objUser->getName();
-						
-						header("Location:index.php?ctrl=utrip&action=home");
-					}else{
-						$arrErrors[] = "L'insertion s'est mal passée";
-					}
+				// Mise à jour en BDD
+
+				if(count($arrErrors) == 0){
+					$objUserModel->update($objUser);
+
+				// Attention si informations de session modifiées => modifier la session
+				$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
+				$_SESSION['user']['user_name'] 		= $objUser->getName();
+				
+					
+				header("Location:http://localhost/projet_2/index.php");
+					
+				}else{
+					$arrErrors[] = "L'insertion s'est mal passée";
 				}
+
 				
 			}
 			
@@ -187,18 +192,132 @@
 		* @param string $strPwd Mot de passe à vérifier
 		* @return array les erreurs générées
 		*/
-		private function _verifPwd(string $strPwd) {
+		private function _verifPwd(string $strPassword) {
 			$arrErrors	= array();
 			$password_regex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{16,}$/"; 
 				
-			if ($strPwd == ""){
+			if ($strPassword== ""){
 				$arrErrors['pwd'] = "Le mot de passe est obligatoire";
-			}elseif(!preg_match($password_regex, $strPwd)){
+			}elseif(!preg_match($password_regex, $strPassword)){
 				$arrErrors['pwd'] = "Le mot de passe doit faire minimum 16 caractères 
 									et contenir une minuscule, une majuscule, un chiffre et un caractère";
-			}elseif ($strPwd != $_POST['passwd_confirm']){
+			}elseif ($strPassword != $_POST['passwd_confirm']){
 				$arrErrors['pwd'] = "Le mot de passe et sa confirmation doivent être identiques";
 			}
 			return $arrErrors;
+		}
+
+		
+		/**
+		* Methode permettant de demander la réinitialisation du mot de passe
+		* @TODO : Afficher le formulaire + envoyer le mail si adresse mail ok
+		*/
+		public function forgetPwd(){
+			
+			$arrErrors = array();
+			$arrSuccess = array();
+			if (count($_POST) > 0){
+				if ($_POST['email'] == ''){
+					$arrErrors['email'] = "Vous devez renseigner un mail";
+				}else{
+					$arrSuccess['email'] = "Si vous êtes inscrit vous allez recevoir un mail ....";
+					$objUserModel	= new UserModel;
+					$intUserId		= $objUserModel->getByMail($_POST['email']);
+					if ($intUserId !== false){ 
+						$strRecoCode 	= bin2hex(random_bytes(12));
+						
+						if ($objUserModel->updateReco($strRecoCode, $intUserId)){
+							$strDestMail 	= $_POST['email'];
+							$strSubject		= 'Récupération du mot de passe';
+							
+							$this->_arrData["code"] 	= $strRecoCode;
+							$strBody		= $this->afficheTpl("mails/contact", false);
+							
+							$this->_sendMail($strDestMail, $strSubject, $strBody);
+						}
+					}
+				}
+			}
+			
+			$this->_arrData["strPage"] 	= "forgetPwd";
+			$this->_arrData["strTitle"] = "Mot de passe oublié";
+			$this->_arrData["strDesc"] 	= "Page permettant de régénérer son mot de passe";
+			$this->_arrData["arrErrors"]= $arrErrors;
+			$this->_arrData["arrSuccess"]= $arrSuccess;
+			$this->afficheTpl("forget");
+
+			
+			
+
+		}
+		
+		public function resetPwd(){
+			var_dump($_GET['code']);
+			$strCode		= $_GET['code'];
+			$objUserModel	= new UserModel;
+			$arrUser		= $objUserModel->searchByCode($strCode);
+
+			$arrErrors		= array();
+			if ($arrUser === false){
+				$arrErrors['url']			= "La demande est expirée";
+			}else{
+				$_SESSION['user_recovery'] 	= $arrUser['user_id'];
+				Header("Location:".parent::BASE_URL."user/doResetPwd");
+			}
+
+			$this->_arrData["strPage"] 	= "resetPwd";
+			$this->_arrData["strTitle"] = "Réinitialisation du mot de passe";
+			$this->_arrData["strDesc"] 	= "Page permettant de réinitialisation son mot de passe";
+			$this->_arrData["arrErrors"]= $arrErrors;
+			$this->afficheTpl("reset");
+		}
+
+		public function doResetPwd(){
+			$arrErrors	= array();
+			if (count($_POST) >0){
+				// vérifier les mots de passe
+				$arrErrors = $this->_verifPwd($_POST['pwd']);
+				if (count($arrErrors) == 0){
+					// mettre à jour la bdd
+					$objUserModel	= new UserModel;
+					if ($objUserModel->updatePwd($_POST['pwd'])){
+						session_destroy();
+						Header("Location:".parent::BASE_URL."user/login");
+					}else{
+						$arrErrors['mdp'] = "erreur de modification du mot de passe";
+					}
+				}
+			}			
+
+			$this->_arrData["strPage"] 	= "resetPwd";
+			$this->_arrData["strTitle"] = "Réinitialisation du mot de passe";
+			$this->_arrData["strDesc"] 	= "Page permettant de réinitialisation son mot de passe";
+			$this->_arrData["arrErrors"]= $arrErrors;
+			//$this->_arrData["arrSuccess"]= $arrSuccess;
+			$this->afficheTpl("doreset");
+		}		
+
+		
+		private function _sendMail($strDestMail, $strSubject, $strBody){
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->Mailer = "smtp";
+
+			$mail->SMTPDebug  	= 0;  
+			$mail->SMTPAuth   	= TRUE;
+			$mail->SMTPSecure 	= "tls";
+			$mail->Port       	= 587;
+			$mail->Host       	= "smtp.gmail.com";
+			$mail->Username 	= 'ceformation68@gmail.com';
+			$mail->Password 	= 'lkpy yuoc ftuu qksu';
+			$mail->CharSet		= PHPMailer::CHARSET_UTF8;
+			$mail->IsHTML(true);
+			$mail->setFrom('mon_blog@gmail.com', 'Exercice BLOG');
+			$mail->addAddress($strDestMail);
+			$mail->Subject 	= $strSubject;
+			$mail->Body 	= $strBody;
+			//$mail->addAttachment('test.txt');
+
+			return $mail->send();
 		}
     }
