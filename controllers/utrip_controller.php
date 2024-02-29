@@ -104,15 +104,6 @@
 				}
 			}		
 			
-			// Tableau des fichiers si multiples
-			/* Pour le projet => traitement images multiples
-			$arrImagesDet = array();
-			foreach($_FILES['image'] as $key=>$arrImages){
-				foreach($arrImages as $num => $val){
-					$arrImagesDet[$num][$key] = $val;
-				}
-			}*/
-
 			if (count($_POST) > 0 && count($_FILES) > 0){
 
 				/* 3. Créer un objet article */
@@ -135,48 +126,58 @@
              
 				/* 4. Enregistrer l'image */
 				//$strImgName	= $_FILES['image']['name'];
+				// Tableau des fichiers si multiples
+				/* Pour le projet => traitement images multiples*/
+				$arrImagesDet = array();
+				foreach($_FILES['image'] as $key=>$arrImages){
+					foreach($arrImages as $num => $val){
+						$arrImagesDet[$num][$key] = $val;
+					}
+				}
 				
-				$strImgName	= $_FILES['image']['name'];
+				$strImgName	= $_FILES['image']['name'][0];
 				if ($strImgName != ""){
-					// Si le type d'image est autorisé
-					if (in_array($_FILES['image']['type'], $this->_arrMimesType)){ 
-						$strSource 	= $_FILES['image']['tmp_name'];
-						$strImgName	= bin2hex(random_bytes(5)).".webp";
-						$strDest	= "uploads/".$strImgName;
-						/* Avec redimensionnement */
-						$percent 	= 0.5;
-						// Calcul des nouvelles dimensions
-						list($width, $height) = getimagesize($strSource);
-						$newwidth	= intval($width* $percent);
-						$newheight	= intval($height* $percent);
-						// Création des GdImage
-						$dest	= imagecreatetruecolor($newwidth, $newheight); // Image vide
-						switch ($_FILES['image']['type']){
-							case "image/jpeg":
-								$source = imagecreatefromjpeg($strSource); // Image importée
-								break;
-							case "image/png" :
-								$source = imagecreatefrompng($strSource); // Image importée
-								break;
-							case "image/webp" :
-								$source = imagecreatefromwebp($strSource); // Image importée
-								break;
-							default :
-								$source = imagecreatefromwebp($strSource); // Image importée
-								break;
-						}
-                        var_dump($_FILES);
-						// Redimensionnement
-						imagecopyresized($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-						// Enregistrement du fichier
-						if (imagewebp($dest, $strDest, IMG_WEBP_LOSSLESS)){
-							$objUtrip->setImg($strImgName);
+					foreach($arrImagesDet as $arrDetImage){
+
+						// Si le type d'image est autorisé
+						if (in_array($arrDetImage['type'], $this->_arrMimesType)){ 
+							$strSource 	= $arrDetImage['tmp_name'];
+							$strImgName	= bin2hex(random_bytes(5)).".webp";
+							$strDest	= "uploads/".$strImgName;
+							/* Avec redimensionnement */
+							$percent 	= 0.5;
+							// Calcul des nouvelles dimensions
+							list($width, $height) = getimagesize($strSource);
+							$newwidth	= intval($width* $percent);
+							$newheight	= intval($height* $percent);
+							// Création des GdImage
+							$dest	= imagecreatetruecolor($newwidth, $newheight); // Image vide
+							switch ($arrDetImage['type']){
+								case "image/jpeg":
+									$source = imagecreatefromjpeg($strSource); // Image importée
+									break;
+								case "image/png" :
+									$source = imagecreatefrompng($strSource); // Image importée
+									break;
+								case "image/webp" :
+									$source = imagecreatefromwebp($strSource); // Image importée
+									break;
+								default :
+									$source = imagecreatefromwebp($strSource); // Image importée
+									break;
+							}
+							// Redimensionnement
+							imagecopyresized($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+							// Enregistrement du fichier
+							if (imagewebp($dest, $strDest, IMG_WEBP_LOSSLESS)){
+								$objUtrip->setImg($strImgName);
+							}else{
+								$arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
+							}
+							
 						}else{
-							$arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
+							$arrErrors['img'] = "Le type d'image n'est pas autorisé";
 						}
-						
-					}else{
-						$arrErrors['img'] = "Le type d'image n'est pas autorisé";
 					}
 				}elseif ($objUtrip->getImg() =='') {
 					$arrErrors['img'] = "L'image est obligatoire";
@@ -186,6 +187,8 @@
 					if ($objUtrip->getId() === 0){
 						if ($objUtripModel->insert($objUtrip)){
                             var_dump($objUtrip);
+							//foreach ($arrImagesDet....
+							// $objUtripModel->insertImg
 							header("Location:".parent::BASE_URL."utrip/raconte");
 						}else{
 							$arrErrors[] = "L'insertion s'est mal passée";
@@ -201,7 +204,10 @@
 			}else{
 				
 			}
+
             var_dump($_POST);
+            var_dump($_FILES);
+
         $this->_arrData["strCat"]           = $strCat;
         $this->_arrData["strCity"]          = $strCity;
         $this->_arrData["intCatId"]         = $intCatId;
