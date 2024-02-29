@@ -214,4 +214,5 @@
 
             $this->afficheTpl("utrip");
         }
+
     }
