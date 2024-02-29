@@ -3,6 +3,16 @@
  * Controller des pages
  * @author Gauthier
  */
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require'libs/PHPMailer/src/Exception.php';
+require'libs/PHPMailer/src/PHPMailer.php';
+require'libs/PHPMailer/src/SMTP.php';
+
+
 include_once("models/contact_model.php");
 include_once("entities/contact_entity.php");
 
@@ -58,7 +68,39 @@ include_once("entities/contact_entity.php");
                 $objContact->setTitle("");
                 $objContact->setContent("");
             }
-            
+
+            if(isset($_POST['envoyer'])){
+                $name = $_POST['name'];
+                $email = $_POST['mail'];
+                $subject = $_POST['title'];
+                $body = $_POST['content'];
+                $bodyMEF = 'Nom : '.$name.'. Mail: '.$email.'. Message: '.$body;
+
+                $mail = new PHPMailer();
+                $mail->CharSet = "UTF-8";
+                $mail->IsSMTP();
+                $mail->Mailer = "smtp";
+    
+                $mail->SMTPDebug= 1;
+                $mail->SMTPAuth= TRUE;
+                $mail->SMTPSecure= "tls";
+                $mail->Port = 587;
+                $mail->Host = "smtp.gmail.com";
+                $mail->Username= 'voyagevoyageprojet@gmail.com';
+                $mail->Password= 'nefx thkh zpve afxf';
+    
+                $mail->IsHTML(true);
+                $mail->setFrom('voyagevoyageprojet@gmail.com', "Contact");
+                $mail->addAddress('voyagevoyageprojet@gmail.com', "L'équipe Voyage Voyage");
+                $mail->Subject= $subject;
+                $mail->Body = $bodyMEF;
+                //$mail->addAttachment('test.txt');
+                if (!$mail->send()) {
+                echo'Erreur de Mailer : ' . $mail->ErrorInfo;
+                } else{
+                echo'Le message a été envoyé.';
+                }
+            }
 
             $this->_arrData["strPage"]     = "contact";
             $this->_arrData["strTitle"]    = "Contact";
