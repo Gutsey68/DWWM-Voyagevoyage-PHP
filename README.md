@@ -2,11 +2,15 @@
 
 à faire :
 
-- gestion utilisateur
 - insertion d'articles dans la bdd
-- faire le détail d'un topic
-- faire le détail d'un article 
 - faire la modification d'un article
 - faire la view(html) des articles (utrips)
 - faire la view du about
 - faire la view des erreurs
+- modération du forum
+- afficher seulement les articles validés
+- les bulles d'aide
+- les commentaires
+- les likes
+- le template d'un profil utilisateur
+- du CSS 
