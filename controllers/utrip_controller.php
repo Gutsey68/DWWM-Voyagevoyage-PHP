@@ -94,7 +94,7 @@
 				$objUtrip->setCity("");
 				$objUtrip->setCityId(0);
 				$objUtrip->setCatId(0);
-				$objUtrip->setBudget("0");
+				$objUtrip->setBudget("");
 			}else{
 				/* j'hydrate en fonction de l'article */
 				$objUtrip->hydrate($arrUtrip);
@@ -124,10 +124,8 @@
 					$arrErrors['cat'] = "La catégorie est obligatoire";
 				}
              
-				/* 4. Enregistrer l'image */
-				//$strImgName	= $_FILES['image']['name'];
-				// Tableau des fichiers si multiples
-				/* Pour le projet => traitement images multiples*/
+				// 4. Enregistrer les images 
+
 				$arrImagesDet = array();
 				foreach($_FILES['image'] as $key=>$arrImages){
 					foreach($arrImages as $num => $val){
@@ -186,7 +184,10 @@
 				if (count($arrErrors) == 0){
 					if ($objUtrip->getId() === 0){
 						if ($objUtripModel->insert($objUtrip)){
-                            var_dump($objUtrip);
+							
+							foreach($arrImagesDet as $arrDetImage){
+								$objUtripModel->insertImg($objUtrip, $objUtrip->getId());
+							}
 							//foreach ($arrImagesDet....
 							// $objUtripModel->insertImg
 							header("Location:".parent::BASE_URL."utrip/raconte");
@@ -204,9 +205,6 @@
 			}else{
 				
 			}
-
-            var_dump($_POST);
-            var_dump($_FILES);
 
         $this->_arrData["strCat"]           = $strCat;
         $this->_arrData["strCity"]          = $strCity;

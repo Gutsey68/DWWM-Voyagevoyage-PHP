@@ -76,7 +76,7 @@
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleBudget">Budget approximatif (en €) :</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget"
-                            placeholder="exemple : 1000" value="" name="budget" required></div>
+                            placeholder="exemple : 1000" value="" name="budget"></div>
                 </div>
             </div>
             <div class="container mb-3">
