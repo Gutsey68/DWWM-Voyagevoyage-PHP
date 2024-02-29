@@ -3,7 +3,6 @@
 à faire :
 
 - gestion utilisateur
-- réécriture d'url 
 - insertion d'articles dans la bdd
 - faire le détail d'un topic
 - faire le détail d'un article 

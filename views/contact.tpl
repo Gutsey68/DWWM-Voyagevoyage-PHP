@@ -17,7 +17,7 @@
 	<form action="" method="post">
 		<div class="form-group mb-3">
 			<label for="name">Nom</label>
-			<input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom">
+			<input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom"> 
 		</div>
 		<div class="form-group mb-3">
 			<label for="mail">Email</label>
@@ -31,7 +31,7 @@
 			<label for="content">Message</label>
 			<textarea class="form-control" id="content" rows="5" name="content" placeholder="Votre message ici"></textarea>
 		</div>
-		<button type="submit" class="btn green-btn">Envoyer</button>
+		<button type="submit" class="btn green-btn" name="envoyer">Envoyer</button>
 	</form>
 </div>
 {/block}

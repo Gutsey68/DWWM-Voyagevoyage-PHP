@@ -4,7 +4,7 @@
             <div class="col-md-4 col-12 pb-3">
                 <h3 class="pb-3">Nos coordonnées :</h3>
                 <a href="mailto:voyagevoyage@email.fr" class="coordonnées">
-                    <p><i class="fa-solid fa-envelope"></i> voyagevoyage@email.fr</p>
+                    <p><i class="fa-solid fa-envelope"></i> voyagevoyageprojet@gmail.fr</p>
                 </a>
                 <a href="callto:voyagevoyage@email.fr" class="coordonnées">
                     <p><i class="fa-solid fa-phone"></i> 07 88 48 64 97</p>
