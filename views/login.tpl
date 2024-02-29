@@ -12,7 +12,7 @@
                 {/foreach}
             </div>
         {/if}
-        <form action="" method="post">
+        <form action="{$base_url}user/login" method="post">
             <div class="mb-3">
                 <label class="form-label" for="email">E-mail <span class="text-danger">*</span></label>
                 <input class="form-control" id="email" type="email" name="email" value="{$email}">
@@ -24,5 +24,6 @@
             <input class="btn green-btn" type="submit" value="Se connecter">
         </form>
         <div class="mt-3 mb-3 form-container lead"><a href="user/create_account">Pas de compte ? Inscrivez vous !</a></div>
+        <a href="{$base_url}user/forgetPwd">Mot de passe oublié</a>
     </div>
 {/block}

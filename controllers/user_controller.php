@@ -206,4 +206,75 @@
 			}
 			return $arrErrors;
 		}
+
+		
+		/**
+		* Methode permettant de demander la réinitialisation du mot de passe
+		* @TODO : Afficher le formulaire + envoyer le mail si adresse mail ok
+		*/
+		public function forgetPwd(){
+			
+			$arrErrors = array();
+			$arrSuccess = array();
+			if (count($_POST) > 0){
+				if ($_POST['email'] == ''){
+					$arrErrors['email'] = "Vous devez renseigner un mail";
+				}else{
+					$arrSuccess['email'] = "Si vous êtes inscrit vous allez recevoir un mail ....";
+					$objUserModel	= new UserModel;
+					$intUserId		= $objUserModel->getByMail($_POST['email']);
+					if ($intUserId !== false){ 
+						$strRecoCode 	= bin2hex(random_bytes(12));
+						
+						if ($objUserModel->updateReco($strRecoCode, $intUserId)){
+							$strDestMail 	= $_POST['email'];
+							$strSubject		= 'Récupération du mot de passe';
+							
+							$this->_arrData["code"] 	= $strRecoCode;
+							$strBody		= $this->afficheTpl("mails/contact", false);
+							
+							$this->_sendMail($strDestMail, $strSubject, $strBody);
+						}
+					}
+				}
+			}
+			
+			$this->_arrData["strPage"] 	= "forgetPwd";
+			$this->_arrData["strTitle"] = "Mot de passe oublié";
+			$this->_arrData["strDesc"] 	= "Page permettant de régénérer son mot de passe";
+			$this->_arrData["arrErrors"]= $arrErrors;
+			$this->_arrData["arrSuccess"]= $arrSuccess;
+			$this->afficheTpl("forget");
+
+			
+			
+
+		}
+		
+		public function resetPwd(){
+			var_dump($_GET['code']);
+			
+		}
+		private function _sendMail($strDestMail, $strSubject, $strBody){
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->Mailer = "smtp";
+
+			$mail->SMTPDebug  	= 0;  
+			$mail->SMTPAuth   	= TRUE;
+			$mail->SMTPSecure 	= "tls";
+			$mail->Port       	= 587;
+			$mail->Host       	= "smtp.gmail.com";
+			$mail->Username 	= 'ceformation68@gmail.com';
+			$mail->Password 	= 'lkpy yuoc ftuu qksu';
+			$mail->CharSet		= PHPMailer::CHARSET_UTF8;
+			$mail->IsHTML(true);
+			$mail->setFrom('mon_blog@gmail.com', 'Exercice BLOG');
+			$mail->addAddress($strDestMail);
+			$mail->Subject 	= $strSubject;
+			$mail->Body 	= $strBody;
+			//$mail->addAttachment('test.txt');
+
+			return $mail->send();
+		}
     }

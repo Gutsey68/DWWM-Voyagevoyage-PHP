@@ -129,4 +129,37 @@
 			}
 			return $rqPrep->execute();
 		}
+		
+		/**
+		* Méthode qui récupère l'identifiant d'un utilisateur en fonction de son mail
+		* @param string $strEmail Email à chercher dans la table user
+		* @return int Identifiant de l'utilisateur
+		*/
+		public function getByMail(string $strEmail):int|false{
+			$strQuery 	= "SELECT user_id
+							FROM users
+							WHERE user_mail = :mail;";
+
+			$rqPrep	= $this->_db->prepare($strQuery);			
+
+			$rqPrep->bindValue(":mail", $strEmail, PDO::PARAM_STR);
+
+			$rqPrep->execute();
+			$arrUser	= $rqPrep->fetch();
+			if (is_array($arrUser)){
+				return $arrUser['user_id'];
+			}		
+
+			return false;
+		}
+
+		public function updateReco(string $strCode, int $intId):bool{
+			$strQuery 	= "UPDATE users 
+							SET user_recocode = '".$strCode."',
+								user_recodate = NOW(),
+								user_recoexp = DATE_ADD(NOW(), INTERVAL 15 MINUTE)
+							WHERE user_id = ".$intId.";";
+			return $this->_db->exec($strQuery);				
+		}
+
 	}
