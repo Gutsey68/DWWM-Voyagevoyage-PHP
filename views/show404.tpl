@@ -3,5 +3,20 @@
 {extends file="views/layout.tpl"}
 
 {block name="contenu"}
-    <div>Error 404</div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="p-5">Oups... Cette page n'a pas été trouvé</h1>
+                    <div class="button-center">
+                    <a class="green-btn" href="utrip/explore"><i class="fa-solid fa-house"></i>Revenir à l'accueil</a>
+                    </div>
+                </div>
+                </div>
+                <div class="text-center  show404img">
+                    <img src="assets/images/404.png">
+                </div>
+            </div>
+        </div>
+    </section>
 {/block}

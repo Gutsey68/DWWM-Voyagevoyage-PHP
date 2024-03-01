@@ -436,6 +436,11 @@ footer #border-bottom {
     color: black;
 }
 
+/* show404.tpl */
+.show404img img {
+    width: 25%;
+}
+
 /* Tablette */
 
 @media screen and (min-width: 577px) and (max-width: 1081px) {
