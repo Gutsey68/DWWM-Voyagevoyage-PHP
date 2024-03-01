@@ -15,19 +15,19 @@
 	<form action="" method="post">
 		<div class="form-group mb-3">
 			<label for="name">Nom</label>
-			<input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom"> 
+			<input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom" value=""> 
 		</div>
 		<div class="form-group mb-3">
 			<label for="mail">Email</label>
-			<input type="email" class="form-control" id="mail" name="mail" placeholder="Entrez votre email">
+			<input type="email" class="form-control" id="mail" name="mail" placeholder="Entrez votre email" value="">
 		</div>
 		<div class="form-group mb-3">
 			<label for="title">Object</label>
-			<input type="text" class="form-control" id="title" name="title" placeholder="Object de votre message">
+			<input type="text" class="form-control" id="title" name="title" placeholder="Object de votre message" value="">
 		</div>
 		<div class="form-group mb-3">
 			<label for="content">Message</label>
-			<textarea class="form-control" id="content" rows="5" name="content" placeholder="Votre message ici"></textarea>
+			<textarea class="form-control" id="content" rows="5" name="content" placeholder="Votre message ici" value=""></textarea>
 		</div>
 		<button type="submit" class="btn green-btn" name="envoyer">Envoyer</button>
 	</form>
