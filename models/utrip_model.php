@@ -42,6 +42,7 @@
 				$strWhere	= " AND ";
 			}
 
+
 			// Recherche par date exacte
 			$strDate		= $arrSearch['date'] ?? "";
 			if ($strDate != '') {
@@ -61,7 +62,7 @@
 				$strQuery 	.= $strWhere."cat_lib = :cat ";
 				$strWhere	= " AND ";
 			}
-
+			$strQuery	.= $strWhere . "utrip_valid = 1";
 			// Tri par ordre décroissant
 			$strQuery 	.= " ORDER BY utrip_date DESC ";
 			if ($intLimit > 0) {

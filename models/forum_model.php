@@ -36,7 +36,6 @@
 
 			// Tri par ordre décroissant
 			$strQuery 	.= " 
-			WHERE topic_valid = 1
 			ORDER BY topic_date DESC";
 
 			if ($intLimit > 0){
