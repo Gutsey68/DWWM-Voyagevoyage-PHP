@@ -26,9 +26,11 @@
 								INNER JOIN users ON topic_user_id = user_id";
 			$strWhere	= " WHERE ";
 
+			$strQuery	.= $strWhere . "topic_valid = 1";
+
 			$strKeywords = $arrSearch['keywords'] ?? "";
 			if ($strKeywords != '') {
-				$strQuery 	.= $strWhere . " (topic_title LIKE :keywords
+				$strQuery 	.=  " AND (topic_title LIKE :keywords
 							OR topic_content LIKE :keywords) ";
 			}
 
