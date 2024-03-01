@@ -72,23 +72,24 @@
             </div>
         </section>
     </article>
-
-    {if ($smarty.session.user.user_role == "modo") }
-		<div class="container mb-5">
-			<h2 class="green-title">Modération</h2>
-			<form method="post" action="utrip/utrip?id={$objUtrip->getId()}">
-				<p>
-					<label>Accepté</label>
-					<input type="radio" name="moderation" value="1" {if ($objUtrip->getValid() == 1) } checked {/if} > Oui
-					<input type="radio" name="moderation" value="0" {if ($objUtrip->getValid() == 0) } checked {/if} > Non
-				</p>
-				<p>
-					<label>Commentaire</label>
-					<textarea name="comment">{$objUtrip->getComment()}</textarea>
-				</p>
-				<input type="submit" >
-			</form>
-		</div>
+    {if (isset($smarty.session.user.user_id))}
+        {if ($smarty.session.user.user_role == "modo") }
+            <div class="container mb-5">
+                <h2 class="green-title">Modération</h2>
+                <form method="post" action="utrip/utrip?id={$objUtrip->getId()}">
+                    <p>
+                        <label>Accepté</label>
+                        <input type="radio" name="moderation" value="1" {if ($objUtrip->getValid() == 1) } checked {/if} > Oui
+                        <input type="radio" name="moderation" value="0" {if ($objUtrip->getValid() == 0) } checked {/if} > Non
+                    </p>
+                    <p>
+                        <label>Commentaire</label>
+                        <textarea name="comment">{$objUtrip->getComment()}</textarea>
+                    </p>
+                    <input type="submit" >
+                </form>
+            </div>
+        {/if}
     {/if}
 
 {/block}
