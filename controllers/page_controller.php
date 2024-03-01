@@ -18,6 +18,18 @@ include_once("entities/contact_entity.php");
 
     class PageCtrl extends Ctrl {
 
+        /**
+		* Méthode qui permet d'afficher la page Aide du site
+		*/
+        public function aide_site() {
+
+            $this->_arrData["strPage"]     = "aide_site";
+            $this->_arrData["strTitle"] = "Aid du site";
+            $this->_arrData["strDesc"]     = "Page de contenu";
+            $this->afficheTpl("aide_site");
+        }
+
+
 		/**
 		* Méthode qui permet d'afficher la page about
 		*/
