@@ -10,8 +10,6 @@
 		protected string $_strPrefixe = "img_";
 
 		private int $_id;
-		private string $_name;
-		private string $_description;
 		private string $_link;
 		private string $_utrip;
 
@@ -33,38 +31,6 @@
 			$this->_id = $intId;
 		}
 
-		/**
-		 * Getter de récupération du name
-		 * @return name de l'objet
-		 */
-		public function getName(): string {
-			return $this->_name;
-		}
-
-		/**
-		 * Setter de récupération du name
-		 * @return name de l'objet
-		 */
-		public function setName(string $strName) {
-			$this->_name = $strName;
-		}
-
-		/**
-		 * Getter de récupération du contenu
-		 * @return contenu de l'objet
-		 */
-		public function getDescription(): string {
-			return $this->_description;
-		}
-
-		/**
-		 * Setter de récupération du contenu
-		 * @return contenu de l'objet
-		 */
-		public function setDescription(string $strDescription) {
-			$this->_description = $strDescription;
-		}
-	
 		/**
 		 * Getter de récupération du lien
 		 * @return lien de l'objet

@@ -40,10 +40,8 @@
             <div class="container pb-3">
                 <div class="row">
                     <div class="col-12">
-                        <img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}">
-                        <img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}">
-                        <img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}">
-                        <img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}">
+                        <img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="">
+                        
                     </div>
                 </div>
                 <div class="row">

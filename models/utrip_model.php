@@ -20,7 +20,7 @@
 		*/
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 
-			$strQuery     = "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
+			$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , 
 							utrip_date , user_pseudo AS 'utrip_creator', user_id AS 'utrip_creatorId' , img_link AS 'utrip_img' , cities_name
 							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
 									FROM utrip 
@@ -99,6 +99,20 @@
 
 			$strQuery 	= "SELECT cities_id AS 'utrip_cityId' , cities_name AS 'utrip_city'
 							FROM cities";
+
+			return $this->_db->query($strQuery)->fetchAll();
+		}
+
+		/**
+		* Méthode de récupération de toutes les images d'un article
+		* @return Tableau des images
+		*/
+		public function findImgs($id) {
+
+			$strQuery 	= "SELECT img_link AS 'utrip_img'
+							FROM image
+							INNER JOIN utrip ON utrip_id = img_utrip_id
+							WHERE utrip_id = ".$id;
 
 			return $this->_db->query($strQuery)->fetchAll();
 		}

@@ -32,7 +32,7 @@
 		 */
 		public function get(int $id) {
 
-			$strQuery 	= "SELECT user_id, user_name, user_firstname, user_email, user_password ,user_pp , user_pseudo , user_regisdate
+			$strQuery 	= "SELECT user_id, user_name, user_firstname, user_email, user_password ,user_pp , user_pseudo , user_regisdate , user_bio
 
 							FROM users
 							WHERE user_id = " . $id;
@@ -104,6 +104,7 @@
 			return $rqPrep->execute();
 		}
 
+
 		/**
 		* Méthode de modification d'un utilisateur en bdd
 		* param object $objUser Objet utilisateur
@@ -113,7 +114,10 @@
 			$strQuery 	= "UPDATE users 
 							SET user_name = :name, 
 								user_firstname = :firstname, 
-								user_email = :mail";
+								user_email = :mail ,
+								user_pseudo = :pseudo , 
+								user_bio = :bio";
+
 			if ($objUser->getPassword() != ''){
 				$strQuery 	.= ", user_password = :pwd";
 			}
@@ -123,10 +127,27 @@
 			$rqPrep->bindValue(":name", $objUser->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":firstname", $objUser->getFirstname(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":mail", $objUser->getEmail(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":pseudo", $objUser->getPseudo(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":bio", $objUser->getBio(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":id", $objUser->getId(), PDO::PARAM_INT);
 			if ($objUser->getPassword() != ''){
 				$rqPrep->bindValue(":pwd", $objUser->getPwdHash(), PDO::PARAM_STR);
 			}
+			return $rqPrep->execute();
+		}
+
+		/**
+		* Méthode de modification d'un utilisateur en bdd
+		* param object $objUser Objet utilisateur
+		*/
+		public function updatePp(object $objUser) {
+
+			$strQuery 	= "UPDATE users 
+							SET user_pp = :pp";
+			$strQuery 	.= " WHERE user_id = ". $_SESSION['user']['user_id'];
+			$rqPrep	= $this->_db->prepare($strQuery);
+			
+			$rqPrep->bindValue(":pp", $objUser->getPp(), PDO::PARAM_STR);
 			return $rqPrep->execute();
 		}
 		

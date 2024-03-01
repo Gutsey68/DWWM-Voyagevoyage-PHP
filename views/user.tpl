@@ -22,7 +22,7 @@
 				</div>
 				<div class="col-md-8">
 					<h1>{$objUser->getPseudo()}</h1>
-					<!-- Informations de l'Utilisateur -->
+					<p><strong>Bio:</strong> {$objUser->getBio()}</p>
 					<p><strong>Nom:</strong> {$objUser->getName()}</p>
 					<p><strong>Prénom:</strong> {$objUser->getFirstname()}</p>
 					<p><strong>Email:</strong> {$objUser->getEmail()}</p>
@@ -33,9 +33,14 @@
 
 
 		{if ($user.user_id == $objUser->getId() )}
-			<a href="{$base_url}user/edit_profile" title="Modifier mon compte">
-			Modifier ses informations personnelles
-		</a>
+			<div>
+				<a href="{$base_url}user/edit_pp" title="Modifier ma photo"> Modifier sa photo de profil </a>
+			</div>
+			<div>
+				<a href="{$base_url}user/edit_profile" title="Modifier mon compte">Modifier son profil / Modifier ses informations personnelles</a>
+			</div>
+
+
 		{/if}
 
 

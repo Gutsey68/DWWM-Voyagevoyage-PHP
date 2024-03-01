@@ -183,13 +183,12 @@
 				/* 5. Enregistrer l'objet en BDD */
 				if (count($arrErrors) == 0){
 					if ($objUtrip->getId() === 0){
-						if ($objUtripModel->insert($objUtrip)){
+						$intLastUtripId	= $objUtripModel->insert($objUtrip);
+						if ($intLastUtripId !== false){
 							
 							foreach($arrImagesDet as $arrDetImage){
-								$objUtripModel->insertImg($objUtrip, $objUtrip->getId());
+								$objUtripModel->insertImg($objUtrip, $intLastUtripId);
 							}
-							//foreach ($arrImagesDet....
-							// $objUtripModel->insertImg
 							header("Location:".parent::BASE_URL."utrip/raconte");
 						}else{
 							$arrErrors[] = "L'insertion s'est mal passée";
@@ -287,6 +286,8 @@
 
             $arrErrors = array();
             $intUtripId	= $_GET['id']??0;
+
+
 	
 			/* Récupère l'article */
 			$objUtripModel	= new UtripModel();// instancie le modèle Article
@@ -307,12 +308,15 @@
 					$objUtripModel->moderate($objUtrip);
 				}
 			}
+
 			$this->_arrData["objUtrip"]	= $objUtrip;
 			$this->_arrData["arrErrors"] 	= $arrErrors;
 
             $this->_arrData["strPage"]     = "utrip";
             $this->_arrData["strTitle"] = "Article";
             $this->_arrData["strDesc"]     = "Contenu de l'article";
+
+
 
 
             $this->afficheTpl("utrip");

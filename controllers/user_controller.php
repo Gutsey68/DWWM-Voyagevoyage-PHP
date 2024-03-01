@@ -41,7 +41,7 @@
                 $objUser->setName("");
                 $objUser->setFirstname("");
                 $objUser->setPseudo("");
-                $objUser->setEmail("");
+                 
             }
             
             // Afficher
@@ -98,7 +98,6 @@
 		*/
 		public function edit_profile() {
 
-			var_dump($_POST);
 			// Est-ce que l'utilisateur est connecté ?
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
 				header("Location:http://localhost/projet_2/index.php");
@@ -132,12 +131,11 @@
 						$arrErrors['pwd']	= "Erreur de mdp";
 					}
 				}
-			
-
 				// Mise à jour en BDD
 
 				if(count($arrErrors) == 0){
 					$objUserModel->update($objUser);
+					// $objUserModel->insertPp($objUser);
 
 				// Attention si informations de session modifiées => modifier la session
 				$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
@@ -161,6 +159,99 @@
 			$this->_arrData["objUser"]	= $objUser;
 
 			$this->afficheTpl("edit_profile");
+		}
+	
+		/**
+		* Méthode permettant de modifier son profil
+		*/
+		public function edit_pp() {
+
+			// Est-ce que l'utilisateur est connecté ?
+			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+				header("Location:http://localhost/projet_2/index.php");
+			}
+			
+			$arrErrors	= array();
+			$objUser 	= new User;
+
+			// Objet à partir de la BDD - à l'affichage du formulaire
+			$objUserModel	= new UserModel;
+			$arrUser		= $objUserModel->get($_SESSION['user']['user_id']);
+			$objUser->hydrate($arrUser);
+	
+			// Objet à partir du formulaire - à l'envoi du formulaire
+
+			/* ------------------------------------------ */
+
+			$strImgName	= $_FILES['pp']['name']??"";
+			if ($strImgName != ""){
+				// Si le type d'image est autorisé
+				if (in_array($_FILES['pp']['type'], $this->_arrMimesType)){ 
+					$strSource 	= $_FILES['pp']['tmp_name'];
+					$strImgName	= bin2hex(random_bytes(5)).".webp";
+					$strDest	= "uploads/".$strImgName;
+					/* Avec redimensionnement */
+					$percent 	= 0.5;
+					// Calcul des nouvelles dimensions
+					list($width, $height) = getimagesize($strSource);
+					$newwidth	= intval($width* $percent);
+					$newheight	= intval($height* $percent);
+					// Création des GdImage
+					$dest	= imagecreatetruecolor($newwidth, $newheight); // Image vide
+					switch ($_FILES['pp']['type']){
+						case "image/jpeg":
+							$source = imagecreatefromjpeg($strSource); // Image importée
+							break;
+						case "image/png" :
+							$source = imagecreatefrompng($strSource); // Image importée
+							break;
+						default :
+							$source = imagecreatefromwebp($strSource); // Image importée
+							break;
+					}
+					
+					// Redimensionnement
+					imagecopyresized($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+					// Enregistrement du fichier
+					if (imagewebp($dest, $strDest, IMG_WEBP_LOSSLESS)){
+						$objUser->setPp($strImgName);
+					}else{
+						$arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
+					}
+					
+				}else{
+					$arrErrors['img'] = "Le type d'image n'est pas autorisé";
+				}
+
+				/* ------------------------------------------ */
+
+				// Mise à jour en BDD
+
+				if(count($arrErrors) == 0){
+					$objUserModel->updatePp($objUser);
+
+				// Attention si informations de session modifiées => modifier la session
+				$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
+				$_SESSION['user']['user_name'] 		= $objUser->getName();
+				
+					
+				header("Location:http://localhost/projet_2/index.php");
+					
+				}else{
+					$arrErrors[] = "L'insertion s'est mal passée";
+				}
+			}
+			
+
+			$this->_arrData["arrErrors"] 	= $arrErrors;
+			$this->_arrData["objUser"]	= $objUser;
+			
+			$this->_arrData["strPage"] 		= "edit_pp";
+			$this->_arrData["strTitle"] 	= "Modifier sa photo de profil";
+			$this->_arrData["strDesc"] 		= "Page permettant de modifier sa photo de profil";
+
+
+			$this->afficheTpl("edit_pp");
 		}
 
 		/**
@@ -368,6 +459,7 @@
 			$arrUser 		= $objUserModel->get($intUserId);
 
 			$objUser 		= new User();
+			$objUser->setBio("");
 			$objUser->hydrate($arrUser);
 			$objUser->setBan(0);
 			$objUser->setComment('');

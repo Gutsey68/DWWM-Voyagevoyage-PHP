@@ -9,8 +9,19 @@
         </div>
     {/if}
     <form class="mt-5 mb-5" action="user/edit_profile" method="post">
-        <div class="form-container mt-3">
-            <fieldset>
+        <div class="form-container mt-3 row">
+            <fieldset class="col-12">
+                <legend class="green-title">Modification du profil</legend>
+                <div class="form-group mt-3">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" class="form-control" name="pseudo" id="pseudo" value="{$objUser->getPseudo()}">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="bio">Bio</label>
+                    <textarea class="form-control" rows="3" name="bio" id="bio" value="{$objUser->getBio()}"></textarea>
+                </div>
+            </fieldset>
+            <fieldset class="col-6">
                 <legend class="green-title">Informations personnelles</legend>
                 <div class="form-group mt-3">
                     <label for="name">Nom</label>
@@ -26,7 +37,7 @@
                 </div>
             </fieldset>
 
-            <fieldset class="mt-5">
+            <fieldset class="col-6">
                 <legend class="green-title">Informations de connexion</legend>
                 <div class="form-group mt-3">
                     <label for="password_old">Mot de passe actuel</label>

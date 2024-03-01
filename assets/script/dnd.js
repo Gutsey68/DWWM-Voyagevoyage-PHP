@@ -79,3 +79,21 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
 });
+
+function previewImage() {
+  var fileInput = document.getElementById('imageUpload');
+  var file = fileInput.files[0];
+  var reader = new FileReader();
+  
+  reader.addEventListener("load", function () {
+      // Convert image file to base64 string and display it
+      var imagePreview = document.getElementById('imagePreview');
+      imagePreview.src = reader.result;
+      imagePreview.style.display = 'block';
+      imagePreview.className = 'img-thumbnail'; // Bootstrap class for styling
+  }, false);
+
+  if (file) {
+      reader.readAsDataURL(file);
+  }
+}
