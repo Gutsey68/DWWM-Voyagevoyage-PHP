@@ -251,6 +251,17 @@ label i {
     color: var(--brown);;
 }
 
+/* homz.tpl about */
+
+#about h2 {
+    color: var(--green);
+}
+
+#about #nom-marque {
+    font-size: 3.5rem;
+    padding: 3rem;
+}
+
 /* footer.tpl */
 
 footer {
@@ -419,7 +430,11 @@ footer #border-bottom {
     font-size: 1.5rem;
 }
 
+/* plan.tpl */
 
+.plan a {
+    color: black;
+}
 
 /* Tablette */
 

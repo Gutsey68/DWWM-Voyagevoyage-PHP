@@ -7,28 +7,66 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <ul>
-                    <h5>Page d'accueil</h5>
-                        <li><a href="">Voyage Voyage</a></li>
-                        <h5>Racontez / créez Utrip</h5>
-                        <li><a href="utrip/explore">Explorez</a></li>
-                        <li><a href="utrip/raconte">Racontez</a></li>
-                        <li><a href="forum/home">Forum</a></li>
-                        <ul>
-                            <li><a href="forum/create_topic">Créer un topic</a></li>
-                        </ul>
-                        <h5>Connexion utilisateur</h5>
-                        <li><a href="user/login">S'enregistrer</a></li>
-                        <ul>
-                            <li><a href="user/create_account">Seconnecter</a></li>
-                            <li><a href="http://localhost/projet_2/user/forgetPwd">Mot de pass oblié</a></li>
-                        </ul>
-                        <h5>Nous contacter</h5>
-                        <li><a href="page/contact">Nous contacter</a></li>
-                        <h5>Légales et politique</h5>
-                        <li><a href="page/mentions">Mentions légales</a></li>
-                        <li><a href="page/plan">Plan du site</a></li>
-                    </ul>
+                    <h1 class="text-center p-5">Plan du site</h1>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 pb-5 plan">
+                                    <h2 class="pb-2">Page d'accueil</h2>
+                                    <p><a href="">Voyage Voyage</a></p>
+                                    <p><a href="page/about">A propos de nous</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 pb-5 plan">
+                                    <h2 class="pb-2">Racontez / créer Utrip</h2>
+                                    <p><a href="utrip/explore">Explorer les utrip</a></p>
+                                    <p><a href="utrip/raconte">Raconter son utrip</a></p>
+                                    <p><a href="utrip/utrip?id=1">Détail d'un utrip</a></p>
+                                    <p><a href="forum/home">Forum</a></p>
+                                    <p><a href="forum/create_topic">Créer un topic</a></p>
+                                    <p><a href="forum/topic?id=1">Détail d'un topic</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 pb-5 plan">
+                                    <h2 class="pb-2">Connexion utilisateur</h2>
+                                    <p><a href="user/create_account">S'enregistrer</a></p>
+                                    <p><a href="user/login">Se connecter</a></p>
+                                    <p><a href="http://localhost/projet_2/user/forgetPwd">Mot de pass oblié</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 pb-5 plan">
+                                    <h2 class="pb-2">Contact</h2>
+                                    <p><a href="page/contact">Nous contacter</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 pb-5 plan">
+                                    <h2 class="pb-2">Autre</h2>
+                                    <p><a href="page/mentions">Mentions légales</a></p>
+                                    <p><a href="page/plan">Plan du site</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
