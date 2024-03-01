@@ -1,5 +1,12 @@
 <?php
 
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+
+	require 'libs/PHPMailer/Exception.php';
+	require 'libs/PHPMailer/PHPMailer.php';
+	require 'libs/PHPMailer/SMTP.php';
+
     /** 
      * Controller des utilisateurs
      * @author Groupe1
