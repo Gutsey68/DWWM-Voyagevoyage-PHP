@@ -32,7 +32,11 @@
 		</div>
 
 
-
+		{if ($user.user_id == $objUser->getId() )}
+			<a href="{$base_url}user/edit_profile" title="Modifier mon compte">
+			Modifier ses informations personnelles
+		</a>
+		{/if}
 
 
 		{if ($modo) }

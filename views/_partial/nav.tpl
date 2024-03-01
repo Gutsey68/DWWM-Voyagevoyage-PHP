@@ -42,8 +42,9 @@
                     </div>
                 </li>
                     {if isset($user.user_id) && $user.user_id != ''}
+
                         <li class="nav-item ">
-                            <a class="nav-link flex-fill" href="{$base_url}user/edit_profile" title="Modifier mon compte">
+                            <a class="nav-link flex-fill" href="{$base_url}user/user?id={$user.user_id}" title="Modifier mon compte">
                                 <i class="fas fa-user"></i> Bonjour {$smarty.session.user.user_firstname}
                             </a>
                         </li>
