@@ -430,7 +430,11 @@ footer #border-bottom {
     font-size: 1.5rem;
 }
 
+/* plan.tpl */
 
+.plan a {
+    color: black;
+}
 
 /* Tablette */
 
