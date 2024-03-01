@@ -47,7 +47,7 @@
 		 */
 		public function searchUser(string $strEmail, string $strPassword) {
 
-			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_email, user_password, user_role, user_regisdate
+			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_email, user_password, user_role, user_regisdate , user_ban
 							FROM users
 							WHERE user_email = :mail;";
 
@@ -92,13 +92,14 @@
 		*/
 		public function insert(object $objUser) {
 
-			$strQuery   = "INSERT INTO users (user_name, user_firstname, user_email, user_password, user_phone, user_regisdate, user_pp, user_ban, user_role_id)
-						VALUES (:name, :firstname, :mail, :pwd, '', NOW(), 'profil_pic_default.png', 0, 3);";
+			$strQuery   = "INSERT INTO users (user_name, user_firstname, user_email, user_password, user_phone, user_regisdate, user_pp, user_ban, user_role_id , user_bio, user_pseudo)
+						VALUES (:name, :firstname, :mail, :pwd, '', NOW(), 'profil_pic_default.webp', 0, 3, '' , :pseudo)";
 
 			$rqPrep = $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":name", $objUser->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":firstname", $objUser->getFirstname(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":mail", $objUser->getEmail(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":pseudo", $objUser->getPseudo(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":pwd", $objUser->getPwdHash(), PDO::PARAM_STR);
 
 			return $rqPrep->execute();

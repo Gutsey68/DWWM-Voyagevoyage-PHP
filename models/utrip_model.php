@@ -165,7 +165,7 @@
 		* @return array Le détail de l'Article
 		*/		
 		public function get(int $id) : array|false{
-			$strQuery 	= "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
+			$strQuery 	= "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , user_id AS 'utrip_creatorId' , 
 							utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
 							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , countries_name AS 'utrip_country'
 									FROM utrip 

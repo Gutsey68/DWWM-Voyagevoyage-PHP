@@ -31,16 +31,15 @@
 			</div>
 		</div>
 
-
-		{if ($user.user_id == $objUser->getId() )}
-			<div>
-				<a href="{$base_url}user/edit_pp" title="Modifier ma photo"> Modifier sa photo de profil </a>
-			</div>
-			<div>
-				<a href="{$base_url}user/edit_profile" title="Modifier mon compte">Modifier son profil / Modifier ses informations personnelles</a>
-			</div>
-
-
+		{if (isset($smarty.session.user.user_id))}
+			{if ($user.user_id == $objUser->getId())}
+				<div>
+					<a href="{$base_url}user/edit_pp" title="Modifier ma photo"> Modifier sa photo de profil </a>
+				</div>
+				<div>
+					<a href="{$base_url}user/edit_profile" title="Modifier mon compte">Modifier son profil / Modifier ses informations personnelles</a>
+				</div>
+			{/if}
 		{/if}
 
 

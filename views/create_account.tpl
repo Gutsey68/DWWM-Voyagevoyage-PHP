@@ -29,7 +29,7 @@
 
             <div class="form-group mb-3">
                 <label for="email">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" name="email" id="email" value="{$objUser->getEmail()}">
+                <input type="email" class="form-control" name="email" id="email" value="">
             </div>
 
             <div class="form-group mb-3">

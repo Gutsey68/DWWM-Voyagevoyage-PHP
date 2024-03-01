@@ -11,6 +11,4 @@
 - afficher toutes les images d'un article 
 - la recherche dans la navbar
 - modifier les villes quand on ajoute un article 
-- afficher seulement les articles validés  ( dans le model where utrip_valid = 1)
-- afficher seulement les topics validés
 - réécrire les liens avec la base_url

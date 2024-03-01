@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-6">
                         <h1 class=" green-title">{$objUtrip->getName()}</h1>
-                        <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="">{$objUtrip->getCreator()}</a></p>
+                        <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
                         <p><i class="fa-solid fa-list"></i>  Catégorie : {$objUtrip->getCat()}</p>
                         <p><i class="fa-solid fa-wallet"></i>  Budget approximatif : {$objUtrip->getBudget()}</p>
                         <p><i class="fa-solid fa-city"></i> Ville : {$objUtrip->getCity()}, {$objUtrip->getCountry()} ({$objUtrip->getCont()})</p>
