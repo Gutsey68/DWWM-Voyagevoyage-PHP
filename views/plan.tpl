@@ -10,6 +10,7 @@
                     <ul>
                     <h5>Page d'accueil</h5>
                         <li><a href="">Voyage Voyage</a></li>
+                        <li><a href="page/about">A propos de nous</a></li>
                         <h5>Racontez / créez Utrip</h5>
                         <li><a href="utrip/explore">Explorez</a></li>
                         <li><a href="utrip/raconte">Racontez</a></li>
