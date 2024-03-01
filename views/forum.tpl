@@ -38,10 +38,9 @@
             <div class="row">
                 {foreach from=$arrForumsToDisplay item=$objForum}
                     {include file="views/topic_summary.tpl"}
+                {foreachelse}
+                    <p>Pas de résultat</p>
                 {/foreach}
-                {if ($objForum <= 0)}
-                    <h1 class="text-center">Aucun topic n'a été trouvé</h1>
-                {/if}
             </div>
         </div>
     </section>

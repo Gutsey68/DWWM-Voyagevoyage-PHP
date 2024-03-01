@@ -461,7 +461,6 @@
 
 			$objUser 		= new User();
 			$objUser->setBio("");
-			$objUser->setId(0);
 			$objUser->hydrate($arrUser);
 			$objUser->setBan(0);
 			$objUser->setComment('');

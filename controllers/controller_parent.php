@@ -5,6 +5,7 @@
 	*/
     class Ctrl {
 
+
 		const BASE_URL = "http://localhost/projet_2/";
 		
 		// Tableau d'erreur 
@@ -64,4 +65,5 @@
 				return $smarty->fetch("views/".$strTpl.".tpl");
 			}
 		}
+	
     }

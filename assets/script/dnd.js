@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+
+// fonction pour afficher la photo de profil
+
 function previewImage() {
   var fileInput = document.getElementById('imageUpload');
   var file = fileInput.files[0];
