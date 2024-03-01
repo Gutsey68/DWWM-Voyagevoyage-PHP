@@ -85,8 +85,8 @@
 		*/
 		public function findList(){
 			$strQuery 	= "SELECT topic_id , topic_title , topic_content , topic_date, topic_code, topic_user_id AS 'topic_creator' , topic_valid
-							INNER JOIN users ON topic_user_id = user_id
-							FROM topic";
+							FROM topic
+							INNER JOIN users ON topic_user_id = user_id";
 							
 			if (!in_array($_SESSION['user']['user_role'], array('admin', 'modo'))){
 				$strQuery 	.= " WHERE utrip_user_id = ".$_SESSION['user']['user_id'];
