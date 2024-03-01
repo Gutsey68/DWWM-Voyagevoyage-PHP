@@ -299,7 +299,7 @@
 			$this->_cityId = $intCityId;
 		}
 
-				/**
+		/**
 		* Getter de récupération de l'état de validation
 		* @return int état de validation
 		*/

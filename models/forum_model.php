@@ -21,7 +21,7 @@
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 			
 			$strQuery     = "	SELECT topic_id, topic_title, topic_content, topic_date, topic_code, 
-									   user_pseudo AS 'topic_creator'
+									   user_pseudo AS 'topic_creator' , topic_valid
 								FROM topic
 								INNER JOIN users ON topic_user_id = user_id";
 			$strWhere	= " WHERE ";
@@ -72,10 +72,57 @@
 		*/		
 		public function get(int $id) : array|false{
 			$strQuery 	= "SELECT topic_id, topic_title, topic_content, topic_date, topic_code, 
-			user_pseudo AS 'topic_creator'
+			user_pseudo AS 'topic_creator' , topic_valid
 			FROM topic
 			INNER JOIN users ON topic_user_id = user_id
 							WHERE topic_id = ".$id;
 			return $this->_db->query($strQuery)->fetch();			
 		}
+
+		
+		/**
+		* Méthode d'administration de la gestion des topics
+		*/
+		public function findList(){
+			$strQuery 	= "SELECT topic_id , topic_title , topic_content , topic_date, topic_code, topic_user_id AS 'topic_creator' , topic_valid
+							FROM topic";
+							
+			if (!in_array($_SESSION['user']['user_role'], array('admin', 'modo'))){
+				$strQuery 	.= " WHERE utrip_user_id = ".$_SESSION['user']['user_id'];
+			}
+			$strQuery 	.= " ORDER BY topic_date DESC;";
+			return $this->_db->query($strQuery)->fetchAll();			
+		}
+				
+		/**
+		* Methode permettant de mettre à jour l'article avec les informations de modération
+		* @param object $objArticle Objet article
+		*/
+		public function moderate($objForum){
+			$strQuery	= "	UPDATE topic
+							SET topic_valid = :valid, 
+								topic_comment = :comment, 
+								topic_modo = :modo
+							WHERE topic_id = :id";
+			// On prépare la requête
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":valid", $objForum->getValid(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":comment", $objForum->getComment(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":modo", $_SESSION['user']['user_id'], PDO::PARAM_INT);
+			$rqPrep->bindValue(":id", $objForum->getId(), PDO::PARAM_INT);
+			
+			//var_dump($this->_db->lastInsertId());die;
+			return $rqPrep->execute();			
+		}
+		
+		/**
+		* Méthode permettant de supprimer l'article en BDD
+		* @param int $id Identifiant de l'article à supprimer
+		*/
+		public function delete (int $id){
+			$strQuery 	= "DELETE FROM topic
+							WHERE topic_id = ".$id;
+			return $this->_db->exec($strQuery);
+		}
+		
 	}

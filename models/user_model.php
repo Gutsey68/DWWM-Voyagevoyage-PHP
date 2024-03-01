@@ -32,7 +32,7 @@
 		 */
 		public function get(int $id) {
 
-			$strQuery 	= "SELECT user_id, user_name, user_firstname, user_email, user_password 
+			$strQuery 	= "SELECT user_id, user_name, user_firstname, user_email, user_password ,user_pp , user_pseudo , user_regisdate
 
 							FROM users
 							WHERE user_id = " . $id;
@@ -47,7 +47,7 @@
 		 */
 		public function searchUser(string $strEmail, string $strPassword) {
 
-			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_email, user_password, user_role
+			$strQuery 	= "SELECT user_id, user_firstname, user_name, user_email, user_password, user_role, user_regisdate
 							FROM users
 							WHERE user_email = :mail;";
 
@@ -182,6 +182,41 @@
 			$rqPrep->bindValue(":pwd", password_hash($strPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
 
 			return $rqPrep->execute();
+		}
+		
+		/**
+		* Méthode d'administration de la gestion des utilisateurs
+		*/
+		public function findList(){
+			$strQuery 	= "SELECT user_id , user_name , user_firstname , user_pseudo , user_email , user_password , user_phone , user_regisdate , user_pp , user_ban , user_role_id , user_role, user_modo
+							FROM users";
+							
+			if (!in_array($_SESSION['user']['user_role'], array('admin', 'modo'))){
+				$strQuery 	.= " WHERE utrip_user_id = ".$_SESSION['user']['user_id'];
+			}
+			$strQuery 	.= " ORDER BY user_regisdate DESC;";
+			return $this->_db->query($strQuery)->fetchAll();			
+		}
+				
+		/**
+		* Methode permettant de mettre à jour l'article avec les informations de modération
+		* @param object $objArticle Objet article
+		*/
+		public function moderate($objUser){
+			$strQuery	= "	UPDATE users
+							SET user_ban = :ban, 
+								user_comment = :comment, 
+								user_modo = :modo
+							WHERE user_id = :id";
+			// On prépare la requête
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":ban", $objUser->getBan(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":comment", $objUser->getComment(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":modo", $_SESSION['user']['user_id'], PDO::PARAM_INT);
+			$rqPrep->bindValue(":id", $objUser->getId(), PDO::PARAM_INT);
+			
+			//var_dump($this->_db->lastInsertId());die;
+			return $rqPrep->execute();			
 		}
 
 	}

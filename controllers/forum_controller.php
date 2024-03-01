@@ -87,21 +87,88 @@
 		* Méthode qui permet de voir un topic
 		*/
         public function topic() {
+            $arrErrors = array();
             $intForumId	= $_GET['id']??0;
 			
-			$objForum		= new Forum();	// instancie un objet Article
-			$objForumModel	= new ForumModel();// instancie le modèle Article
+			// $objForum		= new Forum();	// instancie un objet Article
+			// $objForumModel	= new ForumModel();// instancie le modèle Article
 			
-			$arrForum 	= $objForumModel->get($intForumId);
-			$objForum->hydrate($arrForum);
-			
+			// $arrForum 	= $objForumModel->get($intForumId);
+			// $objForum->hydrate($arrForum);
 
+            /* Récupère l'article */
+			$objForumModel	= new ForumModel();// instancie le modèle Article
+			$arrForum 		= $objForumModel->get($intForumId);
+
+			$objForum 		= new Forum();	// instancie un objet Article
+			$objForum->hydrate($arrForum);
+			$objForum->setValid(0);
+			$objForum->setComment('');
+			
+			if (count($_POST) >0){
+				$objForum->setValid($_POST['moderation']);
+				$objForum->setComment($_POST['comment']);
+				
+				if(!$objForum->getValid() && $objForum->getComment() == ''){
+					$arrErrors['comment'] = "Le commentaire est obligatoire quand la validation du topic est refusée";
+				}else{
+					$objForumModel->moderate($objForum);
+				}
+			}
+			
+			$this->_arrData["arrErrors"] 	= $arrErrors;
+            $this->_arrData["objForum"]	= $objForum;
 
             $this->_arrData["strPage"]     = "topic";
             $this->_arrData["strTitle"] = "topic";
             $this->_arrData["strDesc"]     = "Page d'un topic'";
-			$this->_arrData["objForum"]	= $objForum;
+
 
             $this->afficheTpl("topic");
         }
+                		
+		/**
+		* Méthode permettant d'afficher les topics du forum pour les gérer
+		*/
+		public function manage(){
+			// si l'utilisateur est connecté
+			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+				header("Location:".parent::BASE_URL."error/show403");
+			}
+			
+			$objForumModel	= new ForumModel;
+			$arrForums		= $objForumModel->findList();
+
+			$arrForumsToDisplay	= array();
+			foreach($arrForums as $arrDetailForum){	
+				$objForum = new Forum();
+				$objForum->hydrate($arrDetailForum);
+				$arrForumsToDisplay[] = $objForum;
+			}			
+			
+			$this->_arrData["arrForumsToDisplay"] = $arrForumsToDisplay;
+
+			$this->_arrData["strPage"] 	= "manage";
+			$this->_arrData["strTitle"] = "Gérer les topics";
+			$this->_arrData["strDesc"] 	= "Page permettant d'afficher les topics pour les gérer";
+
+			$this->afficheTpl("forum_manage");
+		}
+        	
+		/**
+		* Méthode permettant de supprimer un topic
+		*/
+		public function delete(){
+			// Numéro de l'article à supprimer
+
+
+
+            // cganger $get par l'id du topic
+
+
+			$intForumId		= $_GET['id']??0;
+			$objForumModel	= new ForumModel();
+			$objForumModel->delete($intForumId);
+			header("Location:".parent::BASE_URL."forum/manage");
+		}
     }

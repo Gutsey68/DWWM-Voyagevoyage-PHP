@@ -21,6 +21,7 @@
         private string $_pp;
         private string $_ban;
         private string $_bio;
+		private string $_comment;
 
         // Méthodes
 
@@ -149,8 +150,18 @@
          * @return regisdate de l'objet
          */
         public function setRegisdate(string $strRegisdate) {
-            $this->_phone = $strRegisdate;
+            $this->_regisdate = $strRegisdate;
         }
+
+        /**
+		 * Getter de récupération de la date de création sous le format français
+		 * @return identifiant de l'objet
+		 */
+		public function getRegisdateFr() {
+			// Traitement de la date
+			$objDate        = new DateTime($this->_regisdate);
+			return $objDate->format("d/m/Y");
+		}
 
         /**
          * Getter de récupération du numéro de la photo de profil
@@ -207,4 +218,20 @@
         public function getPwdHash():string { 
             return password_hash($this->_password, PASSWORD_DEFAULT);
         }
+        
+		/**
+		* Getter de récupération du commentaire de validation
+		* @return string commentaire de validation
+		*/
+		public function getComment():string{ 
+			return $this->_comment;
+		}
+		/**
+		* Setter de modification du commentaire de validation
+		* @param string commentaire de validation
+		*/
+		public function setComment(string $strComment){ 
+			$this->_comment = trim($strComment); // Enlève les espaces avant et après
+			$this->_comment = filter_var($this->_comment, FILTER_SANITIZE_FULL_SPECIAL_CHARS); // nettoyage
+		}		
     }

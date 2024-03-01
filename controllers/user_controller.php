@@ -320,4 +320,71 @@
 
 			return $mail->send();
 		}
+		      		
+		/**
+		* Méthode permettant d'afficher les topics du forum pour les gérer
+		*/
+		public function manage(){
+			// si l'utilisateur est connecté
+			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+				header("Location:".parent::BASE_URL."error/show403");
+			}
+			
+			$objUserModel	= new UserModel;
+			$arrUsers		= $objUserModel->findList();
+
+			$arrUsersToDisplay	= array();
+			foreach($arrUsers as $arrDetailUser){	
+				$objUser = new User();
+				$objUser->hydrate($arrDetailUser);
+				$arrUsersToDisplay[] = $objUser;
+			}			
+			
+			$this->_arrData["arrUsersToDisplay"] = $arrUsersToDisplay;
+
+			$this->_arrData["strPage"] 	= "manage";
+			$this->_arrData["strTitle"] = "Gérer les utilisateurs";
+			$this->_arrData["strDesc"] 	= "Page permettant d'afficher les utilisateurs pour les gérer";
+
+			$this->afficheTpl("user_manage");
+		}
+
+		/** 
+		* Méthode permettant d'afficher le détail d'un profil d'utilisateur
+		*/
+		public function user(){
+			$arrErrors = array();
+			
+			$intUserId	= $_GET['id']??0;
+
+			$objUserModel	= new UserModel();
+			$arrUser 		= $objUserModel->get($intUserId);
+
+			$objUser 		= new User();
+			$objUser->hydrate($arrUser);
+			$objUser->setBan(0);
+			$objUser->setComment('');
+			
+			if (count($_POST) >0){
+				$objUser->setBan($_POST['moderation']);
+				$objUser->setComment($_POST['comment']);
+				
+				if($objUser->getBan() && $objUser->getComment() == ''){
+					$arrErrors['comment'] = "Vous devez écrire un commentaire pour bannir l'utilisateur";
+				}else{
+					$objUserModel->moderate($objUser);
+					header("Location:".parent::BASE_URL."user/manage");
+				}
+			}
+
+			$this->_arrData["objUser"] 	= $objUser;
+			$this->_arrData["arrErrors"] 	= $arrErrors;
+
+			$this->_arrData["strPage"] 	= "user";
+			$this->_arrData["strTitle"] = "Détail d'un utilisateur";
+			$this->_arrData["strDesc"] 	= "Page affichant le détail d'un utilisateur";
+
+			$this->afficheTpl("user");
+		}
+		
     }

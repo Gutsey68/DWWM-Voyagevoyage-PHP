@@ -147,4 +147,16 @@ include_once("entities/contact_entity.php");
 			
 			return $arrErrors;
 		}
+
+        /**
+		* Méthode qui permet d'afficher la page du plan du site
+		*/
+        public function manage() {
+            
+            $this->_arrData["strPage"]     = "manage";
+            $this->_arrData["strTitle"] = "Modération";
+            $this->_arrData["strDesc"]     = "Page de modération";
+            $this->afficheTpl("manage");
+        }
+        
     }

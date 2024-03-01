@@ -15,6 +15,8 @@
 		private string $_date;
 		private string $_code;
 		private string $_creator;
+		private int $_valid;
+		private string $_comment;
 
 		// Méthodes
 
@@ -135,4 +137,36 @@
 		public function setCreator(string $strCreator) {
 			$this->_creator = $strCreator;
 		}
+
+		
+		/**
+		* Getter de récupération de l'état de validation
+		* @return int état de validation
+		*/
+		public function getValid():int{ 
+			return $this->_valid;
+		}
+		/**
+		* Setter de modification de l'état de validation
+		* @param int état de validation
+		*/
+		public function setValid(int $intValid){ 
+			$this->_valid = $intValid;
+		}		
+		
+		/**
+		* Getter de récupération du commentaire de validation
+		* @return string commentaire de validation
+		*/
+		public function getComment():string{ 
+			return $this->_comment;
+		}
+		/**
+		* Setter de modification du commentaire de validation
+		* @param string commentaire de validation
+		*/
+		public function setComment(string $strComment){ 
+			$this->_comment = trim($strComment); // Enlève les espaces avant et après
+			$this->_comment = filter_var($this->_comment, FILTER_SANITIZE_FULL_SPECIAL_CHARS); // nettoyage
+		}		
 	}
