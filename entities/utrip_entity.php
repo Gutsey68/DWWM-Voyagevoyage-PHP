@@ -17,6 +17,7 @@
 		private string $_budget;
 		private string $_date;
 		private string $_creator;
+		private string $_creatorId;
 		private string $_img;
 		private string $_cat;
 		private string $_city;
@@ -155,6 +156,22 @@
 		 */
 		public function setCreator(string $strCreator) {
 			$this->_creator = $strCreator;
+		}
+
+		/**
+		 * Getter de récupération de l'auteur
+		 * @return auteur de l'objet
+		 */
+		public function getCreatorId(): string {
+			return $this->_creatorId;
+		}
+
+		/**
+		 * Setter de récupération de l'auteur'
+		 * @return auteur de l'objet
+		 */
+		public function setCreatorId(string $strCreatorId) {
+			$this->_creatorId = $strCreatorId;
 		}
 
 		/**

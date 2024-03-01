@@ -4,7 +4,7 @@
 	<div>
 		<a href="utrip/utrip?id={$objUtrip->getId()}"><img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}"></a>
 	</div>
-	<p class="margin0">Le voyage de {$objUtrip->getCreator()}</p>
+	<p class="margin0">Le voyage de <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
 	<p>à <span class="fst-italic">{$objUtrip->getCity()}</span></p>
 	{if ( isset($user.user_id) && $user.user_id != '' ) 
 		&& 

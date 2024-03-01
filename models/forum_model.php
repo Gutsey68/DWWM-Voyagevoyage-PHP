@@ -21,7 +21,7 @@
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 			
 			$strQuery     = "	SELECT topic_id, topic_title, topic_content, topic_date, topic_code, 
-									   user_pseudo AS 'topic_creator' , topic_valid
+									   user_pseudo AS 'topic_creator' , topic_valid , user_id AS 'topic_creatorId'
 								FROM topic
 								INNER JOIN users ON topic_user_id = user_id";
 			$strWhere	= " WHERE ";
@@ -72,7 +72,7 @@
 		*/		
 		public function get(int $id) : array|false{
 			$strQuery 	= "SELECT topic_id, topic_title, topic_content, topic_date, topic_code, 
-			user_pseudo AS 'topic_creator' , topic_valid
+			user_pseudo AS 'topic_creator' , topic_valid , user_id AS 'topic_creatorId'
 			FROM topic
 			INNER JOIN users ON topic_user_id = user_id
 							WHERE topic_id = ".$id;
@@ -85,6 +85,7 @@
 		*/
 		public function findList(){
 			$strQuery 	= "SELECT topic_id , topic_title , topic_content , topic_date, topic_code, topic_user_id AS 'topic_creator' , topic_valid
+							INNER JOIN users ON topic_user_id = user_id
 							FROM topic";
 							
 			if (!in_array($_SESSION['user']['user_role'], array('admin', 'modo'))){

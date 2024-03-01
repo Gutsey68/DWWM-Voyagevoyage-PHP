@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h1 class="pb-3">{$objForum->getTitle()}</h1>
-                        <p>Publié le <span>{$objForum->getDateFr()}</span> par <a href="">{$objForum->getCreator()}</a></p>
+                        <p>Publié le <span>{$objForum->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a></p>
                     </div>
                 </div>
             </div>

@@ -2,10 +2,10 @@
 
 <div class="col-12 resume-topic">
     <div class="card mb-3">
+        <div class="card-header">
+            <a href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a>
+        </div>
         <a class="text-decoration-none green-title shadow" href="forum/topic?id={$objForum->getId()}">
-            <div class="card-header">
-                {$objForum->getCreator()}
-            </div>
             <div class="card-body">
                 <h3 class="card-title">{$objForum->getTitle()}</h3>
                 <p class="card-text">

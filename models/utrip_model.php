@@ -21,7 +21,7 @@
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 
 			$strQuery     = "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , 
-							utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
+							utrip_date , user_pseudo AS 'utrip_creator', user_id AS 'utrip_creatorId' , img_link AS 'utrip_img' , cities_name
 							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
 									FROM utrip 
 									LEFT OUTER JOIN image ON img_utrip_id = utrip_id

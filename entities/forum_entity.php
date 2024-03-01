@@ -15,6 +15,7 @@
 		private string $_date;
 		private string $_code;
 		private string $_creator;
+		private int $_creatorId;
 		private int $_valid;
 		private string $_comment;
 
@@ -136,6 +137,22 @@
 		 */
 		public function setCreator(string $strCreator) {
 			$this->_creator = $strCreator;
+		}
+
+		/**
+		 * Getter de récupération de la valeur de l'auteur
+		 * @return auteur de l'objet
+		 */
+		public function getCreatorId(): int {
+			return $this->_creatorId;
+		}
+		
+		/**
+		 * Setter de récupération de la valeur de l'auteur
+		 * @return auteur de l'objet
+		 */
+		public function setCreatorId(int $intCreatorId) {
+			$this->_creatorId = $intCreatorId;
 		}
 
 		
