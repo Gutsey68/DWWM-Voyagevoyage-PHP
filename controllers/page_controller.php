@@ -82,35 +82,44 @@ include_once("entities/contact_entity.php");
             }
 
             if(isset($_POST['envoyer'])){
+                var_dump($objContact);
                 $name = $_POST['name'];
-                $email = $_POST['mail'];
+                $mail = $_POST['mail'];
                 $subject = $_POST['title'];
                 $body = $_POST['content'];
-                $bodyMEF = 'Nom : '.$name.'. Mail: '.$email.'. Message: '.$body;
+                $email = $mail;
+                $retour = "https://www.voyagevoyage.dwwm.site/";
 
                 $mail = new PHPMailer();
                 $mail->CharSet = "UTF-8";
                 $mail->IsSMTP();
                 $mail->Mailer = "smtp";
     
-                $mail->SMTPDebug= 1;
+                $mail->SMTPDebug= 0;
                 $mail->SMTPAuth= TRUE;
                 $mail->SMTPSecure= "tls";
                 $mail->Port = 587;
                 $mail->Host = "smtp.gmail.com";
-                $mail->Username= 'voyagevoyageprojet@gmail.com';
-                $mail->Password= 'nefx thkh zpve afxf';
+                $mail->Username= 'voyagevoyageprojetcontact@gmail.com';
+                $mail->Password= 'ylaf ecqc gjbc seja';
     
                 $mail->IsHTML(true);
-                $mail->setFrom('voyagevoyageprojet@gmail.com', "Contact");
+                $mail->setFrom('voyagevoyageprojetcontact@gmail.com', "Contact VoyageVoyage");
                 $mail->addAddress('voyagevoyageprojet@gmail.com', "L'équipe Voyage Voyage");
                 $mail->Subject= $subject;
-                $mail->Body = $bodyMEF;
+                $mail->Body = '
+                    <h1>Nouveau formulaire de contact du site <a href="'.$retour.'">Voyage Voyage</a></h1>
+                    <h2>Expediteur : '.$name.'</h2>
+                    <h2>Mail de l\'expéditeur : '.$email.'</h2>
+                    <h2>Objet du message : '.$subject.'</h2>
+                    <h2>Message de l\'expéditeur :</h2>
+                    <p style="font-size:18px;">'.$body.'</p>
+                ';
                 //$mail->addAttachment('test.txt');
                 if (!$mail->send()) {
                 echo'Erreur de Mailer : ' . $mail->ErrorInfo;
                 } else{
-                echo'Le message a été envoyé.';
+                //echo'Le message a été envoyé.';
                 }
             }
 
