@@ -20,6 +20,7 @@
                     <li class="footer-plan"><a href="page/contact">Nous contacter</a></li>
                     <li class="footer-plan"><a href="page/mentions">Mentions légales</a></li>
                     <li class="footer-plan"><a href="page/plan">Plan du site</a></li>
+                    <li class="footer-plan"><a href="page/aide_site">Aide du site</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-12">
