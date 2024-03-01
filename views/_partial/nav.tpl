@@ -47,9 +47,11 @@
                                 <i class="fas fa-user"></i> Bonjour {$smarty.session.user.user_firstname}
                             </a>
                         </li>
-                        <li class="nav-item ">
-						    <a class="nav-link flex-fill" href="{$base_url}utrip/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
-                        </li>
+                        {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "modo") }
+                            <li class="nav-item ">
+						        <a class="nav-link flex-fill" href="{$base_url}page/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
+                            </li>
+                        {/if}
 						<!-- Si connecté -->
                         <li class="nav-item ">
                             <a class="nav-link flex-fill" href="{$base_url}user/logout" title="Se déconnecter">

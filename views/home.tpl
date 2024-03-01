@@ -74,30 +74,6 @@
             </div>
         </div>
     </section>
-    <!-- A propos -->
-    <section class="pb-5" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-12">
-                    <div class="row pb-5">
-                        <div class="col-md-3 col-6"><img width="200px" height="200px" src="assets/images/logo-projet-2.png" alt="">
-                        </div>
-                        <div class="col-md-3 col-6">
-                            <p id="nom-marque">Voyage<span class="fst-italic">Voyage</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12">
-                    <h2 class="pb-2"><span class="fst-italic">Découvrez</span> <br> l'équipe VoyageVoyage</h2>
-                    <p>Découvrez qui nous sommes ainsi que les coulisses de notre projet. Apprenez en plus sur nous et nos méthodes de fonctionnement.</p>
-                    <div class="button-left">
-                        <a class="green-btn" href="page/about"><i class="fa-solid fa-circle-info"></i> En savoir plus</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
 
 
 {/block}
