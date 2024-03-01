@@ -41,6 +41,7 @@
                 $objUser->setName("");
                 $objUser->setFirstname("");
                 $objUser->setPseudo("");
+                
                  
             }
             
@@ -66,13 +67,13 @@
             if (count($_POST) > 0){
                 $objUserModel    = new UserModel;
                 $arrUser = $objUserModel->searchUser($strEmail, $strPassword);
-
                 if ($arrUser === false) {
                     /* 3. Si pas ok => Afficher un message d'erreur */
                     $arrErrors[] = "Erreur de connexion";
                 } else {
                     /* 3. Si ok => Session */
                     $_SESSION['user'] = $arrUser;
+					
                 }
             }
             
@@ -460,10 +461,11 @@
 
 			$objUser 		= new User();
 			$objUser->setBio("");
+			$objUser->setId(0);
 			$objUser->hydrate($arrUser);
 			$objUser->setBan(0);
 			$objUser->setComment('');
-			
+
 			if (count($_POST) >0){
 				$objUser->setBan($_POST['moderation']);
 				$objUser->setComment($_POST['comment']);

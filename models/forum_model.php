@@ -35,7 +35,9 @@
 			}
 
 			// Tri par ordre décroissant
-			$strQuery 	.= " ORDER BY topic_date DESC";
+			$strQuery 	.= " 
+			WHERE topic_valid = 1
+			ORDER BY topic_date DESC";
 
 			if ($intLimit > 0){
 				$strQuery 	.= " LIMIT :limit";

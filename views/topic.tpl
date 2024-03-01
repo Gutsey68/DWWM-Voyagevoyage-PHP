@@ -45,21 +45,23 @@
             </div>
         </section>
     </article>
-    {if ($smarty.session.user.user_role == "modo") }
-		<div class="col-6">
-			<h2>Modération</h2>
-			<form method="post" action="forum/topic?id={$objForum->getId()}">
-				<p>
-					<label>Accepté</label>
-					<input type="radio" name="moderation" value="1" {if ($objForum->getValid() == 1) } checked {/if} > Oui
-					<input type="radio" name="moderation" value="0" {if ($objForum->getValid() == 0) } checked {/if} > Non
-				</p>
-				<p>
-					<label>Commentaire</label>
-					<textarea name="comment">{$objForum->getComment()}</textarea>
-				</p>
-				<input type="submit" >
-			</form>
-		</div>
+    {if (isset($smarty.session.user.user_id))}
+        {if ($smarty.session.user.user_role == "modo") }
+            <div class="col-6">
+                <h2>Modération</h2>
+                <form method="post" action="forum/topic?id={$objForum->getId()}">
+                    <p>
+                        <label>Accepté</label>
+                        <input type="radio" name="moderation" value="1" {if ($objForum->getValid() == 1) } checked {/if} > Oui
+                        <input type="radio" name="moderation" value="0" {if ($objForum->getValid() == 0) } checked {/if} > Non
+                    </p>
+                    <p>
+                        <label>Commentaire</label>
+                        <textarea name="comment">{$objForum->getComment()}</textarea>
+                    </p>
+                    <input type="submit" >
+                </form>
+            </div>
+        {/if}
     {/if}
 {/block}
