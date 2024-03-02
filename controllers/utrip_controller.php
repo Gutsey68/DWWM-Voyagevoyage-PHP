@@ -297,6 +297,9 @@
 			$objUtrip->hydrate($arrUtrip);
 			$objUtrip->setValid(0);
 			$objUtrip->setComment('');
+			var_dump($objUtrip);
+			$arrUtripImgs = $objUtripModel->getImgs($intUtripId);
+			var_dump($arrUtripImgs);
 			
 			if (count($_POST) >0){
 				$objUtrip->setValid($_POST['moderation']);
@@ -315,6 +318,7 @@
             $this->_arrData["strPage"]     = "utrip";
             $this->_arrData["strTitle"] = "Article";
             $this->_arrData["strDesc"]     = "Contenu de l'article";
+			$this->_arrData["arrUtripImgs"] = $arrUtripImgs;
 
 
 
@@ -361,5 +365,7 @@
 			$objUtripModel->delete($intUtripId);
 			header("Location:".parent::BASE_URL."utrip/manage");
 		}
+
+
 
     }

@@ -125,14 +125,14 @@
 		public function insert(object $objUtrip) {
 
 			$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id, utrip_city , utrip_cat )
-								VALUES (:titre, :description, :budget , NOW(), :id, :city , :cat);
+								VALUES (:titre, :description, :budget , NOW(), :id, 1 , :cat);
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":titre", $objUtrip->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":city", $objUtrip->getCitId(), PDO::PARAM_INT);
+			// $rqPrep->bindValue(":city", $objUtrip->getCitId(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":id", $_SESSION['user']['user_id'], PDO::PARAM_INT);
 
@@ -266,6 +266,22 @@
 			$rqPrep = $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":city", $strCity, PDO::PARAM_STR);
 			return $rqPrep->execute();
+		}
+
+		/**
+		* Méthode permettant de récupérer les images d'un article 
+		*/
+		public function getImgs(int $id) {
+			$strQuery = "SELECT DISTINCT img_link
+					FROM utrip
+					INNER JOIN image ON utrip_id = img_utrip_id
+					WHERE utrip_id = ".$id;
+
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->execute();
+			$arrUtripImgs = $rqPrep->fetchAll();
+		
+			return $arrUtripImgs;
 		}
 
 		

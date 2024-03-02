@@ -41,6 +41,9 @@
                 <div class="row">
                     <div class="col-12">
                         <img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="">
+                        {foreach from=$arrUtripImgs item=image}
+                            <img class="resume-img" src="uploads/{$image.img_link}" alt="">
+                        {/foreach}
                         
                     </div>
                 </div>
