@@ -33,11 +33,16 @@
 
 		{if (isset($smarty.session.user.user_id))}
 			{if ($user.user_id == $objUser->getId())}
-				<div>
-					<a href="{$base_url}user/edit_pp" title="Modifier ma photo"> Modifier sa photo de profil </a>
-				</div>
-				<div>
-					<a href="{$base_url}user/edit_profile" title="Modifier mon compte">Modifier son profil / Modifier ses informations personnelles</a>
+				<div class="container">
+					<div class="col-12 button-center pb-5">
+						<a href="{$base_url}user/edit_pp" title="Modifier ma photo" class="green-btn"> Modifier ma photo de profil </a>
+					</div>
+					<div class="col-12 button-center pb-5">
+						<a href="{$base_url}user/edit_profile" title="Modifier mon compte" class="green-btn">Modifier mon profil / Modifier mes informations personnelles</a>
+					</div>
+					{* <div class="col-12 text-center pb-5">
+						<button type="submit" title="Modifier mon compte" class="orange-btn" name="DeleteInfo">Supprimer mes informations personnelles</button>
+					</div> *}
 				</div>
 			{/if}
 		{/if}
