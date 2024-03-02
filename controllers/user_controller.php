@@ -69,13 +69,20 @@
                 $arrUser = $objUserModel->searchUser($strEmail, $strPassword);
                 if ($arrUser === false) {
                     /* 3. Si pas ok => Afficher un message d'erreur */
-                    $arrErrors[] = "Erreur de connexion";
-                } else {
-                    /* 3. Si ok => Session */
-                    $_SESSION['user'] = $arrUser;
-					
-                }
-            }
+					$arrErrors[] = "Erreur de connexion";
+				} else {
+					/* Vérifier si l'utilisateur est banni */
+					if ($arrUser['user_ban'] == 1) {
+						/* Utilisateur banni - Détruire la session et afficher un message d'erreur */
+						session_destroy();
+						session_start(); // Recommencer une nouvelle session pour les messages d'erreur
+						$arrErrors[] = "Votre compte a été banni. Veuillez contacter l'administrateur.";
+					} else {
+						//  Utilisateur non banni
+						$_SESSION['user'] = $arrUser;
+					}
+				}
+			}
             
             $this->_arrData["strPage"]     = "login";
             $this->_arrData["strTitle"]    = "Se connecter";
