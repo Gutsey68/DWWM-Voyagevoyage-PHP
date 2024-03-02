@@ -48,7 +48,7 @@
                                 <i class="fas fa-user"></i> Bonjour {$smarty.session.user.user_firstname}
                             </a>
                         </li>
-                        {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "modo") }
+                        {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin") }
                             <li class="nav-item ">
 						        <a class="nav-link flex-fill" href="{$base_url}page/manage" alt="Gérer les articles" ><i class="fa fa-newspaper"></i></a>
                             </li>

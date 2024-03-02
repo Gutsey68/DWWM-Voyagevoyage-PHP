@@ -20,7 +20,7 @@
                 <textarea name="content" class="form-control" id="topicContent" rows="3"
                     placeholder="Entrez le contenu du sujet"></textarea>
             </div>
-            <button type="submit" class="btn green-btn">Envoyer</button>
+            <button type="submit" class="btn green-btn">Créer</button>
         </form>
     </div>
 {/block}
