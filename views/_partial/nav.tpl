@@ -30,9 +30,9 @@
                 </li>
                 <li class="nav-item">
                     <div id="nav-form">
-                        <form class="my-lg-0" method="post" action="">
+                        <form class="my-lg-0" method="post" action="{$base_url}utrip/explore">
                             <div class="inputgroup col-12">
-                                <input type="text" id="navinput" placeholder="Rechercher un voyage"
+                                <input type="text" id="navinput" placeholder="Rechercher un voyage" name="keywords"
                                     aria-label="Rechercher un voyage">
                                 <button id="navbutton">
                                     <i class="fa-solid fa-magnifying-glass"></i>

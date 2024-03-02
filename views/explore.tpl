@@ -17,7 +17,7 @@
         </div>
     </section>
     <!-- Tri articles -->
-    <form name="formSearch" method="post" action="" class="mb-5">
+    <form name="formSearch" method="post" action="{$base_url}utrip/explore" class="mb-5">
         <div class="container">
             <!-- Barre de recherche -->
             <div class="row mb-4">

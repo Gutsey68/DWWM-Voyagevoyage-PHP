@@ -43,8 +43,8 @@
 				}
 			}
 		}
-			
-/**
+
+		/**
 		* Méthode d'affichage des templates
 		* @param $strTpl Nom du template à afficher
 		*/
@@ -65,5 +65,38 @@
 				return $smarty->fetch("views/".$strTpl.".tpl");
 			}
 		}
+
+		/**
+		* Méthode permettant la recherche d'articles dans la navbar
+		*/
+		public function explore(){
+			$strKeywords     = $_POST['keywords']??"";
+
+			$arrSearch         = array('keywords'     => $strKeywords);
+			
+            $objUtripModel    = new UtripModel;
+            $arrUtrips        = $objUtripModel->findAll(0, $arrSearch);
+
+            // Parcourir les articles pour créer des objets (pour afficher les articles)
+            $arrUtripsToDisplay    = array();
+            foreach ($arrUtrips as $arrDetailUtrip) {
+                $objUtrip = new Utrip(); 
+                $objUtrip->hydrate($arrDetailUtrip);
+                $arrUtripsToDisplay[] = $objUtrip;
+
+				$this->_arrData["strKeywords"]     = $strKeywords;
 	
+				$this->_arrData["strPage"]     = "explore";
+				$this->_arrData["strTitle"] = "Explore";
+				$this->_arrData["strDesc"]     = "Découvrez des aventures uniques racontées par des voyageurs passionnés. Laissez-vous inspirer par leurs expériences et partagez les vôtres.";
+				$this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
+	
+				$this->afficheTpl("explore");
+            }
+
+		}
+	
+		
+
+
     }

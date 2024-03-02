@@ -9,6 +9,5 @@
 - Supprimer un article (il faut ajouter une requête pour les imgages de l'article sinon erreur)
 - les users ban (si ban force la session quand il se connecte)
 - afficher toutes les images d'un article 
-- la recherche dans la navbar
 - modifier les villes quand on ajoute un article 
 - réécrire les liens avec la base_url

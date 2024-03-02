@@ -14,7 +14,7 @@
             </div>
         </div>
     </section>
-    <form name="formSearch" method="post" action="" class="mb-5">
+    <form name="formSearch" method="post" action="{$base_url}forum/home" class="mb-5">
         <div class="form-container">
             <!-- Barre de recherche -->
             <div class="row mb-4">
