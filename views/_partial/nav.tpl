@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <div id="nav-form">
-                        <form class="my-lg-0">
+                        <form class="my-lg-0" method="post" action="">
                             <div class="inputgroup col-12">
                                 <input type="text" id="navinput" placeholder="Rechercher un voyage"
                                     aria-label="Rechercher un voyage">

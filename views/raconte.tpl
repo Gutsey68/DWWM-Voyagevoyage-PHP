@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre <span class="text-danger">*</span> :</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="name"
-                            value="" placeholder="Titre" required></div>
+                            value="" placeholder="Titre"></div>
                 </div>
             </div>
             <!-- contenu de l'article -->
@@ -50,7 +50,7 @@
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage <span class="text-danger">*</span> :</label></div>
                     <div class="col-md-6 col-12"><textarea class="form-control" id="articleContent" name="description"
-                            value="" placeholder="Contenu" rows="8" required></textarea></div>
+                            value="" placeholder="Contenu" rows="8"></textarea></div>
                 </div>
             </div>
             <!-- catégories -->
@@ -70,7 +70,12 @@
             <div class="container mb-3  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleCity">Ville <span class="text-danger">*</span> :</label></div>
-                    <div class="col-md-6 col-12"><input class="form-control" value="{$objUtrip->getCity()}" type="text" id="articleCity" name="city" required></div>
+                    <div class="col-md-6 col-12g">
+                        <input class="form-control" autocomplete="off" type="text" id="articleCity" name="city" value="{$objUtrip->getCity()}">
+                        <!-- Champ caché pour stocker l'ID de la ville sélectionnée -->
+                        <input type="hidden" id="articleCityId" name="cityId" value="{$objUtrip->getCityId()}">
+                    </div>
+
                 </div>
             </div>
             <!-- budget -->

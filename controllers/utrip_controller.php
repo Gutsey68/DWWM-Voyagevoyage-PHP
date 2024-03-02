@@ -62,7 +62,7 @@
         $intUtripId	        = $_GET['id']??0;
         $strCat                 = $_POST['cat']??"";
         $strCity                = $_POST['city']??"";
-        $intCityId                = $_POST['city']??0;
+        $intCityId                = $_POST['cityId']??"";
         $intCatId              = $_POST['cat']??0;
 
 
@@ -85,6 +85,7 @@
 			
 			/* Récupère l'article */
 			$arrUtrip 	= $objUtripModel->get($intUtripId);
+
 			if ($arrUtrip === false){
 				$objUtrip->setId(0);
 				$objUtrip->setName("");
@@ -204,11 +205,10 @@
 			}else{
 				
 			}
-
         $this->_arrData["strCat"]           = $strCat;
         $this->_arrData["strCity"]          = $strCity;
         $this->_arrData["intCatId"]         = $intCatId;
-        $this->_arrData["intCityId"]        = $intCityId;
+        $this->_arrData["intCityId"]         = $intCityId;
         $this->_arrData["objUtrip"]         = $objUtrip;
         $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
 
@@ -361,4 +361,5 @@
 			$objUtripModel->delete($intUtripId);
 			header("Location:".parent::BASE_URL."utrip/manage");
 		}
+
     }

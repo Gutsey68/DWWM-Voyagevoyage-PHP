@@ -55,6 +55,9 @@
 
                 // Vérification des données de l'utilisateur
                 $arrErrors = array();
+                if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+					$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
+				}
                 if ($objForum->getTitle() == ""){
                     $arrErrors['title'] = "Le titre est obligatoire";
                 }

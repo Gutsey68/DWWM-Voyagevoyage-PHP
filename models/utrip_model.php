@@ -20,7 +20,7 @@
 		*/
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 
-			$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , 
+			$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , cities_id ,
 							utrip_date , user_pseudo AS 'utrip_creator', user_id AS 'utrip_creatorId' , img_link AS 'utrip_img' , cities_name
 							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
 									FROM utrip 
@@ -125,14 +125,14 @@
 		public function insert(object $objUtrip) {
 
 			$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id, utrip_city , utrip_cat )
-								VALUES (:titre, :description, :budget , NOW(), :id, 1 , :cat);
+								VALUES (:titre, :description, :budget , NOW(), :id, :city , :cat);
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":titre", $objUtrip->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
-			// $rqPrep->bindValue(":city", $objUtrip->getCityId(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":city", $objUtrip->getCitId(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":id", $_SESSION['user']['user_id'], PDO::PARAM_INT);
 
@@ -254,5 +254,19 @@
 							WHERE utrip_id = ".$id;
 			return $this->_db->exec($strQuery);
 		}
+
+		/**
+		 * Méthode de récupération de l'Id d'une ville
+		 * @return Tableau de ville
+		 */
+
+		public function getCityId($strCity) {
+
+			$strQuery = "SELECT cities_id FROM cities WHERE cities_name = :city";
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":city", $strCity, PDO::PARAM_STR);
+			return $rqPrep->execute();
+		}
+
 		
 	}
