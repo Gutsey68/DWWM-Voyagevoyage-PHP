@@ -8,7 +8,7 @@
             {/foreach}
         </div>
     {/if}
-    <form class="form-container" action="user/edit_pp " method="post" enctype="multipart/form-data">
+    <form class="form-container p-5" action="user/edit_pp " method="post" enctype="multipart/form-data">
         <div class="">
             <legend class="green-title">Ajouter une Image</legend>
             <div class="mb-3">
