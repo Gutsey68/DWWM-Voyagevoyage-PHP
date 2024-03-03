@@ -28,6 +28,7 @@
             </div>
         </section>
          {* ajouter un commentaire  *}
+         {if ( isset($user.user_id) && $user.user_id != '' )}
             <section id="add-comment">
                 <div class="container pb-3 pt-3">
                     <div class="row">
@@ -44,6 +45,9 @@
                     </div>
                 </div>
             </section>
+        {else}
+            <p>Vous devez être inscrit pour écrire un commentaire</p>
+        {/if}
             <section id="forum-comments">
                 <div class="container pb-3 pt-3">
                     <div class="row">
@@ -55,6 +59,14 @@
                                     <p>{$commenttopic.comt_content}</p>
                                     <p><small>Posté le {$commenttopic.comt_date|date_format:"%Y-%m-%d %H:%M:%S"}</small></p>
                                 </div>
+                                {if (isset($smarty.session.user.user_id))}
+                                    {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}
+                                        <form action="" method="post">
+                                            <input type="hidden" name="comtopicId" value="{$commenttopic.comt_id}">
+                                            <button type="submit" >Supprimer</button>
+                                        </form>
+                                    {/if}
+                                {/if}
                             {/foreach}
                         </div>
                     </div>

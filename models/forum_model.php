@@ -135,7 +135,7 @@
 		* Méthode permettant de récupérer les comentaires d'un topic
 		*/		
 		public function getCom(int $id) : array|false{
-			$strQuery 	= " SELECT comt_content , comt_date, user_pseudo AS 'comt_creator', comt_user_id AS 'comt_creatorId' , comt_topic_id AS 'comt_utripId' FROM commenttopic
+			$strQuery 	= " SELECT comt_id, comt_content , comt_date, user_pseudo AS 'comt_creator', comt_user_id AS 'comt_creatorId' , comt_topic_id AS 'comt_utripId' FROM commenttopic
 							INNER JOIN users ON comt_user_id = user_id
 							WHERE comt_topic_id = '".$id."' ORDER BY comt_date DESC";
 			return $this->_db->query($strQuery)->fetchAll();			
@@ -157,6 +157,21 @@
 
 			return $rqPrep->execute();
 		}
+
+		/**
+		 * Supprime un commentaire basé sur son ID.
+		 * @param int $comId L'ID du commentaire à supprimer.
+		 * @return bool Renvoie true si la suppression a réussi, false sinon.
+		 */
+		public function deleteCom(int $comId): bool {
+				
+			$strQuery = "DELETE FROM commenttopic
+						 WHERE comt_id = :com";
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":com", $comId, PDO::PARAM_INT);
+			
+			return $rqPrep->execute();
+	}
 
 
 	}

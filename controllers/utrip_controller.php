@@ -7,6 +7,7 @@
     include_once("models/forum_model.php");
     include_once("entities/utrip_entity.php");
     include_once("entities/forum_entity.php");
+    include_once("entities/like_entity.php");
     include_once("entities/comment_entity.php");
 
     class UtripCtrl extends Ctrl {
@@ -284,6 +285,9 @@
 
 			if (isset($_POST['com']) && $_POST['com'] !== '') {
 				$objComment->setContent($_POST['com']);
+				if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+					$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
+				}
 				if ($objComment->getContent() == ""){
 					$arrErrors['content'] = "Le commentaire ne peut être vide.";
 				} else {
@@ -292,8 +296,7 @@
 				}
 			}
 
-			if (isset($_POST['moderation']) && $_POST['moderation'] !== '') {
-				if (isset($_POST['comment']) && $_POST['comment'] !== '') {
+			if ((isset($_POST['moderation']) && $_POST['moderation'] !== '') || (isset($_POST['comment']) && $_POST['comment'] !== '')) {
 					$objUtrip->setValid($_POST['moderation']);
 					$objUtrip->setComment($_POST['comment']);
 					
@@ -302,12 +305,24 @@
 					}else{
 						$objUtripModel->moderate($objUtrip);
 					}
-				}
 			 }
 			
-
 			$arrComments = $objUtripModel->getCom($intUtripId);
 			$this->_arrData["arrComments"] = $arrComments;
+
+			// supprimer un commentaire
+			if (isset($_POST['commentaireId']) && $_POST['commentaireId'] !== '') {
+
+				// Récupère et nettoie l'ID du commentaire
+				$comId = filter_var($_POST['commentaireId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+				$objUtripModel->deleteCom($comId);
+			}
+
+			// instance du like
+			$objUtripModelLike	= new UtripModel();
+			$objLike = new Like();
+			$arrLikes = $objUtripModelLike->getLikes($intUtripId);
+			$this->_arrData["arrLikes"] = $arrLikes;
 
 			$this->_arrData["objUtrip"]	= $objUtrip;
 			$this->_arrData["arrErrors"] 	= $arrErrors;
@@ -364,7 +379,6 @@
 			$objUtripModel->delete($intUtripId);
 			header("Location:".parent::BASE_URL."utrip/manage");
 		}
-
 
 		/**
 		* Méthode permettant de modifier un article
@@ -426,5 +440,20 @@
         
 		}
 	
+		/**
+		* Méthode permettant de liker un article
+		*/
+		public function like(){
+
+			$userId = $_SESSION['user']['user_id'];
+			$utripId = $_GET['id'] ?? 0;
+			
+			
+			$objUtripModel = new UtripModel();
+			$objUtripModel->Like($userId, $utripId);
+			header("Location:".parent::BASE_URL."utrip/utrip?id=$utripId");
+		}
+
+
 
     }

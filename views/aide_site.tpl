@@ -159,7 +159,9 @@
 					<div class="col-12 ps-5 pb-5">
 						<h1 class="text-center p-5">Informations personnelles</h1>
 						<h2 class="pb-2">Voir son profil</h2>
+
 						<p>Rendez vous sur cette <a href="{$base_url}user/user?id={$user.user_id}">page</a> 
+
 						ou cliquez sur l'icone en forme de petit bonhomme à côté de "Bonjour {$user.user_firstname}".</p>
 					</div>
 				</div>
@@ -174,6 +176,7 @@
 						au bas de votre profil. 
 						Modifiez ensuite les champs que vous voulez.</p><p>
 						Pour modifier votre photo de profil, rendez vous sur cette <a href="{$base_url}user/edit_pp">page</a> disponible
+
 						au bas de votre profil également. 
 						Importez ensuite votre photo. Veillez à ne pas mettre d'image inapropriée.</p>
 					</div>
@@ -188,6 +191,7 @@
 							<h1 class="text-center p-5">Modération</h1>
 							<h2 class="pb-2">Accéder à la modération</h2>
 							<p>Rendez vous sur cette <a href="{$base_url}page/manage">page</a> 
+
 							ou cliquez sur l'icone en forme d'article à côté de "Bonjour {$user.user_firstname}".</p>
 							<p>Vous avez ensuite accès à 3 types de modération :</p>
 						</div>
@@ -203,6 +207,7 @@
 							ou cliquez sur le bouton gérer les articles sur la page de <a href="{$base_url}page/manage">
 							modération</a>. Vous pouvez également y accéder directement en cliquant sur n'importe
 							quel article sur la page des <a href="{$base_url}forum/home">utrips</a> puis en allant en bas de la page.</p>
+
 							<p>Vous pouvez accepter ou non un article pour 
 							qu'il s'affiche et laisser un commentaire sur votre choix.
 							Vous pouvez sinon modifier l'article.</p>

@@ -244,13 +244,34 @@
 		}
 		
 		/**
-		* Méthode permettant de supprimer l'article en BDD
-		* @param int $id Identifiant de l'article à supprimer
-		*/
-		public function delete (int $id){
-			$strQuery 	= "DELETE FROM utrip
-							WHERE utrip_id = ".$id;
-			return $this->_db->exec($strQuery);
+		 * Supprime l'article en BDD en s'assurant que toutes les dépendances sont également supprimées.
+		 * @param int $id identifiant de l'article à supprimer.
+		 * @return bool renvoie true si la suppression a réussi
+		 */
+		public function delete(int $id) {
+			try {
+				
+				$this->_db->beginTransaction();
+
+				// supprime d'abord les images
+				$rqPrep = $this->_db->prepare("DELETE FROM image WHERE img_utrip_id = :utripId");
+				$rqPrep->bindValue(":utripId", $id, PDO::PARAM_INT);
+				$rqPrep->execute();
+
+				// supprime l'article
+				$rqPrep = $this->_db->prepare("DELETE FROM utrip WHERE utrip_id = :utripId");
+				$rqPrep->bindValue(":utripId", $id, PDO::PARAM_INT);
+				$rqPrep->execute();
+
+				// validez la transaction
+				$this->_db->commit();
+
+				return true;
+			} catch (PDOException $erreur) {
+				// En cas d'erreur, annule la transaction
+				$this->_db->rollBack();
+				return false;
+			}
 		}
 
 		/**
@@ -283,10 +304,10 @@
 		}
 		
 		/**
-		* Méthode permettant de récupérer les comentaires d'un article
+		* Méthode permettant de récupérer les commentaires d'un article
 		*/		
 		public function getCom(int $id) : array|false{
-			$strQuery 	= " SELECT com_content , com_date , com_image, user_pseudo AS 'com_creator', com_user_id AS 'com_creatorId' , com_utrip_id AS 'com_utripId' FROM comments
+			$strQuery 	= " SELECT com_id, com_content , com_date , com_image, user_pseudo AS 'com_creator', com_user_id AS 'com_creatorId' , com_utrip_id AS 'com_utripId' FROM comments
 							INNER JOIN users ON com_user_id = user_id
 							WHERE com_utrip_id = '".$id."' ORDER BY com_date DESC";
 			return $this->_db->query($strQuery)->fetchAll();			
@@ -307,6 +328,65 @@
 			$rqPrep->bindValue(":utrip", $_GET['id'], PDO::PARAM_INT);
 
 			return $rqPrep->execute();
+		}
+
+
+		/**
+		* Méthode permettant de récupérer les likes d'un article
+		*/		
+		public function getLikes(int $id) : array|false{
+			$strQuery 	= " SELECT user_pseudo AS 'like_creator', like_user_id AS 'like_creatorId' , like_utrip_id AS 'like_utripId' FROM likes
+							INNER JOIN users ON like_user_id = user_id
+							WHERE like_utrip_id = '".$id."' ORDER BY like_date DESC";
+
+			return $this->_db->query($strQuery)->fetchAll();			
+		}
+
+		/**
+		* Méthode permettant de liker ou de unliker
+		*/		
+		public function Like(int $userId, int $utripId) {
+			// Vérifie si le like existe
+			$strQuery = "SELECT * FROM likes
+			 			WHERE like_user_id = :user 
+			 			AND like_utrip_id = :utrip";
+
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":user", $userId, PDO::PARAM_INT);
+			$rqPrep->bindValue(":utrip", $utripId, PDO::PARAM_INT);
+			$rqPrep->execute();
+			
+			if ($rqPrep->fetch()) {
+				// Si le like existe, le supprimer
+				$strQuery = "DELETE FROM likes 
+							WHERE like_user_id = :user 
+							AND like_utrip_id = :utrip";
+
+				$rqPrep = $this->_db->prepare($strQuery);
+				$rqPrep->execute([':user' => $userId, ':utrip' => $utripId]);
+			} else {
+				// Sinon, nouveau like
+				$strQuery = "INSERT INTO likes (like_user_id, like_utrip_id, like_date) 
+							VALUES (:user, :utrip, NOW())";
+
+				$rqPrep = $this->_db->prepare($strQuery);
+				$rqPrep->execute([':user' => $userId, ':utrip' => $utripId]);
+			}
+		}
+
+		/**
+		 * Supprime un commentaire basé sur son ID.
+		 * @param int $comId L'ID du commentaire à supprimer.
+		 * @return bool Renvoie true si la suppression a réussi, false sinon.
+		 */
+		public function deleteCom(int $comId): bool {
+				
+				$strQuery = "DELETE FROM comments
+							 WHERE com_id = :com";
+				$rqPrep = $this->_db->prepare($strQuery);
+				$rqPrep->bindValue(":com", $comId, PDO::PARAM_INT);
+				
+				return $rqPrep->execute();
 		}
 
 	}

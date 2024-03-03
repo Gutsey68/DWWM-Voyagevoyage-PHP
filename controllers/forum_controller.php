@@ -119,8 +119,7 @@
             
 
 			
-			if (isset($_POST['moderation']) && $_POST['moderation'] !== '') {
-				if (isset($_POST['comment']) && $_POST['comment'] !== '') {
+			if ((isset($_POST['moderation']) && $_POST['moderation'] !== '') || (isset($_POST['comment']) && $_POST['comment'] !== '')) {
                     $objForum->setValid($_POST['moderation']);
                     $objForum->setComment($_POST['comment']);
                     
@@ -129,10 +128,17 @@
                     }else{
                         $objForumModel->moderate($objForum);
                     }
-                }
 			}
             $arrCommentsTopic = $objForumModel->getCom($intForumId);
 			$this->_arrData["arrCommentsTopic"] = $arrCommentsTopic;
+
+            // supprimer un commentaire
+			if (isset($_POST['comtopicId']) && $_POST['comtopicId'] !== '') {
+
+				// Récupère et nettoie l'ID du commentaire
+				$comId = filter_var($_POST['comtopicId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+                $objForumModel->deleteCom($comId);
+			}
 			
 			$this->_arrData["arrErrors"] 	= $arrErrors;
             $this->_arrData["objForum"]	= $objForum;
