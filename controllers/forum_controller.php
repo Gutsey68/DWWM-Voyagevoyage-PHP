@@ -133,6 +133,14 @@
 			}
             $arrCommentsTopic = $objForumModel->getCom($intForumId);
 			$this->_arrData["arrCommentsTopic"] = $arrCommentsTopic;
+
+            // supprimer un commentaire
+			if (isset($_POST['comtopicId']) && $_POST['comtopicId'] !== '') {
+
+				// Récupère et nettoie l'ID du commentaire
+				$comId = filter_var($_POST['comtopicId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+                $objForumModel->deleteCom($comId);
+			}
 			
 			$this->_arrData["arrErrors"] 	= $arrErrors;
             $this->_arrData["objForum"]	= $objForum;

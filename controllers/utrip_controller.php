@@ -306,9 +306,16 @@
 				}
 			 }
 			
-
 			$arrComments = $objUtripModel->getCom($intUtripId);
 			$this->_arrData["arrComments"] = $arrComments;
+
+			// supprimer un commentaire
+			if (isset($_POST['commentaireId']) && $_POST['commentaireId'] !== '') {
+
+				// Récupère et nettoie l'ID du commentaire
+				$comId = filter_var($_POST['commentaireId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+				$objUtripModel->deleteCom($comId);
+			}
 
 			// instance du like
 			$objUtripModelLike	= new UtripModel();
@@ -446,6 +453,7 @@
 			$objUtripModel->Like($userId, $utripId);
 			header("Location:".parent::BASE_URL."utrip/utrip?id=$utripId");
 		}
+
 
 
     }
