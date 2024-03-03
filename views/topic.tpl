@@ -59,7 +59,7 @@
                                     <p>{$commenttopic.comt_content}</p>
                                     <p><small>Posté le {$commenttopic.comt_date|date_format:"%Y-%m-%d %H:%M:%S"}</small></p>
                                 </div>
-                                {if (isset($smarty.session.user.user_id))}
+                                {if (isset($_SESSION['user']['user_id']))}
                                     {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}
                                         <form action="" method="post">
                                             <input type="hidden" name="comtopicId" value="{$commenttopic.comt_id}">

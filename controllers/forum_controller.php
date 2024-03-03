@@ -106,23 +106,32 @@
                 $objForumModel->deleteCom($comId);
 			}
 
+            // supprimer un commentaire
+			if (isset($_POST['comtopicId']) && $_POST['comtopicId'] !== '') {
+
+				// Récupère et nettoie l'ID du commentaire
+				$comId = filter_var($_POST['comtopicId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+                $objForumModel->deleteCom($comId);
+			}
+
 			$objForum 		= new Forum();	// instancie un objet Article
 			$objForum->hydrate($arrForum);
 			$objForum->setValid(0);
 			$objForum->setComment('');
-
             // instance du commentaire 
 			$objForumModelCom	= new ForumModel();
 			$objCommentTopic = new CommentTopic();
-
             if (isset($_POST['answer']) && $_POST['answer'] !== '') {
-				$objCommentTopic->setContent($_POST['answer']);
-				if ($objCommentTopic->getContent() == ""){
-					$arrErrors['answer'] = "Le commentaire ne peut être vide.";
-				} else {
-					
-					$objForumModelCom->insertComt($objCommentTopic);
-				}
+                if (isset($_SESSION['user']) || $_SESSION['user'] != ''){
+                    $objCommentTopic->setContent($_POST['answer']);
+                    if ($objCommentTopic->getContent() == ""){
+                        $arrErrors['answer'] = "Le commentaire ne peut être vide.";
+                    } else {
+                        $objForumModelCom->insertComt($objCommentTopic);
+                    }
+                }else{
+                    $arrErrors['answer'] = "Vous devez être connecté pour pouvoir publier un commentaire";
+                }
 			}
             
 
