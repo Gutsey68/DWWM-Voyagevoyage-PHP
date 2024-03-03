@@ -114,7 +114,7 @@
 			$objForumModelCom	= new ForumModel();
 			$objCommentTopic = new CommentTopic();
             if (isset($_POST['answer']) && $_POST['answer'] !== '') {
-                if (isset($_SESSION['user']) || $_SESSION['user'] != ''){
+                if (isset($_SESSION['user'])){
                     $objCommentTopic->setContent($_POST['answer']);
                     if ($objCommentTopic->getContent() == ""){
                         $arrErrors['answer'] = "Le commentaire ne peut être vide.";
