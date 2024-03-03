@@ -53,19 +53,21 @@
 
 
 		{if ($modo) }
-		<div class="col-6">
-			<h2>Modération</h2>
-			<form method="post" action="user/user?id={$objUser->getId()}">
-				<p>
-					<label>Bannir</label>
-					<input type="radio" name="moderation" value="1" {if ($objUser->getBan() == 1) } checked {/if} >
-				</p>
-				<p>
-					<label>Commentaire</label>
-					<textarea name="comment">{$objUser->getComment()}</textarea>
-				</p>
-				<input type="submit" >
-			</form>
+		<div class="container">
+			<div class="col-6">
+				<h2>Modération</h2>
+				<form method="post" action="user/user?id={$objUser->getId()}"  class="pb-5">
+					<p>
+						<label>Bannir</label>
+						<input type="radio" name="moderation" value="1" {if ($objUser->getBan() == 1) } checked {/if} >
+					</p>
+					<p>
+						<label>Commentaire</label>
+						<textarea name="comment">{$objUser->getComment()}</textarea>
+					</p>
+					<input type="submit">
+				</form>
+			</div>
 		</div>
 		{/if}
 {/block}
