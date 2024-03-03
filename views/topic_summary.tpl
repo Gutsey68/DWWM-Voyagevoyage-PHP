@@ -5,7 +5,7 @@
         <div class="card-header">
             <a href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a>
         </div>
-        <a class="text-decoration-none green-title shadow" href="forum/topic?id={$objForum->getId()}">
+        <a class="text-decoration-none green-title shadow" href="{$base_url}forum/topic?id={$objForum->getId()}">
             <div class="card-body">
                 <h3 class="card-title">{$objForum->getTitle()}</h3>
                 <p class="card-text">

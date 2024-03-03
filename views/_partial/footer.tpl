@@ -16,11 +16,11 @@
             <div class="col-md-4 col-12 pb-3">
                 <h3 class="pb-3">Liens utiles :</h3>
                 <ul>
-                    <li class="footer-plan"><a href="page/about">A propos de nous</a></li> 
-                    <li class="footer-plan"><a href="page/contact">Nous contacter</a></li>
-                    <li class="footer-plan"><a href="page/mentions">Mentions légales</a></li>
-                    <li class="footer-plan"><a href="page/plan">Plan du site</a></li>
-                    <li class="footer-plan"><a href="page/aide_site">Aide du site</a></li>
+                    <li class="footer-plan"><a href="{$base_url}page/about">A propos de nous</a></li> 
+                    <li class="footer-plan"><a href="{$base_url}page/contact">Nous contacter</a></li>
+                    <li class="footer-plan"><a href="{$base_url}page/mentions">Mentions légales</a></li>
+                    <li class="footer-plan"><a href="{$base_url}page/plan">Plan du site</a></li>
+                    <li class="footer-plan"><a href="{$base_url}page/aide_site">Aide du site</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-12">

@@ -8,7 +8,7 @@
                     <h1 class="">Bienvenue sur le forum des <span class="fst-italic">voyageurs</span></h1>
                     <p>Échangez conseils et histoires avec une communauté qui partage votre passion pour l'aventure et la découverte.</p>
                     <div class="button-center mb-5">
-                        <a class="green-btn" href="forum/create_topic"><i class="fa-solid fa-comments"></i> Je crée un topic</a>
+                        <a class="green-btn" href="{$base_url}forum/create_topic"><i class="fa-solid fa-comments"></i> Je crée un topic</a>
                     </div>
                 </div>
             </div>
