@@ -277,17 +277,22 @@
 			$objUtrip->setComment('');
 			$arrUtripImgs = $objUtripModel->getImgs($intUtripId);
 
+			// supprimer un commentaire
+			if (isset($_POST['commentaireId']) && $_POST['commentaireId'] !== '') {
+
+				// Récupère et nettoie l'ID du commentaire
+				$comId = filter_var($_POST['commentaireId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+				$objUtripModel->deleteCom($comId);
+			}
+
 			// instance du commentaire 
 			$objUtripModelCom	= new UtripModel();
 			$objComment = new Comment();
 
 
-
 			if (isset($_POST['com']) && $_POST['com'] !== '') {
 				$objComment->setContent($_POST['com']);
-				if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-					$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
-				}
+
 				if ($objComment->getContent() == ""){
 					$arrErrors['content'] = "Le commentaire ne peut être vide.";
 				} else {
@@ -309,14 +314,6 @@
 			
 			$arrComments = $objUtripModel->getCom($intUtripId);
 			$this->_arrData["arrComments"] = $arrComments;
-
-			// supprimer un commentaire
-			if (isset($_POST['commentaireId']) && $_POST['commentaireId'] !== '') {
-
-				// Récupère et nettoie l'ID du commentaire
-				$comId = filter_var($_POST['commentaireId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
-				$objUtripModel->deleteCom($comId);
-			}
 
 			// instance du like
 			$objUtripModelLike	= new UtripModel();
