@@ -75,6 +75,11 @@
             </div>
         </section>
     </article>
+    {if ( isset($user.user_id) && $user.user_id != '' ) 
+		&& 
+		( $user.user_role == 'admin' || $objUtrip->getCreatorId() == $user.user_id || $user.user_role == 'modo') }
+		<a href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article">Modifier l'article</a>
+	{/if}
     {if (isset($smarty.session.user.user_id))}
         {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin") }
             <div class="container mb-5">

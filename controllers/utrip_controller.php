@@ -275,9 +275,7 @@
 			$objUtrip->hydrate($arrUtrip);
 			$objUtrip->setValid(0);
 			$objUtrip->setComment('');
-			var_dump($objUtrip);
 			$arrUtripImgs = $objUtripModel->getImgs($intUtripId);
-			var_dump($arrUtripImgs);
 			
 			if (count($_POST) >0){
 				$objUtrip->setValid($_POST['moderation']);
@@ -350,69 +348,48 @@
 		*/
 		public function edit_utrip() {
 
+		$intUtripId	        = $_GET['id']??0;
+		$arrErrors = array();
 
-        // Récupère l'information dans $_POST
-        $intUtripId	        = $_GET['id']??0;
-        $strCat                 = $_POST['cat']??"";
-        $strName                 = $_POST['name']??"";
-        $strBudget                = $_POST['budget']??"";
-        $strDescription                 = $_POST['description']??"";
-        $intCatId              = $_POST['cat']??0;
+		/* Utilisation de la classe model pour les catégories */
+		$objUtripModel    = new UtripModel;
+		$arrCats          = $objUtripModel->findCat();
 
+		// Parcourir les articles pour créer des objets
+		$arrCatsToDisplay    = array();
+		foreach ($arrCats as $arrDetailCat) {
+			$objUtrip = new Utrip();
+			$objUtrip->hydrate($arrDetailCat);
+			$arrCatsToDisplay[] = $objUtrip;
+		}
+	
+		$objUtripModel	= new UtripModel();
+		$arrUtrip 		= $objUtripModel->get($intUtripId);
+		$objUtrip 		= new Utrip();
+		$objUtrip->hydrate($arrUtrip);
 
-        /* Utilisation de la classe model pour les catégories */
-        $objUtripModel    = new UtripModel;
-        $arrCats          = $objUtripModel->findCat();
+		if (count($_POST) > 0){
 
-        // Parcourir les articles pour créer des objets
-        $arrCatsToDisplay    = array();
-        foreach ($arrCats as $arrDetailCat) {
-            $objUtrip = new Utrip();
-            $objUtrip->hydrate($arrDetailCat);
-            $arrCatsToDisplay[] = $objUtrip;
-        }
+				$objUtrip->setName($_POST['name']);
+				$objUtrip->setDescription($_POST['description']);
+				$objUtrip->setBudget($_POST['budget']);
+				$objUtrip->setCatId($_POST['cat']);
 
-			/* 2. Récupérer les informations du formulaire */
-			$arrErrors 			= array();
-			$objUtrip 		= new Utrip();	// instancie un objet Article
-			$objUtripModel	= new UtripModel();// instancie le modèle Article
-			
-			/* Récupère l'article */
-			$arrUtrip 	= $objUtripModel->get($intUtripId);
-
-				/* j'hydrate en fonction de l'article */
-				$objUtrip->hydrate($arrUtrip);
-				if (count($_POST) > 0){
-					// Mettre à jour l'objet
-					$objUtrip->hydrate($_POST);
-					
-				/* if (($_SESSION['user']['user_role'] != "admin") || ($_SESSION['user']['user_role'] != "modo") && 
-					$_SESSION['user']['user_id'] != $objUtrip->getCreator()){
-						var_dump($objUtrip);
-					header("Location:".parent::BASE_URL."error/show403");
-				} */
-						
-				
-					if(count($arrErrors) == 0){
-						$objUtripModel->update($objUtrip);
-					header("Location:http://localhost/projet_2/index.php");
-						
-					}else{
-						$arrErrors[] = "L'insertion s'est mal passée";
-					}
+				if ($objUtripModel->update($objUtrip)){
+					header("Location:".parent::BASE_URL."index.php");
+				}else{
+					$arrErrors[] = "La modification s'est mal passée";
 				}
+			}else{
+				
+			}
 			
-        $this->_arrData["strCat"]           = $strCat;
-        $this->_arrData["intCatId"]         = $intCatId;
-        $this->_arrData["objUtrip"]         = $objUtrip;
-        $this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
-
-
+		$this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
+		$this->_arrData["objUtrip"]         = $objUtrip;
 		$this->_arrData["strPage"] 		= "edit_utrip";
 		$this->_arrData["strTitle"] 	= "Modifier un article";
 		$this->_arrData["strDesc"] 		= "Page permettant de modifier un article";
-        
-        $this->_arrData["arrErrors"] 	= $arrErrors;
+		$this->_arrData["arrErrors"] 	= $arrErrors;
 
         $this->afficheTpl("edit_utrip");
         

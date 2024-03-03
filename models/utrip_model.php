@@ -20,9 +20,9 @@
 		*/
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 
-			$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , cities_id ,
+			$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , cities_id , cities_id AS 'utrip_cityId' ,
 							utrip_date , user_pseudo AS 'utrip_creator', user_id AS 'utrip_creatorId' , img_link AS 'utrip_img' , cities_name
-							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont'
+							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , cat_id AS 'utrip_catId'
 									FROM utrip 
 									LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 									LEFT OUTER JOIN users ON user_id = utrip_user_id
@@ -191,18 +191,16 @@
 			$strQuery	= "	UPDATE utrip
 							SET utrip_name = :name, 
 								utrip_description = :description, 
-								utrip_budget = :budget
-								utrip_city = :city, 
+								utrip_budget = :budget,
 								utrip_cat = :cat
-							WHERE utrip_id = :id";
+							WHERE utrip_id = :id ";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":name", $objUtrip->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":id", $objUtrip->getId(), PDO::PARAM_INT);
-			$rqPrep->bindValue(":city", $objUtrip->getCityId(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":cat", $objUtrip->getCatId(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":id", $objUtrip->getId(), PDO::PARAM_STR);
 			
 			//var_dump($this->_db->lastInsertId());die;
 			return $rqPrep->execute();
