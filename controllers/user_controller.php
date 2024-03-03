@@ -32,7 +32,7 @@
 					$objUserModel	= new UserModel;
 
 					if ($objUserModel->insert($objUser)){
-						header("Location:index.php?ctrl=utrip&action=home");
+						Header("Location:".parent::BASE_URL."user/login");
 					}else{
 						$arrErrors[] = "L'insertion s'est mal passée";
 					}
@@ -80,6 +80,7 @@
 					} else {
 						//  Utilisateur non banni
 						$_SESSION['user'] = $arrUser;
+						Header("Location:".parent::BASE_URL."index.php");
 					}
 				}
 			}

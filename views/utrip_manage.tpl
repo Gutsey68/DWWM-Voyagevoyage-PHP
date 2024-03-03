@@ -42,8 +42,8 @@
 						{/if}
 					</td>
 					<td class="text-center">
-						<a class="btn btn-primary" href="{$base_url}utrip/utrip?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="fa fa-edit"></i></a>
-						{if (isset($smarty.session.user.user_id) && $smarty.session.user.user_role == "modo")}
+						<a class="btn btn-primary" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="fa fa-edit"></i></a>
+						{if (isset($smarty.session.user.user_id) && ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin"))}
 						<a class="btn btn-secondary" href="{$base_url}utrip/utrip?id={$objUtrip->getId()}" alt="Modérer l'article"><i class="fa fa-check-double"></i></a>
 						{/if}
 						<a class="btn btn-danger" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" alt="Supprimer l'article"><i class="fa fa-trash"></i></a>

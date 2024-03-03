@@ -76,7 +76,7 @@
         </section>
     </article>
     {if (isset($smarty.session.user.user_id))}
-        {if ($smarty.session.user.user_role == "modo") }
+        {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin") }
             <div class="container mb-5">
                 <h2 class="green-title">Modération</h2>
                 <form method="post" action="utrip/utrip?id={$objUtrip->getId()}">

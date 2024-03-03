@@ -23,10 +23,14 @@
 				<div class="col-md-8">
 					<h1>{$objUser->getPseudo()}</h1>
 					<p><strong>Bio:</strong> {$objUser->getBio()}</p>
-					<p><strong>Nom:</strong> {$objUser->getName()}</p>
-					<p><strong>Prénom:</strong> {$objUser->getFirstname()}</p>
-					<p><strong>Email:</strong> {$objUser->getEmail()}</p>
-					<p><strong>Date de Création:</strong> {$objUser->getRegisdateFr()}</p>
+					<p><strong>Date de création de compte:</strong> {$objUser->getRegisdateFr()}</p>
+					{if ( isset($user.user_id) && $user.user_id != '' ) 
+						&& 
+						( $user.user_role == 'admin' || $objUser->getId() == $user.user_id || $user.user_role == 'modo') }
+							<p><strong>Nom:</strong> {$objUser->getName()}</p>
+							<p><strong>Prénom:</strong> {$objUser->getFirstname()}</p>
+							<p><strong>Email:</strong> {$objUser->getEmail()}</p>
+					{/if}
 				</div>
 			</div>
 		</div>
