@@ -34,7 +34,7 @@
                         <div class="col-12">
                             <h3>Ajouter un commentaire</h3>
                             <form method="post" action="">
-                                <div class="form-group">
+                                <div class="form-group pb-3">
                                     <label for="comment">Votre commentaire</label>
                                     <textarea name="answer" id="comment" class="form-control"></textarea>
                                 </div>
@@ -48,6 +48,7 @@
                 <div class="container pb-3 pt-3">
                     <div class="row">
                         <div class="col-12">
+                            <h3>Commentaires</h3>
                             {foreach from=$arrCommentsTopic item=commenttopic}
                                 <div class="comment">
                                     <p><strong>Commentaire de :</strong> <a href="{$base_url}user/user?id={$commenttopic.comt_creatorId}">{$commenttopic.comt_creator}</a></p>
@@ -61,20 +62,22 @@
             </section>
     {if (isset($smarty.session.user.user_id))}
         {if (isset($smarty.session.user.user_id) && ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin"))}
-            <div class="col-6">
-                <h2>Modération</h2>
-                <form method="post" action="forum/topic?id={$objForum->getId()}">
-                    <p>
-                        <label>Accepté</label>
-                        <input type="radio" name="moderation" value="1" {if ($objForum->getValid() == 1) } checked {/if} > Oui
-                        <input type="radio" name="moderation" value="0" {if ($objForum->getValid() == 0) } checked {/if} > Non
-                    </p>
-                    <p>
-                        <label>Commentaire</label>
-                        <textarea name="comment">{$objForum->getComment()}</textarea>
-                    </p>
-                    <input type="submit" >
-                </form>
+            <div class="container">
+                <div class="col-6">
+                    <h2>Modération</h2>
+                    <form method="post" action="forum/topic?id={$objForum->getId()}" class="pb-5">
+                        <p>
+                            <label>Accepté</label>
+                            <input type="radio" name="moderation" value="1" {if ($objForum->getValid() == 1) } checked {/if} > Oui
+                            <input type="radio" name="moderation" value="0" {if ($objForum->getValid() == 0) } checked {/if} > Non
+                        </p>
+                        <p>
+                            <label>Commentaire</label>
+                            <textarea name="comment">{$objForum->getComment()}</textarea>
+                        </p>
+                        <input type="submit" >
+                    </form>
+                </div>
             </div>
         {/if}
     {/if}

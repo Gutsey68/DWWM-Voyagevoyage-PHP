@@ -10,9 +10,20 @@
 					<h1>Aide du site</h1>
 				</div>
 				<div class="col-12 p-5">
-					<p>Sur cette page vous trouverez de l'aide sur toute les fonctionnalités du site.
-					Chaque section correspond à une fonctionnalité et vous explique en détail comment faire 
-					pour s'en servir</p>
+					{if isset($user.user_id) && $user.user_id != ''}
+						<p>Sur cette page vous trouverez de l'aide sur toute les fonctionnalités du site en fonction
+						de si vous êtes connecté ou pas.
+						Chaque section correspond à une fonctionnalité et vous explique en détail comment faire 
+						pour s'en servir</p>
+					{else}
+						<p>Sur cette page vous trouverez de l'aide sur toute les fonctionnalités du site en fonction
+						de si vous êtes connecté ou pas.
+						Chaque section correspond à une fonctionnalité et vous explique en détail comment faire 
+						pour s'en servir</p>
+						<p>Vous n'êtes actuellement pas connecté. Connectez vous ou créez votre compte
+						si vous n'en possedez pas, pour accéder à toutes les fonctionnalités du site.
+						Revenez ensuite sur cette page, pour voir leurs aides apparaitre.</p>
+					{/if}
 				</div>
 			</div>
 		</div>
@@ -72,6 +83,7 @@
 			</div>
 		</div>
 	</section>
+	{if isset($user.user_id) && $user.user_id != ''}
 	<section>
 		<div class="container">
 			<div class="row">
@@ -97,6 +109,7 @@
 			</div>
 		</div>
 	</section>
+	{/if}
 	<section>
 		<div class="container">
 			<div class="row">
@@ -111,6 +124,7 @@
 			</div>
 		</div>
 	</section>
+	{if isset($user.user_id) && $user.user_id != ''}
 	<section>
 		<div class="container">
 			<div class="row">
@@ -124,6 +138,7 @@
 			</div>
 		</div>
 	</section>
+	{/if}
 	<section>
 		<div class="container">
 			<div class="row">
@@ -137,31 +152,93 @@
 			</div>
 		</div>
 	</section>
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 ps-5 pb-5">
-					<h1 class="text-center p-5">Informations personnelles</h1>
-					<h2 class="pb-2">Voir son profil</h2>
-					<p>Une fois connecté, rendez vous sur cette <a href="user/user?id={$user.user_id}">page</a> 
-					ou cliquez sur l'icone en forme de petit bonhomme à côté de "Bonjour {$user.user_firstname}".</p>
+	{if isset($user.user_id) && $user.user_id != ''}
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 ps-5 pb-5">
+						<h1 class="text-center p-5">Informations personnelles</h1>
+						<h2 class="pb-2">Voir son profil</h2>
+						<p>Rendez vous sur cette <a href="user/user?id={$user.user_id}">page</a> 
+						ou cliquez sur l'icone en forme de petit bonhomme à côté de "Bonjour {$user.user_firstname}".</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 ps-5 pb-5">
-					<h2 class="pb-2">Modifier son profil</h2>
-					<p>Une fois connecté, rendez vous sur cette <a href="user/edit_profile">page</a> disponible
-					au bas de votre profil. 
-					Modifiez ensuite les champs que vous voulez.</p><p>
-					Pour modifier votre photo de profil, rendez vous sur cette <a href="user/edit_pp">page</a> disponible
-					au bas de votre profil également. 
-					Importez ensuite votre photo. Veillez à ne pas mettre d'image inapropriée.</p>
+		</section>
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 ps-5 pb-5">
+						<h2 class="pb-2">Modifier son profil / ses informations</h2>
+						<p>Rendez vous sur cette <a href="user/edit_profile">page</a> disponible
+						au bas de votre profil. 
+						Modifiez ensuite les champs que vous voulez.</p><p>
+						Pour modifier votre photo de profil, rendez vous sur cette <a href="user/edit_pp">page</a> disponible
+						au bas de votre profil également. 
+						Importez ensuite votre photo. Veillez à ne pas mettre d'image inapropriée.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+		{if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin")}
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 ps-5 pb-5">
+							<h1 class="text-center p-5">Modération</h1>
+							<h2 class="pb-2">Accéder à la modération</h2>
+							<p>Rendez vous sur cette <a href="page/manage">page</a> 
+							ou cliquez sur l'icone en forme d'article à côté de "Bonjour {$user.user_firstname}".</p>
+							<p>Vous avez ensuite accès à 3 types de modération :</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 ps-5 pb-5">
+							<h2 class="pb-2">Gérer les articles</h2>
+							<p>Rendez vous sur cette <a href="utrip/manage">page</a> 
+							ou cliquez sur le bouton gérer les articles sur la page de <a href="page/manage">
+							modération</a>. Vous pouvez également y accéder directement en cliquant sur n'importe
+							quel article sur la page des <a href="forum/home">utrips</a> puis en allant en bas de la page.</p>
+							<p>Vous pouvez accepter ou non un article pour 
+							qu'il s'affiche et laisser un commentaire sur votre choix.
+							Vous pouvez sinon modifier l'article.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 ps-5 pb-5">
+							<h2 class="pb-2">Gérer les topics</h2>
+							<p>Rendez vous sur cette <a href="forum/manage">page</a> 
+							ou cliquez sur le bouton gérer les topics sur la page de <a href="page/manage">
+							modération</a>. Vous pouvez également y accéder directement en cliquant sur n'importe
+							quel topics sur la page des <a href="forum/home">forums</a> puis en allant en bas de la page.</p>
+							<p>Vous pouvez accepter ou non un topic pour 
+							qu'il s'affiche et laisser un commentaire sur votre choix.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 ps-5 pb-5">
+							<h2 class="pb-2">Gérer les utilisateurs</h2>
+							<p>Rendez vous sur cette <a href="user/manage">page</a> 
+							ou cliquez sur le bouton gérer les utilisateurs sur la page de <a href="page/manage">
+							modération</a>. Vous pouvez également y accéder directement en cliquant sur n'importe
+							quel utilisateurs puis en allant en bas de la page.</p>
+							<p>Vous pouvez bannir un utilisateur et laisser un commentaire sur votre choix.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		{/if}
+	{/if}
 {/block}

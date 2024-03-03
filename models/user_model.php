@@ -160,7 +160,7 @@
 		public function getByMail(string $strEmail):int|false{
 			$strQuery 	= "SELECT user_id
 							FROM users
-							WHERE user_mail = :mail;";
+							WHERE user_email = :mail;";
 
 			$rqPrep	= $this->_db->prepare($strQuery);			
 

@@ -18,14 +18,15 @@
 		{/foreach}
 		</div>
 	{/if}		
-
-	<form action="{$base_url}user/forgetPwd" method="post" >
-		<p>
-			<label for="email">E-mail</label>
-			<input id="email" type="email" name="email" value="" >
-		</p>
-		<p>
-			<input type="submit" value="Envoyer">
-		</p>
-	</form>
+	<div class="container">
+		<form action="{$base_url}user/forgetPwd" method="post" >
+			<p>
+				<label for="email">E-mail</label>
+				<input id="email" type="email" name="email" value="" >
+			</p>
+			<p>
+				<input type="submit" value="Envoyer">
+			</p>
+		</form>
+	</div>
 {/block}

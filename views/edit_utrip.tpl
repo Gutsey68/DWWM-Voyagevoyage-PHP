@@ -52,7 +52,7 @@
             </div>
             </fieldset>
             <div class="text-center mt-4">
-                <input type="submit" class="btn green-btn">
+                <input type="submit" class="btn green-btn" value="Valider">
             </div>
         </div>
     </form>
