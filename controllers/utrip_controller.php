@@ -285,6 +285,9 @@
 
 			if (isset($_POST['com']) && $_POST['com'] !== '') {
 				$objComment->setContent($_POST['com']);
+				if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+					$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
+				}
 				if ($objComment->getContent() == ""){
 					$arrErrors['content'] = "Le commentaire ne peut être vide.";
 				} else {
