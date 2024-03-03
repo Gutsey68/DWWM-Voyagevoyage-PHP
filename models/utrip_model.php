@@ -244,13 +244,34 @@
 		}
 		
 		/**
-		* Méthode permettant de supprimer l'article en BDD
-		* @param int $id Identifiant de l'article à supprimer
-		*/
-		public function delete (int $id){
-			$strQuery 	= "DELETE FROM utrip
-							WHERE utrip_id = ".$id;
-			return $this->_db->exec($strQuery);
+		 * Supprime l'article en BDD en s'assurant que toutes les dépendances sont également supprimées.
+		 * @param int $id identifiant de l'article à supprimer.
+		 * @return bool renvoie true si la suppression a réussi
+		 */
+		public function delete(int $id) {
+			try {
+				
+				$this->_db->beginTransaction();
+
+				// supprime d'abord les images
+				$rqPrep = $this->_db->prepare("DELETE FROM image WHERE img_utrip_id = :utripId");
+				$rqPrep->bindValue(":utripId", $id, PDO::PARAM_INT);
+				$rqPrep->execute();
+
+				// supprime l'article
+				$rqPrep = $this->_db->prepare("DELETE FROM utrip WHERE utrip_id = :utripId");
+				$rqPrep->bindValue(":utripId", $id, PDO::PARAM_INT);
+				$rqPrep->execute();
+
+				// validez la transaction
+				$this->_db->commit();
+
+				return true;
+			} catch (PDOException $erreur) {
+				// En cas d'erreur, annule la transaction
+				$this->_db->rollBack();
+				return false;
+			}
 		}
 
 		/**
@@ -326,7 +347,7 @@
 		*/		
 		public function Like(int $userId, int $utripId) {
 			// Vérifie si le like existe
-			$strQuery = "SELECT * FROM likes$
+			$strQuery = "SELECT * FROM likes
 			 			WHERE like_user_id = :user 
 			 			AND like_utrip_id = :utrip";
 

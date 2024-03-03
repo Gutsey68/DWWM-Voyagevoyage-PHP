@@ -379,7 +379,6 @@
 			header("Location:".parent::BASE_URL."utrip/manage");
 		}
 
-
 		/**
 		* Méthode permettant de modifier un article
 		*/
