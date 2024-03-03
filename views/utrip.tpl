@@ -49,10 +49,11 @@
                 </div>
                 <div class="row">
                     <div class="col-2">
-                    <button class="green-btn"><i class="fa-solid fa-heart"></i>J'aime</button> 
+                    <a class="green-btn" href="{$base_url}utrip/like?id={$objUtrip->getId()}" alt="Supprimer l'article"> <i class="fa-solid fa-heart"></i> J'aime</a>
+
                     </div>
                     <div class="col-2">
-                        <span>1 <i class="fa-solid fa-heart"></i> (c'est moi)</span>
+                        <span>{count($arrLikes)}<i class="fa-solid fa-heart"></i></span>
                     </div>
                     <div class="col-8"></div>
                 </div>

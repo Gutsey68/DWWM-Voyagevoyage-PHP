@@ -283,7 +283,7 @@
 		}
 		
 		/**
-		* Méthode permettant de récupérer les comentaires d'un article
+		* Méthode permettant de récupérer les commentaires d'un article
 		*/		
 		public function getCom(int $id) : array|false{
 			$strQuery 	= " SELECT com_content , com_date , com_image, user_pseudo AS 'com_creator', com_user_id AS 'com_creatorId' , com_utrip_id AS 'com_utripId' FROM comments
@@ -308,5 +308,38 @@
 
 			return $rqPrep->execute();
 		}
+
+
+		/**
+		* Méthode permettant de récupérer les likes d'un article
+		*/		
+		public function getLikes(int $id) : array|false{
+			$strQuery 	= " SELECT user_pseudo AS 'like_creator', like_user_id AS 'like_creatorId' , like_utrip_id AS 'like_utripId' FROM likes
+							INNER JOIN users ON like_user_id = user_id
+							WHERE like_utrip_id = '".$id."' ORDER BY like_date DESC";
+			return $this->_db->query($strQuery)->fetchAll();			
+		}
+
+		public function Like(int $userId, int $utripId) {
+			// Vérifie si le like existe
+			$strQuery = "SELECT * FROM likes WHERE like_user_id = :userId AND like_utrip_id = :utripId";
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":userId", $userId, PDO::PARAM_INT);
+			$rqPrep->bindValue(":utripId", $utripId, PDO::PARAM_INT);
+			$rqPrep->execute();
+			
+			if ($rqPrep->fetch()) {
+				// Si le like existe, le supprimer
+				$strQuery = "DELETE FROM likes WHERE like_user_id = :userId AND like_utrip_id = :utripId";
+				$rqPrep = $this->_db->prepare($strQuery);
+				$rqPrep->execute([':userId' => $userId, ':utripId' => $utripId]);
+			} else {
+				// Sinon, nouveau like
+				$strQuery = "INSERT INTO likes (like_user_id, like_utrip_id, like_date) VALUES (:userId, :utripId, NOW())";
+				$rqPrep = $this->_db->prepare($strQuery);
+				$rqPrep->execute([':userId' => $userId, ':utripId' => $utripId]);
+			}
+		}
+
 
 	}

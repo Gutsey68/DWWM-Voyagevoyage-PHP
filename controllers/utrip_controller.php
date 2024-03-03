@@ -7,6 +7,7 @@
     include_once("models/forum_model.php");
     include_once("entities/utrip_entity.php");
     include_once("entities/forum_entity.php");
+    include_once("entities/like_entity.php");
     include_once("entities/comment_entity.php");
 
     class UtripCtrl extends Ctrl {
@@ -309,6 +310,12 @@
 			$arrComments = $objUtripModel->getCom($intUtripId);
 			$this->_arrData["arrComments"] = $arrComments;
 
+			// instance du like
+			$objUtripModelLike	= new UtripModel();
+			$objLike = new Like();
+			$arrLikes = $objUtripModelLike->getLikes($intUtripId);
+			$this->_arrData["arrLikes"] = $arrLikes;
+
 			$this->_arrData["objUtrip"]	= $objUtrip;
 			$this->_arrData["arrErrors"] 	= $arrErrors;
 			
@@ -426,5 +433,19 @@
         
 		}
 	
+		/**
+		* Méthode permettant de liker un article
+		*/
+		public function like(){
+
+			$userId = $_SESSION['user']['user_id'];
+			$utripId = $_GET['id'] ?? 0;
+			
+			
+			$objUtripModel = new UtripModel();
+			$objUtripModel->Like($userId, $utripId);
+			header("Location:".parent::BASE_URL."utrip/utrip?id=$utripId");
+		}
+
 
     }
