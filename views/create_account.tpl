@@ -48,6 +48,6 @@
         </div>
     </form>
     <div class="form-container mb-5">
-        <a href="user/login" class="mt-3 mb-3 form-container lead">Déjà inscrit ? Connectez-vous !</a>
+        <a href="{$base_url}user/login" class="mt-3 mb-3 form-container lead">Déjà inscrit ? Connectez-vous !</a>
     </div>
 {/block}

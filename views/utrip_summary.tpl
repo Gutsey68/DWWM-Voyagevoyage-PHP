@@ -2,7 +2,7 @@
 
 <div class="col-md-3 resume-utrip">
 	<div>
-		<a href="utrip/utrip?id={$objUtrip->getId()}"><img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}"></a>
+		<a href="{$base_url}utrip/utrip?id={$objUtrip->getId()}"><img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}"></a>
 	</div>
 	<p class="margin0">Le voyage de <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
 	<p>à <span class="fst-italic">{$objUtrip->getCity()}</span></p>

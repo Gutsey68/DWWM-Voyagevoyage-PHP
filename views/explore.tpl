@@ -92,7 +92,7 @@
                     communauté de voyageurs passionnés et partagez les moments qui ont rendu votre expérience inoubliable.
                 </p>
                 <div class="button-center">
-                    <a class="green-btn" href="utrip/raconte"><i class="fa-solid fa-feather"></i>
+                    <a class="green-btn" href="{$base_url}utrip/raconte"><i class="fa-solid fa-feather"></i>
                         Je raconte la mienne</a>
                 </div>
             </div>
