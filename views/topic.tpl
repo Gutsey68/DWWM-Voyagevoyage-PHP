@@ -10,8 +10,7 @@
             {/foreach}
         </div>
     {/if}
-    <article>
-        <section id="utrip-title">
+        <section>
             <div class="container pb-3 pt-3">
                 <div class="row">
                     <div class="col-12">
@@ -21,30 +20,48 @@
                 </div>
             </div>
         </section>
-        <section id="utrip-content">
+        <section>
             <div class="container pt-3">
                 <div class="row">
                     <div class="col-12"> {$objForum->getContent()} </div>
                 </div>
             </div>
         </section>
-        <section id="utrip-comment">
-            <div class="container pb-3 pt-3">
-                <div class="row">
-                    <div class="col-12">
-                        <h3>Commentaires</h3>
-                        <div>
-                            <div>
-                                <h4>acoubidou</h4>
-                                <p>Publié le <time datetime="YYYY-MM-DD">2024-01-19</time></p>
-                            </div>
-                            <p>Salut combien de mcdo as tu vu ?</p>
+         {* ajouter un commentaire  *}
+            <section id="add-comment">
+                <div class="container pb-3 pt-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Ajouter un commentaire</h3>
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label for="comment">Votre commentaire</label>
+                                    <textarea name="comment" id="comment" class="form-control"></textarea>
+                                </div>
+                                <input type="submit" class="btn green-btn" value="Poster">
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </article>
+            </section>
+            <section id="forum-comments">
+                <div class="container pb-3 pt-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Commentaires</h3>
+                            {foreach from= item=}
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <h4>autheur</h4>
+                                        <p>Publié le </p>
+                                    </div>
+                                    <p>contenu</p>
+                                </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            </section>
     {if (isset($smarty.session.user.user_id))}
         {if ($smarty.session.user.user_role == "modo") }
             <div class="col-6">

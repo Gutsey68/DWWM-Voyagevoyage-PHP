@@ -128,5 +128,6 @@
 							WHERE topic_id = ".$id;
 			return $this->_db->exec($strQuery);
 		}
-		
+				
+
 	}

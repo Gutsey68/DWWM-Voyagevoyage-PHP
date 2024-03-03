@@ -7,7 +7,7 @@
     include_once("models/forum_model.php");
     include_once("entities/utrip_entity.php");
     include_once("entities/forum_entity.php");
-    include_once("entities/img_entity.php");
+    include_once("entities/comment_entity.php");
 
     class UtripCtrl extends Ctrl {
 
@@ -264,8 +264,7 @@
 
             $arrErrors = array();
             $intUtripId	= $_GET['id']??0;
-
-
+			$strComment     = $_POST['comment']??"";
 	
 			/* Récupère l'article */
 			$objUtripModel	= new UtripModel();// instancie le modèle Article
@@ -276,20 +275,45 @@
 			$objUtrip->setValid(0);
 			$objUtrip->setComment('');
 			$arrUtripImgs = $objUtripModel->getImgs($intUtripId);
-			
-			if (count($_POST) >0){
-				$objUtrip->setValid($_POST['moderation']);
-				$objUtrip->setComment($_POST['comment']);
-				
-				if(!$objUtrip->getValid() && $objUtrip->getComment() == ''){
-					$arrErrors['comment'] = "Le commentaire est obligatoire quand la validation de l'article est refusée";
-				}else{
-					$objUtripModel->moderate($objUtrip);
+
+			// instance du commentaire 
+			$objUtripModelCom	= new UtripModel();
+			$objComment = new Comment();
+
+
+
+			if (isset($_POST['com']) && $_POST['com'] !== '') {
+				$objComment->setContent($_POST['com']);
+				if ($objComment->getContent() == ""){
+					$arrErrors['content'] = "Le commentaire ne peut être vide.";
+				} else {
+					
+				var_dump($_POST);
+					$objUtripModelCom->insertCom($objComment);
 				}
 			}
 
+			if (isset($_POST['moderation']) && $_POST['moderation'] !== '') {
+				if (isset($_POST['comment']) && $_POST['comment'] !== '') {
+					$objUtrip->setValid($_POST['moderation']);
+					$objUtrip->setComment($_POST['comment']);
+					
+					if(!$objUtrip->getValid() && $objUtrip->getComment() == ''){
+						$arrErrors['comment'] = "Le commentaire est obligatoire quand la validation de l'article est refusée";
+					}else{
+						$objUtripModel->moderate($objUtrip);
+					}
+				}
+			 }
+			
+
+			$arrComments = $objUtripModel->getCom($intUtripId);
+			$this->_arrData["arrComments"] = $arrComments;
+
 			$this->_arrData["objUtrip"]	= $objUtrip;
 			$this->_arrData["arrErrors"] 	= $arrErrors;
+			
+			$this->_arrData["objComment"]	= $objComment;
 
             $this->_arrData["strPage"]     = "utrip";
             $this->_arrData["strTitle"] = "Article";
@@ -348,6 +372,7 @@
 		*/
 		public function edit_utrip() {
 
+
 		$intUtripId	        = $_GET['id']??0;
 		$arrErrors = array();
 
@@ -367,6 +392,13 @@
 		$arrUtrip 		= $objUtripModel->get($intUtripId);
 		$objUtrip 		= new Utrip();
 		$objUtrip->hydrate($arrUtrip);
+
+		if ((($_SESSION['user']['user_role'] != "admin" )) && $_SESSION['user']['user_id'] != $objUtrip->getCreatorId()){
+			if ((($_SESSION['user']['user_role'] != "modo" )) && $_SESSION['user']['user_id'] != $objUtrip->getCreatorId()){	
+			header("Location:".parent::BASE_URL."error/show403");
+			}
+		}
+		
 
 		if (count($_POST) > 0){
 

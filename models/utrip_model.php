@@ -281,6 +281,32 @@
 		
 			return $arrUtripImgs;
 		}
+		
+		/**
+		* Méthode permettant de récupérer les comentaires d'un article
+		*/		
+		public function getCom(int $id) : array|false{
+			$strQuery 	= " SELECT com_content , com_date , com_image, user_pseudo AS 'com_creator', com_user_id AS 'com_creatorId' , com_utrip_id AS 'com_utripId' FROM comments
+							INNER JOIN users ON com_user_id = user_id
+							WHERE com_utrip_id = '".$id."' ORDER BY com_date DESC";
+			return $this->_db->query($strQuery)->fetchAll();			
+		}
 
 		
+		/**
+		* Méthode d'insertion d'un commentaire en BDD
+		*/
+		public function insertCom(object $objComment) {
+			$strQuery	= "	INSERT INTO comments (com_content, com_date, com_user_id , com_utrip_id )
+								VALUES (:content, NOW(), :user , :utrip);
+								";
+			// On prépare la requête
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":content", $objComment->getContent(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":user", $_SESSION['user']['user_id'], PDO::PARAM_INT);
+			$rqPrep->bindValue(":utrip", $_GET['id'], PDO::PARAM_INT);
+
+			return $rqPrep->execute();
+		}
+
 	}

@@ -92,13 +92,7 @@
         public function topic() {
             $arrErrors = array();
             $intForumId	= $_GET['id']??0;
-			
-			// $objForum		= new Forum();	// instancie un objet Article
-			// $objForumModel	= new ForumModel();// instancie le modèle Article
-			
-			// $arrForum 	= $objForumModel->get($intForumId);
-			// $objForum->hydrate($arrForum);
-
+            
             /* Récupère l'article */
 			$objForumModel	= new ForumModel();// instancie le modèle Article
 			$arrForum 		= $objForumModel->get($intForumId);
