@@ -26,4 +26,5 @@
         <div class="mt-3 mb-3 form-container lead"><a href="user/create_account">Pas de compte ? Inscrivez vous !</a></div>
         <a href="{$base_url}user/forgetPwd">Mot de passe oublié</a>
     </div>
+
 {/block}

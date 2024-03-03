@@ -119,8 +119,7 @@
             
 
 			
-			if (isset($_POST['moderation']) && $_POST['moderation'] !== '') {
-				if (isset($_POST['comment']) && $_POST['comment'] !== '') {
+			if ((isset($_POST['moderation']) && $_POST['moderation'] !== '') || (isset($_POST['comment']) && $_POST['comment'] !== '')) {
                     $objForum->setValid($_POST['moderation']);
                     $objForum->setComment($_POST['comment']);
                     
@@ -129,7 +128,6 @@
                     }else{
                         $objForumModel->moderate($objForum);
                     }
-                }
 			}
             $arrCommentsTopic = $objForumModel->getCom($intForumId);
 			$this->_arrData["arrCommentsTopic"] = $arrCommentsTopic;

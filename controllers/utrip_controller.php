@@ -293,8 +293,7 @@
 				}
 			}
 
-			if (isset($_POST['moderation']) && $_POST['moderation'] !== '') {
-				if (isset($_POST['comment']) && $_POST['comment'] !== '') {
+			if ((isset($_POST['moderation']) && $_POST['moderation'] !== '') || (isset($_POST['comment']) && $_POST['comment'] !== '')) {
 					$objUtrip->setValid($_POST['moderation']);
 					$objUtrip->setComment($_POST['comment']);
 					
@@ -303,7 +302,6 @@
 					}else{
 						$objUtripModel->moderate($objUtrip);
 					}
-				}
 			 }
 			
 			$arrComments = $objUtripModel->getCom($intUtripId);
