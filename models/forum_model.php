@@ -58,12 +58,13 @@
 		*/
 		public function insert(object $objForum) {
 			$strQuery	= "	INSERT INTO topic (topic_title, topic_content, topic_date, topic_code , topic_user_id )
-								VALUES (:title, :content, NOW(), 1, 1);
+								VALUES (:title, :content, NOW(), FLOOR(1 + (RAND() * 10000000000000)), :id );
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":title", $objForum->getTitle(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":content", $objForum->getContent(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":id", $_SESSION['user']['user_id'], PDO::PARAM_INT);
 
 			return $rqPrep->execute();
 		}
@@ -128,6 +129,34 @@
 							WHERE topic_id = ".$id;
 			return $this->_db->exec($strQuery);
 		}
-				
+			
+		
+		/**
+		* Méthode permettant de récupérer les comentaires d'un topic
+		*/		
+		public function getCom(int $id) : array|false{
+			$strQuery 	= " SELECT comt_content , comt_date, user_pseudo AS 'comt_creator', comt_user_id AS 'comt_creatorId' , comt_topic_id AS 'comt_utripId' FROM commenttopic
+							INNER JOIN users ON comt_user_id = user_id
+							WHERE comt_topic_id = '".$id."' ORDER BY comt_date DESC";
+			return $this->_db->query($strQuery)->fetchAll();			
+		}
+
+		
+		/**
+		* Méthode d'insertion d'un commentaire en BDD
+		*/
+		public function insertComt(object $objCommentTopic) {
+			$strQuery	= "	INSERT INTO commenttopic (comt_content, comt_date, comt_user_id , comt_topic_id )
+								VALUES (:content, NOW(), :user , :topic);
+								";
+			// On prépare la requête
+			$rqPrep	= $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":content", $objCommentTopic->getContent(), PDO::PARAM_STR);
+			$rqPrep->bindValue(":user", $_SESSION['user']['user_id'], PDO::PARAM_INT);
+			$rqPrep->bindValue(":topic", $_GET['id'], PDO::PARAM_INT);
+
+			return $rqPrep->execute();
+		}
+
 
 	}

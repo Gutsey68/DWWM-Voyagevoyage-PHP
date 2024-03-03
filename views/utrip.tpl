@@ -84,7 +84,7 @@
                         <h3>Commentaires</h3>
                         {foreach from=$arrComments item=comment}
                             <div class="comment">
-                                <p><strong>Commentaire de :</strong> {$comment.com_creator}</p>
+                                <p><strong>Commentaire de :</strong> <a href="{$base_url}user/user?id={$comment.com_creatorId}">{$comment.com_creator}</a></p>
                                 <p>{$comment.com_content}</p>
                                 <p><small>Posté le {$comment.com_date|date_format:"%Y-%m-%d %H:%M:%S"}</small></p>
                             </div>

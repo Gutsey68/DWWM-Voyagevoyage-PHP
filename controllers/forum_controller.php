@@ -5,6 +5,7 @@
 	*/
     include_once("models/forum_model.php");
     include_once("entities/forum_entity.php");
+    include_once("entities/comment_topic_entity.php");
 
     class ForumCtrl extends Ctrl {
 
@@ -93,7 +94,7 @@
             $arrErrors = array();
             $intForumId	= $_GET['id']??0;
             
-            /* Récupère l'article */
+            /* Récupère le topic */
 			$objForumModel	= new ForumModel();// instancie le modèle Article
 			$arrForum 		= $objForumModel->get($intForumId);
 
@@ -101,20 +102,41 @@
 			$objForum->hydrate($arrForum);
 			$objForum->setValid(0);
 			$objForum->setComment('');
-			
-			if (count($_POST) >0){
-				$objForum->setValid($_POST['moderation']);
-				$objForum->setComment($_POST['comment']);
-				
-				if(!$objForum->getValid() && $objForum->getComment() == ''){
-					$arrErrors['comment'] = "Le commentaire est obligatoire quand la validation du topic est refusée";
-				}else{
-					$objForumModel->moderate($objForum);
+
+            // instance du commentaire 
+			$objForumModelCom	= new ForumModel();
+			$objCommentTopic = new CommentTopic();
+
+            if (isset($_POST['answer']) && $_POST['answer'] !== '') {
+				$objCommentTopic->setContent($_POST['answer']);
+				if ($objCommentTopic->getContent() == ""){
+					$arrErrors['answer'] = "Le commentaire ne peut être vide.";
+				} else {
+					
+					$objForumModelCom->insertComt($objCommentTopic);
 				}
 			}
+            
+
+			
+			if (isset($_POST['moderation']) && $_POST['moderation'] !== '') {
+				if (isset($_POST['comment']) && $_POST['comment'] !== '') {
+                    $objForum->setValid($_POST['moderation']);
+                    $objForum->setComment($_POST['comment']);
+                    
+                    if(!$objForum->getValid() && $objForum->getComment() == ''){
+                        $arrErrors['comment'] = "Le commentaire est obligatoire quand la validation du topic est refusée";
+                    }else{
+                        $objForumModel->moderate($objForum);
+                    }
+                }
+			}
+            $arrCommentsTopic = $objForumModel->getCom($intForumId);
+			$this->_arrData["arrCommentsTopic"] = $arrCommentsTopic;
 			
 			$this->_arrData["arrErrors"] 	= $arrErrors;
             $this->_arrData["objForum"]	= $objForum;
+            $this->_arrData["objCommentTopic"]	= $objCommentTopic;
 
             $this->_arrData["strPage"]     = "topic";
             $this->_arrData["strTitle"] = "topic";

@@ -40,7 +40,7 @@
 						{/if}
 					</td>
 					<td class="text-center">
-						{if (isset($smarty.session.user.user_id) && $smarty.session.user.user_role == "modo")}
+						{if (isset($smarty.session.user.user_id) && ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin"))}
 						<a class="btn btn-secondary" href="{$base_url}forum/topic?id={$objForum->getId()}" alt="Modérer l'article"><i class="fa fa-check-double"></i></a>
 						{/if}
 						<a class="btn btn-danger" href="{$base_url}forum/delete?id={$objForum->getId()}" alt="Supprimer l'article"><i class="fa fa-trash"></i></a>

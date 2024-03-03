@@ -288,7 +288,6 @@
 					$arrErrors['content'] = "Le commentaire ne peut être vide.";
 				} else {
 					
-				var_dump($_POST);
 					$objUtripModelCom->insertCom($objComment);
 				}
 			}
