@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<!-- Section Photo de Profil -->
-					<img src="uploads/{$objUser->getPp()}" class="img-fluid rounded-circle" alt="{$objUser->getPseudo()}">
+					<a data-fslightbox="gallery" href="uploads/{$objUser->getPp()}"><img src="uploads/{$objUser->getPp()}" class="img-fluid rounded-circle" alt="{$objUser->getPseudo()}"></a>
 				</div>
 				<div class="col-md-8">
 					<h1>{$objUser->getPseudo()}</h1>
