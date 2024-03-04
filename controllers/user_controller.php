@@ -464,7 +464,12 @@
 		public function user(){
 			$arrErrors = array();
 			
-			$intUserId	= $_GET['id']??0;
+			if (is_numeric($_GET['id'])){
+				$intUserId	= $_GET['id']??0;
+			}else{
+				header("Location:".parent::BASE_URL."error/show404");
+			}
+			
 
 			$objUserModel	= new UserModel();
 			$arrUser 		= $objUserModel->get($intUserId);

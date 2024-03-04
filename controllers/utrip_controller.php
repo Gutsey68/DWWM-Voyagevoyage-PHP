@@ -252,7 +252,12 @@
         public function utrip() {
 
             $arrErrors = array();
-            $intUtripId	= $_GET['id']??0;
+			if (is_numeric($_GET['id'])){
+				$intUtripId	= $_GET['id']??0;
+			}else{
+				header("Location:".parent::BASE_URL."error/show404");
+			}
+            
 	
 			/* Récupère l'article */
 			$objUtripModel	= new UtripModel();// instancie le modèle Article
