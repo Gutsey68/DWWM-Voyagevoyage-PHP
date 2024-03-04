@@ -211,6 +211,6 @@
 			$intForumId		= $_GET['id']??0;
 			$objForumModel	= new ForumModel();
 			$objForumModel->delete($intForumId);
-			header("Location:".parent::BASE_URL."forum/manage");
+			header("Location:".parent::BASE_URL."forum/home");
 		}
     }

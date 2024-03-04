@@ -452,17 +452,5 @@
 			header("Location:".parent::BASE_URL."utrip/utrip?id=$utripId");
 		}
 
-		/**
-		* Méthode permettant de supprimer une image avec son Id
-		*/
-		public function deleteImage() {
-				// Numéro de l'article à supprimer
-				$intImgId		= $_GET['id']??0;
-				$objUtripModel	= new UtripModel();
-				$objUtripModel->deleteImage($intImgId);
-				header("Location:".parent::BASE_URL."index.php");
-		}
-
-
     }
 

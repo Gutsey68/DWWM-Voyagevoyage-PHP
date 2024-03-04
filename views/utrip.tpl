@@ -67,6 +67,8 @@
             <div class="row">
                 <div class="col-2">
                     <a class="green-btn" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article">Modifier l'article</a>
+                    
+						<a class="btn btn-danger" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" onclick="return confirmDelete()" alt="Supprimer l'article">Supprimer l'article</i></a>
                 </div>
                 <div class="col-10"></div>
             </div>

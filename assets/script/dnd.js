@@ -103,9 +103,12 @@ function previewImage() {
 
 // fonction pour le message de confirmation de suppression
 
-function confirmerSuppression(id) {
-  var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet article ?");
+function confirmDelete() {
+  var confirmation = confirm("Confirmez-vous la suppression ? Cette action est irréversible.");
   if (confirmation) {
-      window.location.href = "{$base_url}utrip/delete?id=" + id;
+      console.log("L'élément sera supprimé.");
+      return true;
   }
+  console.log("Suppression annulée.");
+  return false;
 }

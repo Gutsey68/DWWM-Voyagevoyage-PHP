@@ -44,7 +44,7 @@
 						<a href="{$base_url}user/edit_profile" title="Modifier mon compte" class="green-btn">Modifier le profil / Modifier les informations personnelles</a>
 					</div>
 					<div class="col-12 button-center pb-5">
-						<button type="submit" title="Modifier mon compte" class="orange-btn" name="delete">Supprimer les informations personnelles</button>
+						<button type="submit" title="Supprimer mon compte" onclick="return confirmDelete()" class="orange-btn" name="delete">Supprimer les informations personnelles</button>
 					</div>
 				</div>
 			{/if}
