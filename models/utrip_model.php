@@ -41,7 +41,15 @@
 			$strKeywords = $arrSearch['keywords'] ?? "";
 			if ($strKeywords != '') {
 				$strQuery.=$strWhere."(utrip_name LIKE :keywords
-							OR utrip_description LIKE :keywords) ";
+							OR utrip_description LIKE :keywords
+							OR cities_name LIKE :keywords) ";
+				$strWhere	= " AND ";
+			}
+			// Recherche par budget
+			$strStartBudget	= $arrSearch['startbudget']??"";
+			$strEndBudget		= $arrSearch['endbudget']??"";
+			if ($strStartBudget != '' && $strEndBudget != '' ){
+				$strQuery 	.= $strWhere." utrip_budget BETWEEN :begin AND :end ";
 				$strWhere	= " AND ";
 			}
 
@@ -52,6 +60,7 @@
 				$strQuery.=$strWhere. " utrip_date = :date ";
 				$strWhere	= " AND ";
 			}
+
 			// Recherche par continent
 			$strCont		= $arrSearch['cont'] ?? "";
 			if ($strCont != '') {
@@ -75,6 +84,10 @@
 			$rqPrep	= $this->_db->prepare($strQuery);
 			if ($strKeywords != '') {$rqPrep->bindValue(":keywords", "%" .$strKeywords. "%", PDO::PARAM_STR);}
 			if ($strDate != '') {$rqPrep->bindValue(":date", $strDate, PDO::PARAM_STR);}
+			if ($strStartBudget != '' && $strEndBudget != '' ){
+				$rqPrep->bindValue(":begin", $strStartBudget, PDO::PARAM_STR);
+				$rqPrep->bindValue(":end", $strEndBudget, PDO::PARAM_STR);
+			}		
 			if ($strCat != '') {$rqPrep->bindValue(":cat", $strCat, PDO::PARAM_STR);}
 			if ($strCont != '') {$rqPrep->bindValue(":cont", $strCont, PDO::PARAM_STR);}
 			if ($intLimit > 0) {$rqPrep->bindValue(":limit", $intLimit, PDO::PARAM_INT);}

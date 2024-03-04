@@ -59,7 +59,7 @@
                                 <div class="comment">
                                     <p><strong>Commentaire de :</strong> <a href="{$base_url}user/user?id={$commenttopic.comt_creatorId}">{$commenttopic.comt_creator}</a></p>
                                     <p>{$commenttopic.comt_content}</p>
-                                    <p><small>Posté le {$commenttopic.comt_date|date_format:"%Y-%m-%d %H:%M:%S"}</small></p>
+                                    <p><small>Posté le {$commenttopic.comt_date|date_format:"%d-%m-%Y- %H:%M:%S %H:%M:%S"}</small></p>
                                 </div>
                                 {if (isset($_SESSION['user']['user_id'])) &&
                                     ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}

@@ -19,7 +19,7 @@
         </div>
     {/if}
     <section id='raconte-form' class="form-container">
-        <form action="index.php?action=raconte&ctrl=utrip" method="post" enctype="multipart/form-data">
+        <form action="{$base_url}utrip/raconte" method="post" enctype="multipart/form-data">
             <!-- photos système de drag and drop -->
             <div id="dragndrop" class="container mt-5 mb-5  form-bg">
                 <div class="row">

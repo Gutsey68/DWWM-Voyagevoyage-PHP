@@ -82,7 +82,7 @@ include_once("entities/contact_entity.php");
             }
 
             if(isset($_POST['envoyer'])){
-                var_dump($objContact);
+                
                 $name = $_POST['name'];
                 $mail = $_POST['mail'];
                 $subject = $_POST['title'];
