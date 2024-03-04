@@ -73,6 +73,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 ps-5 pb-5">
+					<h2 class="pb-2">Se déconnecter</h2>
+					<p>Cliquez sur l'icone <i class="fas fa-sign-out-alt"></i> tout en haut à droite de votre écran</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 ps-5 pb-5">
 					<h1 class="text-center p-5">Exploration</h1>
 					<h2 class="pb-2">Rechercher un utrip</h2>
 					<p>Rendez vous sur cette <a href="{$base_url}utrip/explore">page</a> ou cliquez sur le mot "Explorez" dans
@@ -162,7 +172,7 @@
 
 						<p>Rendez vous sur cette <a href="{$base_url}user/user?id={$user.user_id}">page</a> 
 
-						ou cliquez sur l'icone en forme de petit bonhomme à côté de "Bonjour {$user.user_firstname}".</p>
+						ou cliquez sur l'icone <i class="fas fa-user"></i> à côté de "Bonjour {$user.user_firstname}".</p>
 					</div>
 				</div>
 			</div>
@@ -192,7 +202,7 @@
 							<h2 class="pb-2">Accéder à la modération</h2>
 							<p>Rendez vous sur cette <a href="{$base_url}page/manage">page</a> 
 
-							ou cliquez sur l'icone en forme d'article à côté de "Bonjour {$user.user_firstname}".</p>
+							ou cliquez sur l'icone <i class="fa fa-newspaper"></i> à côté de "Bonjour {$user.user_firstname}".</p>
 							<p>Vous avez ensuite accès à 3 types de modération :</p>
 						</div>
 					</div>

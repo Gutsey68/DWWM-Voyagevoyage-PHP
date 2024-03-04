@@ -57,7 +57,7 @@
                 // Vérification des données de l'utilisateur
                 $arrErrors = array();
                 if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-					$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
+					$arrErrors['log'] = "Vous devez être inscrit pour publier un topic";
 				}
                 if ($objForum->getTitle() == ""){
                     $arrErrors['title'] = "Le titre est obligatoire";
@@ -68,7 +68,7 @@
                 if(count($arrErrors) == 0){
                     $objForumModel	= new ForumModel;
                     if ($objForumModel->insert($objForum)){
-                        header("Location".parent::BASE_URL."forum/home");
+                        Header("Location:".parent::BASE_URL."forum/home");
                     }else{
                         $arrErrors[] = "L'insertion s'est mal passée";
                     }

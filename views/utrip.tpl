@@ -113,7 +113,9 @@
             </div>
         </section>
     {else}
+        <div class="container">
         <p>Vous devez être inscrit pour écrire un commentaire</p>
+        </div>
     {/if}
     {* boucle des commentaires *}
     <section id="utrip-comments">
@@ -130,7 +132,7 @@
                     </div>
                     {if ( isset($user.user_id) && $user.user_id != '' )}
                     {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $comment.com_creatorId)}
-                    <form action="" method="post">
+                    <form action="" method="post" class="pb-5">
                         <input type="hidden" name="commentaireId" value="{$comment.com_id}">
                         <button type="submit" class="orange-btn">Supprimer</button>
                             </form>

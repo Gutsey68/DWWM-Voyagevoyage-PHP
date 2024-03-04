@@ -166,7 +166,7 @@
 						}
 						
 						if (count($arrErrors) == 0) {
-							 header("Location:".parent::BASE_URL."utrip/raconte");
+							 header("Location:".parent::BASE_URL."utrip/explore");
 							exit();
 						}
 					} else {
