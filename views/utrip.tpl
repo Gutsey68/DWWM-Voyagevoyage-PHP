@@ -39,8 +39,9 @@
             <div class="container pb-3">
                 <div class="row">
                     <div class="col-12">
-                        {foreach from=$arrUtripImgs item=image}
-                            <img class="resume-img" src="uploads/{$image.img_link}" alt="">
+                        {foreach from=$arrUtripImgs item=$image}
+                            <a data-fslightbox="gallery" href="uploads/{$image.img_link}"><img class="resume-img" src="uploads/{$image.img_link}" alt=""></a>
+
                         {/foreach}
 
                     </div>
@@ -48,22 +49,29 @@
                 <div class="row">
                     <div class="col-2">
                         {if (isset($smarty.session.user.user_id))}
-                            <a class="green-btn" href="{$base_url}utrip/like?id={$objUtrip->getId()}" alt="Supprimer l'article">
-                                <i class="fa-solid fa-heart"></i> J'aime</a>
-                    {/if}
+                            <a class="green-btn pe-5" href="{$base_url}utrip/like?id={$objUtrip->getId()}" alt="Supprimer l'article">
+                                <i class="fa-solid fa-heart ps-3"></i> J'aime</a>
+                        {/if}
+                    </div>
+                    <div class="col-2">
+                        <p class="pt-2">{count($arrLikes)}<i class="fa-solid fa-heart p-1"></i></p>
+                    </div>
+                    <div class="col-8"></div>
                 </div>
-                <div class="col-2">
-                    <span>{count($arrLikes)}<i class="fa-solid fa-heart"></i></span>
-                </div>
-                <div class="col-8"></div>
             </div>
         </div>
-    </div>
     {if ( isset($user.user_id) && $user.user_id != '' ) 
             && 
             ( $user.user_role == 'admin' || $objUtrip->getCreatorId() == $user.user_id || $user.user_role == 'modo') }
-    <a href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article">Modifier l'article</a>
-    {/if}
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <a class="green-btn" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article">Modifier l'article</a>
+                </div>
+                <div class="col-10"></div>
+            </div>
+        </div>
+        {/if}
     {if (isset($smarty.session.user.user_id))}
     {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin") }
     <div class="container mb-5">
@@ -96,7 +104,9 @@
                                 <label for="comment">Votre commentaire</label>
                                 <textarea name="com" id="comment" class="form-control"></textarea>
                             </div>
+                            <div class="pt-4">
                             <input type="submit" class="btn green-btn">
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -122,7 +132,7 @@
                     {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $comment.com_creatorId)}
                     <form action="" method="post">
                         <input type="hidden" name="commentaireId" value="{$comment.com_id}">
-                        <button type="submit">Supprimer</button>
+                        <button type="submit" class="orange-btn">Supprimer</button>
                             </form>
                         {/if}
                     {/if}
