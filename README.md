@@ -4,3 +4,4 @@
 - les bulles d'aide
 - bug changement d'id url : boucle if si false : 404
 - admin : select pour changer le role
+- changer la recherche d'article (la date)
