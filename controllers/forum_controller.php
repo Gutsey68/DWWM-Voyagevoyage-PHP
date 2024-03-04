@@ -114,6 +114,14 @@
                 $objForumModel->deleteCom($comId);
 			}
 
+            // supprimer un commentaire
+			if (isset($_POST['comtopicId']) && $_POST['comtopicId'] !== '') {
+
+				// Récupère et nettoie l'ID du commentaire
+				$comId = filter_var($_POST['comtopicId'] ?? 0, FILTER_SANITIZE_NUMBER_INT);
+                $objForumModel->deleteCom($comId);
+			}
+
 			$objForum 		= new Forum();	// instancie un objet Article
 			$objForum->hydrate($arrForum);
 			$objForum->setValid(0);
@@ -122,7 +130,8 @@
 			$objForumModelCom	= new ForumModel();
 			$objCommentTopic = new CommentTopic();
             if (isset($_POST['answer']) && $_POST['answer'] !== '') {
-                if (isset($_SESSION['user']) || $_SESSION['user'] != ''){
+                if (isset($_SESSION['user'])){
+
                     $objCommentTopic->setContent($_POST['answer']);
                     if ($objCommentTopic->getContent() == ""){
                         $arrErrors['answer'] = "Le commentaire ne peut être vide.";
