@@ -10,3 +10,4 @@
 - bouton supprimer pour les commentaires sur les topics
 - redirection création de topic (tester partout)
 - -bug utrip manage
+- manage utilisateur pas le bouton modifier
