@@ -28,6 +28,7 @@
             </div>
         </section>
          {* ajouter un commentaire  *}
+         {if ( isset($user.user_id) && $user.user_id != '' )}
             <section id="add-comment">
                 <div class="container pb-3 pt-3">
                     <div class="row">
@@ -44,6 +45,9 @@
                     </div>
                 </div>
             </section>
+        {else}
+            <p>Vous devez être inscrit pour écrire un commentaire</p>
+        {/if}
             <section id="forum-comments">
                 <div class="container pb-3 pt-3">
                     <div class="row">

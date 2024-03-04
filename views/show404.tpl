@@ -9,11 +9,11 @@
                 <div class="col-12 text-center">
                     <h1 class="p-5">Oups... Cette page n'a pas été trouvé</h1>
                     <div class="button-center">
-                    <a class="green-btn" href=""><i class="fa-solid fa-house"></i>Revenir à l'accueil</a>
+                    <a class="green-btn" href="{$base_url}"><i class="fa-solid fa-house"></i>Revenir à l'accueil</a>
                     </div>
                 </div>
                 </div>
-                <div class="text-center  show404img">
+                <div class="text-center show404img">
                     <img src="assets/images/404.png">
                 </div>
             </div>

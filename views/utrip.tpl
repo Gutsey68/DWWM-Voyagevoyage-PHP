@@ -89,22 +89,26 @@
     {/if}
 
     {* ajouter un commentaire  *}
-    <section id="ad-comment">
-        <div class="container pb-3 pt-3">
-            <div class="row">
-                <div class="col-12">
-                    <h3>Ajouter un commentaire</h3>
-                    <form method="post" action="">
-                        <div class="form-group">
-                            <label for="comment">Votre commentaire</label>
-                            <textarea name="com" id="comment" class="form-control"></textarea>
-                        </div>
-                        <input type="submit" class="btn green-btn">
-                    </form>
+    {if ( isset($user.user_id) && $user.user_id != '' )}
+        <section id="ad-comment">
+            <div class="container pb-3 pt-3">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Ajouter un commentaire</h3>
+                        <form method="post" action="">
+                            <div class="form-group">
+                                <label for="comment">Votre commentaire</label>
+                                <textarea name="com" id="comment" class="form-control"></textarea>
+                            </div>
+                            <input type="submit" class="btn green-btn">
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {else}
+        <p>Vous devez être inscrit pour écrire un commentaire</p>
+    {/if}
     {* boucle des commentaires *}
     <section id="utrip-comments">
         <div class="container">

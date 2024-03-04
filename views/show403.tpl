@@ -9,7 +9,7 @@
                 <div class="col-12 text-center">
                     <h1 class="p-5">Vous n'êtes pas autorisé à accéder à ce contenu !</h1>
                     <div class="button-center">
-                    <a class="green-btn" href=""><i class="fa-solid fa-house"></i>Revenir à l'accueil</a>
+                    <a class="green-btn" href="{$base_url}"><i class="fa-solid fa-house"></i>Revenir à l'accueil</a>
                     </div>
                 </div>
                 </div>

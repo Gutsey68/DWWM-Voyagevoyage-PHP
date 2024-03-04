@@ -12,11 +12,11 @@
 				<div class="col-12">
 					<h2 class="pb-2">Éditeur du Site :</h2>
 					<p>Nom du propriétaire : John Doe</p>
-					<p>Adresse : 30 rue des coquelicots</p>
-					<p>Email : email@email.fr</p>
+					<p>Adresse : <a href="https://maps.app.goo.gl/PFfS116GjHMwiYde9">4 Rue du Rhin, 68000 Colmar</a></p>
+					<p>Email : <a href="mailto:voyagevoyageprojet@gmail.com">voyagevoyageprojet@gmail.com</a></p>
 					<p>Téléphone : 03 16 49 78 52</p>
-					<p>Le site Voyagevoyage est édité par John Doe, auto-entrepreneur, dont
-						le siège social est situué à Colmar.</p>
+					<p>Le site VoyageVoyage est édité par John Doe, auto-entrepreneur, dont
+						le siège social est situé à Colmar.</p>
 				</div>
 			</div>
 		</div>
@@ -65,8 +65,8 @@
 				<p>Conformément à la loi n° 78-17 du 6 janvier 1978, modifiée relative à l'informatique, aux fichiers et
 						aux libertés, tout utilisateur dispose d’un droit d’accès, de rectification, de suppression et
 						d’opposition aux données personnelles le concernant. Pour l’exercer, adressez votre demande
-						àemail@email.fr par email ou en faisant une demande écrite et signée, accompagnée d’une copie du
-						titre
+						à <a href="mailto:voyagevoyageprojet@gmail.com">voyagevoyageprojet@gmail.com</a> par email ou en 
+						faisant une demande écrite et signée, accompagnée d’une copie du titre
 						d’identité avec signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse
 						doit être envoyée.</p>
 				</div>
@@ -101,13 +101,13 @@
 			<div class="row">
 				<div class="col-12">
 					<h2 class="pb-2"> Droit applicable :</h2>
-					<p>ant ce site que les modalités et conditions de son utilisation sont régis par le droit français, quel
+					<p>Pendant ce site que les modalités et conditions de son utilisation sont régis par le droit français, quel
 						que soit le lieu d'utilisation. En cas de contestation éventuelle, et après l'échec de toute
 						tentative de recherche d'une solution amiable, les tribunaux français seront seuls compétents pour
 						connaître de ce litige.
 
 						Pour toute question relative aux présentes mentions légales, vous pouvez nous écrire à
-						email@email.fr.
+						<a href="mailto:voyagevoyageprojet@gmail.com">voyagevoyageprojet@gmail.com</a>.
 
 					</p>
 				</div>
