@@ -65,7 +65,7 @@
                                     {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $commenttopic.comt_creatorId)}
                                         <form action="" method="post">
                                             <input type="hidden" name="comtopicId" value="{$commenttopic.comt_id}">
-                                            <button type="submit" >Supprimer</button>
+                                            <button type="submit" class="orange-btn">Supprimer</button>
                                         </form>
                                     {/if}
                                 {/if}

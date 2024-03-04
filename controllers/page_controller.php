@@ -69,7 +69,7 @@ include_once("entities/contact_entity.php");
 					$objContactModel	= new ContactModel;
 
 					if ($objContactModel->insert($objContact)){
-						header("Location".parent::BASE_URL."utrip/home");
+						header("Location:".parent::BASE_URL);
 					}else{
 						$arrErrors[] = "Le mail n'a pas pu être envoyé";
 					}
