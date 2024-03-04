@@ -6,8 +6,8 @@
             <div class="col-12 text-center">
                 <h1 class="mb-3" id="raconte-h1">Racontez l'histoire de <span class="fst-italic">votre voyage</span></h1>
             <p>Partagez vos découvertes, inspirez les autres. Chaque aventure compte et enrichit notre monde.</p>
-            
             <p>Vous devez être connecté pour publier.</p>
+            <p>Les articles doivent être validés par les modérateurs avant d'être publiés.</p>
             </div>
         </div>
     </div>

@@ -153,17 +153,16 @@
 						}
 						
 						if (count($arrErrors) == 0) {
-							// Redirection si tout est réussi
-							header("Location: " . parent::BASE_URL . "utrip/raconte");
-
+							 header("Location:".parent::BASE_URL."utrip/raconte");
 							exit();
 						}
 					} else {
 						$arrErrors[] = "L'insertion s'est mal passée";
 					}
+					
 				}
+
 			}
-		
         $this->_arrData["strCat"]           = $strCat;
         $this->_arrData["strCity"]          = $strCity;
         $this->_arrData["intCatId"]         = $intCatId;

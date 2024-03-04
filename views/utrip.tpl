@@ -122,8 +122,8 @@
                         <p>{$comment.com_content}</p>
                         <p><small>Posté le {$comment.com_date|date_format:"%Y-%m-%d %H:%M:%S"}</small></p>
                     </div>
-                    {if (isset($smarty.session.user.user_id))}
-                    {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $comment.com_creatorId)}
+                    {if ( isset($user.user_id) && $user.user_id != '' )}
+                    {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $comment.com_creatorId)}
                     <form action="" method="post">
                         <input type="hidden" name="commentaireId" value="{$comment.com_id}">
                         <button type="submit">Supprimer</button>

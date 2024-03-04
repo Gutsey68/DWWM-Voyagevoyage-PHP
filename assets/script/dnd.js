@@ -100,3 +100,12 @@ function previewImage() {
       reader.readAsDataURL(file);
   }
 }
+
+// fonction pour le message de confirmation de suppression
+
+function confirmerSuppression(id) {
+  var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet article ?");
+  if (confirmation) {
+      window.location.href = "{$base_url}utrip/delete?id=" + id;
+  }
+}

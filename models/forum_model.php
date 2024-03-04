@@ -57,8 +57,8 @@
 		* param object $objForum Objet forum
 		*/
 		public function insert(object $objForum) {
-			$strQuery	= "	INSERT INTO topic (topic_title, topic_content, topic_date, topic_code , topic_user_id )
-								VALUES (:title, :content, NOW(), FLOOR(1 + (RAND() * 10000000000000)), :id );
+			$strQuery	= "	INSERT INTO topic (topic_title, topic_content, topic_date, topic_code , topic_user_id , topic_valid )
+								VALUES (:title, :content, NOW(), FLOOR(1 + (RAND() * 10000000000000)), :id , 1 );
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
