@@ -2,7 +2,9 @@
 {block name="contenu"}
     <div class="container mb-5">
         <h1 class="mt-5 mb-3">Nouveau sujet</h1>
-        <p>Vous devez être connecté pour publier.</p>
+        {if (!isset($user.user_id))}
+        <h2>Vous devez être connecté pour publier.</h2>
+        {/if}
         {if (count($arrErrors) >0) }
             <div class="alert alert-danger form-container mt-5 mb-3">
                 {foreach from=$arrErrors item=strError}
@@ -20,7 +22,7 @@
                 <textarea name="content" class="form-control" id="topicContent" rows="3"
                     placeholder="Entrez le contenu du sujet"></textarea>
             </div>
-            <button type="submit" class="btn green-btn">Créer</button>
+            <button type="submit" class="btn green-btn" {if (!isset($user.user_id))}disabled{/if}>Créer</button>
         </form>
     </div>
 {/block}

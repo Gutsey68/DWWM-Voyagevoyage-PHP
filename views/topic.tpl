@@ -46,7 +46,9 @@
                 </div>
             </section>
         {else}
-            <p>Vous devez être inscrit pour écrire un commentaire</p>
+            <div class="container pt-5">
+            <h3>Vous devez être inscrit pour écrire un commentaire</h3>
+            </div>
         {/if}
             <section id="forum-comments">
                 <div class="container pb-3 pt-3">

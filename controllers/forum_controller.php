@@ -68,7 +68,8 @@
                 if(count($arrErrors) == 0){
                     $objForumModel	= new ForumModel;
                     if ($objForumModel->insert($objForum)){
-                        header("Location:index.php?action=create_topic&ctrl=forum");
+                        header("Location".parent::BASE_URL."forum/create_topic");
+                        $messageSuccess = "Vous avez crée votre topic, nous l'examinerons avant de le publier.";
                     }else{
                         $arrErrors[] = "L'insertion s'est mal passée";
                     }
