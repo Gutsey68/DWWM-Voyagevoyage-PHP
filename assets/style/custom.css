@@ -441,6 +441,19 @@ footer #border-bottom {
     width: 35%;
 }
 
+/* boutton delete sur edit_utrip */
+
+.btn-close {
+    font-size: 1.5rem; /* ou la taille que vous voulez pour le "X" */
+    line-height: 1;
+    color: black; /* ou la couleur de votre choix */
+    background: transparent;
+    border: 0;
+  }
+  
+  .btn-close:hover {
+    color: red; /* ou la couleur de votre choix pour le survol */
+  }
 
 /* Tablette */
 

@@ -13,9 +13,12 @@
             <fieldset class="col-12">
                 <legend class="green-title">Modification de l'article</legend>
                 {foreach from=$arrUtripImgs item=image}
-                    <img class="resume-img" src="uploads/{$image.img_link}" alt="">
-                    <a href="{$base_url}utrip/deleteImage?id={$image.img_id}" class="btn btn-danger btn-sm">Supprimer</a>
+                    <div class="position-relative">
+                        <div class="palette"><img class="img-fluid" src="uploads/{$image.img_link}" alt=""></div>
+                        <a href="{$base_url}utrip/deleteImage?id={$image.img_id}" class="btn-close position-absolute top-0 end-0">X</a>
+                    </div>
                 {/foreach}
+
             <!-- nom de l'article -->
             <div class="container mb-3  form-bg">
                 <div class="row">
