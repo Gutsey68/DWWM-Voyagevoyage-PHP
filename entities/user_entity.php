@@ -21,6 +21,7 @@
         private string $_pp;
         private string $_ban;
         private string $_bio;
+        private string $_role;
 		private string $_comment;
 
         // Méthodes
@@ -209,6 +210,22 @@
          */
         public function setBio(string $strBio) {
             $this->_bio = $strBio;
+        }
+
+        /**
+         * Getter de récupération du role
+         * @return role de l'objet
+         */
+        public function getRole(): string {
+            return $this->_role;
+        }
+
+        /**
+         * Setter de récupération du role
+         * @return irole de l'objet
+         */
+        public function setRole(string $strRole) {
+            $this->_role = $strRole;
         }
 
         /**

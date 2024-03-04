@@ -24,11 +24,10 @@
 					<h1>{$objUser->getPseudo()}</h1>
 					<p><strong>Bio:</strong> {$objUser->getBio()}</p>
 					<p><strong>Date de création de compte:</strong> {$objUser->getRegisdateFr()}</p>
+					<p><strong>Rôle:</strong> {if ({$objUser->getRole()}=="user")}Utilisateur{elseif ({$objUser->getRole()}=="modo")}Modérateur{elseif ({$objUser->getRole()}=="admin")}Administrateur{/if} </p>
 					{if ( isset($user.user_id) && $user.user_id != '' ) 
 						&& 
 						( $user.user_role == 'admin' || $objUser->getId() == $user.user_id || $user.user_role == 'modo') }
-							<p><strong>Nom:</strong> {$objUser->getName()}</p>
-							<p><strong>Prénom:</strong> {$objUser->getFirstname()}</p>
 							<p><strong>Email:</strong> {$objUser->getEmail()}</p>
 					{/if}
 				</div>
@@ -44,9 +43,9 @@
 					<div class="col-12 button-center pb-5">
 						<a href="{$base_url}user/edit_profile" title="Modifier mon compte" class="green-btn">Modifier mon profil / Modifier mes informations personnelles</a>
 					</div>
-					{* <div class="col-12 button-center pb-5">
+					<div class="col-12 button-center pb-5">
 						<button type="submit" title="Modifier mon compte" class="orange-btn" name="delete">Supprimer mes informations personnelles</button>
-					</div> *}
+					</div>
 				</div>
 			{/if}
 		{/if}
