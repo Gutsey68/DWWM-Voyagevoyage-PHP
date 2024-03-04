@@ -32,7 +32,7 @@
 		 */
 		public function get(int $id) {
 
-			$strQuery 	= "SELECT user_id, user_name, user_firstname, user_email, user_password ,user_pp , user_pseudo , user_regisdate , user_bio
+			$strQuery 	= "SELECT user_id, user_name, user_firstname, user_email, user_password ,user_pp , user_pseudo , user_regisdate , user_bio, user_role
 
 							FROM users
 							WHERE user_id = " . $id;

@@ -22,33 +22,33 @@
             <!-- Barre de recherche -->
             <div class="row mb-4">
                 <div class="col">
-                    <div class="input-group">
-                        <input type="search" class="form-control" id="keywords" name="keywords" value="{$strKeywords}"
-                            placeholder="Recherchez un article...">
-                    </div>
+                    <input type="search" class="form-control" id="keywords" name="keywords"
+                        placeholder="Recherchez un article..." value="{$strKeywords}">
                 </div>
             </div>
             <!-- Filtres -->
-            <div class="row g-3 align-items-center mb-4">
+            <div class="row g-3 mb-4">
                 <!-- Filtres par continent -->
                 <div class="col-md">
                     <label for="cont" class="form-label">Continent</label>
-                    <div class="col">
-                        <select class="form-select" id="cont" name="cont">
-                            <option value="">Choisissez un continent</option>
-                            <option>Afrique</option>
-                            <option>Amérique</option>
-                            <option>Asie</option>
-                            <option>Europe</option>
-                            <option>Océanie</option>
-                            <option>Antarctique</option>
-                        </select>
-                    </div>
+                    <select class="form-select" id="cont" name="cont">
+                        <option value="">Choisissez un continent</option>
+                        <option>Afrique</option>
+                        <option>Amérique</option>
+                        <option>Asie</option>
+                        <option>Europe</option>
+                        <option>Océanie</option>
+                        <option>Antarctique</option>
+                    </select>
                 </div>
-                <!-- Filtre par date d'ajout -->
-                <div class="col-md">
-                    <label for="date" class="form-label">Date d'ajout</label>
-                    <input type="date" class="form-control" id="date" value="{$strDate}" name="date">
+                <!-- Budget -->
+                <div class="col-md-auto">
+                    <label for="startbudget" class="form-label">Budget minimal (en €)</label>
+                    <input type="text" class="form-control" id="startbudget" name="startbudget" value="{$strStartBudget}">
+                </div>
+                <div class="col-md-auto">
+                    <label for="endbudget" class="form-label">Budget maximal (en €)</label>
+                    <input type="text" class="form-control" id="endbudget" name="endbudget" value="{$strEndBudget}">
                 </div>
                 <!-- Filtre par catégorie -->
                 <div class="col-md">
@@ -63,8 +63,8 @@
             </div>
             <!-- Bouton de recherche -->
             <div class="row">
-                <div class="">
-                    <input type="submit" value="Rechercher" class="btn green-btn"></input>
+                <div class="col">
+                    <input type="submit" value="Rechercher" class="green-btn">
                 </div>
             </div>
         </div>

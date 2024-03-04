@@ -361,7 +361,7 @@
 		}
 		
 		public function resetPwd(){
-			var_dump($_GET['code']);
+			
 			$strCode		= $_GET['code'];
 			$objUserModel	= new UserModel;
 			$arrUser		= $objUserModel->searchByCode($strCode);

@@ -203,10 +203,14 @@
             $strDate         = $_POST['date']??"";
             $strCat          = $_POST['cat']??"";
             $strCont         = $_POST['cont']??"";
+			$strStartBudget	= $_POST['startbudget']??"";
+			$strEndBudget		= $_POST['endbudget']??"";
 
             $arrSearch         = array('keywords'     => $strKeywords,
                                         'date'        => $strDate,
                                         'cat'         => $strCat,
+										'startbudget' => $strStartBudget,
+									    'endbudget'   => $strEndBudget,
                                         'cont'        => $strCont );
                                         
             /* Utilisation de la classe model */
@@ -231,11 +235,13 @@
                 $objUtrip->hydrate($arrDetailUtrip);
                 $arrUtripsToDisplay[] = $objUtrip;
             }
-
+			
             $this->_arrData["strKeywords"]     = $strKeywords;
             $this->_arrData["strDate"]         = $strDate;
             $this->_arrData["strCat"]          = $strCat;
             $this->_arrData["strCont"]          = $strCont;
+			$this->_arrData["strStartBudget"] = $strStartBudget;
+			$this->_arrData["strEndBudget"] 	= $strEndBudget;
 
             $this->_arrData["strPage"]     = "explore";
             $this->_arrData["strTitle"] = "Explore";
