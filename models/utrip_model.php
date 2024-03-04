@@ -20,11 +20,14 @@
 		*/
 		public function findAll(int $intLimit = 0, $arrSearch = array()) {
 
-			$strQuery     = "SELECT DISTINCT utrip_id , utrip_name , utrip_description , utrip_budget , cities_id , cities_id AS 'utrip_cityId' ,
-							utrip_date , user_pseudo AS 'utrip_creator', user_id AS 'utrip_creatorId' , img_link AS 'utrip_img' , cities_name
-							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , cat_id AS 'utrip_catId'
+			$strQuery     = "SELECT utrip.utrip_id, utrip_name, utrip_description, utrip_budget, cities_id, cities_id AS 'utrip_cityId',
+							utrip_date, user_pseudo AS 'utrip_creator', user_id AS 'utrip_creatorId',
+							(
+								SELECT img_link FROM image WHERE img_utrip_id = utrip.utrip_id ORDER BY 1 LIMIT 1
+							) AS 'utrip_img', 
+							cities_name AS 'utrip_city', cat_lib AS 'utrip_cat', regions_name AS 'utrip_cont', cat_id AS 'utrip_catId'
 									FROM utrip 
-									LEFT OUTER JOIN image ON img_utrip_id = utrip_id
+									RIGHT OUTER JOIN image ON img_utrip_id = utrip_id
 									LEFT OUTER JOIN users ON user_id = utrip_user_id
 									LEFT OUTER JOIN cities ON cities_id = utrip_city
 									LEFT OUTER JOIN countries ON cities_country_id = countries_id
@@ -64,7 +67,7 @@
 			}
 			$strQuery	.= $strWhere . "utrip_valid = 1";
 			// Tri par ordre décroissant
-			$strQuery 	.= " ORDER BY utrip_date DESC ";
+			$strQuery 	.= " GROUP BY utrip.utrip_id ORDER BY utrip_date DESC ";
 			if ($intLimit > 0) {
 				$strQuery 	.= "LIMIT :limit";
 			}
@@ -210,10 +213,11 @@
 		* Méthode d'administration de la gestion des articles
 		*/
 		public function findList(){
-			$strQuery 	= "SELECT DISTINCT utrip_id, utrip_name, utrip_description, utrip_budget, 
-							utrip_valid , img_link AS 'utrip_img'
-							FROM utrip
-							INNER JOIN image ON img_utrip_id = utrip_id ";
+			$strQuery 	= "SELECT utrip.utrip_id, utrip_name, utrip_description, utrip_budget, utrip_valid,
+							(
+								SELECT img_link FROM image WHERE img_utrip_id = utrip.utrip_id ORDER BY img_id LIMIT 1
+							) AS 'utrip_img'
+							FROM utrip ";
 							
 			if (!in_array($_SESSION['user']['user_role'], array('admin', 'modo'))){
 				$strQuery 	.= " WHERE utrip_user_id = ".$_SESSION['user']['user_id'];
@@ -252,9 +256,18 @@
 			try {
 				
 				$this->_db->beginTransaction();
+				// Supprimez d'abord les commentaires associés à l'article
+				$rqPrep = $this->_db->prepare("DELETE FROM comments WHERE com_utrip_id = :utripId");
+				$rqPrep->bindValue(":utripId", $id, PDO::PARAM_INT);
+				$rqPrep->execute();
 
-				// supprime d'abord les images
+				// supprime les images
 				$rqPrep = $this->_db->prepare("DELETE FROM image WHERE img_utrip_id = :utripId");
+				$rqPrep->bindValue(":utripId", $id, PDO::PARAM_INT);
+				$rqPrep->execute();
+
+				// supprime les likes
+				$rqPrep = $this->_db->prepare("DELETE FROM likes WHERE like_utrip_id = :utripId");
 				$rqPrep->bindValue(":utripId", $id, PDO::PARAM_INT);
 				$rqPrep->execute();
 
@@ -267,9 +280,8 @@
 				$this->_db->commit();
 
 				return true;
-			} catch (PDOException $erreur) {
+			} catch (PDOException $e) {
 				// En cas d'erreur, annule la transaction
-				$this->_db->rollBack();
 				return false;
 			}
 		}
@@ -291,7 +303,7 @@
 		* Méthode permettant de récupérer les images d'un article 
 		*/
 		public function getImgs(int $id) {
-			$strQuery = "SELECT DISTINCT img_link
+			$strQuery = "SELECT DISTINCT img_link, img_id
 					FROM utrip
 					INNER JOIN image ON utrip_id = img_utrip_id
 					WHERE utrip_id = ".$id;
@@ -388,5 +400,18 @@
 				
 				return $rqPrep->execute();
 		}
+		/**
+		 * Supprime une image basé sur son ID.
+		 * @param int $imageId L'ID de l'image à supprimer.
+		 */
+		public function deleteImage($imageId) {
+			$strQuery = "DELETE FROM image
+						WHERE img_id = :image";
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":image", $imageId, PDO::PARAM_INT);
+
+			return $rqPrep->execute();
+		}
 
 	}
+

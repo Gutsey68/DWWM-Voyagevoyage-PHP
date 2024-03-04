@@ -11,8 +11,11 @@
     <form class="mt-5 mb-5" action="" method="post">
         <div class="form-container mt-3 row">
             <fieldset class="col-12">
-                <img class="img-fluid" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}">
                 <legend class="green-title">Modification de l'article</legend>
+                {foreach from=$arrUtripImgs item=image}
+                    <img class="resume-img" src="uploads/{$image.img_link}" alt="">
+                    <a href="{$base_url}utrip/deleteImage?id={$image.img_id}" class="btn btn-danger btn-sm">Supprimer</a>
+                {/foreach}
             <!-- nom de l'article -->
             <div class="container mb-3  form-bg">
                 <div class="row">
