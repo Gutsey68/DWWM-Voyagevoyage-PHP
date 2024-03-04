@@ -144,18 +144,18 @@
 		}
 		
 		/**
-		 * Méthode permettant d'ajouter les images d'un article en BDD 
-		 * @param $objUtrip object Utrip et LastId à insérer
+		 * Méthode permettant d'ajouter les images d'un article en BDD.
+		 * @param string $imageName Nom de l'image à insérer.
+		 * @param int $utripId Identifiant de l'utrip auquel l'image est associée.
+		 * @return bool Renvoie true si l'insertion a réussi, false sinon.
 		 */
-		public function insertImg(object $objUtrip, $lastId) {
+		public function insertImg(string $imageName, int $utripId): bool {
+			$strQuery = "INSERT INTO image (img_link, img_utrip_id) VALUES (:image, :imgUtripId);";
 			
-			$strQuery	= "	INSERT INTO image ( img_link , img_utrip_id )
-								VALUES ( :image, :imgUtripId);
-								";
 			// On prépare la requête
-			$rqPrep	= $this->_db->prepare($strQuery);
-			$rqPrep->bindValue(":image", $objUtrip->getImg(), PDO::PARAM_STR);
-			$rqPrep->bindValue(":imgUtripId", $lastId, PDO::PARAM_INT);
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":image", $imageName, PDO::PARAM_STR);
+			$rqPrep->bindValue(":imgUtripId", $utripId, PDO::PARAM_INT);
 
 			return $rqPrep->execute();
 		}

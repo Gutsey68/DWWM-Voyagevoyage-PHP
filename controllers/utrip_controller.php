@@ -60,7 +60,6 @@
         public function raconte() {
 
         // Récupère l'information dans $_POST
-        $intUtripId	        = $_GET['id']??0;
         $strCat                 = $_POST['cat']??"";
         $strCity                = $_POST['city']??"";
         $intCityId                = $_POST['cityId']??"";
@@ -94,99 +93,76 @@
 			$objUtrip->setBudget("");
 
 		
-		if (count($_POST) > 0 && count($_FILES) > 0){
-
-			/* 3. Créer un objet article */
-			$objUtrip->hydrate($_POST);	// hydrate (setters) avec les données du formulaire
-			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-				$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
-			}
-			if ($objUtrip->getName() == ""){
-				$arrErrors['name'] = "Le titre est obligatoire";
-			}
-			if ($objUtrip->getDescription() == ""){
-				$arrErrors['description'] = "Le contenu est obligatoire";
-			}
-			if ($objUtrip->getCity() == ""){
-				$arrErrors['city'] = "La ville est obligatoire";
-			}
-			if ($objUtrip->getCat() == ""){
-				$arrErrors['cat'] = "La catégorie est obligatoire";
-			}
-             
-			// 4. Enregistrer les images 
-
-			$arrImagesDet = array();
-			foreach($_FILES['image'] as $key=>$arrImages){
-				foreach($arrImages as $num => $val){
-					$arrImagesDet[$num][$key] = $val;
-				}
-			}
+			if (count($_POST) > 0 && count($_FILES) > 0) {
+				/* 3. Créer un objet article */
+				$objUtrip->hydrate($_POST); // Hydrate avec les données du formulaire
 				
-			$strImgName	= $_FILES['image']['name'][0];
-			if ($strImgName != ""){ 
-				foreach($arrImagesDet as $arrDetImage){
-
-					// Si le type d'image est autorisé
-					if (in_array($arrDetImage['type'], $this->_arrMimesType)){ 
-						$strSource 	= $arrDetImage['tmp_name'];
-						$strImgName	= bin2hex(random_bytes(5)).".webp";
-						$strDest	= "uploads/".$strImgName;
-						/* Avec redimensionnement */
-						$percent 	= 0.5;
-						// Calcul des nouvelles dimensions
-						list($width, $height) = getimagesize($strSource);
-						$newwidth	= intval($width* $percent);
-						$newheight	= intval($height* $percent);
-						// Création des GdImage
-						$dest	= imagecreatetruecolor($newwidth, $newheight); // Image vide
-						switch ($arrDetImage['type']){
-							case "image/jpeg":
-								$source = imagecreatefromjpeg($strSource); // Image importée
-								break;
-							case "image/png" :
-								$source = imagecreatefrompng($strSource); // Image importée
-								break;
-							case "image/webp" :
-								$source = imagecreatefromwebp($strSource); // Image importée
-								break;
-							default :
-								$source = imagecreatefromwebp($strSource); // Image importée
-								break;
-						}
-						// Redimensionnement
-						imagecopyresized($dest, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-						// Enregistrement du fichier
-						if (imagewebp($dest, $strDest, IMG_WEBP_LOSSLESS)){
-							$objUtrip->setImg($strImgName);
-						}else{
-							$arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
-						}
-						
-					}else{
-						$arrErrors['img'] = "Le type d'image n'est pas autorisé";
-					}
+				// Vérifications de base et validations
+				if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == '') {
+					$arrErrors['log'] = "Vous devez être inscrit pour publier un article";
 				}
-			}elseif ($objUtrip->getImg() =='') {
-				$arrErrors['img'] = "L'image est obligatoire";
-			}
-			/* 5. Enregistrer l'objet en BDD */
-			if (count($arrErrors) == 0){
-				if ($objUtrip->getId() === 0){
-					$intLastUtripId	= $objUtripModel->insert($objUtrip);
-					if ($intLastUtripId !== false){
-						
-						foreach($arrImagesDet as $arrDetImage){
-							$objUtripModel->insertImg($objUtrip, $intLastUtripId);
+				if ($objUtrip->getName() == "") {
+					$arrErrors['name'] = "Le titre est obligatoire";
+				}
+				if ($objUtrip->getDescription() == "") {
+					$arrErrors['description'] = "Le contenu est obligatoire";
+				}
+				if ($objUtrip->getCity() == "") {
+					$arrErrors['city'] = "La ville est obligatoire";
+				}
+				if ($objUtrip->getCat() == "") {
+					$arrErrors['cat'] = "La catégorie est obligatoire";
+				}
+				
+				if (count($arrErrors) == 0) {
+					// Insérer l'article en BDD et récupérer son ID
+					$intLastUtripId = $objUtripModel->insert($objUtrip);
+					
+					if ($intLastUtripId !== false) {
+						// Traitement des images
+						$arrImagesDet = array();
+						foreach ($_FILES['image']['name'] as $key => $name) {
+							if ($name != "") {
+								$arrImagesDet[] = [
+									'name' => $_FILES['image']['name'][$key],
+									'type' => $_FILES['image']['type'][$key],
+									'tmp_name' => $_FILES['image']['tmp_name'][$key],
+									'error' => $_FILES['image']['error'][$key],
+									'size' => $_FILES['image']['size'][$key]
+								];
+							}
 						}
-						header("Location:".parent::BASE_URL."utrip/raconte");
-					}else{
+						
+						foreach ($arrImagesDet as $arrDetImage) {
+							if (in_array($arrDetImage['type'], $this->_arrMimesType)) {
+								$strSource = $arrDetImage['tmp_name'];
+								$strImgName = bin2hex(random_bytes(5)) . ".webp";
+								$strDest = "uploads/" . $strImgName;
+								
+								// Ici, vous pouvez ajouter le code de redimensionnement si nécessaire
+								
+								if (move_uploaded_file($strSource, $strDest)) {
+									// Insertion de l'image en BDD avec son nom et l'ID de l'utrip
+									$objUtripModel->insertImg($strImgName, $intLastUtripId);
+								} else {
+									$arrErrors['img'] = "Erreur lors de l'enregistrement de l'image";
+								}
+							} else {
+								$arrErrors['img'] = "Le type d'image n'est pas autorisé";
+							}
+						}
+						
+						if (count($arrErrors) == 0) {
+							// Redirection si tout est réussi
+							header("Location: " . parent::BASE_URL . "utrip/raconte");
+
+							exit();
+						}
+					} else {
 						$arrErrors[] = "L'insertion s'est mal passée";
 					}
 				}
 			}
-		}
-			
 		
         $this->_arrData["strCat"]           = $strCat;
         $this->_arrData["strCity"]          = $strCity;
@@ -265,7 +241,6 @@
 
             $arrErrors = array();
             $intUtripId	= $_GET['id']??0;
-			$strComment     = $_POST['comment']??"";
 	
 			/* Récupère l'article */
 			$objUtripModel	= new UtripModel();// instancie le modèle Article
