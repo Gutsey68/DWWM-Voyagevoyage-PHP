@@ -128,7 +128,7 @@
                         <p><strong>Commentaire de :</strong> <a
                                 href="{$base_url}user/user?id={$comment.com_creatorId}">{$comment.com_creator}</a></p>
                         <p>{$comment.com_content}</p>
-                        <p><small>Posté le {$comment.com_date|date_format:"%Y-%m-%d %H:%M:%S"}</small></p>
+                        <p><small>Posté le {$comment.com_date|date_format:"%d-%m-%Y- %H:%M:%S"}</small></p>
                     </div>
                     {if ( isset($user.user_id) && $user.user_id != '' )}
                     {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $comment.com_creatorId)}

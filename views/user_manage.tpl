@@ -42,10 +42,7 @@
 						{/if}
 					</td>
 					<td class="text-center">
-						<a class="btn btn-primary" href="{$base_url}user/user?id={$objUser->getId()}" alt="Modifier l'utilisateur"><i class="fa fa-edit"></i></a>
-						{if (isset($smarty.session.user.user_id) && $smarty.session.user.user_role == "modo")}
 						<a class="btn btn-secondary" href="{$base_url}user/user?id={$objUser->getId()}" alt="Modérer l'utilisateur"><i class="fa fa-check-double"></i></a>
-						{/if}
 					</td>
 				</tr>
 				{/foreach}
