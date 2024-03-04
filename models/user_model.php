@@ -241,4 +241,18 @@
 			return $rqPrep->execute();			
 		}
 
+		/**
+		* Méthode permettant de modifier le rôle d'un utilisateur
+		*/
+		public function updateRole($id, $role){
+			$strQuery = "UPDATE users
+						SET user_role = :role
+						WHERE user_id = :id";
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":role", $role, PDO::PARAM_STR);
+			$rqPrep->bindValue(":id", $id, PDO::PARAM_INT);
+
+			return $rqPrep->execute();
+		}
+
 	}

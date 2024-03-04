@@ -447,7 +447,14 @@
 				$objUser = new User();
 				$objUser->hydrate($arrDetailUser);
 				$arrUsersToDisplay[] = $objUser;
-			}			
+			}		
+
+			if ((isset($_POST['userId']) && $_POST['userId'] !== '') || (isset($_POST['userRole']) && $_POST['userRole'] !== '')) {
+				$userId = $_POST['userId']??0; 
+    			$newRole = $_POST['userRole']??0; 
+				$objUserModel->updateRole($userId, $newRole);
+				header("Location:".parent::BASE_URL."user/manage");
+			}
 			
 			$this->_arrData["arrUsersToDisplay"] = $arrUsersToDisplay;
 
