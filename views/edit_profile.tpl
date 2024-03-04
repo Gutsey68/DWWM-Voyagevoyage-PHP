@@ -55,6 +55,9 @@
             <div class="text-center mt-4">
                 <input type="submit" value="Enregistrer les modifications" class="btn green-btn">
             </div>
+            <div class="pt-5">
+                <p>Pour supprimer vos données personnelles veuillez remplir un formulaire de contact et nous les effacerons dans les plus brefs délais.</p>
+            </div>
         </div>
     </form>
 {/block}

@@ -38,13 +38,10 @@
 			{if ($user.user_id == $objUser->getId()) || ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin") }
 				<div class="container">
 					<div class="col-12 button-center pb-5">
-						<a href="{$base_url}user/edit_pp" title="Modifier ma photo" class="green-btn"> Modifier la photo de profil </a>
+						<a href="{$base_url}user/edit_pp" title="Modifier ma photo" class="green-btn"> Modifier ma photo de profil </a>
 					</div>
 					<div class="col-12 button-center pb-5">
-						<a href="{$base_url}user/edit_profile" title="Modifier mon compte" class="green-btn">Modifier le profil / Modifier les informations personnelles</a>
-					</div>
-					<div class="col-12 button-center pb-5">
-						<button type="submit" title="Modifier mon compte" class="orange-btn" name="delete">Supprimer les informations personnelles</button>
+						<a href="{$base_url}user/edit_profile" title="Modifier mon compte" class="green-btn">Modifier mon profil / mes informations personnelles</a>
 					</div>
 				</div>
 			{/if}
