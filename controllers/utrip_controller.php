@@ -113,9 +113,22 @@
 				if ($objUtrip->getCat() == "") {
 					$arrErrors['cat'] = "La catégorie est obligatoire";
 				}
+				if (isset($_POST['city']) && !empty($_POST['city'])) {
+					$cityName = $_POST['city'];
+					// Utilisez le modèle pour obtenir l'ID de la ville à partir du nom
+					$cityId = $objUtripModel->getCityIdByName($cityName);
+					if ($cityId) {
+						// Ici, vous pouvez soit définir l'ID de la ville dans votre objet,
+						// soit le conserver pour une utilisation ultérieure, comme lors de l'insertion dans la base de données
+						$_POST['cityId'] = $cityId; // ou $objUtrip->setCityId($cityId);
+					} else {
+						$arrErrors['city'] = "La ville spécifiée n'a pas été trouvée dans la base de données.";
+					}
+				}
 				
 				if (count($arrErrors) == 0) {
 					// Insérer l'article en BDD et récupérer son ID
+					$objUtrip->setCityId($_POST['cityId']);
 					$intLastUtripId = $objUtripModel->insert($objUtrip);
 					
 					if ($intLastUtripId !== false) {

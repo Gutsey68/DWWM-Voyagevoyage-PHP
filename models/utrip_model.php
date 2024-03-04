@@ -128,14 +128,14 @@
 		public function insert(object $objUtrip) {
 
 			$strQuery	= "	INSERT INTO utrip (utrip_name, utrip_description,  utrip_budget, utrip_date , utrip_user_id, utrip_city , utrip_cat )
-								VALUES (:titre, :description, :budget , NOW(), :id, 1 , :cat);
+								VALUES (:titre, :description, :budget , NOW(), :id, :city , :cat);
 								";
 			// On prépare la requête
 			$rqPrep	= $this->_db->prepare($strQuery);
 			$rqPrep->bindValue(":titre", $objUtrip->getName(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":budget", $objUtrip->getBudget(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":description", $objUtrip->getDescription(), PDO::PARAM_STR);
-			// $rqPrep->bindValue(":city", $objUtrip->getCitId(), PDO::PARAM_INT);
+			$rqPrep->bindValue(":city", $objUtrip->getCityId(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":cat", $objUtrip->getCat(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":id", $_SESSION['user']['user_id'], PDO::PARAM_INT);
 
@@ -298,7 +298,20 @@
 			$rqPrep->bindValue(":city", $strCity, PDO::PARAM_STR);
 			return $rqPrep->execute();
 		}
-
+		/** 
+		 * Méthode de récupération du nom de la ville
+		 * @return Tableau de ville
+		 */
+		public function getCityIdByName($cityName) {
+			
+			$strQuery = "SELECT cities_id FROM cities WHERE cities_name LIKE :cityName LIMIT 1";
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":cityName", '%' . $cityName . '%', PDO::PARAM_STR);
+			$rqPrep->execute();
+			$result = $rqPrep->fetch(PDO::FETCH_ASSOC);
+			return $result ? (int)$result['cities_id'] : null;
+		}
+		
 		/**
 		* Méthode permettant de récupérer les images d'un article 
 		*/
