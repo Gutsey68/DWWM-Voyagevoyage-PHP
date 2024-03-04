@@ -99,7 +99,7 @@
 		*/
 		public function logout() {
 			session_destroy();
-			header("Location:http://localhost/projet_2/index.php");
+			header("Location".parent::BASE_URL."index.php");
 		}
 	
 		/**
@@ -109,7 +109,7 @@
 
 			// Est-ce que l'utilisateur est connecté ?
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-				header("Location:http://localhost/projet_2/index.php");
+				header("Location".parent::BASE_URL."index.php");
 			}
 			
 			$arrErrors	= array();
@@ -150,8 +150,9 @@
 				$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
 				$_SESSION['user']['user_name'] 		= $objUser->getName();
 				
+				$userId = $_SESSION['user']['user_id'];
 					
-				header("Location:http://localhost/projet_2/index.php");
+				header("Location:".parent::BASE_URL."user/user?id=$userId");
 					
 				}else{
 					$arrErrors[] = "L'insertion s'est mal passée";
@@ -177,7 +178,7 @@
 
 			// Est-ce que l'utilisateur est connecté ?
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-				header("Location:http://localhost/projet_2/index.php");
+				header("Location".parent::BASE_URL."index.php");
 			}
 			
 			$arrErrors	= array();
@@ -242,9 +243,10 @@
 				// Attention si informations de session modifiées => modifier la session
 				$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
 				$_SESSION['user']['user_name'] 		= $objUser->getName();
-				
+
+				$userId = $_SESSION['user']['user_id'];
 					
-				header("Location:http://localhost/projet_2/index.php");
+				header("Location:".parent::BASE_URL."user/user?id=$userId");
 					
 				}else{
 					$arrErrors[] = "L'insertion s'est mal passée";

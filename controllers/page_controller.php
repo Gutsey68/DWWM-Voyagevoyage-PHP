@@ -69,7 +69,7 @@ include_once("entities/contact_entity.php");
 					$objContactModel	= new ContactModel;
 
 					if ($objContactModel->insert($objContact)){
-						header("Location:index.php?ctrl=utrip&action=home");
+						header("Location".parent::BASE_URL."utrip/home");
 					}else{
 						$arrErrors[] = "Le mail n'a pas pu être envoyé";
 					}
@@ -82,7 +82,6 @@ include_once("entities/contact_entity.php");
             }
 
             if(isset($_POST['envoyer'])){
-                var_dump($objContact);
                 $name = $_POST['name'];
                 $mail = $_POST['mail'];
                 $subject = $_POST['title'];
@@ -120,6 +119,7 @@ include_once("entities/contact_entity.php");
                 echo'Erreur de Mailer : ' . $mail->ErrorInfo;
                 } else{
                 //echo'Le message a été envoyé.';
+                header("Location:".parent::BASE_URL);
                 }
             }
 

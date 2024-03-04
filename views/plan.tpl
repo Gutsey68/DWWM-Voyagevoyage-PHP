@@ -46,6 +46,20 @@
                             </div>
                         </div>
                     </section>
+                    {if isset($user.user_id) && $user.user_id != ''}
+                        <section>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 pb-5 plan">
+                                        <h2 class="pb-2">Compte utilisateur</h2>
+                                        <p><a href="{$base_url}user/user?id={$user.user_id}">Voir mon profil</a></p>
+                                        <p><a href="{$base_url}user/edit_profile">Modifier mon profil</a></p>
+                                        <p><a href="{$base_url}user/edit_pp">Modifier ma photo de profil</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    {/if}
                     <section>
                         <div class="container">
                             <div class="row">
