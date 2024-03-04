@@ -7,3 +7,6 @@
 - changer la recherche d'article (la date)
 - enlever tous les vardump
 -  mettre les villes dans la recherche d'articles
+- bouton supprimer pour les commentaires sur les topics
+- redirection création de topic (tester partout)
+- -bug utrip manage
