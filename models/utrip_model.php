@@ -439,18 +439,5 @@
 			return $rqPrep->execute();
 		}
 
-		/**
-		* Méthode permettant de modifier le rôle d'un utilisateur
-		* @param $id l'id de l'utilisateur à modifier
-		*/
-		public function updateRole($id){
-			$strQuery = "DELETE FROM comments
-						WHERE com_id = :id";
-			$rqPrep = $this->_db->prepare($strQuery);
-			$rqPrep->bindValue(":id", $cId, PDO::PARAM_INT);
-
-			return $rqPrep->execute();
-		}
-
 	}
 
