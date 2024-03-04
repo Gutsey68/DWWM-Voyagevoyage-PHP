@@ -92,7 +92,12 @@
 		*/
         public function topic() {
             $arrErrors = array();
-            $intForumId	= $_GET['id']??0;
+            if (is_numeric($_GET['id'])){
+				$intForumId	= $_GET['id']??0;
+			}else{
+				header("Location:".parent::BASE_URL."error/show404");
+			}
+            
             
             /* Récupère le topic */
 			$objForumModel	= new ForumModel();// instancie le modèle Article
