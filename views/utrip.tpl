@@ -25,9 +25,6 @@
                         <p><i class="fa-solid fa-city"></i> Ville : {$objUtrip->getCity()}, {$objUtrip->getCountry()}
                             ({$objUtrip->getCont()})</p>
                     </div>
-                    <div class="col-6">
-                        <img class="resume-img" src="uploads/{$objUtrip->getImg()}" alt="{$objUtrip->getName()}">
-                    </div>
                 </div>
             </div>
         </section>
@@ -44,6 +41,7 @@
                     <div class="col-12">
                         {foreach from=$arrUtripImgs item=$image}
                             <a data-fslightbox="gallery" href="uploads/{$image.img_link}"><img class="resume-img" src="uploads/{$image.img_link}" alt=""></a>
+
                         {/foreach}
 
                     </div>

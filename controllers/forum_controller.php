@@ -68,8 +68,7 @@
                 if(count($arrErrors) == 0){
                     $objForumModel	= new ForumModel;
                     if ($objForumModel->insert($objForum)){
-                        header("Location".parent::BASE_URL."forum/create_topic");
-                        $messageSuccess = "Vous avez crée votre topic, nous l'examinerons avant de le publier.";
+                        header("Location".parent::BASE_URL."forum/home");
                     }else{
                         $arrErrors[] = "L'insertion s'est mal passée";
                     }
@@ -203,12 +202,6 @@
 		* Méthode permettant de supprimer un topic
 		*/
 		public function delete(){
-			// Numéro de l'article à supprimer
-
-
-
-            // cganger $get par l'id du topic
-
 
 			$intForumId		= $_GET['id']??0;
 			$objForumModel	= new ForumModel();
