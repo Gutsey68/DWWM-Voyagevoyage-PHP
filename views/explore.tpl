@@ -69,10 +69,13 @@
                         {/foreach}
                     </select>
                 </div>
-            </div>
             <!-- tri par date / likes -->
-            <div><input type="radio" name="sorting" checked value="0"  /> Par date
-                <input type="radio" name="sorting" value="1"  /> Par like
+            <div class="col-md">
+                <select id="sorting" class="form-select" name="sorting">
+                    <option type="radio" checked value="0"  /> Par date
+                    <option type="radio" value="1"  /> Par like
+                </select>
+            </div>
             </div>
             <!-- Bouton de recherche -->
             <div class="row">

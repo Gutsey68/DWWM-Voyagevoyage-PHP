@@ -84,7 +84,7 @@
 				$strQuery 	.= " GROUP BY utrip.utrip_id ORDER BY utrip_date DESC " ;
 			}
 			if ($intSorting == 1) {
-				$strQuery 	.= " GROUP BY utrip.utrip_id ORDER BY COUNT(like_utrip_id) DESC" ;
+				$strQuery 	.= " GROUP BY utrip.utrip_id ORDER BY utrip_like DESC" ;
 			}
 			if ($intLimit > 0) {
 				$strQuery 	.= " LIMIT :limit";
