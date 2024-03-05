@@ -278,8 +278,7 @@
 
 			$rqPrep	= $this->_db->prepare($strQuery);
 
-			$rqPrep->bindValue(":ban", $objUser->getBan(), PDO::P
-			ARAM_INT);
+			$rqPrep->bindValue(":ban", $objUser->getBan(), PDO::PARAM_INT);
 			$rqPrep->bindValue(":comment", $objUser->getComment(), PDO::PARAM_STR);
 			$rqPrep->bindValue(":modo", $_SESSION['user']['user_id'], PDO::PARAM_INT);
 			$rqPrep->bindValue(":id", $objUser->getId(), PDO::PARAM_INT);
