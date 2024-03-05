@@ -205,11 +205,17 @@
             $strCont         = $_POST['cont']??"";
 			$strStartBudget	= $_POST['startbudget']??"";
 			$strEndBudget		= $_POST['endbudget']??"";
+			$intSorting		= $_POST['sorting']??0;
+			$strStartDate	= $_POST['startdate']??"";
+			$strEndDate		= $_POST['enddate']??"";
 
             $arrSearch         = array('keywords'     => $strKeywords,
                                         'date'        => $strDate,
                                         'cat'         => $strCat,
+										'sorting'     => $intSorting,
 										'startbudget' => $strStartBudget,
+										'startdate'   => $strStartDate,
+										'enddate' 	  => $strEndDate,
 									    'endbudget'   => $strEndBudget,
                                         'cont'        => $strCont );
                                         
@@ -242,6 +248,9 @@
             $this->_arrData["strCont"]          = $strCont;
 			$this->_arrData["strStartBudget"] = $strStartBudget;
 			$this->_arrData["strEndBudget"] 	= $strEndBudget;
+			$this->_arrData["strStartDate"] = $strStartDate;
+			$this->_arrData["strEndDate"] 	= $strEndDate;
+			$this->_arrData["intSorting"] 	= $intSorting;
 
             $this->_arrData["strPage"]     = "explore";
             $this->_arrData["strTitle"] = "Explore";

@@ -50,6 +50,15 @@
                     <label for="endbudget" class="form-label">Budget maximal (en €)</label>
                     <input type="text" class="form-control" id="endbudget" name="endbudget" value="{$strEndBudget}">
                 </div>
+                <!-- date -->
+                <div class="col-md-auto">
+                    <label for="startdate" class="form-label">Date de début</label>
+                    <input type="date" class="form-control" id="startdate" name="startdate" value="{$strStartDate}">
+                </div>
+                <div class="col-md-auto">
+                    <label for="enddate" class="form-label">Date de fin</label>
+                    <input type="date" class="form-control" id="enddate" name="enddate" value="{$strEndDate}">
+                </div>
                 <!-- Filtre par catégorie -->
                 <div class="col-md">
                     <label for="cat" class="form-label">Catégorie</label>
@@ -60,6 +69,10 @@
                         {/foreach}
                     </select>
                 </div>
+            </div>
+            <!-- tri par date / likes -->
+            <div><input type="radio" name="sorting" checked value="0"  /> Par date
+                <input type="radio" name="sorting" value="1"  /> Par like
             </div>
             <!-- Bouton de recherche -->
             <div class="row">

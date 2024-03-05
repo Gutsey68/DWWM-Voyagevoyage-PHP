@@ -53,11 +53,11 @@
 				$strWhere	= " AND ";
 			}
 
-
-			// Recherche par date exacte
-			$strDate		= $arrSearch['date'] ?? "";
-			if ($strDate != '') {
-				$strQuery.=$strWhere. " utrip_date = :date ";
+			// Recherche par période
+			$strStartDate	= $arrSearch['startdate']??"";
+			$strEndDate		= $arrSearch['enddate']??"";
+			if ($strStartDate != '' && $strEndDate != '' ){
+				$strQuery 	.= $strWhere." utrip_date BETWEEN :startdate AND :enddate ";
 				$strWhere	= " AND ";
 			}
 
@@ -74,19 +74,31 @@
 				$strQuery 	.= $strWhere."cat_lib = :cat ";
 				$strWhere	= " AND ";
 			}
+
+			// afficher seulement les articles validés 
 			$strQuery	.= $strWhere . "utrip_valid = 1";
-			// Tri par ordre décroissant
-			$strQuery 	.= " GROUP BY utrip.utrip_id ORDER BY utrip_date DESC ";
+
+			// Tri par ordre décroissant ou par nombre de "j'aime"
+			$intSorting      = $arrSearch['sorting']??0;
+			if ($intSorting == 0) {
+				$strQuery 	.= " GROUP BY utrip.utrip_id ORDER BY utrip_date DESC " ;
+			}
+			if ($intSorting == 1) {
+				$strQuery 	.= " GROUP BY utrip.utrip_id ORDER BY COUNT(like_utrip_id) DESC" ;
+			}
 			if ($intLimit > 0) {
-				$strQuery 	.= "LIMIT :limit";
+				$strQuery 	.= " LIMIT :limit";
 			}
 
 			$rqPrep	= $this->_db->prepare($strQuery);
 			if ($strKeywords != '') {$rqPrep->bindValue(":keywords", "%" .$strKeywords. "%", PDO::PARAM_STR);}
-			if ($strDate != '') {$rqPrep->bindValue(":date", $strDate, PDO::PARAM_STR);}
 			if ($strStartBudget != '' && $strEndBudget != '' ){
 				$rqPrep->bindValue(":begin", $strStartBudget, PDO::PARAM_STR);
 				$rqPrep->bindValue(":end", $strEndBudget, PDO::PARAM_STR);
+			}		
+			if ($strStartDate != '' && $strEndDate != '' ){
+				$rqPrep->bindValue(":startdate", $strStartDate, PDO::PARAM_STR);
+				$rqPrep->bindValue(":enddate", $strEndDate, PDO::PARAM_STR);
 			}		
 			if ($strCat != '') {$rqPrep->bindValue(":cat", $strCat, PDO::PARAM_STR);}
 			if ($strCont != '') {$rqPrep->bindValue(":cont", $strCont, PDO::PARAM_STR);}
