@@ -78,9 +78,9 @@
 					</p>
 					<p>
 						<label>Commentaire</label>
-						<textarea name="comment">{$objUser->getComment()}</textarea>
+						<textarea name="comment" class="form-control">{$objUser->getComment()}</textarea>
 					</p>
-					<input type="submit">
+					<input type="submit" class="green-btn">
 				</form>
 			</div>
 		</div>
