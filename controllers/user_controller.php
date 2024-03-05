@@ -11,10 +11,16 @@
      * Controller des utilisateurs
      * @author Groupe1
      */
+    include_once("models/utrip_model.php");
     include_once("models/user_model.php");
+    include_once("models/forum_model.php");
     include_once("entities/user_entity.php");
+    include_once("entities/utrip_entity.php");
+    include_once("entities/forum_entity.php");
 
     class UserCtrl extends Ctrl {
+
+		const MAX_CONTENT = 220;
 
 		/**
 		* Méthode permettant de créer un compte 
@@ -480,6 +486,30 @@
 			}else{
 				header("Location:".parent::BASE_URL."error/show404");
 			}
+
+			/* Utilisation de la classe model */
+			$objUtripModel	= new UtripModel;
+			$arrUtrips		= $objUtripModel->findUtripByUser($intUserId, 2);
+
+			// Parcourir les articles pour créer des objets
+			$arrUtripsToDisplay	= array();
+			foreach($arrUtrips as $arrDetailUtrip){	
+				$objUtrip = new Utrip();
+				$objUtrip->hydrate($arrDetailUtrip);
+				$arrUtripsToDisplay[] = $objUtrip;
+			}
+
+			 /* Utilisation de la classe model */
+			 $objForumModel    = new ForumModel;
+			 $arrForums        = $objForumModel->findForumByUser($intUserId, 2);
+ 
+			 // Parcourir les articles pour créer des objets
+			 $arrForumsToDisplay    = array();
+			 foreach ($arrForums as $arrDetailForum) {
+				 $objForum = new Forum();
+				 $objForum->hydrate($arrDetailForum);
+				 $arrForumsToDisplay[] = $objForum;
+			 }
 			
 
 			$objUserModel	= new UserModel();
@@ -509,6 +539,8 @@
 			$this->_arrData["strPage"] 	= "user";
 			$this->_arrData["strTitle"] = "Détail d'un utilisateur";
 			$this->_arrData["strDesc"] 	= "Page affichant le détail d'un utilisateur";
+			$this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
+			$this->_arrData["arrForumsToDisplay"] = $arrForumsToDisplay;
 
 			$this->afficheTpl("user");
 		}

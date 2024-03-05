@@ -29,7 +29,7 @@
         </section>
         {if (isset($smarty.session.user.user_id))}
             {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}
-                <div class="container">
+
                 <a class="btn btn-danger" onclick="return confirmDelete()"
                     href="{$base_url}forum/delete?id={$objForum->getId()}" alt="Supprimer le topic"><i class="fa fa-trash">
                         Supprimer le topic</i></a>
@@ -75,6 +75,7 @@
                                         <form action="" method="post">
                                             <input type="hidden" name="comtopicId" value="{$commenttopic.comt_id}">
                                             <button type="submit" class="orange-btn" onclick="return confirmDelete()" >Supprimer</button>
+
                                         </form>
                                     {/if}
                                 {/if}

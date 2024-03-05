@@ -28,10 +28,28 @@
 					{if ( isset($user.user_id) && $user.user_id != '' ) 
 						&& 
 						( $user.user_role == 'admin' || $objUser->getId() == $user.user_id || $user.user_role == 'modo') }
-							<p><strong>Email:</strong> {$objUser->getEmail()}</p>
+							<p><strong>Email:</strong> <a href="mailto:{$objUser->getEmail()}">{$objUser->getEmail()}</a></p>
 					{/if}
 				</div>
 			</div>
+		</div>
+		<!-- 2 derniers articles ajoutés par le user -->
+		<article>
+			<div class="container">
+				<div class="row ">
+					{foreach from=$arrUtripsToDisplay item=objUtrip}
+						{include file="views/utrip_summary.tpl"}
+					{/foreach}
+				</div>
+			</div>
+		</article>
+		<!-- 2 derniers topics ajoutés par le user -->
+		<div class="col-md-6 col-12">
+			<section class="pb-5">
+				{foreach from=$arrForumsToDisplay item=objForum}
+					{include file="views/topic_summary.tpl"}
+				{/foreach}
+			</section>
 		</div>
 
 		{if (isset($smarty.session.user.user_id))}

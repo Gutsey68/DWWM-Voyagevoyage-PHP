@@ -11,7 +11,9 @@
                 <p class="card-text">
                     {if ($strPage == "index")}
                         {$objForum->getContentSummary(UtripCtrl::MAX_CONTENT)}
-                    {else}
+                    {else if ($strPage == "user")}
+                        {$objForum->getContentSummary(UserCtrl::MAX_CONTENT)}
+                    {else }
                         {$objForum->getContentSummary(ForumCtrl::MAX_CONTENT)}
                     {/if}
                 </p>

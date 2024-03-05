@@ -173,5 +173,26 @@
 			return $rqPrep->execute();
 	}
 
+		/**
+		* Méthode de récupération de tous les topics d'un user
+		* @return Tableau des articles
+		*/
+		public function findForumByUser($id, int $intLimit = 0) {
+
+			$strQuery 	= "SELECT topic_id, topic_title, topic_content, topic_date, topic_code, 
+							user_pseudo AS 'topic_creator' , topic_valid , user_id AS 'topic_creatorId'
+							FROM topic
+							INNER JOIN users ON topic_user_id = user_id
+							WHERE user_id = :id
+							ORDER BY topic_date DESC LIMIT :limit  ";
+
+			$rqPrep = $this->_db->prepare($strQuery);
+			$rqPrep->bindValue(":limit", $intLimit, PDO::PARAM_INT);
+			$rqPrep->bindValue(":id", $id, PDO::PARAM_INT);
+
+			$rqPrep->execute();
+			return $rqPrep->fetchAll();;
+		}
+
 
 	}
