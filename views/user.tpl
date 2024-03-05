@@ -28,7 +28,7 @@
 					{if ( isset($user.user_id) && $user.user_id != '' ) 
 						&& 
 						( $user.user_role == 'admin' || $objUser->getId() == $user.user_id || $user.user_role == 'modo') }
-							<p><strong>Email:</strong> {$objUser->getEmail()}</p>
+							<p><strong>Email:</strong> <a href="mailto:{$objUser->getEmail()}">{$objUser->getEmail()}</a></p>
 					{/if}
 				</div>
 			</div>
