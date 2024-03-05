@@ -17,7 +17,7 @@
                 {/foreach}
 
             <!-- nom de l'article -->
-            <div class="container mb-3  form-bg">
+            <div class="container mb-3  form-bg pt-3">
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre :</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="name"
@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleCategory">Catégorie <span class="text-danger">*</span> :</label></div>
                     <div class="col-md-6 col-12"><select class="form-select" id="articleCategory" name="cat">
-                            <option value="">--</option>
+
                             {foreach from=$arrCatsToDisplay item=objUtrip}
                                 <option value="{$objUtrip->getCatId()}">{$objUtrip->getCat()}</option>
                             {/foreach}

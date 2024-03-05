@@ -71,6 +71,7 @@
                 </div>
             <!-- tri par date / likes -->
             <div class="col-md">
+                <label for="sorting" class="form-label">Tri</label>
                 <select id="sorting" class="form-select" name="sorting">
                     <option type="radio" checked value="0"  /> Par date
                     <option type="radio" value="1"  /> Par like
