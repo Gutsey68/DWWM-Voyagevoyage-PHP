@@ -361,8 +361,12 @@
 		}
 		
 		public function resetPwd(){
-			
-			$strCode		= $_GET['code'];
+			if(is_null($_GET['code'])){
+				Header("Location:".parent::BASE_URL."error/show404");
+			}else{
+				$strCode		= $_GET['code'];
+			}
+
 			$objUserModel	= new UserModel;
 			$arrUser		= $objUserModel->searchByCode($strCode);
 
