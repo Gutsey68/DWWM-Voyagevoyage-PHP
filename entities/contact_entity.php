@@ -1,13 +1,15 @@
 <?php
+
 	include_once("parent_entity.php");
 	
 	/**
-	 * Classe entité de l'objet contact
+	 * Classe entité représentant un contact.
+	 * Cette classe hérite de Entity et permet de gérer les données liées à un contact.
+	 *
 	 * @author Gauthier
 	 * @version 2024
 	 */
 	class Contact extends Entity {
-		// Propriétés
 
 		protected string $_strPrefixe = "contact_";
 
@@ -18,11 +20,9 @@
 		private string $_content;
 		private string $_date;
 
-		// Méthodes
-
 		/**
-		 * Getter de récupération de la valeur de l'id
-		 * @return identifiant de l'objet
+		 * Retourne l'identifiant unique du contact.
+		 * @return int L'identifiant du contact.
 		 */
 		public function getId(): int
 		{
@@ -30,8 +30,8 @@
 		}
 
 		/**
-		 * Setter de récupération de la valeur de l'id
-		 * @return identifiant de l'objet
+		 * Définit l'identifiant unique du contact.
+		 * @param int $intId L'identifiant du contact.
 		 */
 		public function setId(int $intId)
 		{
@@ -39,8 +39,8 @@
 		}
 
 		/**
-		 * Getter de récupération du mail
-		 * @return string de l'objet
+		 * Retourne l'adresse e-mail du contact.
+		 * @return string L'adresse e-mail du contact.
 		 */
 		public function getMail(): string
 		{
@@ -48,8 +48,8 @@
 		}
 
 		/**
-		 * Setter de récupération du mail
-		 * @return mail de l'objet
+		 * Définit l'adresse e-mail du contact.
+		 * @param string $strMail L'adresse e-mail.
 		 */
 		public function setMail(string $strMail)
 		{
@@ -57,8 +57,8 @@
 		}
 
 		/**
-		 * Getter de récupération de la description
-		 * @return title de l'objet
+		 * Retourne le titre associé au contact.
+		 * @return string Le titre du contact.
 		 */
 		public function getTitle(): string
 		{
@@ -66,8 +66,8 @@
 		}
 
 		/**
-		 * Setter de récupération de la description
-		 * @return tilte de l'objet
+		 * Définit le titre du contact.
+		 * @param string $strTitle Le titre.
 		 */
 		public function setTitle(string $strTitle)
 		{
@@ -75,8 +75,8 @@
 		}
 
 		/**
-		 * Getter de récupération de la description
-		 * @return name de l'objet
+		 * Retourne le nom du contact.
+		 * @return string Le nom du contact.
 		 */
 		public function getName(): string
 		{
@@ -84,8 +84,8 @@
 		}
 
 		/**
-		 * Setter de récupération de la description
-		 * @return tilte de l'objet
+		 * Définit le nom du contact.
+		 * @param string $strName Le nom.
 		 */
 		public function setName(string $strName)
 		{
@@ -93,8 +93,8 @@
 		}
 
 		/**
-		 * Getter de récupération du budget
-		 * @return content de l'objet
+		 * Retourne le contenu du message du contact.
+		 * @return string Le contenu du message.
 		 */
 		public function getContent(): string
 		{
@@ -102,32 +102,32 @@
 		}
 
 		/**
-		 * Setter de récupération du budget
-		 * @return content de l'objet
+		 * Définit le contenu du message du contact.
+		 * @param string $strContent Le contenu du message.
 		 */
 		public function setContent(string $strContent) {
 			$this->_content = $strContent;
 		}
 
 		/**
-		 * Getter de récupération de la date de publication
-		 * @return publish_date de l'objet
+		 * Retourne la date de soumission du message.
+		 * @return string La date de soumission.
 		 */
 		public function getDate(): string {
 			return $this->_date;
 		}
 
 		/**
-		 * Setter de récupération de la date de publication
-		 * @return publish_date de l'objet
+		 * Définit la date de soumission du message.
+		 * @param string $strDate La date de soumission.
 		 */
 		public function setDate(string $strDate) {
 			$this->_date = $strDate;
 		}
 
 		/**
-		 * Getter de récupération de la date de publication sous le format français
-		 * @return identifiant de l'objet
+		 * Retourne la date de soumission du message formatée pour l'affichage.
+		 * @return string La date de soumission au format d/m/Y.
 		 */
 		public function getDateFr() {
 			// Traitement de la date
