@@ -80,7 +80,7 @@
 					} else {
 						//  Utilisateur non banni
 						$_SESSION['user'] = $arrUser;
-						Header("Location:".parent::BASE_URL."index.php");
+						Header("Location:".parent::BASE_URL);
 					}
 				}
 			}
@@ -99,7 +99,7 @@
 		*/
 		public function logout() {
 			session_destroy();
-			header("Location".parent::BASE_URL."index.php");
+			header("Location:".parent::BASE_URL);
 		}
 	
 		/**
@@ -109,7 +109,7 @@
 
 			// Est-ce que l'utilisateur est connecté ?
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-				header("Location".parent::BASE_URL."index.php");
+				header("Location:".parent::BASE_URL);
 			}
 			
 			$arrErrors	= array();
@@ -178,7 +178,7 @@
 
 			// Est-ce que l'utilisateur est connecté ?
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
-				header("Location".parent::BASE_URL."index.php");
+				header("Location:".parent::BASE_URL);
 			}
 			
 			$arrErrors	= array();

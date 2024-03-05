@@ -379,7 +379,11 @@
 		* Méthode permettant de modifier un article
 		*/
 		public function edit_utrip() {
-
+			
+		// si l'utilisateur est connecté
+		if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+			header("Location:".parent::BASE_URL."error/show403");
+		}
 
 		$intUtripId	        = $_GET['id']??0;
 		$arrErrors = array();

@@ -65,13 +65,14 @@
                                     <p>{$commenttopic.comt_content}</p>
                                     <p><small>Posté le {$commenttopic.comt_date|date_format:"%d-%m-%Y- %H:%M:%S %H:%M:%S"}</small></p>
                                 </div>
-                                {if (isset($_SESSION['user']['user_id'])) &&
-                                    ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}
+                                {if ( isset($user.user_id) && $user.user_id != '' )}
+                                    {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $commenttopic.comt_creatorId)}
                                         <form action="" method="post">
                                             <input type="hidden" name="comtopicId" value="{$commenttopic.comt_id}">
                                             <button type="submit" onclick="return confirmDelete()" >Supprimer</button>
                                         </form>
                                     {/if}
+                                {/if}
                             {/foreach}
                         </div>
                     </div>
