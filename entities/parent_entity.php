@@ -1,16 +1,25 @@
 <?php
-	/**
-	* Classe entité de l'objet entité 
-	* @author gauthier
-	* @version 2024
-	*/
+    /**
+     * Classe de base pour toutes les entités.
+     * Fournit des fonctionnalités communes à toutes les entités, telles que l'hydratation.
+     * L'hydratation est le processus de remplissage d'un objet avec des données à partir d'un tableau.
+     * 
+     * @author Gauthier
+     * @version 2024
+     */
     class Entity {
 
         protected string $_strPrefixe;
 
         /**
-         * Méthode d'hydratation de l'objet à partir d'un tableau
-         * @param $arrData array Tableau des attributs à hydrater
+         * Hydrate l'objet avec les données fournies dans le tableau.
+         * Parcoure chaque clé du tableau et, si un setter correspondant existe dans l'objet,
+         * appelle ce setter avec la valeur associée.
+         * Les clés du tableau doivent correspondre aux noms des attributs de l'objet,
+         * préfixés et formatés pour correspondre à la convention des setters.
+         * 
+         * @param array $arrData Tableau associatif des données à utiliser pour hydrater l'objet.
+         * Les clés doivent correspondre aux attributs de l'objet, préfixées par $_strPrefixe.
          */
         public function hydrate($arrData) {
             

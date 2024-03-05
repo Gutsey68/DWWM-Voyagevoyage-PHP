@@ -1,12 +1,16 @@
 <?php
+
 	include_once("parent_entity.php");
+
 	/**
-	 * Classe entité de l'objet comment
+	 * Classe entité représentant un commentaire sur un topic dans le forum.
+	 * Cette classe hérite de Entity et permet de gérer les données liées à un commentaire.
+	 *
 	 * @author Gauthier
 	 * @version 2024
 	 */
 	class CommentTopic extends Entity {
-		// Propriétés
+		
 		protected string $_strPrefixe = "comt_";
 
 		private int $_id;
@@ -17,75 +21,73 @@
 		private int $_creatorId;
 		private int $_utripId;
 
-		// Méthodes
-
 		/**
-		 * Getter de récupération de la valeur de l'id
-		 * @return identifiant de l'objet
+		 * Retourne l'identifiant unique du commentaire.
+		 * @return int L'identifiant du commentaire.
 		 */
 		public function getId(): int {
 			return $this->_id;
 		}
 
 		/**
-		 * Setter de récupération de la valeur de l'id
-		 * @return identifiant de l'objet
+		 * Définit l'identifiant unique du commentaire.
+		 * @param int $intId L'identifiant du commentaire.
 		 */
 		public function setId(int $intId) {
 			$this->_id = $intId;
 		}
 
 		/**
-		 * Getter de récupération du contenu
-		 * @return contenu de l'objet
+		 * Retourne le contenu du commentaire.
+		 * @return string Le contenu du commentaire.
 		 */
 		public function getContent(): string {
 			return $this->_content;
 		}
 
 		/**
-		 * Setter de récupération du contenu
-		 * @return contenu de l'objet
+		 * Définit le contenu du commentaire.
+		 * @param string $strContent Le contenu du commentaire.
 		 */
 		public function setContent(string $strContent) {
 			$this->_content = $strContent;
 		}
 
 		/**
-		 * Getter de récupération de la date
-		 * @return date de l'objet
+		 * Retourne la date de création du commentaire.
+		 * @return string La date de création du commentaire.
 		 */
 		public function getDate(): string {
 			return $this->_date;
 		}
 
 		/**
-		 * Setter de récupération de la date
-		 * @return date de l'objet
+		 * Définit la date de création du commentaire.
+		 * @param string $strDate La date de création du commentaire.
 		 */
 		public function setDate(string $strDate) {
 			$this->_date = $strDate;
 		}
 
 		/**
-		 * Getter de récupération de l'image
-		 * @return image de l'objet
+		 * Retourne l'image associée au commentaire, si applicable.
+		 * @return string Le chemin de l'image associée au commentaire.
 		 */
 		public function getImage(): string {
 			return $this->_image;
 		}
 
 		/**
-		 * Setter de récupération de l'image'
-		 * @return image de l'objet
+		 * Définit l'image associée au commentaire.
+		 * @param string $strImage Le chemin de l'image.
 		 */
 		public function setImage(string $strImage) {
 			$this->_image = $strImage;
 		}
 
 		/**
-		 * Getter de récupération de la date en français
-		 * @return date de l'objet
+		 * Retourne la date de création du commentaire formatée pour l'affichage.
+		 * @return string La date de création du commentaire au format d/m/Y.
 		 */
 		public function getDateFr() {
 			// Traitement de la date
@@ -94,52 +96,50 @@
 		}
 
 		/**
-		 * Getter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Retourne le nom de l'auteur du commentaire.
+		 * @return string Le nom de l'auteur du commentaire.
 		 */
 		public function getCreator(): string {
 			return $this->_creator;
 		}
 		
 		/**
-		 * Setter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Définit le nom de l'auteur du commentaire.
+		 * @param string $strCreator Le nom de l'auteur.
 		 */
 		public function setCreator(string $strCreator) {
 			$this->_creator = $strCreator;
 		}
 
 		/**
-		 * Getter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Retourne l'identifiant de l'auteur du commentaire.
+		 * @return int L'identifiant de l'auteur.
 		 */
 		public function getCreatorId(): int {
 			return $this->_creatorId;
 		}
 		
 		/**
-		 * Setter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Définit l'identifiant de l'auteur du commentaire.
+		 * @param int $intCreatorId L'identifiant de l'auteur.
 		 */
 		public function setCreatorId(int $intCreatorId) {
 			$this->_creatorId = $intCreatorId;
 		}
 
 		/**
-		 * Getter de récupération de la valeur de l'article
-		 * @return article de l'objet
+		 * Retourne l'identifiant de l'article ou du topic associé au commentaire.
+		 * @return int L'identifiant de l'article ou du topic.
 		 */
 		public function getUtripId(): int {
 			return $this->_utripId;
 		}
 		
 		/**
-		 * Setter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Définit l'identifiant de l'article ou du topic associé au commentaire.
+		 * @param int $intUtripId L'identifiant de l'article ou du topic.
 		 */
 		public function setUtripId(int $intUtripId) {
 			$this->_utripId = $intUtripId;
 		}
-
-
 	}

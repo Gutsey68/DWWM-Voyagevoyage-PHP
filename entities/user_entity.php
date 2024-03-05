@@ -1,13 +1,17 @@
 <?php
+
     include_once("parent_entity.php");
+
     /**
-     * Classe entité de l'objet utilisateur
+     * Classe représentant un utilisateur. Hérite de Entity pour une structure commune et la capacité d'hydratation.
+     * Gère les informations utilisateur telles que l'identifiant, le nom, le prénom, etc.
+     * Fournit des getters et setters pour manipuler les propriétés de l'utilisateur de manière sécurisée.
+     * 
      * @author Gauthier
      * @version 2024
      */
     class User extends Entity {
         
-        // Propriétés
         protected string $_strPrefixe = "user_";
 
         private int $_id;
@@ -24,140 +28,156 @@
         private string $_role;
 		private string $_comment;
 
-        // Méthodes
 
         /**
-         * Getter de récupération de la valeur de l'id
-         * @return identifiant de l'objet
+         * Getter pour l'identifiant de l'utilisateur.
+         * Récupère l'identifiant unique attribué à l'utilisateur lors de sa création. Cet identifiant est utilisé pour référencer l'utilisateur dans la base de données.
+         * @return int L'identifiant de l'utilisateur.
          */
         public function getId(): int {
             return $this->_id;
         }
         
-        /**
-         * Setter de récupération de la valeur de l'id
-         * @return identifiant de l'objet
-         */
+    /**
+     * Setter pour l'identifiant de l'utilisateur.
+     * Définit l'identifiant unique pour l'utilisateur. 
+     * @param int $intId Nouvel identifiant de l'utilisateur.
+     */
         public function setId(int $intId) {
             $this->_id = $intId;
         }
 
         /**
-         * Getter de récupération du nom
-         * @return nom de l'objet
+         * Getter pour le nom de l'utilisateur.
+         * Récupère le nom de l'utilisateur.
+         * @return string Le nom de l'utilisateur.
          */
         public function getName(): string {
             return $this->_name;
         }
 
         /**
-         * Setter de récupération du nom
-         * @return nom de l'objet
+         * Setter pour le nom de l'utilisateur.
+         * Définit le nom de l'utilisateur.
+         * @param string $strName Nouveau nom de l'utilisateur.
          */
         public function setName(string $strName) {
             $this->_name = $strName;
         }
 
         /**
-         * Getter de récupération du prénom
-         * @return prenom de l'objet
+         * Getter pour le prénom de l'utilisateur.
+         * Récupère le prénom de l'utilisateur.
+         * @return string Le prénom de l'utilisateur.
          */
         public function getFirstname(): string {
             return $this->_firstname;
         }
 
         /**
-         * Setter de récupération du prénom
-         * @return prenom de l'objet
+         * Setter pour le prénom de l'utilisateur.
+         * Définit le prénom de l'utilisateur.
+         * @param string $strFirstname Nouveau prénom de l'utilisateur.
          */
         public function setFirstname(string $strFirstname) {
             $this->_firstname = $strFirstname;
         }
 
         /**
-         * Getter de récupération du pseudo
-         * @return pseudo de l'objet
+         * Getter pour le pseudo de l'utilisateur.
+         * Récupère le pseudo attribué à l'utilisateur, utilisé pour l'identifier de manière unique sur la plateforme.
+         * @return string Le pseudo de l'utilisateur.
          */
         public function getPseudo(): string {
             return $this->_pseudo;
         }
 
         /**
-         * Setter de récupération du pseudo
-         * @return pseudo de l'objet
+         * Setter pour le pseudo de l'utilisateur.
+         * Attribue ou modifie le pseudo de l'utilisateur. Le pseudo est utilisé pour identifier l'utilisateur sur la plateforme.
+         * @param string $strPseudo Le nouveau pseudo à attribuer à l'utilisateur.
          */
         public function setPseudo(string $strPseudo) {
             $this->_pseudo = $strPseudo;
         }
 
         /**
-         * Getter de récupération de l'email
-         * @return email de l'objet
+         * Getter pour l'email de l'utilisateur.
+         * Récupère l'adresse email de l'utilisateur.
+         * @return string L'email de l'utilisateur.
          */
         public function getEmail(): string {
             return $this->_email;
         }
 
         /**
-         * Setter de récupération de l'email
-         * @return email de l'objet
+         * Setter pour l'email de l'utilisateur.
+         * Définit l'adresse email de l'utilisateur. Effectue une validation de format d'email basique.
+         * @param string $strEmail Nouvel email de l'utilisateur.
          */
         public function setEmail(string $strEmail) {
             $this->_email = $strEmail;
         }
 
         /**
-         * Getter de récupération du mot de passe
-         * @return mdp de l'objet
+         * Getter pour le mot de passe de l'utilisateur.
+         * Récupère le mot de passe non crypté de l'utilisateur. Utilisation non recommandée pour des raisons de sécurité.
+         * @return string Le mot de passe en clair de l'utilisateur.
          */
         public function getPassword(): string {
             return $this->_password;
         }
 
         /**
-         * Setter de récupération du mot de passe
-         * @return mdp de l'objet
+         * Setter pour le mot de passe de l'utilisateur.
+         * Définit le mot de passe de l'utilisateur. Le mot de passe n'est pas crypté à ce niveau.
+         * @param string $strPassword Nouveau mot de passe de l'utilisateur.
          */
         public function setPassword(string $strPassword) {
             $this->_password = $strPassword;
         }
 
         /**
-         * Getter de récupération du numéro de téléphone
-         * @return telephone de l'objet
+         * Getter pour le numéro de téléphone de l'utilisateur.
+         * Récupère le numéro de téléphone associé au compte de l'utilisateur.
+         * @return string Le numéro de téléphone de l'utilisateur.
          */
         public function getPhone(): string {
             return $this->_phone;
         }
 
         /**
-         * Setter de récupération du numéro de téléphone
-         * @return telephone de l'objet
+         * Setter pour le numéro de téléphone de l'utilisateur.
+         * Définit le numéro de téléphone associé au compte utilisateur.
+         * @param string $strPhone Nouveau numéro de téléphone de l'utilisateur.
          */
         public function setPhone(string $strPhone) {
             $this->_phone = $strPhone;
         }
 
         /**
-         * Getter de récupération de la date de création de compte
-         * @return regisdate de l'objet
+         * Getter pour la date d'inscription de l'utilisateur.
+         * Récupère la date à laquelle l'utilisateur a créé son compte.
+         * @return string La date de création de compte de l'utilisateur.
          */
         public function getRegisdate(): string {
             return $this->_regisdate;
         }
 
         /**
-         * Setter de récupération de la date de création de compte
-         * @return regisdate de l'objet
+         * Setter pour la date d'inscription de l'utilisateur.
+         * Définit la date de création du compte utilisateur.
+         * @param string $strRegisdate Nouvelle date de création du compte utilisateur.
          */
         public function setRegisdate(string $strRegisdate) {
             $this->_regisdate = $strRegisdate;
         }
 
         /**
-		 * Getter de récupération de la date de création sous le format français
-		 * @return identifiant de l'objet
-		 */
+         * Méthode pour obtenir la date d'enregistrement de l'utilisateur au format français (jj/mm/aaaa).
+         * Transforme la date d'enregistrement stockée dans la base de données au format standard en une version lisible.
+         * @return string La date d'enregistrement formatée au format français.
+         */
 		public function getRegisdateFr() {
 			// Traitement de la date
 			$objDate        = new DateTime($this->_regisdate);
@@ -165,88 +185,101 @@
 		}
 
         /**
-         * Getter de récupération du numéro de la photo de profil
-         * @return pp de l'objet
+         * Getter pour la photo de profil de l'utilisateur.
+         * Récupère l'identifiant unique de la photo de profil de l'utilisateur.
+         * @return string L'identifiant de la photo de profil de l'utilisateur.
          */
         public function getPp(): string {
             return $this->_pp;
         }
 
         /**
-         * Setter de récupération du numéro de la photo de profil
-         * @return pp de l'objet
+         * Setter pour la photo de profil de l'utilisateur.
+         * Définit l'identifiant unique de la photo de profil de l'utilisateur.
+         * @param string $strPp Nouvel identifiant de la photo de profil de l'utilisateur.
          */
         public function setPp(string $strPp) {
             $this->_pp = $strPp;
         }
 
         /**
-         * Getter de récupération de si ban ou non
-         * @return ban de l'objet
+         * Getter pour le statut de bannissement de l'utilisateur.
+         * Récupère le statut indiquant si l'utilisateur est banni ou non.
+         * @return string Le statut de bannissement de l'utilisateur.
          */
         public function getBan(): string {
             return $this->_ban;
         }
 
         /**
-         * Setter de récupération de si ban ou non
-         * @return ban de l'objet
+         * Setter pour le statut de bannissement de l'utilisateur.
+         * Définit si l'utilisateur est banni ou non.
+         * @param string $strBan Nouveau statut de bannissement de l'utilisateur.
          */
         public function setBan(string $strBan) {
             $this->_ban = $strBan;
         }
 
         /**
-         * Getter de récupération de la bio
-         * @return bio de l'objet
+         * Getter pour la biographie de l'utilisateur.
+         * Récupère la biographie définie par l'utilisateur dans son profil.
+         * @return string La biographie de l'utilisateur.
          */
         public function getBio(): string {
             return $this->_bio;
         }
 
         /**
-         * Setter de récupération de la bio
-         * @return ibio de l'objet
+         * Setter pour la biographie de l'utilisateur.
+         * Définit la biographie de l'utilisateur dans son profil.
+         * @param string $strBio Nouvelle biographie de l'utilisateur.
          */
         public function setBio(string $strBio) {
             $this->_bio = $strBio;
         }
 
         /**
-         * Getter de récupération du role
-         * @return role de l'objet
+         * Getter pour le rôle de l'utilisateur.
+         * Récupère le rôle assigné à l'utilisateur (ex : admin, user, guest).
+         * @return string Le rôle de l'utilisateur.
          */
         public function getRole(): string {
             return $this->_role;
         }
 
         /**
-         * Setter de récupération du role
-         * @return irole de l'objet
+         * Setter pour le rôle de l'utilisateur.
+         * Définit le rôle de l'utilisateur (ex : admin, user, guest).
+         * @param string $strRole Nouveau rôle assigné à l'utilisateur.
          */
         public function setRole(string $strRole) {
             $this->_role = $strRole;
         }
 
+
         /**
-        * Getter de récupération du mot de passe haché
-        * @return mot de passe haché
-        */
+         * Méthode pour obtenir le hash du mot de passe de l'utilisateur.
+         * Utilise l'algorithme de hachage PASSWORD_DEFAULT de PHP pour sécuriser le mot de passe avant son stockage ou sa vérification.
+         * @return string Le hash du mot de passe de l'utilisateur.
+         */
         public function getPwdHash():string { 
             return password_hash($this->_password, PASSWORD_DEFAULT);
         }
         
-		/**
-		* Getter de récupération du commentaire de validation
-		* @return string commentaire de validation
-		*/
+        /**
+         * Getter pour le commentaire associé à l'utilisateur.
+         * Récupère le commentaire lié à l'utilisateur, typiquement utilisé pour des notes internes ou des commentaires de modération.
+         * @return string Le commentaire associé à l'utilisateur.
+         */
 		public function getComment():string{ 
 			return $this->_comment;
 		}
-		/**
-		* Setter de modification du commentaire de validation
-		* @param string commentaire de validation
-		*/
+
+        /**
+         * Setter pour le commentaire associé à l'utilisateur.
+         * Définit un commentaire lié à l'utilisateur, pouvant être utilisé pour des notes internes ou des commentaires de modération.
+         * @param string $strComment Nouveau commentaire associé à l'utilisateur.
+         */
 		public function setComment(string $strComment){ 
 			$this->_comment = trim($strComment); // Enlève les espaces avant et après
 			$this->_comment = filter_var($this->_comment, FILTER_SANITIZE_FULL_SPECIAL_CHARS); // nettoyage

@@ -1,12 +1,16 @@
 <?php
+
 	include_once("parent_entity.php");
+
 	/**
-	 * Classe entité de l'objet like
+	 * Classe entité représentant un "like" ou une appréciation.
+	 * Cette classe hérite de Entity et gère les données relatives aux appréciations données par les utilisateurs.
+	 *
 	 * @author Gauthier
 	 * @version 2024
 	 */
 	class Like extends Entity {
-		// Propriétés
+
 		protected string $_strPrefixe = "like_";
 
 		private int $_id;
@@ -15,43 +19,41 @@
 		private int $_creatorId;
 		private int $_utripId;
 
-		// Méthodes
-
 		/**
-		 * Getter de récupération de la valeur de l'id
-		 * @return identifiant de l'objet
+		 * Retourne l'identifiant unique du like.
+		 * @return int L'identifiant du like.
 		 */
 		public function getId(): int {
 			return $this->_id;
 		}
 
 		/**
-		 * Setter de récupération de la valeur de l'id
-		 * @return identifiant de l'objet
+		 * Définit l'identifiant unique du like.
+		 * @param int $intId L'identifiant du like.
 		 */
 		public function setId(int $intId) {
 			$this->_id = $intId;
 		}
 
 		/**
-		 * Getter de récupération de la date
-		 * @return date de l'objet
+		 * Retourne la date à laquelle le like a été donné.
+		 * @return string La date du like.
 		 */
 		public function getDate(): string {
 			return $this->_date;
 		}
 
 		/**
-		 * Setter de récupération de la date
-		 * @return date de l'objet
+		 * Définit la date à laquelle le like a été donné.
+		 * @param string $strDate La date du like.
 		 */
 		public function setDate(string $strDate) {
 			$this->_date = $strDate;
 		}
 
 		/**
-		 * Getter de récupération de la date en français
-		 * @return date de l'objet
+		 * Retourne la date du like au format français.
+		 * @return string La date du like au format français.
 		 */
 		public function getDateFr() {
 			// Traitement de la date
@@ -60,52 +62,50 @@
 		}
 
 		/**
-		 * Getter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Retourne le nom de l'auteur du like.
+		 * @return string Le nom de l'auteur.
 		 */
 		public function getCreator(): string {
 			return $this->_creator;
 		}
 		
 		/**
-		 * Setter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Définit le nom de l'auteur du like.
+		 * @param string $strCreator Le nom de l'auteur.
 		 */
 		public function setCreator(string $strCreator) {
 			$this->_creator = $strCreator;
 		}
 
 		/**
-		 * Getter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Retourne l'identifiant de l'auteur du like.
+		 * @return int L'identifiant de l'auteur.
 		 */
 		public function getCreatorId(): int {
 			return $this->_creatorId;
 		}
 		
 		/**
-		 * Setter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Définit l'identifiant de l'auteur du like.
+		 * @param int $intCreatorId L'identifiant de l'auteur.
 		 */
 		public function setCreatorId(int $intCreatorId) {
 			$this->_creatorId = $intCreatorId;
 		}
 
 		/**
-		 * Getter de récupération de la valeur de l'article
-		 * @return article de l'objet
+		 * Retourne l'identifiant de l'article auquel le like est associé.
+		 * @return int L'identifiant de l'article.
 		 */
 		public function getUtripId(): int {
 			return $this->_utripId;
 		}
 		
 		/**
-		 * Setter de récupération de la valeur de l'auteur
-		 * @return auteur de l'objet
+		 * Définit l'identifiant de l'article auquel le like est associé.
+		 * @param int $intUtripId L'identifiant de l'article.
 		 */
 		public function setUtripId(int $intUtripId) {
 			$this->_utripId = $intUtripId;
 		}
-
-
 	}

@@ -1,27 +1,33 @@
 <?php
-/** 
- * Controller des érreurs
- * @author Groupe1
- */
+
+    /** 
+     * Contrôleur pour la gestion des erreurs, étend le contrôleur de base Ctrl.
+     * Permet d'afficher des pages spécifiques en cas d'erreurs HTTP comme 404 ou 403.
+     * @author Groupe1
+     */
     class ErrorCtrl extends Ctrl {
         
-		/**
-		* Méthode qui permet d'afficher la page d'érreur 404
-		*/
+        /**
+        * Génère et affiche la page d'erreur 404 - Page non trouvée.
+        * Configure les données nécessaires au template et appelle la méthode d'affichage.
+        */
         public function show404() {
-            $this->_arrData["strPage"]     = "404";
-            $this->_arrData["strTitle"] = "Page non trouvée";
-            $this->_arrData["strDesc"]     = "Page affichant le fait que la page demandée n'a pas été trouvée";
+
+            // Configuration des données pour le template 404
+            $this->_arrData["strPage"] = "404";
+
+            // Appel de la méthode d'affichage du template
             $this->afficheTpl("show404");
         }
 
         /**
-		* Méthode qui permet d'afficher la page d'érreur 404
-		*/
+        * Génère et affiche la page d'erreur 403 - Accès refusé.
+        * Configure les données nécessaires au template et appelle la méthode d'affichage.
+        */
         public function show403() {
-            $this->_arrData["strPage"]     = "403";
-            $this->_arrData["strTitle"] = "Page non autorisée";
-            $this->_arrData["strDesc"]     = "Page affichant le fait que la page demandée n'est pas autorisée";
+            // Configuration des données pour le template 403
+            $this->_arrData["strPage"] = "403";
+            // Appel de la méthode d'affichage du template
             $this->afficheTpl("show403");
         }
     }

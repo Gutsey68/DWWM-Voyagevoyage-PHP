@@ -1,62 +1,69 @@
 <?php
-	/** 
-	* Controller des articles
-	* @author Gauthier
-	*/
-    include_once("models/utrip_model.php");
-    include_once("models/forum_model.php");
-    include_once("entities/utrip_entity.php");
-    include_once("entities/forum_entity.php");
-    include_once("entities/like_entity.php");
-    include_once("entities/comment_entity.php");
+/** 
+ * Gère la présentation des articles et des topics de forum sur la page d'accueil.
+ * Ce contrôleur est responsable de récupérer les derniers articles Utrip et les derniers topics de forum
+ * pour les afficher sur la page d'accueil du site.
+ * @author Gauthier
+ */
+include_once("models/utrip_model.php");
+include_once("models/forum_model.php");
+include_once("entities/utrip_entity.php");
+include_once("entities/forum_entity.php");
+include_once("entities/like_entity.php");
+include_once("entities/comment_entity.php");
 
-    class UtripCtrl extends Ctrl {
+class UtripCtrl extends Ctrl {
 
-        const MAX_CONTENT = 220;
+    const MAX_CONTENT = 220; // Définit la limite maximale de contenu pour les extraits d'articles.
 
-		/**
-		* Méthode qui permet d'afficher la page d'accueil contenant les 4 derniers articles et les 2 derniers topics du forum
-		*/
-        public function home() {
+    /**
+     * Affiche la page d'accueil avec les 4 derniers articles Utrip et les 2 derniers topics de forum.
+     * Cette méthode récupère les données nécessaires via les modèles correspondants et prépare
+     * les objets pour l'affichage avant de passer le contrôle au template de la page d'accueil.
+     */
+    public function home() {
+        // Récupération des 4 derniers articles Utrip.
+        $objUtripModel = new UtripModel();
+        $arrUtrips = $objUtripModel->findAll(4);
 
-            /* Utilisation de la classe model pour les articles*/
-            $objUtripModel    = new UtripModel;
-            $arrUtrips        = $objUtripModel->findAll(4);
-
-
-            // Parcourir les articles pour créer des objets
-			// -----  TODO Optimisation => déplacer dans modèle ------- //
-            $arrUtripsToDisplay    = array();
-            foreach ($arrUtrips as $arrDetailUtrip) {
-                $objUtrip = new Utrip();
-                $objUtrip->hydrate($arrDetailUtrip);
-                $arrUtripsToDisplay[] = $objUtrip;
-            }
-
-            /* Utilisation de la classe model pour les topics */
-            $objForumModel    = new ForumModel;
-            $arrForums        = $objForumModel->findAll(2);
-
-            // Parcourir les topics pour créer des objets
-            $arrForumsToDisplay    = array();
-            foreach ($arrForums as $arrDetailForum) {
-                $objForum = new Forum();
-                $objForum->hydrate($arrDetailForum);
-                $arrForumsToDisplay[] = $objForum;
-            }
-
-            $this->_arrData["strPage"]     = "index";
-            $this->_arrData["strTitle"] = "Accueil";
-            $this->_arrData["strDesc"]     = "Page d'acceuil";
-            $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
-            $this->_arrData["arrForumsToDisplay"] = $arrForumsToDisplay;
-
-            $this->afficheTpl("home");
+        // Transformation des données d'articles en objets Utrip pour l'affichage.
+        $arrUtripsToDisplay = array();
+        foreach ($arrUtrips as $arrDetailUtrip) {
+            $objUtrip = new Utrip();
+            $objUtrip->hydrate($arrDetailUtrip);
+            $arrUtripsToDisplay[] = $objUtrip;
         }
 
-        /**
-		* Méthode qui permet d'ajouter un article
-		*/
+        // Récupération des 2 derniers topics de forum.
+        $objForumModel = new ForumModel();
+        $arrForums = $objForumModel->findAll(2);
+
+        // Transformation des données de forum en objets Forum pour l'affichage.
+        $arrForumsToDisplay = array();
+        foreach ($arrForums as $arrDetailForum) {
+            $objForum = new Forum();
+            $objForum->hydrate($arrDetailForum);
+            $arrForumsToDisplay[] = $objForum;
+        }
+
+        // Préparation des données pour le template de la page d'accueil.
+        $this->_arrData["strPage"] = "index";
+        $this->_arrData["strTitle"] = "Accueil";
+        $this->_arrData["strDesc"] = "Page d'accueil";
+        $this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
+        $this->_arrData["arrForumsToDisplay"] = $arrForumsToDisplay;
+
+        // Affichage du template de la page d'accueil.
+        $this->afficheTpl("home");
+    }
+
+
+		/**
+		 * Méthode qui permet d'ajouter un article.
+		 * Cette méthode récupère les données du formulaire soumis, valide ces données, 
+		 * traite les images téléchargées et insère les informations de l'article dans la base de données.
+		 * Redirige l'utilisateur vers la page d'exploration en cas de succès.
+		 */
         public function raconte() {
 
         // Récupère l'information dans $_POST
@@ -80,8 +87,8 @@
 
 		/* 2. Récupérer les informations du formulaire */
 		$arrErrors 			= array();
-		$objUtrip 		= new Utrip();	// instancie un objet Article
-		$objUtripModel	= new UtripModel();// instancie le modèle Article
+		$objUtrip 		= new Utrip();
+		$objUtripModel	= new UtripModel();
 			$objUtrip->setId(0);
 			$objUtrip->setName("");
 			$objUtrip->setDescription("");
@@ -94,8 +101,9 @@
 
 		
 			if (count($_POST) > 0 && count($_FILES) > 0 ){
-				/* 3. Créer un objet article */
-				$objUtrip->hydrate($_POST); // Hydrate avec les données du formulaire
+
+				// Créer un objet article 
+				$objUtrip->hydrate($_POST);
 				
 				// Vérifications de base et validations
 				if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == '') {
@@ -118,18 +126,21 @@
 				}
 				if (isset($_POST['city']) && !empty($_POST['city'])) {
 					$cityName = $_POST['city'];
+
 					// Utilisez le modèle pour obtenir l'ID de la ville à partir du nom
 					$cityId = $objUtripModel->getCityIdByName($cityName);
 					if ($cityId) {
+
 						// Ici, vous pouvez soit définir l'ID de la ville dans votre objet,
 						// soit le conserver pour une utilisation ultérieure, comme lors de l'insertion dans la base de données
-						$_POST['cityId'] = $cityId; // ou $objUtrip->setCityId($cityId);
+						$_POST['cityId'] = $cityId;
 					} else {
 						$arrErrors['city'] = "La ville spécifiée n'a pas été trouvée dans la base de données.";
 					}
 				}
 				
 				if (count($arrErrors) == 0) {
+
 					// Insérer l'article en BDD et récupérer son ID
 					$objUtrip->setCityId($_POST['cityId']);
 					$intLastUtripId = $objUtripModel->insert($objUtrip);
@@ -196,9 +207,12 @@
 
         }
 
+
 		/**
-		* Méthode qui permet d'afficher la page contenant tous les articles avec une recherche
-		*/
+		 * Méthode qui permet d'afficher la page contenant tous les articles avec une fonction de recherche.
+		 * Elle récupère les critères de recherche depuis $_POST, récupère les articles correspondants via le modèle,
+		 * et prépare les données pour l'affichage.
+		 */
         public function explore() {
 
             // Récupère l'information dans $_POST
@@ -264,9 +278,12 @@
             $this->afficheTpl("explore");
         }
 
+
 		/**
-		* Méthode qui permet d'afficher une page d'article
-		*/
+		 * Méthode qui permet d'afficher une page d'article spécifique.
+		 * Récupère l'ID de l'article depuis $_GET, récupère les détails de l'article et les commentaires associés,
+		 * et gère la suppression de commentaires et la modération de l'article si nécessaire.
+		 */
         public function utrip() {
 
             $arrErrors = array();
@@ -275,13 +292,12 @@
 			}else{
 				header("Location:".parent::BASE_URL."error/show404");
 			}
-            
-	
-			/* Récupère l'article */
-			$objUtripModel	= new UtripModel();// instancie le modèle Article
+
+			// Récupère l'article 
+			$objUtripModel	= new UtripModel();
 			$arrUtrip 		= $objUtripModel->get($intUtripId);
 
-			$objUtrip 		= new Utrip();	// instancie un objet Article
+			$objUtrip 		= new Utrip();
 			$objUtrip->hydrate($arrUtrip);
 			$objUtrip->setValid(0);
 			$objUtrip->setComment('');
@@ -298,7 +314,6 @@
 			// instance du commentaire 
 			$objUtripModelCom	= new UtripModel();
 			$objComment = new Comment();
-
 
 			if (isset($_POST['com']) && $_POST['com'] !== '') {
 				$objComment->setContent($_POST['com']);
@@ -329,16 +344,12 @@
 			$objUtripModelLike	= new UtripModel();
 			$objLike = new Like();
 			$arrLikes = $objUtripModelLike->getLikes($intUtripId);
-			$this->_arrData["arrLikes"] = $arrLikes;
 
+			$this->_arrData["arrLikes"] = $arrLikes;
 			$this->_arrData["objUtrip"]	= $objUtrip;
 			$this->_arrData["arrErrors"] 	= $arrErrors;
-			
 			$this->_arrData["objComment"]	= $objComment;
-
             $this->_arrData["strPage"]     = "utrip";
-            $this->_arrData["strTitle"] = "Article";
-            $this->_arrData["strDesc"]     = "Contenu de l'article";
 			$this->_arrData["arrUtripImgs"] = $arrUtripImgs;
 
 
@@ -347,11 +358,13 @@
             $this->afficheTpl("utrip");
         }
 
-        		
 		/**
-		* Méthode permettant d'afficher les articles pour les gérer
-		*/
+		 * Méthode permettant d'afficher les articles pour les gérer.
+		 * Accessible uniquement aux utilisateurs connectés avec les rôles appropriés, elle récupère la liste de tous les articles
+		 * pour permettre leur gestion (modification, suppression).
+		 */
 		public function manage(){
+
 			// si l'utilisateur est connecté
 			if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
 				header("Location:".parent::BASE_URL."error/show403");
@@ -359,8 +372,8 @@
 			
 			$objUtripModel	= new UtripModel;
 			$arrUtrips		= $objUtripModel->findList();
-
 			$arrUtripsToDisplay	= array();
+
 			foreach($arrUtrips as $arrDetailUtrip){	
 				$objUtrip = new Utrip();		// instancie un objet Article
 				$objUtrip->hydrate($arrDetailUtrip);
@@ -368,18 +381,18 @@
 			}			
 			
 			$this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
-
 			$this->_arrData["strPage"] 	= "manage";
-			$this->_arrData["strTitle"] = "Gérer les articles";
-			$this->_arrData["strDesc"] 	= "Page permettant d'afficher les articles pour les gérer";
 
 			$this->afficheTpl("utrip_manage");
 		}
 	
 		/**
-		* Méthode permettant de supprimer un Article
-		*/
+		 * Méthode permettant de supprimer un article.
+		 * Récupère l'ID de l'article à supprimer depuis $_GET et procède à sa suppression via le modèle.
+		 * Redirige ensuite vers la page de gestion des articles.
+		 */
 		public function delete(){
+
 			// Numéro de l'article à supprimer
 			$intUtripId		= $_GET['id']??0;
 			$objUtripModel	= new UtripModel();
@@ -388,8 +401,10 @@
 		}
 
 		/**
-		* Méthode permettant de modifier un article
-		*/
+		 * Méthode permettant de modifier un article.
+		 * Accessible uniquement par les utilisateurs connectés et autorisés, elle charge les détails de l'article à modifier,
+		 * permet à l'utilisateur de modifier les informations et sauvegarde les modifications.
+		 */
 		public function edit_utrip() {
 			
 		// si l'utilisateur est connecté
@@ -405,7 +420,6 @@
 		$arrCats          = $objUtripModel->findCat();
 
 		// Parcourir les articles pour créer des objets
-		
 		$arrUtripImgs = $objUtripModel->getImgs($intUtripId);
 		$arrCatsToDisplay    = array();
 		foreach ($arrCats as $arrDetailCat) {
@@ -424,7 +438,6 @@
 			header("Location:".parent::BASE_URL."error/show403");
 			}
 		}
-		
 
 		if (count($_POST) > 0){
 
@@ -445,8 +458,6 @@
 		$this->_arrData["arrCatsToDisplay"] = $arrCatsToDisplay;
 		$this->_arrData["objUtrip"]         = $objUtrip;
 		$this->_arrData["strPage"] 		= "edit_utrip";
-		$this->_arrData["strTitle"] 	= "Modifier un article";
-		$this->_arrData["strDesc"] 		= "Page permettant de modifier un article";
 		$this->_arrData["arrErrors"] 	= $arrErrors;
 		$this->_arrData["arrUtripImgs"] = $arrUtripImgs;
 
@@ -454,9 +465,12 @@
         
 		}
 	
+
 		/**
-		* Méthode permettant de liker un article
-		*/
+		 * Méthode permettant de liker un article.
+		 * Accessible uniquement par les utilisateurs connectés, elle récupère l'ID de l'utilisateur et de l'article depuis la session
+		 * et $_GET respectivement, puis procède à l'ajout d'un like via le modèle.
+		 */
 		public function like(){
 
 			$userId = $_SESSION['user']['user_id'];

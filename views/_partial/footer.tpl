@@ -45,5 +45,5 @@
 
 
 </body>
-<script src="assets/script/fslightbox.js"></script>
+
 </html>
