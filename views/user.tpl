@@ -50,7 +50,7 @@
 						{/if}
 					</div>
 					{* Partie modération *}
-					{if (isset($user.user_role) && ($user.user_role == "modo" || $user.user_role == "admin"))}
+					{if (isset($user.user_role) && (($user.user_role == "admin" && $user.user_id != $objUser->getId()) || ($user.user_role == "modo" && $objUser->getRole() != "modo" && $objUser->getRole() != "admin")) )}
 						<div class="rounded-5 brown-div shadow-lg mt-5 mb-5 p-5">
 							<div class="row">
 								<div class="col-12 text-center mb-5">
