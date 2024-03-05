@@ -1,8 +1,12 @@
 <?php
-	/***
-	* Connexion avec la BDD
-	* @author Gauthier
-	*/
+
+	/**
+	 * Classe de base pour la connexion à la base de données.
+	 * Elle établit une connexion avec la base de données via PDO et configure les options de base pour l'encodage et la gestion des erreurs.
+	 * Cette classe est destinée à être héritée par d'autres modèles spécifiques qui requièrent une connexion à la base de données.
+	 * 
+	 * @author Gauthier
+	 */
 	class Model {
 		protected $_db;
 

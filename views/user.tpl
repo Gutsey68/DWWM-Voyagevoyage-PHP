@@ -21,9 +21,13 @@
 								<a data-fslightbox="gallery" href="uploads/{$objUser->getPp()}">
 									<img src="uploads/{$objUser->getPp()}" height="250px" width="250px" class="img-fluid rounded-circle" alt="{$objUser->getPseudo()}">
 								</a>
-								<a href="{$base_url}user/edit_pp" title="Modifier ma photo" class=" absolut-btn position-absolute top-0 end-0">
-									<i class="fa-solid fa-camera"></i>
-								</a>
+								{if (isset($smarty.session.user.user_id))}
+									{if ($user.user_id == $objUser->getId()) || ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin") }
+										<a href="{$base_url}user/edit_pp" title="Modifier ma photo" class=" absolut-btn position-absolute top-0 end-0">
+											<i class="fa-solid fa-camera"></i>
+										</a>
+									{/if}
+								{/if}
 							</div>
 						</div>
 						{* Informations du compte *}

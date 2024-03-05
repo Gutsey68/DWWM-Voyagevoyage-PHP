@@ -11,52 +11,72 @@
             {/foreach}
         </div>
     {/if}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {* Boucle pour afficher les images *}
+                {foreach from=$arrUtripImgs item=$image}
+                    <img height="300px" width="400px" src="uploads/{$image.img_link}" alt="">
+                {/foreach}
+            </div>
 
-    <article id="utrip">
-        <section id="utrip-title">
-            <div class="container pb-3 pt-3">
-                <div class="row">
-                    <div class="col-6">
-                        <h1 class=" green-title">{$objUtrip->getName()}</h1>
-                        <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a
-                                href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
-                        <p><i class="fa-solid fa-list"></i> Catégorie : {$objUtrip->getCat()}</p>
-                        <p><i class="fa-solid fa-wallet"></i> Budget approximatif : {$objUtrip->getBudget()}</p>
-                        <p><i class="fa-solid fa-city"></i> Ville : {$objUtrip->getCity()}, {$objUtrip->getCountry()}
-                            ({$objUtrip->getCont()})</p>
-                    </div>
-                </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-xs-12">
+                {* Titre et contenu *}
+                <h1 class=" green-title">{$objUtrip->getName()}</h1>
+                <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
+                <div class="col-12"> {$objUtrip->getDescription()} </div>
             </div>
-        </section>
-        <section id="utrip-content">
-            <div class="container pt-3">
-                <div class="row">
-                    <div class="col-12"> {$objUtrip->getDescription()} </div>
-                </div>
-            </div>
-        </section>
+            <div class="col-md-6 col-xs-12">
+                <p><i class="fa-solid fa-city"></i> : {$objUtrip->getCity()},  {$objUtrip->getCountry()} ({$objUtrip->getCont()})</p>
+                <p><i class="fa-solid fa-list"></i>: {$objUtrip->getCat()}</p>
+                <p><i class="fa-solid fa-wallet"></i> : {$objUtrip->getBudget()} €</p>
+                <p class="pt-2">{count($arrLikes)}<i class="fa-solid fa-heart p-1"></i></p>
+                {if (isset($smarty.session.user.user_id))}
+                    <div class=""><a class="green-btn pe-5" href="{$base_url}utrip/like?id={$objUtrip->getId()}" alt="Supprimer l'article">
+                        <i class="fa-solid fa-heart ps-3"></i> J'aime</a></div>
+                {/if}
+            </div>  
+        </div>
+    </div>
+</article>
+
+
+
+                        
+
+
+        <div id="utrip-content">
+                
+        </div>
         <div id="utrip-img">
             <div class="container pb-3">
                 <div class="row">
                     <div class="col-12">
-                        {foreach from=$arrUtripImgs item=$image}
-                            <a data-fslightbox="gallery" href="uploads/{$image.img_link}"><img class="resume-img" src="uploads/{$image.img_link}" alt=""></a>
-
-                        {/foreach}
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-2">
-                        {if (isset($smarty.session.user.user_id))}
-                            <a class="green-btn pe-5" href="{$base_url}utrip/like?id={$objUtrip->getId()}" alt="Supprimer l'article">
-                                <i class="fa-solid fa-heart ps-3"></i> J'aime</a>
-                        {/if}
+
                     </div>
                     <div class="col-2">
-                        <p class="pt-2">{count($arrLikes)}<i class="fa-solid fa-heart p-1"></i></p>
+                        
                     </div>
                     <div class="col-8"></div>
+                </div>
+            </div>
+        </div>
+        <section id="utrip-title">
+        <div class="container pb-3 pt-3">
+            <div class="row">
+                <div class="col-6">
+
+
+                    
                 </div>
             </div>
         </div>
@@ -65,11 +85,11 @@
             ( $user.user_role == 'admin' || $objUtrip->getCreatorId() == $user.user_id || $user.user_role == 'modo') }
         <div class="container">
             <div class="row">
-                <div class="col-2">
-                    <a class="green-btn" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article">Modifier l'article</a>
+                <div class="col-3">
+                    <a class="green-btn" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="ps-1 fa-solid fa-pen-to-square"></i> Modifier l'article</a>
                 </div>
                 <div class="pt-3">
-						<a class="btn btn-danger" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" onclick="return confirmDelete()" alt="Supprimer l'article">Supprimer l'article</i></a>
+						<a class="green-btn" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" onclick="return confirmDelete()" alt="Supprimer l'article"><i class="ps-1 fa-solid fa-trash"></i>Supprimer l'article</i></a>
                 </div>
                 <div class="col-10"></div>
             </div>

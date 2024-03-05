@@ -57,6 +57,7 @@
 											<option value="{if ($objUser->getRole() == "admin")}admin{elseif ($objUser->getRole() == "modo")}modo{else}user{/if}">{if ($objUser->getRole() == "admin")}Admin{elseif ($objUser->getRole() == "modo")}Modo{else}User{/if}</option>
 											<option value="{if ($objUser->getRole() == "admin")}modo{elseif ($objUser->getRole() == "modo")}admin{else}modo{/if}">{if ($objUser->getRole() == "admin")}Modo{elseif ($objUser->getRole() == "modo")}Admin{else}Modo{/if}</option>
 											<option value="{if ($objUser->getRole() == "admin")}user{elseif ($objUser->getRole() == "modo")}user{else}admin{/if}">{if ($objUser->getRole() == "admin")}User{elseif ($objUser->getRole() == "modo")}User{else}Admin{/if}</option>
+
 										</select>
 										<button class="btn btn-primary" type="submit">Modifier le rôle</button>
 									</form>
@@ -70,7 +71,6 @@
 		</table>
 	</div>
 {/block}
-
 {block name="js_footer"}
 	{literal}
 		<script>
@@ -85,7 +85,6 @@
 				},
 				columns: [{width: '5%'}, {width: '10%'}, {width: '10%'}, {width: '5%'}, {width: '20%'}, {width: '5%'}, {width: '55%'}],
 				ordering: false,
-
 			});
 		</script>
 	{/literal}

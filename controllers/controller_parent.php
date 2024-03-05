@@ -1,43 +1,48 @@
 <?php
 	/**
-	* Controller mère
+	* Classe de base pour les contrôleurs. Fournit des méthodes communes pour la gestion des templates, des erreurs et des données.
+	* Inclut des fonctionnalités pour la configuration des cookies, la gestion des types MIME et la sécurité des pages d'administration.
 	* @author Groupe1
 	*/
     class Ctrl {
 
-
+		// URL de base de l'application
 		const BASE_URL = "http://localhost/projet_2/";
 		
-		// Tableau d'erreur 
+		// Stocke les messages d'erreur à afficher dans les templates
 		protected array $_arrErrors = array();
 		
-		// Tableau des données à utiliser dans le template
+		// Données à transmettre aux templates
 		protected array $_arrData	= array(); 
 		
-		// Tableau pour les types Mimes
+		// Types MIME autorisés pour les uploads
         protected array $_arrMimesType = array("image/jpeg", "image/png" , "image/webp");
 
-        // Tableau de configuration des cookies
+        // Options de configuration pour les cookies
 		protected array $_arrCookieOptions = array ();
 
-        // Tableau de sécurisation des pages => uniquement pour l'admin (à définir)
+        // Identifie les pages accessibles uniquement par l'administrateur
 		protected array $_arrAdminPages = array("", "");
 
+		/**
+		 * Constructeur de la classe Ctrl. Initialise les options de cookies et gère l'accès aux pages d'administration.
+		 */
 		public function __construct() {
-			
+			// Configuration par défaut des cookies
 			$this->_arrCookieOptions = array (
-									'expires' 	=> time() + (365*24*60*60), // nbjours*nbheures*nbminutes*nbsecondes
+									'expires' 	=> time() + (365*24*60*60),
 									'path' 		=> '/', 
-									'domain' 	=> '', // domaine !!!!!! A préciser pour Firefox !!!!!!
-									'secure' 	=> false,     // HTTPS
-									'httponly' 	=> true,    // accessible uniquement en http, pas en js par exemple
-									'samesite' 	=> 'Strict' // None || Lax  || Strict
+									'domain' 	=> '',
+									'secure' 	=> false,  
+									'httponly' 	=> true,   
+									'samesite' 	=> 'Strict' 
 									);
 
-			// Pages admin uniquement
+			// Restriction d'accès aux pages administratives
 			if (count($_GET) > 0) {
 				$strPage	= $_GET['ctrl'].'/'.$_GET['action'];
 				
+				// Redirection si l'utilisateur n'est pas admin et tente d'accéder à une page admin
 				if (in_array($strPage, $this->_arrAdminPages) && $_SESSION['user']['user_role_id'] != "1") {
 					header("Location:".self::BASE_URL."error/show403");
 				}
@@ -45,20 +50,25 @@
 		}
 
 		/**
-		* Méthode d'affichage des templates
-		* @param $strTpl Nom du template à afficher
+		* Méthode d'affichage des templates. Charge le template spécifié et assigne les données à Smarty.
+		* @param string $strTpl Nom du template à afficher.
+		* @param bool $boolDisplay Si vrai, affiche le template directement, sinon retourne le contenu.
 		*/
 		public function afficheTpl($strTpl, $boolDisplay = true){
+			// Initialisation de Smarty
 			include_once("libs/smarty/Smarty.class.php");
 			$smarty = new Smarty();
 
+			// Assignation des données pour le template
 			foreach($this->_arrData as $key=>$value){
 				$smarty->assign($key, $value);
 			}
-			// L'utilisateur en session
+
+			// Assignation de données supplémentaires
 			$smarty->assign("user", $_SESSION['user']??array());
 			$smarty->assign("base_url", self::BASE_URL);
 			
+			// Affichage ou récupération du contenu du template
 			if ($boolDisplay){
 				$smarty->display("views/".$strTpl.".tpl");
 			}else{
@@ -67,36 +77,33 @@
 		}
 
 		/**
-		* Méthode permettant la recherche d'articles dans la navbar
+		* Gère la recherche d'articles depuis la navbar. Récupère les mots-clés, effectue la recherche et affiche les résultats.
 		*/
 		public function explore(){
 			$strKeywords     = $_POST['keywords']??"";
 
 			$arrSearch         = array('keywords'     => $strKeywords);
 			
+            // Instance du modèle et recherche
             $objUtripModel    = new UtripModel;
-            $arrUtrips        = $objUtripModel->findAll(0, $arrSearch);
+			$arrUtrips        = $objUtripModel->findAll
+			(0, $arrSearch);
 
-            // Parcourir les articles pour créer des objets (pour afficher les articles)
-            $arrUtripsToDisplay    = array();
-            foreach ($arrUtrips as $arrDetailUtrip) {
-                $objUtrip = new Utrip(); 
-                $objUtrip->hydrate($arrDetailUtrip);
-                $arrUtripsToDisplay[] = $objUtrip;
-
-				$this->_arrData["strKeywords"]     = $strKeywords;
+			// Transformation des résultats de recherche en objets et préparation pour l'affichage
+			$arrUtripsToDisplay    = array();
+			foreach ($arrUtrips as $arrDetailUtrip) {
+				$objUtrip = new Utrip(); 
+				$objUtrip->hydrate($arrDetailUtrip);
+				$arrUtripsToDisplay[] = $objUtrip;
 	
+				// Préparation des données pour le template
+				$this->_arrData["strKeywords"]     = $strKeywords;
 				$this->_arrData["strPage"]     = "explore";
-				$this->_arrData["strTitle"] = "Explore";
-				$this->_arrData["strDesc"]     = "Découvrez des aventures uniques racontées par des voyageurs passionnés. Laissez-vous inspirer par leurs expériences et partagez les vôtres.";
 				$this->_arrData["arrUtripsToDisplay"] = $arrUtripsToDisplay;
 	
+				// Affichage du template explore avec les données de recherche
 				$this->afficheTpl("explore");
-            }
-
+			}
 		}
+	}
 	
-		
-
-
-    }
