@@ -27,8 +27,8 @@
                 </div>
             </div>
         </section>
-        {if (isset($smarty.session.user.user_id))}
-            {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}
+        {if ( isset($user.user_id) && $user.user_id != '' )}
+            {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $objForum->getCreatorId())}
                 <div class="container pt-3">
                 <a class="btn btn-danger" onclick="return confirmDelete()"
                     href="{$base_url}forum/delete?id={$objForum->getId()}" alt="Supprimer le topic"><i class="fa fa-trash">
