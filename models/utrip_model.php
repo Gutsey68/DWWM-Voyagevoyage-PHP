@@ -426,18 +426,6 @@
 				
 				return $rqPrep->execute();
 		}
-		/**
-		 * Supprime une image basé sur son ID.
-		 * @param int $imageId L'ID de l'image à supprimer.
-		 */
-		public function deleteImage($imageId) {
-			$strQuery = "DELETE FROM image
-						WHERE img_id = :image";
-			$rqPrep = $this->_db->prepare($strQuery);
-			$rqPrep->bindValue(":image", $imageId, PDO::PARAM_INT);
-
-			return $rqPrep->execute();
-		}
 
 	}
 
