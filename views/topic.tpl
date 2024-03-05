@@ -27,10 +27,13 @@
                 </div>
             </div>
         </section>
-        {if (isset($_SESSION['user']['user_id'])) &&
-                                    ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}
-                                    <a class="btn btn-danger" onclick="return confirmDelete()" href="{$base_url}forum/delete?id={$objForum->getId()}" alt="Supprimer le topic"><i class="fa fa-trash"> Supprimer le topic</i></a>
-                                    {/if}
+        {if (isset($smarty.session.user.user_id))}
+            {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($smarty.session.user_id == $commenttopic.comt_creatorId)}
+                <a class="btn btn-danger" onclick="return confirmDelete()"
+                    href="{$base_url}forum/delete?id={$objForum->getId()}" alt="Supprimer le topic"><i class="fa fa-trash">
+                        Supprimer le topic</i></a>
+            {/if}
+        {/if}
          {* ajouter un commentaire  *}
          {if ( isset($user.user_id) && $user.user_id != '' )}
             <section id="add-comment">
@@ -79,7 +82,7 @@
                 </div>
             </section>
     {if (isset($smarty.session.user.user_id))}
-        {if (isset($smarty.session.user.user_id) && ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin"))}
+        {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin")}
             <div class="container">
                 <div class="col-6">
                     <h2>Modération</h2>
