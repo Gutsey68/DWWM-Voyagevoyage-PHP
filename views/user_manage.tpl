@@ -48,18 +48,20 @@
 						<div class="row">
 							<div class="col-4"><a class="btn btn-secondary" href="{$base_url}user/user?id={$objUser->getId()}"
 								alt="Modérer l'utilisateur"><i class="fa fa-check-double"></i></a></div>
-							<div class="col-8">
-								<form action="" method="POST">
-									<input type="hidden" name="userId" value="{$objUser->getId()}">
-									<label for="userRole"></label>
-									<select name="userRole" id="userRole">
-										<option value="user">User</option>
-										<option value="modo">Modo</option>
-										<option value="admin">Admin</option>
-									</select>
-									<button class="btn btn-primary" type="submit">Modifier le rôle</button>
-								</form>
-							</div>
+							{if $user.user_role == "admin"}
+								<div class="col-8">
+									<form action="" method="POST">
+										<input type="hidden" name="userId" value="{$objUser->getId()}">
+										<label for="userRole"></label>
+										<select name="userRole" id="userRole">
+											<option value="user">User</option>
+											<option value="modo">Modo</option>
+											<option value="admin">Admin</option>
+										</select>
+										<button class="btn btn-primary" type="submit">Modifier le rôle</button>
+									</form>
+								</div>
+							{/if}
 						</div>
 						</td>
 					</tr>
