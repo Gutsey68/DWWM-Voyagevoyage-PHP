@@ -93,7 +93,7 @@
 			$objUtrip->setBudget("");
 
 		
-			if (count($_POST) > 0 && count($_FILES) > 0) {
+			if (count($_POST) > 0 && count($_FILES) > 0 ){
 				/* 3. Créer un objet article */
 				$objUtrip->hydrate($_POST); // Hydrate avec les données du formulaire
 				
@@ -112,6 +112,9 @@
 				}
 				if ($objUtrip->getCat() == "") {
 					$arrErrors['cat'] = "La catégorie est obligatoire";
+				}
+				if (count($_FILES['image']['name']) > 20 ) {
+					$arrErrors['image'] = "Le nombre d'image est limité à 20";
 				}
 				if (isset($_POST['city']) && !empty($_POST['city'])) {
 					$cityName = $_POST['city'];
