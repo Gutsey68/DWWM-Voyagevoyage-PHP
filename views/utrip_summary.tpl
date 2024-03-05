@@ -6,6 +6,7 @@
 	</div>
 	<p class="margin0">Le voyage de <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
 	<p>à <span class="fst-italic">{$objUtrip->getCity()}</span></p>
+	<p>{$objUtrip->getLike()}<i class="fa-solid fa-heart"> </i></p>
 	{if ( isset($user.user_id) && $user.user_id != '' ) 
 		&& 
 		( $user.user_role == 'admin' || $objUtrip->getCreatorId() == $user.user_id || $user.user_role == 'modo') }
