@@ -66,6 +66,23 @@ a{
     color: var(--green);
 }
 
+.brown-div {
+    background-color: var(--brown) !important;
+    color: var(--beige) !important;
+}
+
+.beige-div {
+    color: var(--brown) !important ;
+    background-color: var(--beige) !important;
+}
+.poppins {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.orange {
+    color: var(--orange) !important;
+}
+
 /* buttons */
 
 .green-btn {
@@ -446,19 +463,26 @@ footer #border-bottom {
     width: 35%;
 }
 
-/* boutton delete sur edit_utrip */
+/* user.tpl */
 
-.btn-close {
-    font-size: 1.5rem; /* ou la taille que vous voulez pour le "X" */
-    line-height: 1;
-    color: black; /* ou la couleur de votre choix */
-    background: transparent;
-    border: 0;
-  }
-  
-  .btn-close:hover {
-    color: red; /* ou la couleur de votre choix pour le survol */
-  }
+.absolut-btn {
+    font-weight: 600;
+    color: var(--beige);
+    background-color: var(--orange);
+    padding: 1rem 1rem;
+    border: solid var(--orange) 2px;
+    border-radius: 5rem;
+    transition: 1000ms;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.absolut-btn:hover {
+    background-color: var(--beige);
+    color: var(--orange);
+    border: solid 2px var(--orange);
+}
 
 /* Tablette */
 
