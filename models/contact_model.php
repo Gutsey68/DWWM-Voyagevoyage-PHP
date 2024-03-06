@@ -27,7 +27,7 @@
 		 */
 		public function insert(object $objContact) {
 			$strQuery	= "	INSERT INTO contact (contact_mail, contact_name, contact_title, contact_content , contact_date, contact_user_id)
-								VALUES (:mail, :name, :title, :content, NOW(), 2);
+								VALUES (:mail, :name, :title, :content, NOW(), 22 );
 								";
 
 			$rqPrep	= $this->_db->prepare($strQuery);

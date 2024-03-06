@@ -54,29 +54,77 @@
          */
         public function contact() {
 
-            $arrErrors = [];
+            $arrErrors = array();
             $objContact = new Contact();
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (count($_POST) > 0){
                 $objContact->hydrate($_POST);
                 $arrErrors = $this->_verifInfos($objContact);
 
-                if (empty($arrErrors) && isset($_POST['envoyer'])) {
-                    $this->_sendEmail($objContact);
+                if(count($arrErrors) == 0){
+                    $objContactModel    = new ContactModel;
+
+                    if ($objContactModel->insert($objContact)){
+                        header("Location:".parent::BASE_URL);
+                    }else{
+                        $arrErrors[] = "Le mail n'a pas pu être envoyé";
+                    }
                 }
-            } else {
-                // Initialisation pour un affichage propre du formulaire
+            }else{ // Formulaire non envoyé
                 $objContact->setMail("");
                 $objContact->setName("");
                 $objContact->setTitle("");
                 $objContact->setContent("");
             }
+if(isset($_POST['envoyer'])){
 
-            $this->_arrData = [
-                "strPage" => "contact",
-                "arrErrors" => $arrErrors,
-                "objContact" => $objContact
-            ];
+
+                $name = $_POST['name'];
+                $mail = $_POST['mail'];
+                $subject = $_POST['title'];
+                $body = $_POST['content'];
+                $email = $mail;
+                $retour = "https://www.voyagevoyage.dwwm.site/";
+
+                $mail = new PHPMailer();
+                $mail->CharSet = "UTF-8";
+                $mail->IsSMTP();
+                $mail->Mailer = "smtp";
+
+                $mail->SMTPDebug= 0;
+                $mail->SMTPAuth= TRUE;
+                $mail->SMTPSecure= "tls";
+                $mail->Port = 587;
+                $mail->Host = "smtp.gmail.com";
+                $mail->Username= 'voyagevoyageprojetcontact@gmail.com';
+                $mail->Password= 'ylaf ecqc gjbc seja';
+
+                $mail->IsHTML(true);
+                $mail->setFrom('voyagevoyageprojetcontact@gmail.com', "Contact VoyageVoyage");
+                $mail->addAddress('voyagevoyageprojet@gmail.com', "L'équipe Voyage Voyage");
+                $mail->Subject= $subject;
+                $mail->Body = '<h1>Nouveau formulaire de contact du site <a href="'.$retour.'">Voyage Voyage</a></h1>
+                    <h2>Expediteur : '.$name.'</h2>
+                    <h2>Mail de l\'expéditeur : '.$email.'</h2>
+                    <h2>Objet du message : '.$subject.'</h2>
+                    <h2>Message de l\'expéditeur :</h2>
+                    <p style="font-size:18px;">'.$body.'</p>';
+                    
+                if (!$mail->send()) {
+                echo'Erreur de Mailer : ' . $mail->ErrorInfo;
+                } else{
+                //echo'Le message a été envoyé.';
+                header("Location:".parent::BASE_URL);
+                }
+            }
+
+            $this->_arrData["strPage"]     = "contact";
+            $this->_arrData["strTitle"]    = "Contact";
+            $this->_arrData["strDesc"]     = "Page de contact";
+
+            $this->_arrData["arrErrors"]     = $arrErrors;
+            $this->_arrData["objContact"]   = $objContact;
+
             $this->afficheTpl("contact");
         }
 

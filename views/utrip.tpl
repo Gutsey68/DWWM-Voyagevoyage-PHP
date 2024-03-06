@@ -15,16 +15,16 @@
     <article class="mt-3 mb-5 p-5 container ">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-xs-12 pt-5 pb-5">
+                <div class="col-md-6 col-xs-12 pt-4 pb-5">
                     {* Titre et contenu *}
                     <h1 class=" green-title">{$objUtrip->getName()}</h1>
                     <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
-                    <div class="pb-3"> {$objUtrip->getDescription()} </div>
                     <ul class="list-unstyled">
                         <li><i class="fa-solid fa-city"></i> : {$objUtrip->getCity()},  {$objUtrip->getCountry()} ({$objUtrip->getCont()})</li>
                         <li><i class="fa-solid fa-list"></i>: {$objUtrip->getCat()}</li>
                         <li><i class="fa-solid fa-wallet"></i> : {$objUtrip->getBudget()} €</li>
                     </ul>
+                    <div class="pb-3"> {$objUtrip->getDescription()} </div>
                     <div class="row">
                         <div class="col-12"><p class="">{count($arrLikes)}<i class="fa-solid fa-heart p-1"></i></p></div>
                         {if (isset($smarty.session.user.user_id))}
@@ -32,38 +32,36 @@
                                 <i class="fa-solid fa-heart ps-3"></i> J'aime</a></div>
                         {/if}
                     </div>
+                        {* Modifier / supprimer l'article  *}
+                        {if ( isset($user.user_id) && $user.user_id != '' ) 
+                            && 
+                            ( $user.user_role == 'admin' || $objUtrip->getCreatorId() == $user.user_id || $user.user_role == 'modo') }
+                            <div class="container">
+                                <div class="row mt-3">
+                                    <div class="col-6 button-center">
+                                        <a class="green-btn" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="ps-1 fa-solid fa-pen-to-square"></i> Modifier l'article</a>
+                                    </div>
+                                    <div class="col-6 button-center">
+                                            <a class="green-btn" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" onclick="return confirmDelete()" alt="Supprimer l'article"><i class="ps-1 fa-solid fa-trash"></i>Supprimer l'article</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {/if}
                 </div>
-                <div class="col-md-6 col-xs-12 text-center">
+                <div class="col-md-6 col-xs-12 text-end mt-5">
                     <img height="500px" width="600px" src="uploads/{$objUtrip->getImg()}" alt="">
                 </div>  
             </div>
         </div>
     </article>
-    {* Modifier / supprimer l'article  *}
-    {if ( isset($user.user_id) && $user.user_id != '' ) 
-        && 
-        ( $user.user_role == 'admin' || $objUtrip->getCreatorId() == $user.user_id || $user.user_role == 'modo') }
-        <div class="container">
-            <div class="row">
-                <div class="col-6 button-center">
-                    <a class="green-btn" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="ps-1 fa-solid fa-pen-to-square"></i> Modifier l'article</a>
-                </div>
-                <div class="col-6 button-center">
-                        <a class="green-btn" href="{$base_url}utrip/delete?id={$objUtrip->getId()}" onclick="return confirmDelete()" alt="Supprimer l'article"><i class="ps-1 fa-solid fa-trash"></i>Supprimer l'article</i></a>
-                </div>
-            </div>
-        </div>
-    {/if}
     {* Boucle pour afficher les images *}
     <div class="container mt-5 mb-5">
         <div class="row">
-            <div class="col">
                 {foreach from=$arrUtripImgs item=$image}
-                    <div class="p-3">
+                    <div class="col-3">
                         <img height="200px" width="300px" src="uploads/{$image.img_link}" alt="">
                     </div>
                 {/foreach}
-            </div>
         </div>
     </div>
     {* Partie modération *}
