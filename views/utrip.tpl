@@ -43,7 +43,13 @@
         </div>
     </div>
 </article>
-
+				{* 2 derniers articles ajoutés de la cat *}
+				<div class="row rounded-5 brown-div shadow-lg mt-5 mb-5 ms-5 p-5" >
+					<h2 class="fs-3 orange">Dans la même catégorie</h2>
+					{foreach from=$arrUtripsCatToDisplay item=objUtrip}
+						{include file="views/utrip_summary.tpl"}
+					{/foreach}
+				</div>
 
 
                         

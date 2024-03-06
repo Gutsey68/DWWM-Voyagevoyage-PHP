@@ -336,13 +336,25 @@ class UtripCtrl extends Ctrl {
 						$objUtripModel->moderate($objUtrip);
 					}
 			 }
+
+			// Récupérer la catégorie de l'article
+			$strCat = $objUtrip->getCat();
+
+			// Récupération des Utrips liés à l'utilisateur.
+			$objUtripCatModel = new UtripModel();
+			$arrUtripsCat = $objUtripCatModel->findUtripByCat($intUtripId,$strCat, 2);
+			
+			$arrUtripsCatToDisplay = array();
+			foreach ($arrUtripsCat as $arrDetailUtripCat) {
+				$objUtripCat = new Utrip();
+				$objUtripCat->hydrate($arrDetailUtripCat);
+				$arrUtripsCatToDisplay[] = $objUtripCat; }
 			
 			$arrComments = $objUtripModel->getCom($intUtripId);
 			$this->_arrData["arrComments"] = $arrComments;
 
 			// instance du like
 			$objUtripModelLike	= new UtripModel();
-			$objLike = new Like();
 			$arrLikes = $objUtripModelLike->getLikes($intUtripId);
 
 			$this->_arrData["arrLikes"] = $arrLikes;
@@ -351,9 +363,7 @@ class UtripCtrl extends Ctrl {
 			$this->_arrData["objComment"]	= $objComment;
             $this->_arrData["strPage"]     = "utrip";
 			$this->_arrData["arrUtripImgs"] = $arrUtripImgs;
-
-
-
+			$this->_arrData["arrUtripsCatToDisplay"] = $arrUtripsCatToDisplay;
 
             $this->afficheTpl("utrip");
         }

@@ -210,7 +210,8 @@
 
 			$strQuery 	= "SELECT utrip_id , utrip_name , utrip_description , utrip_budget , user_id AS 'utrip_creatorId' , 
 							utrip_date , user_pseudo AS 'utrip_creator' , img_link AS 'utrip_img' , cities_name
-							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , countries_name AS 'utrip_country'
+							AS 'utrip_city' , cat_lib AS 'utrip_cat' , regions_name AS 'utrip_cont' , countries_name AS 'utrip_country' , 
+							(SELECT COUNT(*) FROM likes WHERE like_utrip_id = utrip.utrip_id) AS utrip_like
 									FROM utrip 
 									LEFT OUTER JOIN image ON img_utrip_id = utrip_id
 									LEFT OUTER JOIN users ON user_id = utrip_user_id
@@ -506,7 +507,8 @@
 		/**
 		 * Méthode permettant de récupérer les utrips d'un utilisateur.
 		 *
-		 * @param int $userId Identifiant de l'utilisateur
+		 * @param int $id Identifiant de l'utilisateur
+		 * @param int $intLimit Limite de résultats à récupérer.
 		 * @return array|false Tableau des utrips de l'utilisateur ou false en cas d'échec.
 		 */  
 		public function findUtripByUser($id, int $intLimit = 0) {
@@ -531,6 +533,47 @@
 
 			$rqPrep = $this->_db->prepare($strQuery);
 
+			$rqPrep->bindValue(":limit", $intLimit, PDO::PARAM_INT);
+			$rqPrep->bindValue(":id", $id, PDO::PARAM_INT);
+
+			$rqPrep->execute();
+
+			return $rqPrep->fetchAll();;
+		}
+
+		/**
+		 * Méthode de récupération de tous les articles d'une catégorie spécifique.
+		 *
+		 * @param int $id L'ID de la catégorie.
+		 * @param string $strCat Le nom de la catégorie.
+		 * @param int $intLimit Limite de résultats à récupérer.
+		 * @return array Tableau des articles de la catégorie spécifiée.
+		 */
+		public function findUtripByCat($id, $strCat, int $intLimit = 0) {
+
+			$strQuery 	= "SELECT utrip.utrip_id, utrip_name, utrip_description, utrip_budget, cities_id, cities_id AS 'utrip_cityId',
+			utrip_date, user_pseudo AS 'utrip_creator', user_id AS 'utrip_creatorId', countries_name AS 'utrip_country' ,
+			cities_name AS 'utrip_city', cat_lib AS 'utrip_cat', regions_name AS 'utrip_cont', cat_id AS 'utrip_catId' ,
+					( SELECT img_link FROM image WHERE img_utrip_id = utrip.utrip_id ORDER BY 1 LIMIT 1
+					) AS 'utrip_img' , 
+						(SELECT COUNT(*) FROM likes WHERE like_utrip_id = utrip.utrip_id) AS utrip_like
+							FROM utrip 
+							RIGHT OUTER JOIN image ON img_utrip_id = utrip_id
+							LEFT OUTER JOIN users ON user_id = utrip_user_id
+							LEFT OUTER JOIN cities ON cities_id = utrip_city
+							LEFT OUTER JOIN countries ON cities_country_id = countries_id
+							LEFT OUTER JOIN regions ON countries_region_id = regions_id
+							LEFT OUTER JOIN categorie ON utrip_cat = cat_id
+							LEFT OUTER JOIN comments ON com_utrip_id = utrip_id
+							LEFT OUTER JOIN likes ON utrip_id = like_utrip_id
+							WHERE cat_lib = :cat 
+							AND utrip_id != :id
+							GROUP BY utrip.utrip_id
+							ORDER BY utrip_date DESC LIMIT :limit  ";
+
+			$rqPrep = $this->_db->prepare($strQuery);
+
+			$rqPrep->bindValue(":cat", $strCat, PDO::PARAM_STR);
 			$rqPrep->bindValue(":limit", $intLimit, PDO::PARAM_INT);
 			$rqPrep->bindValue(":id", $id, PDO::PARAM_INT);
 
