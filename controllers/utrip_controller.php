@@ -342,7 +342,7 @@ class UtripCtrl extends Ctrl {
 
 			// Récupération des Utrips liés à l'utilisateur.
 			$objUtripCatModel = new UtripModel();
-			$arrUtripsCat = $objUtripCatModel->findUtripByCat($intUtripId,$strCat, 2);
+			$arrUtripsCat = $objUtripCatModel->findUtripByCat($intUtripId,$strCat, 4);
 			
 			$arrUtripsCatToDisplay = array();
 			foreach ($arrUtripsCat as $arrDetailUtripCat) {

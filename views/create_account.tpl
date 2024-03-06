@@ -14,17 +14,17 @@
         <div class="">
             <div class="form-group mb-3">
                 <label for="name">Nom <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="name" id="name" value="{$objUser->getName()}">
+                <input type="text" class="form-control" name="name" id="name" value="">
             </div>
 
             <div class="form-group mb-3">
                 <label for="firstname">Prénom <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="firstname" id="firstname" value="{$objUser->getFirstname()}">
+                <input type="text" class="form-control" name="firstname" id="firstname" value="">
             </div>
 
             <div class="form-group mb-3">
                 <label for="pseudo">Pseudo <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="pseudo" id="pseudo" value="{$objUser->getPseudo()}">
+                <input type="text" class="form-control" name="pseudo" id="pseudo" value="">
             </div>
 
             <div class="form-group mb-3">
