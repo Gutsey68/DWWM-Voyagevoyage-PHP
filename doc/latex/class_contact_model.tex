@@ -1,0 +1,66 @@
+\doxysection{Référence de la classe Contact\+Model}
+\hypertarget{class_contact_model}{}\label{class_contact_model}\index{ContactModel@{ContactModel}}
+Graphe d\textquotesingle{}héritage de Contact\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_contact_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_contact_model_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_contact_model_abc19eda874bc8db68627e5baafe4ef46}{insert}} (object \$obj\+Contact)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_model}{Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$\+\_\+db}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe permettant la gestion des contacts en base de données. Fournit les fonctionnalités pour insérer de nouveaux contacts à partir des données soumises via un formulaire.
+
+\begin{DoxyAuthor}{Auteur}
+Groupe1 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_contact_model_a095c5d389db211932136b53f25f39685}\label{class_contact_model_a095c5d389db211932136b53f25f39685} 
+\index{ContactModel@{ContactModel}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!ContactModel@{ContactModel}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructeur de la classe \doxylink{class_contact_model}{Contact\+Model}. Initialise une nouvelle instance de la classe en établissant une connexion à la base de données via le constructeur de la classe parente. 
+
+Réimplémentée à partir de \mbox{\hyperlink{class_model}{Model}}.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_contact_model_abc19eda874bc8db68627e5baafe4ef46}\label{class_contact_model_abc19eda874bc8db68627e5baafe4ef46} 
+\index{ContactModel@{ContactModel}!insert@{insert}}
+\index{insert@{insert}!ContactModel@{ContactModel}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily insert (\begin{DoxyParamCaption}\item[{object}]{\$obj\+Contact }\end{DoxyParamCaption})}
+
+Insère un nouveau contact dans la base de données. Utilise les informations fournies par un objet contact pour créer un nouveau record dans la table des contacts.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Contact} & Objet contact contenant les données à insérer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Retourne true si l\textquotesingle{}insertion a réussi, false en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/models/contact\+\_\+model.\+php\end{DoxyCompactItemize}

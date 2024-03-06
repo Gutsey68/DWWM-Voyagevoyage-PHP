@@ -1,0 +1,51 @@
+\doxysection{Référence de la classe Entity}
+\hypertarget{class_entity}{}\label{class_entity}\index{Entity@{Entity}}
+Graphe d\textquotesingle{}héritage de Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.568627cm]{class_entity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a9231474670bf1388a216eadd586c43d0}{hydrate}} (\$arr\+Data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_entity_acfb9635bf4953126e6d2669f4e25617b}\label{class_entity_acfb9635bf4953126e6d2669f4e25617b} 
+string {\bfseries \$\+\_\+str\+Prefixe}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe de base pour toutes les entités. Fournit des fonctionnalités communes à toutes les entités, telles que l\textquotesingle{}hydratation. L\textquotesingle{}hydratation est le processus de remplissage d\textquotesingle{}un objet avec des données à partir d\textquotesingle{}un tableau.
+
+\begin{DoxyAuthor}{Auteur}
+Gauthier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2024 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_entity_a9231474670bf1388a216eadd586c43d0}\label{class_entity_a9231474670bf1388a216eadd586c43d0} 
+\index{Entity@{Entity}!hydrate@{hydrate}}
+\index{hydrate@{hydrate}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{hydrate()}{hydrate()}}
+{\footnotesize\ttfamily hydrate (\begin{DoxyParamCaption}\item[{}]{\$arr\+Data }\end{DoxyParamCaption})}
+
+Hydrate l\textquotesingle{}objet avec les données fournies dans le tableau. Parcoure chaque clé du tableau et, si un setter correspondant existe dans l\textquotesingle{}objet, appelle ce setter avec la valeur associée. Les clés du tableau doivent correspondre aux noms des attributs de l\textquotesingle{}objet, préfixés et formatés pour correspondre à la convention des setters.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$arr\+Data} & Tableau associatif des données à utiliser pour hydrater l\textquotesingle{}objet. Les clés doivent correspondre aux attributs de l\textquotesingle{}objet, préfixées par \$\+\_\+str\+Prefixe. \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/entities/parent\+\_\+entity.\+php\end{DoxyCompactItemize}

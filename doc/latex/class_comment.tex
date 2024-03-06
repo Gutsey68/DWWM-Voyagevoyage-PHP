@@ -1,0 +1,225 @@
+\doxysection{Référence de la classe Comment}
+\hypertarget{class_comment}{}\label{class_comment}\index{Comment@{Comment}}
+Graphe d\textquotesingle{}héritage de Comment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_comment}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_comment_a12251d0c022e9e21c137a105ff683f13}{get\+Id}} ()
+\item 
+\mbox{\hyperlink{class_comment_a907c4278050a2eee3f22ed054a5c7414}{set\+Id}} (int \$int\+Id)
+\item 
+\mbox{\hyperlink{class_comment_a58e43f09a06ce4e29b192c4e17ce7915}{get\+Content}} ()
+\item 
+\mbox{\hyperlink{class_comment_a5dedab95c6d407242e322a5a837b3d4b}{set\+Content}} (string \$str\+Content)
+\item 
+\mbox{\hyperlink{class_comment_a24d89b0ad05ea2e33626b1fc8ed59bc3}{get\+Date}} ()
+\item 
+\mbox{\hyperlink{class_comment_a3af058ef0d2d4c91d2628b5adfa6944e}{set\+Date}} (string \$str\+Date)
+\item 
+\mbox{\hyperlink{class_comment_a2af8add37797384585cae101fb8cbfe7}{get\+Image}} ()
+\item 
+\mbox{\hyperlink{class_comment_a31c8b1b930579352d8c7355adc54deb2}{set\+Image}} (string \$str\+Image)
+\item 
+\mbox{\hyperlink{class_comment_af75b92c0e3f74effc3b4ff4e328ec101}{get\+Date\+Fr}} ()
+\item 
+\mbox{\hyperlink{class_comment_a8650a8dab4e3ed5205a259687106227e}{get\+Creator}} ()
+\item 
+\mbox{\hyperlink{class_comment_ad8766308109e4797a02548059dea9a8a}{set\+Creator}} (string \$str\+Creator)
+\item 
+\mbox{\hyperlink{class_comment_ad95be7f4a4bd87b24f622fe537712b86}{get\+Creator\+Id}} ()
+\item 
+\mbox{\hyperlink{class_comment_ad2d0f1b078ac74c105bc6bd7160665d3}{set\+Creator\+Id}} (int \$int\+Creator\+Id)
+\item 
+\mbox{\hyperlink{class_comment_aaa70a4eaeee7fdfcd6fd5d42ff839ca3}{get\+Utrip\+Id}} ()
+\item 
+\mbox{\hyperlink{class_comment_ad07b3556e90eedf1a50eb78bd9f94e4d}{set\+Utrip\+Id}} (int \$int\+Utrip\+Id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a9231474670bf1388a216eadd586c43d0}{hydrate}} (\$arr\+Data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_comment_acfb9635bf4953126e6d2669f4e25617b}\label{class_comment_acfb9635bf4953126e6d2669f4e25617b} 
+string {\bfseries \$\+\_\+str\+Prefixe} = "{}com\+\_\+"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+string {\bfseries \$\+\_\+str\+Prefixe}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe entité représentant un commentaire dans l\textquotesingle{}application. Elle hérite de la classe \doxylink{class_entity}{Entity} pour une intégration facile avec le système de base de données. Permet la gestion des attributs d\textquotesingle{}un commentaire comme son contenu, date, image associée, et le créateur.
+
+\begin{DoxyAuthor}{Auteur}
+Gauthier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2024 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_comment_a58e43f09a06ce4e29b192c4e17ce7915}\label{class_comment_a58e43f09a06ce4e29b192c4e17ce7915} 
+\index{Comment@{Comment}!getContent@{getContent}}
+\index{getContent@{getContent}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getContent()}{getContent()}}
+{\footnotesize\ttfamily get\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère le contenu du commentaire. \begin{DoxyReturn}{Renvoie}
+string Contenu du commentaire. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_a8650a8dab4e3ed5205a259687106227e}\label{class_comment_a8650a8dab4e3ed5205a259687106227e} 
+\index{Comment@{Comment}!getCreator@{getCreator}}
+\index{getCreator@{getCreator}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getCreator()}{getCreator()}}
+{\footnotesize\ttfamily get\+Creator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère le nom de l\textquotesingle{}auteur du commentaire. \begin{DoxyReturn}{Renvoie}
+string Nom de l\textquotesingle{}auteur du commentaire. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_ad95be7f4a4bd87b24f622fe537712b86}\label{class_comment_ad95be7f4a4bd87b24f622fe537712b86} 
+\index{Comment@{Comment}!getCreatorId@{getCreatorId}}
+\index{getCreatorId@{getCreatorId}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getCreatorId()}{getCreatorId()}}
+{\footnotesize\ttfamily get\+Creator\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère l\textquotesingle{}identifiant de l\textquotesingle{}auteur du commentaire. \begin{DoxyReturn}{Renvoie}
+int Identifiant de l\textquotesingle{}auteur. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_a24d89b0ad05ea2e33626b1fc8ed59bc3}\label{class_comment_a24d89b0ad05ea2e33626b1fc8ed59bc3} 
+\index{Comment@{Comment}!getDate@{getDate}}
+\index{getDate@{getDate}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère la date de création du commentaire. \begin{DoxyReturn}{Renvoie}
+string Date de création du commentaire. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_af75b92c0e3f74effc3b4ff4e328ec101}\label{class_comment_af75b92c0e3f74effc3b4ff4e328ec101} 
+\index{Comment@{Comment}!getDateFr@{getDateFr}}
+\index{getDateFr@{getDateFr}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getDateFr()}{getDateFr()}}
+{\footnotesize\ttfamily get\+Date\+Fr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère la date de création du commentaire au format français (jj/mm/aaaa). \begin{DoxyReturn}{Renvoie}
+string Date au format français. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_a12251d0c022e9e21c137a105ff683f13}\label{class_comment_a12251d0c022e9e21c137a105ff683f13} 
+\index{Comment@{Comment}!getId@{getId}}
+\index{getId@{getId}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère l\textquotesingle{}identifiant du commentaire. \begin{DoxyReturn}{Renvoie}
+int Identifiant du commentaire. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_a2af8add37797384585cae101fb8cbfe7}\label{class_comment_a2af8add37797384585cae101fb8cbfe7} 
+\index{Comment@{Comment}!getImage@{getImage}}
+\index{getImage@{getImage}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getImage()}{getImage()}}
+{\footnotesize\ttfamily get\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère l\textquotesingle{}image associée au commentaire. \begin{DoxyReturn}{Renvoie}
+string Chemin vers l\textquotesingle{}image du commentaire. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_aaa70a4eaeee7fdfcd6fd5d42ff839ca3}\label{class_comment_aaa70a4eaeee7fdfcd6fd5d42ff839ca3} 
+\index{Comment@{Comment}!getUtripId@{getUtripId}}
+\index{getUtripId@{getUtripId}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getUtripId()}{getUtripId()}}
+{\footnotesize\ttfamily get\+Utrip\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Récupère l\textquotesingle{}identifiant de l\textquotesingle{}article associé au commentaire. \begin{DoxyReturn}{Renvoie}
+int Identifiant de l\textquotesingle{}article. 
+\end{DoxyReturn}
+\Hypertarget{class_comment_a5dedab95c6d407242e322a5a837b3d4b}\label{class_comment_a5dedab95c6d407242e322a5a837b3d4b} 
+\index{Comment@{Comment}!setContent@{setContent}}
+\index{setContent@{setContent}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setContent()}{setContent()}}
+{\footnotesize\ttfamily set\+Content (\begin{DoxyParamCaption}\item[{string}]{\$str\+Content }\end{DoxyParamCaption})}
+
+Définit le contenu du commentaire. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Content} & Nouveau contenu pour le commentaire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comment_ad8766308109e4797a02548059dea9a8a}\label{class_comment_ad8766308109e4797a02548059dea9a8a} 
+\index{Comment@{Comment}!setCreator@{setCreator}}
+\index{setCreator@{setCreator}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setCreator()}{setCreator()}}
+{\footnotesize\ttfamily set\+Creator (\begin{DoxyParamCaption}\item[{string}]{\$str\+Creator }\end{DoxyParamCaption})}
+
+Définit le nom de l\textquotesingle{}auteur du commentaire. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Creator} & Nouveau nom pour l\textquotesingle{}auteur du commentaire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comment_ad2d0f1b078ac74c105bc6bd7160665d3}\label{class_comment_ad2d0f1b078ac74c105bc6bd7160665d3} 
+\index{Comment@{Comment}!setCreatorId@{setCreatorId}}
+\index{setCreatorId@{setCreatorId}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setCreatorId()}{setCreatorId()}}
+{\footnotesize\ttfamily set\+Creator\+Id (\begin{DoxyParamCaption}\item[{int}]{\$int\+Creator\+Id }\end{DoxyParamCaption})}
+
+Définit l\textquotesingle{}identifiant de l\textquotesingle{}auteur du commentaire. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Creator\+Id} & Nouvel identifiant pour l\textquotesingle{}auteur du commentaire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comment_a3af058ef0d2d4c91d2628b5adfa6944e}\label{class_comment_a3af058ef0d2d4c91d2628b5adfa6944e} 
+\index{Comment@{Comment}!setDate@{setDate}}
+\index{setDate@{setDate}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily set\+Date (\begin{DoxyParamCaption}\item[{string}]{\$str\+Date }\end{DoxyParamCaption})}
+
+Définit la date de création du commentaire. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Date} & Nouvelle date pour le commentaire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comment_a907c4278050a2eee3f22ed054a5c7414}\label{class_comment_a907c4278050a2eee3f22ed054a5c7414} 
+\index{Comment@{Comment}!setId@{setId}}
+\index{setId@{setId}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily set\+Id (\begin{DoxyParamCaption}\item[{int}]{\$int\+Id }\end{DoxyParamCaption})}
+
+Définit l\textquotesingle{}identifiant du commentaire. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Id} & Nouvel identifiant pour le commentaire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comment_a31c8b1b930579352d8c7355adc54deb2}\label{class_comment_a31c8b1b930579352d8c7355adc54deb2} 
+\index{Comment@{Comment}!setImage@{setImage}}
+\index{setImage@{setImage}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setImage()}{setImage()}}
+{\footnotesize\ttfamily set\+Image (\begin{DoxyParamCaption}\item[{string}]{\$str\+Image }\end{DoxyParamCaption})}
+
+Définit l\textquotesingle{}image associée au commentaire. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Image} & Nouveau chemin vers l\textquotesingle{}image pour le commentaire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_comment_ad07b3556e90eedf1a50eb78bd9f94e4d}\label{class_comment_ad07b3556e90eedf1a50eb78bd9f94e4d} 
+\index{Comment@{Comment}!setUtripId@{setUtripId}}
+\index{setUtripId@{setUtripId}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setUtripId()}{setUtripId()}}
+{\footnotesize\ttfamily set\+Utrip\+Id (\begin{DoxyParamCaption}\item[{int}]{\$int\+Utrip\+Id }\end{DoxyParamCaption})}
+
+Définit l\textquotesingle{}identifiant de l\textquotesingle{}article associé au commentaire. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Utrip\+Id} & Nouvel identifiant pour l\textquotesingle{}article. \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/entities/comment\+\_\+entity.\+php\end{DoxyCompactItemize}
