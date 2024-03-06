@@ -73,7 +73,7 @@
             {* ajouter un commentaire  *}
             {if ( isset($user.user_id) && $user.user_id != '' )}
                 <section id="ad-comment" class="mt-3">
-                    <div class="container ">
+                    <div class="form-container ">
                         <div class="row ps-3 pe-3 pb-3">
                             <div class="col-12">
                                 <h3>Ajouter un commentaire</h3>
@@ -92,7 +92,7 @@
                 </section>
             {else}
                 <section id="ad-comment">
-                    <div class="container ">
+                    <div class="form-container ">
                         <div class="row ps-3 pe-3">
                             <div class="col-12">
                                 <h3 class="fs-5 green-title poppins"><i class="pe-1 fa-solid fa-circle-info"></i>Vous devez être inscrit pour écrire un commentaire</h3>
@@ -103,7 +103,7 @@
             {/if}
             {* boucle des commentaires *}
             <section id="utrip-comments" class="mb-5">
-                <div class="container ">
+                <div class="form-container ">
                     <div class="row ps-3 pe-3">
                         <div class="col-12">
                         {if $arrComments|@count > 0}
@@ -168,9 +168,9 @@
     {* 2 derniers articles ajoutés de la cat *}
     <section class="mb-5">
         <div class="container pt-3 pb-3">
-            <div class="row">
+            <div class="row ">
             {if $arrUtripsCatToDisplay|@count > 0}
-                <h2 class="green-title .padding-bottom0"> Découvrez d'autres récits dans le même thème</h2>
+                <h2 class="green-title text-center padding-bottom0"> Découvrez d'autres récits dans le même thème</h2>
             {/if}
                 {foreach from=$arrUtripsCatToDisplay item=objUtrip}
                     {include file="views/utrip_summary.tpl"}
