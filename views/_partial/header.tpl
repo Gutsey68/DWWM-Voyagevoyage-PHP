@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="http://localhost/projet_2/" />
+    <base href="https://www.voyagevoyage.dwwm.site/" />
     <link rel="shortcut icon" href="assets/images/logo-projet-2.png">
     <title>VoyageVoyage | Vos voyages , nos histoires </title>
     <meta name="description"

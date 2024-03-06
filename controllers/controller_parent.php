@@ -7,7 +7,7 @@
     class Ctrl {
 
 		// URL de base de l'application
-		const BASE_URL = "http://localhost/projet_2/";
+		const BASE_URL = "https://www.voyagevoyage.dwwm.site/";
 		
 		// Stocke les messages d'erreur à afficher dans les templates
 		protected array $_arrErrors = array();
