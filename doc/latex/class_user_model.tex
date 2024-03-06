@@ -1,0 +1,260 @@
+\doxysection{Référence de la classe User\+Model}
+\hypertarget{class_user_model}{}\label{class_user_model}\index{UserModel@{UserModel}}
+Graphe d\textquotesingle{}héritage de User\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_user_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_model_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_user_model_a73a1b0348919b6755e4f69dcc70eba64}{find\+All}} ()
+\item 
+\mbox{\hyperlink{class_user_model_abae4e4e1897eb76eb48dd2a1420c9375}{get}} (int \$id)
+\item 
+\mbox{\hyperlink{class_user_model_a68800c6e59f7e2bd053c3a624fb149ed}{search\+User}} (string \$str\+Email, string \$str\+Password)
+\item 
+\mbox{\hyperlink{class_user_model_a9937f66c443a89d14f5809f95a39d3e6}{verif\+Mail}} (string \$str\+Mail)
+\item 
+\mbox{\hyperlink{class_user_model_ab0eb29a478a1230d479aee1046b0f1dc}{insert}} (object \$obj\+User)
+\item 
+\mbox{\hyperlink{class_user_model_a4f2888d0004092a367fa2d1b2620818f}{update}} (object \$obj\+User)
+\item 
+\mbox{\hyperlink{class_user_model_aa06ba120fbd6f08cc150ca4740b34fce}{update\+Pp}} (object \$obj\+User)
+\item 
+\mbox{\hyperlink{class_user_model_a11f713f2f7cc06be6e16f71d5a0d6eb5}{get\+By\+Mail}} (string \$str\+Email)
+\item 
+\mbox{\hyperlink{class_user_model_a4c630c5d3fa123fa51be56752b2e6577}{update\+Reco}} (string \$str\+Code, int \$int\+Id)
+\item 
+\mbox{\hyperlink{class_user_model_ab0ef5594cb3613da6cab5d9ed06a1a97}{search\+By\+Code}} (\$str\+Code)
+\item 
+\mbox{\hyperlink{class_user_model_a152c2150aa145ebd566abfef0078e772}{update\+Pwd}} (\$str\+Password)
+\item 
+\mbox{\hyperlink{class_user_model_a38c538b8aa0e836091f87f85953dec68}{find\+List}} ()
+\item 
+\mbox{\hyperlink{class_user_model_a3d4592e024e0740558366df2c3406702}{moderate}} (\$obj\+User)
+\item 
+\mbox{\hyperlink{class_user_model_a9bb4e869d9c4a6466fc110c69e2e6332}{update\+Role}} (\$id, \$role)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_model}{Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$\+\_\+db}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_user_model_a095c5d389db211932136b53f25f39685}\label{class_user_model_a095c5d389db211932136b53f25f39685} 
+\index{UserModel@{UserModel}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructeur de la classe 
+
+Réimplémentée à partir de \mbox{\hyperlink{class_model}{Model}}.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_user_model_a73a1b0348919b6755e4f69dcc70eba64}\label{class_user_model_a73a1b0348919b6755e4f69dcc70eba64} 
+\index{UserModel@{UserModel}!findAll@{findAll}}
+\index{findAll@{findAll}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{findAll()}{findAll()}}
+{\footnotesize\ttfamily find\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode de récupération de tous les utilisateurs \begin{DoxyReturn}{Renvoie}
+Tableau des utilisateurs 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a38c538b8aa0e836091f87f85953dec68}\label{class_user_model_a38c538b8aa0e836091f87f85953dec68} 
+\index{UserModel@{UserModel}!findList@{findList}}
+\index{findList@{findList}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{findList()}{findList()}}
+{\footnotesize\ttfamily find\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}administration de la gestion des utilisateurs \begin{DoxyReturn}{Renvoie}
+array Liste des utilisateurs pour administration 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_abae4e4e1897eb76eb48dd2a1420c9375}\label{class_user_model_abae4e4e1897eb76eb48dd2a1420c9375} 
+\index{UserModel@{UserModel}!get@{get}}
+\index{get@{get}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode de récupération d\textquotesingle{}un utilisateur 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Tableau de l\textquotesingle{}utilisateur 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a11f713f2f7cc06be6e16f71d5a0d6eb5}\label{class_user_model_a11f713f2f7cc06be6e16f71d5a0d6eb5} 
+\index{UserModel@{UserModel}!getByMail@{getByMail}}
+\index{getByMail@{getByMail}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{getByMail()}{getByMail()}}
+{\footnotesize\ttfamily get\+By\+Mail (\begin{DoxyParamCaption}\item[{string}]{\$str\+Email }\end{DoxyParamCaption})}
+
+Méthode qui récupère l\textquotesingle{}ID d\textquotesingle{}un utilisateur en fonction de son email 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Email} & Email de l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int\texorpdfstring{$\vert$}{|}false ID de l\textquotesingle{}utilisateur ou false si non trouvé 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_ab0eb29a478a1230d479aee1046b0f1dc}\label{class_user_model_ab0eb29a478a1230d479aee1046b0f1dc} 
+\index{UserModel@{UserModel}!insert@{insert}}
+\index{insert@{insert}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily insert (\begin{DoxyParamCaption}\item[{object}]{\$obj\+User }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}insertion d\textquotesingle{}un utilisateur en BDD 
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+User} & Objet représentant l\textquotesingle{}utilisateur à insérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Vrai si l\textquotesingle{}insertion a réussi, faux sinon 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a3d4592e024e0740558366df2c3406702}\label{class_user_model_a3d4592e024e0740558366df2c3406702} 
+\index{UserModel@{UserModel}!moderate@{moderate}}
+\index{moderate@{moderate}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{moderate()}{moderate()}}
+{\footnotesize\ttfamily moderate (\begin{DoxyParamCaption}\item[{}]{\$obj\+User }\end{DoxyParamCaption})}
+
+Méthode permettant de mettre à jour l\textquotesingle{}utilisateur avec les informations de modération 
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+User} & Objet utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Vrai si la modération a réussi 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_ab0ef5594cb3613da6cab5d9ed06a1a97}\label{class_user_model_ab0ef5594cb3613da6cab5d9ed06a1a97} 
+\index{UserModel@{UserModel}!searchByCode@{searchByCode}}
+\index{searchByCode@{searchByCode}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{searchByCode()}{searchByCode()}}
+{\footnotesize\ttfamily search\+By\+Code (\begin{DoxyParamCaption}\item[{}]{\$str\+Code }\end{DoxyParamCaption})}
+
+Méthode de recherche d\textquotesingle{}un utilisateur par son code de récupération 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Code} & Code de récupération \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}false Informations de l\textquotesingle{}utilisateur ou false si non trouvé 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a68800c6e59f7e2bd053c3a624fb149ed}\label{class_user_model_a68800c6e59f7e2bd053c3a624fb149ed} 
+\index{UserModel@{UserModel}!searchUser@{searchUser}}
+\index{searchUser@{searchUser}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{searchUser()}{searchUser()}}
+{\footnotesize\ttfamily search\+User (\begin{DoxyParamCaption}\item[{string}]{\$str\+Email,  }\item[{string}]{\$str\+Password }\end{DoxyParamCaption})}
+
+Méthode de récupération d\textquotesingle{}un utilisateur en fonction de son mail et son mot de passe 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Email} & Email de l\textquotesingle{}utilisateur \\
+\hline
+string & {\em \$str\+Password} & Mot de passe de l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}false Tableau contenant les informations de l\textquotesingle{}utilisateur ou false si non trouvé 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a4f2888d0004092a367fa2d1b2620818f}\label{class_user_model_a4f2888d0004092a367fa2d1b2620818f} 
+\index{UserModel@{UserModel}!update@{update}}
+\index{update@{update}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}\item[{object}]{\$obj\+User }\end{DoxyParamCaption})}
+
+Méthode de mise à jour d\textquotesingle{}un utilisateur en BDD 
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+User} & Objet représentant l\textquotesingle{}utilisateur à mettre à jour \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Vrai si la mise à jour a réussi, faux sinon 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_aa06ba120fbd6f08cc150ca4740b34fce}\label{class_user_model_aa06ba120fbd6f08cc150ca4740b34fce} 
+\index{UserModel@{UserModel}!updatePp@{updatePp}}
+\index{updatePp@{updatePp}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{updatePp()}{updatePp()}}
+{\footnotesize\ttfamily update\+Pp (\begin{DoxyParamCaption}\item[{object}]{\$obj\+User }\end{DoxyParamCaption})}
+
+Méthode de mise à jour de la photo de profil d\textquotesingle{}un utilisateur 
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+User} & Objet représentant l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Vrai si la mise à jour a réussi, faux sinon 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a152c2150aa145ebd566abfef0078e772}\label{class_user_model_a152c2150aa145ebd566abfef0078e772} 
+\index{UserModel@{UserModel}!updatePwd@{updatePwd}}
+\index{updatePwd@{updatePwd}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{updatePwd()}{updatePwd()}}
+{\footnotesize\ttfamily update\+Pwd (\begin{DoxyParamCaption}\item[{}]{\$str\+Password }\end{DoxyParamCaption})}
+
+Méthode de mise à jour du mot de passe d\textquotesingle{}un utilisateur 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Password} & Nouveau mot de passe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Vrai si la mise à jour a réussi, faux sinon 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a4c630c5d3fa123fa51be56752b2e6577}\label{class_user_model_a4c630c5d3fa123fa51be56752b2e6577} 
+\index{UserModel@{UserModel}!updateReco@{updateReco}}
+\index{updateReco@{updateReco}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{updateReco()}{updateReco()}}
+{\footnotesize\ttfamily update\+Reco (\begin{DoxyParamCaption}\item[{string}]{\$str\+Code,  }\item[{int}]{\$int\+Id }\end{DoxyParamCaption})}
+
+Méthode de mise à jour du code et de la date de récupération du mot de passe 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Code} & Code de récupération \\
+\hline
+int & {\em \$int\+Id} & ID de l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Vrai si la mise à jour a réussi, faux sinon 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a9bb4e869d9c4a6466fc110c69e2e6332}\label{class_user_model_a9bb4e869d9c4a6466fc110c69e2e6332} 
+\index{UserModel@{UserModel}!updateRole@{updateRole}}
+\index{updateRole@{updateRole}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{updateRole()}{updateRole()}}
+{\footnotesize\ttfamily update\+Role (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$role }\end{DoxyParamCaption})}
+
+Met à jour le rôle d\textquotesingle{}un utilisateur dans la base de données. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & L\textquotesingle{}identifiant de l\textquotesingle{}utilisateur. \\
+\hline
+string & {\em \$role} & Le nouveau rôle de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si la mise à jour a réussi, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_user_model_a9937f66c443a89d14f5809f95a39d3e6}\label{class_user_model_a9937f66c443a89d14f5809f95a39d3e6} 
+\index{UserModel@{UserModel}!verifMail@{verifMail}}
+\index{verifMail@{verifMail}!UserModel@{UserModel}}
+\doxysubsubsection{\texorpdfstring{verifMail()}{verifMail()}}
+{\footnotesize\ttfamily verif\+Mail (\begin{DoxyParamCaption}\item[{string}]{\$str\+Mail }\end{DoxyParamCaption})}
+
+Méthode qui vérifie la présence de l\textquotesingle{}email dans la BDD 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Mail} & Email à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Vrai si l\textquotesingle{}email existe déjà, faux sinon 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/models/user\+\_\+model.\+php\end{DoxyCompactItemize}

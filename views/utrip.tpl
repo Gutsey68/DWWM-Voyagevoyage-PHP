@@ -19,12 +19,14 @@
                     {* Titre et contenu *}
                     <h1 class=" green-title">{$objUtrip->getName()}</h1>
                     <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
+
                     <ul class="list-unstyled">
                         <li><i class="fa-solid fa-city"></i> : {$objUtrip->getCity()},  {$objUtrip->getCountry()} ({$objUtrip->getCont()})</li>
                         <li><i class="fa-solid fa-list"></i>: {$objUtrip->getCat()}</li>
                         <li><i class="fa-solid fa-wallet"></i> : {$objUtrip->getBudget()} €</li>
                     </ul>
                     <div class="pb-3"> {$objUtrip->getDescription()} </div>
+
                     <div class="row">
                         <div class="col-12"><p class="">{count($arrLikes)}<i class="fa-solid fa-heart p-1"></i></p></div>
                         {if (isset($smarty.session.user.user_id))}
@@ -89,6 +91,7 @@
             
             <div class="col-6"></div>
         </div>
+
     </div>
     {* ajouter un commentaire  *}
     {if ( isset($user.user_id) && $user.user_id != '' )}

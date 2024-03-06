@@ -1,57 +1,61 @@
 <?php
-    /**
-     * Contrôleur des pages statiques et de la fonctionnalité de contact.
-     * Utilise PHPMailer pour l'envoi d'emails.
-     * @author Gauthier
-     */
+/** 
+ * Controller des pages
+ * @author Gauthier
+ */
 
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-    // Inclusion des fichiers PHPMailer
-    require 'libs/PHPMailer/src/Exception.php';
-    require 'libs/PHPMailer/src/PHPMailer.php';
-    require 'libs/PHPMailer/src/SMTP.php';
+require'libs/PHPMailer/src/Exception.php';
+require'libs/PHPMailer/src/PHPMailer.php';
+require'libs/PHPMailer/src/SMTP.php';
 
-    // Inclusion des modèles et des entités
-    include_once("models/contact_model.php");
-    include_once("entities/contact_entity.php");
+
+include_once("models/contact_model.php");
+include_once("entities/contact_entity.php");
 
     class PageCtrl extends Ctrl {
 
         /**
-         * Affiche la page d'aide.
-         */
+		* Méthode qui permet d'afficher la page Aide du site
+		*/
         public function aide_site() {
 
-            $this->_arrData = [
-                "strPage" => "aide_site"
-            ];
+            $this->_arrData["strPage"]     = "aide_site";
+            $this->_arrData["strTitle"] = "Aid du site";
+            $this->_arrData["strDesc"]     = "Page de contenu";
             $this->afficheTpl("aide_site");
         }
 
-        /**
-         * Affiche la page À propos.
-         */
+
+		/**
+		* Méthode qui permet d'afficher la page about
+		*/
         public function about() {
 
-            $this->_arrData = ["strPage" => "about"];
-
+            $this->_arrData["strPage"]     = "about";
+            $this->_arrData["strTitle"] = "A propos";
+            $this->_arrData["strDesc"]     = "Page de contenu";
             $this->afficheTpl("about");
         }
 
-        /**
-         * Affiche les mentions légales.
-         */
-        public function mentions() {
-            $this->_arrData = ["strPage" => "mentions"];
+		/**
+		* Méthode qui permet d'afficher la page de mentions légales
+		*/
 
+        public function mentions() {
+
+            $this->_arrData["strPage"]     = "mentions";
+            $this->_arrData["strTitle"] = "Mentions légales";
+            $this->_arrData["strDesc"]     = "Page de contenu";
             $this->afficheTpl("mentions");
         }
 
-        /**
-         * Gère la soumission du formulaire de contact et envoie un email.
-         */
+		/**
+		* Méthode qui permet d'envoyer un mail de contact
+		*/
         public function contact() {
 
             $arrErrors = array();
@@ -70,6 +74,7 @@
                         $arrErrors[] = "Le mail n'a pas pu être envoyé";
                     }
                 }
+
             }else{ // Formulaire non envoyé
                 $objContact->setMail("");
                 $objContact->setName("");
@@ -128,74 +133,102 @@ if(isset($_POST['envoyer'])){
             $this->afficheTpl("contact");
         }
 
-        /**
-         * Valide les informations du formulaire de contact.
-         * @param Contact $objContact L'objet Contact contenant les données du formulaire.
-         * @return array Tableau des erreurs de validation.
-         */
-        private function _verifInfos(Contact $objContact) {
-            $arrErrors = [];
+                $name = $_POST['name'];
+                $mail = $_POST['mail'];
+                $subject = $_POST['title'];
+                $body = $_POST['content'];
+                $email = $mail;
+                $retour = "https://www.voyagevoyage.dwwm.site/";
 
-            if (empty($objContact->getName())) {
-                $arrErrors['name'] = "Le nom est obligatoire";
-            }
-            if (empty($objContact->getMail())) {
-                $arrErrors['mail'] = "L'email est obligatoire";
-            }
-            if (empty($objContact->getTitle())) {
-                $arrErrors['title'] = "L'objet est obligatoire";
-            }
-            if (empty($objContact->getContent())) {
-                $arrErrors['content'] = "Le message ne peut pas être vide";
-            }
+                $mail = new PHPMailer();
+                $mail->CharSet = "UTF-8";
+                $mail->IsSMTP();
+                $mail->Mailer = "smtp";
 
-            return $arrErrors;
-        }
-
-        /**
-         * Envoie un email en utilisant PHPMailer.
-         * @param Contact $objContact Les données de contact à envoyer.
-         */
-        private function _sendEmail(Contact $objContact) {
-
-            // Configuration et envoi de l'email avec PHPMailer, passage `true` permet de capturer les exceptions
-            $mail = new PHPMailer(true);
-
-            try {
-                // Configuration de PHPMailer pour l'envoi
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'votreemail@gmail.com';
-                $mail->Password = 'votrepassword';
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->SMTPDebug= 0;
+                $mail->SMTPAuth= TRUE;
+                $mail->SMTPSecure= "tls";
                 $mail->Port = 587;
+                $mail->Host = "smtp.gmail.com";
+                $mail->Username= 'voyagevoyageprojetcontact@gmail.com';
+                $mail->Password= 'ylaf ecqc gjbc seja';
 
-                // Contenu de l'email
-                $mail->setFrom('votreemail@gmail.com', 'Nom de l\'expéditeur');
-                $mail->addAddress('destinationemail@gmail.com', 'Nom du destinataire');
-                $mail->Subject = $objContact->getTitle();
-                $mail->Body    = $objContact->getContent();
-
-                $mail->send();
-
-            } catch (Exception $e) {
+                $mail->IsHTML(true);
+                $mail->setFrom('voyagevoyageprojetcontact@gmail.com', "Contact VoyageVoyage");
+                $mail->addAddress('voyagevoyageprojet@gmail.com', "L'équipe Voyage Voyage");
+                $mail->Subject= $subject;
+                $mail->Body = '
+                    <h1>Nouveau formulaire de contact du site <a href="'.$retour.'">Voyage Voyage</a></h1>
+                    <h2>Expediteur : '.$name.'</h2>
+                    <h2>Mail de l\'expéditeur : '.$email.'</h2>
+                    <h2>Objet du message : '.$subject.'</h2>
+                    <h2>Message de l\'expéditeur :</h2>
+                    <p style="font-size:18px;">'.$body.'</p>
+                ';
+                //$mail->addAttachment('test.txt');
+                if (!$mail->send()) {
+                echo'Erreur de Mailer : ' . $mail->ErrorInfo;
+                } else{
+                //echo'Le message a été envoyé.';
+                header("Location:".parent::BASE_URL);
+                }
             }
+
+            $this->_arrData["strPage"]     = "contact";
+            $this->_arrData["strTitle"]    = "Contact";
+            $this->_arrData["strDesc"]     = "Page de contact";
+
+            $this->_arrData["arrErrors"] 	= $arrErrors;
+            $this->_arrData["objContact"]   = $objContact;
+
+            $this->afficheTpl("contact");
         }
 
-        /**
-         * Affiche le plan du site.
-         */
+		/**
+		* Méthode qui permet d'afficher la page du plan du site
+		*/
         public function plan() {
-            $this->_arrData = [ "strPage" => "plan"];
+
+            $this->_arrData["strPage"]     = "plan";
+            $this->_arrData["strTitle"] = "Plan du site";
+            $this->_arrData["strDesc"]     = "Page du plan du site";
             $this->afficheTpl("plan");
         }
 
+		/**
+		* Méthode privée de vérification des informations de l'utilisateur
+		* @param object $objContact Objet à vérifier
+		* @return array les erreurs générées
+		*/
+		private function _verifInfos(object $objContact) {
+			$arrErrors = array();
+
+			if ($objContact->getName() == ""){
+				$arrErrors['name'] = "Le nom est obligatoire";
+			}
+			if ($objContact->getMail() == ""){
+				$arrErrors['mail'] = "Le mail est obligatoire";
+			}
+			if ($objContact->getTitle() == ""){
+				$arrErrors['title'] = "L'object est obligatoire";
+			}
+			if ($objContact->getContent() == ""){
+				$arrErrors['content'] = "Le message est vide";
+			}
+				$objContactModel	= new ContactModel;
+
+			return $arrErrors;
+		}
+
         /**
-         * Affiche la page de gestion/modération.
-         */
+		* Méthode qui permet d'afficher la page du plan du site
+		*/
         public function manage() {
-            $this->_arrData = ["strPage" => "manage"];
+
+            $this->_arrData["strPage"]     = "manage";
+            $this->_arrData["strTitle"] = "Modération";
+            $this->_arrData["strDesc"]     = "Page de modération";
             $this->afficheTpl("manage");
         }
+
     }

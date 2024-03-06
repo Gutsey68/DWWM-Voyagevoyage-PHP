@@ -1,0 +1,415 @@
+\doxysection{Référence de la classe Utrip\+Model}
+\hypertarget{class_utrip_model}{}\label{class_utrip_model}\index{UtripModel@{UtripModel}}
+Graphe d\textquotesingle{}héritage de Utrip\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_utrip_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_utrip_model_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_utrip_model_a740f5fabe7bc3b46e7c6a972418d30ea}{find\+All}} (int \$int\+Limit=0, \$arr\+Search=array())
+\item 
+\mbox{\hyperlink{class_utrip_model_a8cf30d439a45c5f37b1f6de4775d2b55}{find\+Cat}} ()
+\item 
+\mbox{\hyperlink{class_utrip_model_a69d83169456342ffdcd8926d1ea4510b}{find\+City}} ()
+\item 
+\mbox{\hyperlink{class_utrip_model_af75c0924699f2a2d642ddfa008a46db6}{find\+Imgs}} (\$id)
+\item 
+\mbox{\hyperlink{class_utrip_model_a168bedb903004d205677e3f89d7ac055}{insert}} (object \$obj\+Utrip)
+\item 
+\mbox{\hyperlink{class_utrip_model_aa4067d302ae1d93a0679523986f814e3}{insert\+Img}} (string \$image\+Name, int \$utrip\+Id)
+\item 
+\mbox{\hyperlink{class_utrip_model_abae4e4e1897eb76eb48dd2a1420c9375}{get}} (int \$id)
+\item 
+\mbox{\hyperlink{class_utrip_model_ad057dd8cea9d681adc220f54cadc2af1}{update}} (object \$obj\+Utrip)
+\item 
+\mbox{\hyperlink{class_utrip_model_a38c538b8aa0e836091f87f85953dec68}{find\+List}} ()
+\item 
+\mbox{\hyperlink{class_utrip_model_ae3f617bf394da1aad75244a1cf8e6dfc}{moderate}} (\$obj\+Utrip)
+\item 
+\mbox{\hyperlink{class_utrip_model_aab788f559c9ebb763f9abd0d969face2}{delete}} (int \$id)
+\item 
+\mbox{\hyperlink{class_utrip_model_ac5bf55d85e0deee9069be7e1acc2ef82}{get\+City\+Id}} (\$str\+City)
+\item 
+\mbox{\hyperlink{class_utrip_model_a2dbbcde02ee1e01a02ddc658069dfe3d}{get\+City\+Id\+By\+Name}} (\$city\+Name)
+\item 
+\mbox{\hyperlink{class_utrip_model_a061ad9d9c9d6fadce35f695c64563de6}{get\+Imgs}} (int \$id)
+\item 
+\mbox{\hyperlink{class_utrip_model_aacc77078e4e2ddb678c3f5eab63f5d39}{get\+Com}} (int \$id)
+\item 
+\mbox{\hyperlink{class_utrip_model_ac27cff1be1f980efd9d61ca0cf5d98ef}{insert\+Com}} (object \$obj\+Comment)
+\item 
+\mbox{\hyperlink{class_utrip_model_a0d38dae26acdad843d2be714b8f2fe6f}{get\+Likes}} (int \$id)
+\item 
+\mbox{\hyperlink{class_utrip_model_a72a26b01bd709e172e4045b8b6b55985}{Like}} (int \$user\+Id, int \$utrip\+Id)
+\item 
+\mbox{\hyperlink{class_utrip_model_a1bfff79e372e7368bac4754bf4ba9a87}{delete\+Com}} (int \$com\+Id)
+\item 
+\mbox{\hyperlink{class_utrip_model_aab9e668e32bda1889c35207b90a78777}{find\+Utrip\+By\+User}} (\$id, int \$int\+Limit=0)
+\item 
+\mbox{\hyperlink{class_utrip_model_ac3f14e0ff238cd3a2ff6f5e7988e8b84}{find\+Utrip\+By\+Cat}} (\$id, \$str\+Cat, int \$int\+Limit=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_model}{Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$\+\_\+db}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_utrip_model_a095c5d389db211932136b53f25f39685}\label{class_utrip_model_a095c5d389db211932136b53f25f39685} 
+\index{UtripModel@{UtripModel}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructeur de la classe 
+
+Réimplémentée à partir de \mbox{\hyperlink{class_model}{Model}}.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_utrip_model_aab788f559c9ebb763f9abd0d969face2}\label{class_utrip_model_aab788f559c9ebb763f9abd0d969face2} 
+\index{UtripModel@{UtripModel}!delete@{delete}}
+\index{delete@{delete}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Supprime l\textquotesingle{}utrip en BDD en s\textquotesingle{}assurant que toutes les dépendances sont également supprimées.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utrip à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si la suppression a réussi, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a1bfff79e372e7368bac4754bf4ba9a87}\label{class_utrip_model_a1bfff79e372e7368bac4754bf4ba9a87} 
+\index{UtripModel@{UtripModel}!deleteCom@{deleteCom}}
+\index{deleteCom@{deleteCom}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{deleteCom()}{deleteCom()}}
+{\footnotesize\ttfamily delete\+Com (\begin{DoxyParamCaption}\item[{int}]{\$com\+Id }\end{DoxyParamCaption})}
+
+Supprime un commentaire basé sur son ID.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$com\+Id} & L\textquotesingle{}ID du commentaire à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si la suppression a réussi, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a740f5fabe7bc3b46e7c6a972418d30ea}\label{class_utrip_model_a740f5fabe7bc3b46e7c6a972418d30ea} 
+\index{UtripModel@{UtripModel}!findAll@{findAll}}
+\index{findAll@{findAll}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{findAll()}{findAll()}}
+{\footnotesize\ttfamily find\+All (\begin{DoxyParamCaption}\item[{int}]{\$int\+Limit = {\ttfamily 0},  }\item[{}]{\$arr\+Search = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Méthode de récupération de tous les articles avec options de recherche.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Limit} & Limite de résultats à récupérer. \\
+\hline
+array & {\em \$arr\+Search} & Tableau contenant les options de recherche. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Tableau des articles correspondant aux critères de recherche. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a8cf30d439a45c5f37b1f6de4775d2b55}\label{class_utrip_model_a8cf30d439a45c5f37b1f6de4775d2b55} 
+\index{UtripModel@{UtripModel}!findCat@{findCat}}
+\index{findCat@{findCat}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{findCat()}{findCat()}}
+{\footnotesize\ttfamily find\+Cat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer toutes les catégories disponibles.
+
+\begin{DoxyReturn}{Renvoie}
+array Tableau contenant les informations sur les catégories disponibles. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a69d83169456342ffdcd8926d1ea4510b}\label{class_utrip_model_a69d83169456342ffdcd8926d1ea4510b} 
+\index{UtripModel@{UtripModel}!findCity@{findCity}}
+\index{findCity@{findCity}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{findCity()}{findCity()}}
+{\footnotesize\ttfamily find\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer toutes les villes disponibles.
+
+\begin{DoxyReturn}{Renvoie}
+array Tableau contenant les informations sur les villes disponibles. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_af75c0924699f2a2d642ddfa008a46db6}\label{class_utrip_model_af75c0924699f2a2d642ddfa008a46db6} 
+\index{UtripModel@{UtripModel}!findImgs@{findImgs}}
+\index{findImgs@{findImgs}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{findImgs()}{findImgs()}}
+{\footnotesize\ttfamily find\+Imgs (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer les images associées à un article.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & L\textquotesingle{}identifiant de l\textquotesingle{}article. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Tableau contenant les liens des images associées à l\textquotesingle{}article. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a38c538b8aa0e836091f87f85953dec68}\label{class_utrip_model_a38c538b8aa0e836091f87f85953dec68} 
+\index{UtripModel@{UtripModel}!findList@{findList}}
+\index{findList@{findList}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{findList()}{findList()}}
+{\footnotesize\ttfamily find\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}administration de la gestion des utrips
+
+\begin{DoxyReturn}{Renvoie}
+array Liste des utrips trouvés 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_ac3f14e0ff238cd3a2ff6f5e7988e8b84}\label{class_utrip_model_ac3f14e0ff238cd3a2ff6f5e7988e8b84} 
+\index{UtripModel@{UtripModel}!findUtripByCat@{findUtripByCat}}
+\index{findUtripByCat@{findUtripByCat}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{findUtripByCat()}{findUtripByCat()}}
+{\footnotesize\ttfamily find\+Utrip\+By\+Cat (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$str\+Cat,  }\item[{int}]{\$int\+Limit = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Méthode de récupération de tous les articles d\textquotesingle{}une catégorie spécifique.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & L\textquotesingle{}ID de la catégorie. \\
+\hline
+string & {\em \$str\+Cat} & Le nom de la catégorie. \\
+\hline
+int & {\em \$int\+Limit} & Limite de résultats à récupérer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Tableau des articles de la catégorie spécifiée. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_aab9e668e32bda1889c35207b90a78777}\label{class_utrip_model_aab9e668e32bda1889c35207b90a78777} 
+\index{UtripModel@{UtripModel}!findUtripByUser@{findUtripByUser}}
+\index{findUtripByUser@{findUtripByUser}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{findUtripByUser()}{findUtripByUser()}}
+{\footnotesize\ttfamily find\+Utrip\+By\+User (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{int}]{\$int\+Limit = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer les utrips d\textquotesingle{}un utilisateur.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utilisateur \\
+\hline
+int & {\em \$int\+Limit} & Limite de résultats à récupérer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}false Tableau des utrips de l\textquotesingle{}utilisateur ou false en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_abae4e4e1897eb76eb48dd2a1420c9375}\label{class_utrip_model_abae4e4e1897eb76eb48dd2a1420c9375} 
+\index{UtripModel@{UtripModel}!get@{get}}
+\index{get@{get}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer un utrip en fonction de son id
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utrip à récupérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}false Le détail de l\textquotesingle{}\doxylink{class_utrip}{Utrip} 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_ac5bf55d85e0deee9069be7e1acc2ef82}\label{class_utrip_model_ac5bf55d85e0deee9069be7e1acc2ef82} 
+\index{UtripModel@{UtripModel}!getCityId@{getCityId}}
+\index{getCityId@{getCityId}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{getCityId()}{getCityId()}}
+{\footnotesize\ttfamily get\+City\+Id (\begin{DoxyParamCaption}\item[{}]{\$str\+City }\end{DoxyParamCaption})}
+
+Méthode de récupération de l\textquotesingle{}Id d\textquotesingle{}une ville
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+City} & Nom de la ville \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Tableau contenant l\textquotesingle{}ID de la ville 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a2dbbcde02ee1e01a02ddc658069dfe3d}\label{class_utrip_model_a2dbbcde02ee1e01a02ddc658069dfe3d} 
+\index{UtripModel@{UtripModel}!getCityIdByName@{getCityIdByName}}
+\index{getCityIdByName@{getCityIdByName}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{getCityIdByName()}{getCityIdByName()}}
+{\footnotesize\ttfamily get\+City\+Id\+By\+Name (\begin{DoxyParamCaption}\item[{}]{\$city\+Name }\end{DoxyParamCaption})}
+
+Méthode de récupération du nom de la ville
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$city\+Name} & Nom de la ville \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int\texorpdfstring{$\vert$}{|}null ID de la ville si trouvé, sinon null. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_aacc77078e4e2ddb678c3f5eab63f5d39}\label{class_utrip_model_aacc77078e4e2ddb678c3f5eab63f5d39} 
+\index{UtripModel@{UtripModel}!getCom@{getCom}}
+\index{getCom@{getCom}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{getCom()}{getCom()}}
+{\footnotesize\ttfamily get\+Com (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer les commentaires d\textquotesingle{}un utrip.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utrip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}false Tableau de commentaires de l\textquotesingle{}utrip ou false en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a061ad9d9c9d6fadce35f695c64563de6}\label{class_utrip_model_a061ad9d9c9d6fadce35f695c64563de6} 
+\index{UtripModel@{UtripModel}!getImgs@{getImgs}}
+\index{getImgs@{getImgs}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{getImgs()}{getImgs()}}
+{\footnotesize\ttfamily get\+Imgs (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer les images d\textquotesingle{}un utrip.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utrip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Tableau d\textquotesingle{}images de l\textquotesingle{}utrip. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a0d38dae26acdad843d2be714b8f2fe6f}\label{class_utrip_model_a0d38dae26acdad843d2be714b8f2fe6f} 
+\index{UtripModel@{UtripModel}!getLikes@{getLikes}}
+\index{getLikes@{getLikes}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{getLikes()}{getLikes()}}
+{\footnotesize\ttfamily get\+Likes (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer les likes d\textquotesingle{}un utrip.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utrip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}false Tableau de likes de l\textquotesingle{}utrip ou false en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a168bedb903004d205677e3f89d7ac055}\label{class_utrip_model_a168bedb903004d205677e3f89d7ac055} 
+\index{UtripModel@{UtripModel}!insert@{insert}}
+\index{insert@{insert}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily insert (\begin{DoxyParamCaption}\item[{object}]{\$obj\+Utrip }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}insertion d\textquotesingle{}un nouvel utrip en BDD.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Utrip} & Objet \doxylink{class_utrip}{Utrip} à insérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int\texorpdfstring{$\vert$}{|}null ID de l\textquotesingle{}utrip inséré, null en cas d\textquotesingle{}échec 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_ac27cff1be1f980efd9d61ca0cf5d98ef}\label{class_utrip_model_ac27cff1be1f980efd9d61ca0cf5d98ef} 
+\index{UtripModel@{UtripModel}!insertCom@{insertCom}}
+\index{insertCom@{insertCom}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{insertCom()}{insertCom()}}
+{\footnotesize\ttfamily insert\+Com (\begin{DoxyParamCaption}\item[{object}]{\$obj\+Comment }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}insertion d\textquotesingle{}un commentaire en BDD
+
+
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Comment} & Objet Commentaire à insérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si l\textquotesingle{}insertion a réussi, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_aa4067d302ae1d93a0679523986f814e3}\label{class_utrip_model_aa4067d302ae1d93a0679523986f814e3} 
+\index{UtripModel@{UtripModel}!insertImg@{insertImg}}
+\index{insertImg@{insertImg}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{insertImg()}{insertImg()}}
+{\footnotesize\ttfamily insert\+Img (\begin{DoxyParamCaption}\item[{string}]{\$image\+Name,  }\item[{int}]{\$utrip\+Id }\end{DoxyParamCaption})}
+
+Méthode permettant d\textquotesingle{}ajouter les images d\textquotesingle{}un utrip en BDD.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$image\+Name} & Nom de l\textquotesingle{}image à insérer. \\
+\hline
+int & {\em \$utrip\+Id} & Identifiant de l\textquotesingle{}utrip auquel l\textquotesingle{}image est associée. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si l\textquotesingle{}insertion a réussi, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_a72a26b01bd709e172e4045b8b6b55985}\label{class_utrip_model_a72a26b01bd709e172e4045b8b6b55985} 
+\index{UtripModel@{UtripModel}!Like@{Like}}
+\index{Like@{Like}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{Like()}{Like()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_like}{Like}} (\begin{DoxyParamCaption}\item[{int}]{\$user\+Id,  }\item[{int}]{\$utrip\+Id }\end{DoxyParamCaption})}
+
+Méthode permettant de liker ou de unliker un article.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$user\+Id} & L\textquotesingle{}identifiant de l\textquotesingle{}utilisateur. \\
+\hline
+int & {\em \$utrip\+Id} & L\textquotesingle{}identifiant de l\textquotesingle{}article à liker ou unliker. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_ae3f617bf394da1aad75244a1cf8e6dfc}\label{class_utrip_model_ae3f617bf394da1aad75244a1cf8e6dfc} 
+\index{UtripModel@{UtripModel}!moderate@{moderate}}
+\index{moderate@{moderate}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{moderate()}{moderate()}}
+{\footnotesize\ttfamily moderate (\begin{DoxyParamCaption}\item[{}]{\$obj\+Utrip }\end{DoxyParamCaption})}
+
+Methode permettant de mettre à jour l\textquotesingle{}utrip avec les informations de modération
+
+
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Utrip} & Objet utrip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si la mise à jour a réussi, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_utrip_model_ad057dd8cea9d681adc220f54cadc2af1}\label{class_utrip_model_ad057dd8cea9d681adc220f54cadc2af1} 
+\index{UtripModel@{UtripModel}!update@{update}}
+\index{update@{update}!UtripModel@{UtripModel}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}\item[{object}]{\$obj\+Utrip }\end{DoxyParamCaption})}
+
+Méthode permettant de modifier un utrip en BDD
+
+
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Utrip} & Objet \doxylink{class_utrip}{Utrip} à modifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si la modification a réussi, false sinon. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/models/utrip\+\_\+model.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,289 @@
+\doxysection{Référence de la classe Forum}
+\hypertarget{class_forum}{}\label{class_forum}\index{Forum@{Forum}}
+Graphe d\textquotesingle{}héritage de Forum\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_forum}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_forum_a12251d0c022e9e21c137a105ff683f13}{get\+Id}} ()
+\item 
+\mbox{\hyperlink{class_forum_a907c4278050a2eee3f22ed054a5c7414}{set\+Id}} (int \$int\+Id)
+\item 
+\mbox{\hyperlink{class_forum_a95e859a4588a39a1824b717378a84c29}{get\+Title}} ()
+\item 
+\mbox{\hyperlink{class_forum_a64257aa408063a2110fa629da8193ab2}{set\+Title}} (string \$str\+Title)
+\item 
+\mbox{\hyperlink{class_forum_a58e43f09a06ce4e29b192c4e17ce7915}{get\+Content}} ()
+\item 
+\mbox{\hyperlink{class_forum_a5dedab95c6d407242e322a5a837b3d4b}{set\+Content}} (string \$str\+Content)
+\item 
+\mbox{\hyperlink{class_forum_acd71958d310a4d11a0cbe78a36dcb52a}{get\+Content\+Summary}} (int \$max)
+\item 
+\mbox{\hyperlink{class_forum_ab5e24da53b4a0d0848b18c1e832f47ff}{get\+Code}} ()
+\item 
+\mbox{\hyperlink{class_forum_a89c9f94d395599c0c6a9043d0bed7093}{set\+Code}} (string \$str\+Code)
+\item 
+\mbox{\hyperlink{class_forum_a24d89b0ad05ea2e33626b1fc8ed59bc3}{get\+Date}} ()
+\item 
+\mbox{\hyperlink{class_forum_a3af058ef0d2d4c91d2628b5adfa6944e}{set\+Date}} (string \$str\+Date)
+\item 
+\mbox{\hyperlink{class_forum_af75b92c0e3f74effc3b4ff4e328ec101}{get\+Date\+Fr}} ()
+\item 
+\mbox{\hyperlink{class_forum_a8650a8dab4e3ed5205a259687106227e}{get\+Creator}} ()
+\item 
+\mbox{\hyperlink{class_forum_ad8766308109e4797a02548059dea9a8a}{set\+Creator}} (string \$str\+Creator)
+\item 
+\mbox{\hyperlink{class_forum_ad95be7f4a4bd87b24f622fe537712b86}{get\+Creator\+Id}} ()
+\item 
+\mbox{\hyperlink{class_forum_ad2d0f1b078ac74c105bc6bd7160665d3}{set\+Creator\+Id}} (int \$int\+Creator\+Id)
+\item 
+\mbox{\hyperlink{class_forum_a404514e9c819b52ed9c5feaab6cd74e5}{get\+Valid}} ()
+\item 
+\mbox{\hyperlink{class_forum_a8da7ad2650393f37192fbed031685b61}{set\+Valid}} (int \$int\+Valid)
+\item 
+\mbox{\hyperlink{class_forum_adb57c3d1b74c19589ba1d641ea1a390e}{get\+Comment}} ()
+\item 
+\mbox{\hyperlink{class_forum_add3718a94ae593d519d195919660a383}{set\+Comment}} (string \$str\+Comment)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a9231474670bf1388a216eadd586c43d0}{hydrate}} (\$arr\+Data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_forum_acfb9635bf4953126e6d2669f4e25617b}\label{class_forum_acfb9635bf4953126e6d2669f4e25617b} 
+string {\bfseries \$\+\_\+str\+Prefixe} = "{}topic\+\_\+"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+string {\bfseries \$\+\_\+str\+Prefixe}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe entité représentant un forum. Cette classe hérite de \doxylink{class_entity}{Entity} et permet de gérer les données liées à un sujet de forum.
+
+\begin{DoxyAuthor}{Auteur}
+Gauthier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2024 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_forum_ab5e24da53b4a0d0848b18c1e832f47ff}\label{class_forum_ab5e24da53b4a0d0848b18c1e832f47ff} 
+\index{Forum@{Forum}!getCode@{getCode}}
+\index{getCode@{getCode}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne le code unique associé au sujet du forum. \begin{DoxyReturn}{Renvoie}
+string Le code du sujet. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_adb57c3d1b74c19589ba1d641ea1a390e}\label{class_forum_adb57c3d1b74c19589ba1d641ea1a390e} 
+\index{Forum@{Forum}!getComment@{getComment}}
+\index{getComment@{getComment}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getComment()}{getComment()}}
+{\footnotesize\ttfamily get\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne le commentaire associé à la validation du sujet du forum. \begin{DoxyReturn}{Renvoie}
+string Le commentaire de validation. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_a58e43f09a06ce4e29b192c4e17ce7915}\label{class_forum_a58e43f09a06ce4e29b192c4e17ce7915} 
+\index{Forum@{Forum}!getContent@{getContent}}
+\index{getContent@{getContent}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getContent()}{getContent()}}
+{\footnotesize\ttfamily get\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne le contenu du sujet du forum. \begin{DoxyReturn}{Renvoie}
+string Le contenu du sujet. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_acd71958d310a4d11a0cbe78a36dcb52a}\label{class_forum_acd71958d310a4d11a0cbe78a36dcb52a} 
+\index{Forum@{Forum}!getContentSummary@{getContentSummary}}
+\index{getContentSummary@{getContentSummary}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getContentSummary()}{getContentSummary()}}
+{\footnotesize\ttfamily get\+Content\+Summary (\begin{DoxyParamCaption}\item[{int}]{\$max }\end{DoxyParamCaption})}
+
+Retourne un résumé du contenu du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$max} & La longueur maximale du résumé. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string Le résumé du contenu. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_a8650a8dab4e3ed5205a259687106227e}\label{class_forum_a8650a8dab4e3ed5205a259687106227e} 
+\index{Forum@{Forum}!getCreator@{getCreator}}
+\index{getCreator@{getCreator}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getCreator()}{getCreator()}}
+{\footnotesize\ttfamily get\+Creator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne le nom de l\textquotesingle{}auteur du sujet du forum. \begin{DoxyReturn}{Renvoie}
+string Le nom de l\textquotesingle{}auteur. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_ad95be7f4a4bd87b24f622fe537712b86}\label{class_forum_ad95be7f4a4bd87b24f622fe537712b86} 
+\index{Forum@{Forum}!getCreatorId@{getCreatorId}}
+\index{getCreatorId@{getCreatorId}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getCreatorId()}{getCreatorId()}}
+{\footnotesize\ttfamily get\+Creator\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne l\textquotesingle{}identifiant de l\textquotesingle{}auteur du sujet du forum. \begin{DoxyReturn}{Renvoie}
+int L\textquotesingle{}identifiant de l\textquotesingle{}auteur. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_a24d89b0ad05ea2e33626b1fc8ed59bc3}\label{class_forum_a24d89b0ad05ea2e33626b1fc8ed59bc3} 
+\index{Forum@{Forum}!getDate@{getDate}}
+\index{getDate@{getDate}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne la date de création du sujet du forum. \begin{DoxyReturn}{Renvoie}
+string La date de création. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_af75b92c0e3f74effc3b4ff4e328ec101}\label{class_forum_af75b92c0e3f74effc3b4ff4e328ec101} 
+\index{Forum@{Forum}!getDateFr@{getDateFr}}
+\index{getDateFr@{getDateFr}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getDateFr()}{getDateFr()}}
+{\footnotesize\ttfamily get\+Date\+Fr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne la date de création du sujet du forum au format français. \begin{DoxyReturn}{Renvoie}
+string La date de création au format français. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_a12251d0c022e9e21c137a105ff683f13}\label{class_forum_a12251d0c022e9e21c137a105ff683f13} 
+\index{Forum@{Forum}!getId@{getId}}
+\index{getId@{getId}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne l\textquotesingle{}identifiant unique du sujet du forum. \begin{DoxyReturn}{Renvoie}
+int L\textquotesingle{}identifiant du sujet. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_a95e859a4588a39a1824b717378a84c29}\label{class_forum_a95e859a4588a39a1824b717378a84c29} 
+\index{Forum@{Forum}!getTitle@{getTitle}}
+\index{getTitle@{getTitle}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
+{\footnotesize\ttfamily get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne le titre du sujet du forum. \begin{DoxyReturn}{Renvoie}
+string Le titre du sujet. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_a404514e9c819b52ed9c5feaab6cd74e5}\label{class_forum_a404514e9c819b52ed9c5feaab6cd74e5} 
+\index{Forum@{Forum}!getValid@{getValid}}
+\index{getValid@{getValid}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{getValid()}{getValid()}}
+{\footnotesize\ttfamily get\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retourne l\textquotesingle{}état de validation du sujet du forum. \begin{DoxyReturn}{Renvoie}
+int L\textquotesingle{}état de validation. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_a89c9f94d395599c0c6a9043d0bed7093}\label{class_forum_a89c9f94d395599c0c6a9043d0bed7093} 
+\index{Forum@{Forum}!setCode@{setCode}}
+\index{setCode@{setCode}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}}
+{\footnotesize\ttfamily set\+Code (\begin{DoxyParamCaption}\item[{string}]{\$str\+Code }\end{DoxyParamCaption})}
+
+Définit le code unique associé au sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Code} & Le code du sujet. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_add3718a94ae593d519d195919660a383}\label{class_forum_add3718a94ae593d519d195919660a383} 
+\index{Forum@{Forum}!setComment@{setComment}}
+\index{setComment@{setComment}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setComment()}{setComment()}}
+{\footnotesize\ttfamily set\+Comment (\begin{DoxyParamCaption}\item[{string}]{\$str\+Comment }\end{DoxyParamCaption})}
+
+Définit le commentaire associé à la validation du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Comment} & Le commentaire de validation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_a5dedab95c6d407242e322a5a837b3d4b}\label{class_forum_a5dedab95c6d407242e322a5a837b3d4b} 
+\index{Forum@{Forum}!setContent@{setContent}}
+\index{setContent@{setContent}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setContent()}{setContent()}}
+{\footnotesize\ttfamily set\+Content (\begin{DoxyParamCaption}\item[{string}]{\$str\+Content }\end{DoxyParamCaption})}
+
+Définit le contenu du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Content} & Le contenu du sujet. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_ad8766308109e4797a02548059dea9a8a}\label{class_forum_ad8766308109e4797a02548059dea9a8a} 
+\index{Forum@{Forum}!setCreator@{setCreator}}
+\index{setCreator@{setCreator}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setCreator()}{setCreator()}}
+{\footnotesize\ttfamily set\+Creator (\begin{DoxyParamCaption}\item[{string}]{\$str\+Creator }\end{DoxyParamCaption})}
+
+Définit le nom de l\textquotesingle{}auteur du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Creator} & Le nom de l\textquotesingle{}auteur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_ad2d0f1b078ac74c105bc6bd7160665d3}\label{class_forum_ad2d0f1b078ac74c105bc6bd7160665d3} 
+\index{Forum@{Forum}!setCreatorId@{setCreatorId}}
+\index{setCreatorId@{setCreatorId}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setCreatorId()}{setCreatorId()}}
+{\footnotesize\ttfamily set\+Creator\+Id (\begin{DoxyParamCaption}\item[{int}]{\$int\+Creator\+Id }\end{DoxyParamCaption})}
+
+Définit l\textquotesingle{}identifiant de l\textquotesingle{}auteur du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Creator\+Id} & L\textquotesingle{}identifiant de l\textquotesingle{}auteur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_a3af058ef0d2d4c91d2628b5adfa6944e}\label{class_forum_a3af058ef0d2d4c91d2628b5adfa6944e} 
+\index{Forum@{Forum}!setDate@{setDate}}
+\index{setDate@{setDate}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily set\+Date (\begin{DoxyParamCaption}\item[{string}]{\$str\+Date }\end{DoxyParamCaption})}
+
+Définit la date de création du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Date} & La date de création. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_a907c4278050a2eee3f22ed054a5c7414}\label{class_forum_a907c4278050a2eee3f22ed054a5c7414} 
+\index{Forum@{Forum}!setId@{setId}}
+\index{setId@{setId}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily set\+Id (\begin{DoxyParamCaption}\item[{int}]{\$int\+Id }\end{DoxyParamCaption})}
+
+Définit l\textquotesingle{}identifiant unique du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Id} & L\textquotesingle{}identifiant du sujet. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_a64257aa408063a2110fa629da8193ab2}\label{class_forum_a64257aa408063a2110fa629da8193ab2} 
+\index{Forum@{Forum}!setTitle@{setTitle}}
+\index{setTitle@{setTitle}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setTitle()}{setTitle()}}
+{\footnotesize\ttfamily set\+Title (\begin{DoxyParamCaption}\item[{string}]{\$str\+Title }\end{DoxyParamCaption})}
+
+Définit le titre du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Title} & Le titre du sujet. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_forum_a8da7ad2650393f37192fbed031685b61}\label{class_forum_a8da7ad2650393f37192fbed031685b61} 
+\index{Forum@{Forum}!setValid@{setValid}}
+\index{setValid@{setValid}!Forum@{Forum}}
+\doxysubsubsection{\texorpdfstring{setValid()}{setValid()}}
+{\footnotesize\ttfamily set\+Valid (\begin{DoxyParamCaption}\item[{int}]{\$int\+Valid }\end{DoxyParamCaption})}
+
+Définit l\textquotesingle{}état de validation du sujet du forum. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Valid} & L\textquotesingle{}état de validation. \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/entities/forum\+\_\+entity.\+php\end{DoxyCompactItemize}

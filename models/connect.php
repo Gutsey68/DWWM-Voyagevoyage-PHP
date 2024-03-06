@@ -13,13 +13,10 @@
 		public function __construct() {
 			try {
 				$this->_db = new PDO(
-					"mysql:host=localhost;dbname=dwwmaprogjhb_voyvoy",
-					"root",
-					"",
 
-					/*  "mysql:host=localhost;dbname=dwwmaprogjhb_voyvoy",
+					"mysql:host=localhost;dbname=dwwmaprogjhb_voyvoy",
 					"dwwmaprogjhb_lilicub",
-					"q,zuCI_{m.y)", */
+					"q,zuCI_{m.y)",
 
 					array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC)
 				);

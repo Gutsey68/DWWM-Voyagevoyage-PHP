@@ -1,0 +1,87 @@
+\doxysection{Référence de la classe Ctrl}
+\hypertarget{class_ctrl}{}\label{class_ctrl}\index{Ctrl@{Ctrl}}
+Graphe d\textquotesingle{}héritage de Ctrl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ctrl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ctrl_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_ctrl_a2a20f8258dc4a87a4d0abe71a722eec0}{affiche\+Tpl}} (\$str\+Tpl, \$bool\+Display=true)
+\item 
+\mbox{\hyperlink{class_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19}{explore}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ctrl_ac2f7c46cdf071163a82cb95295eca57f}\label{class_ctrl_ac2f7c46cdf071163a82cb95295eca57f} 
+const {\bfseries BASE\+\_\+\+URL} = "{}http\+://localhost/projet\+\_\+2/"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ctrl_a0b117d4c2a7e926be93bfdb1b3b71681}\label{class_ctrl_a0b117d4c2a7e926be93bfdb1b3b71681} 
+array {\bfseries \$\+\_\+arr\+Errors} = array()
+\item 
+\Hypertarget{class_ctrl_af0e27b778654ad20ed55b4831a98f300}\label{class_ctrl_af0e27b778654ad20ed55b4831a98f300} 
+array {\bfseries \$\+\_\+arr\+Data} = array()
+\item 
+\Hypertarget{class_ctrl_a5657b9e605cae4a86a0689cfa3ba1ad4}\label{class_ctrl_a5657b9e605cae4a86a0689cfa3ba1ad4} 
+array {\bfseries \$\+\_\+arr\+Mimes\+Type} = array("{}image/jpeg"{}, "{}image/png"{} , "{}image/webp"{})
+\item 
+\Hypertarget{class_ctrl_a50a1840d3d9fdad12610375537bf12bb}\label{class_ctrl_a50a1840d3d9fdad12610375537bf12bb} 
+array {\bfseries \$\+\_\+arr\+Cookie\+Options} = array ()
+\item 
+\Hypertarget{class_ctrl_aba38fc23f046c8379cac9eb44fc9756e}\label{class_ctrl_aba38fc23f046c8379cac9eb44fc9756e} 
+array {\bfseries \$\+\_\+arr\+Admin\+Pages} = array("{}"{}, "{}"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe de base pour les contrôleurs. Fournit des méthodes communes pour la gestion des templates, des erreurs et des données. Inclut des fonctionnalités pour la configuration des cookies, la gestion des types MIME et la sécurité des pages d\textquotesingle{}administration. \begin{DoxyAuthor}{Auteur}
+Groupe1 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_ctrl_a095c5d389db211932136b53f25f39685}\label{class_ctrl_a095c5d389db211932136b53f25f39685} 
+\index{Ctrl@{Ctrl}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Ctrl@{Ctrl}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructeur de la classe \doxylink{class_ctrl}{Ctrl}. Initialise les options de cookies et gère l\textquotesingle{}accès aux pages d\textquotesingle{}administration. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_ctrl_a2a20f8258dc4a87a4d0abe71a722eec0}\label{class_ctrl_a2a20f8258dc4a87a4d0abe71a722eec0} 
+\index{Ctrl@{Ctrl}!afficheTpl@{afficheTpl}}
+\index{afficheTpl@{afficheTpl}!Ctrl@{Ctrl}}
+\doxysubsubsection{\texorpdfstring{afficheTpl()}{afficheTpl()}}
+{\footnotesize\ttfamily affiche\+Tpl (\begin{DoxyParamCaption}\item[{}]{\$str\+Tpl,  }\item[{}]{\$bool\+Display = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}affichage des templates. Charge le template spécifié et assigne les données à \doxylink{class_smarty}{Smarty}. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Tpl} & Nom du template à afficher. \\
+\hline
+bool & {\em \$bool\+Display} & Si vrai, affiche le template directement, sinon retourne le contenu. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19}\label{class_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19} 
+\index{Ctrl@{Ctrl}!explore@{explore}}
+\index{explore@{explore}!Ctrl@{Ctrl}}
+\doxysubsubsection{\texorpdfstring{explore()}{explore()}}
+{\footnotesize\ttfamily explore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gère la recherche d\textquotesingle{}articles depuis la navbar. Récupère les mots-\/clés, effectue la recherche et affiche les résultats. 
+
+Réimplémentée dans \mbox{\hyperlink{class_utrip_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19}{Utrip\+Ctrl}}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/controllers/controller\+\_\+parent.\+php\end{DoxyCompactItemize}
