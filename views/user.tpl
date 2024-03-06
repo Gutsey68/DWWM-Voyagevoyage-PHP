@@ -89,7 +89,8 @@
 						{include file="views/utrip_summary.tpl"}
 					{/foreach}
 				{else}
-					<p>Vous n'avez pas encore publié d'articles</p>
+					{if ((isset($smarty.session.user.user_id)) && ($user.user_id != $objUser->getId()))}
+					<p>{$objUser->getPseudo()} n'a pas encore publié d'articles</p>{else}<p class="mt-4">Vous n'avez pas encore publié d'articles</p>{/if}
 					<div class="button-left">
 						<a class="orange-btn" href="{$base_url}utrip/raconte"><i class="fa-solid fa-feather"></i>Je raconte
 							mon
@@ -103,8 +104,8 @@
 					<div class="mb-5">
 						<h2 class="fs-3 orange">Derniers topics publiés</h2>
 					</div>
-					{else} 
-						<p class="mt-4">Vous n'avez pas encore publié de topics</p>
+					{else} {if ((isset($smarty.session.user.user_id)) && ($user.user_id != $objUser->getId()))}
+					<p class="mt-4">{$objUser->getPseudo()} n'a pas encore publié de topics</p>{else}<p class="mt-4">Vous n'avez pas encore publié de topics</p>{/if}
 					<div class="button-left mb-5">
 						<a class="orange-btn" href="{$base_url}forum/create_topic"><i class="fa-solid fa-comments"></i> Je
 							crée un topic</a>
