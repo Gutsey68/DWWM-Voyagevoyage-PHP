@@ -9,10 +9,10 @@
         </div>
     {/if}
         <section class="mb-4">
-            <div class="container">
+            <div class="container mt-5">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="mb-3">{$objForum->getTitle()}</h1>
+                        <h1 class="mb-3 green-title">{$objForum->getTitle()}</h1>
                         <p>Publié le <span>{$objForum->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a></p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                                     <label for="comment">Votre commentaire</label>
                                     <textarea name="answer" id="comment" class="form-control"></textarea>
                                 </div>
-                                <input type="submit" class="btn btn-primary" value="Poster">
+                                <input type="submit" class="green-btn" value="Poster">
                             </form>
                         </div>
                     </div>
@@ -53,28 +53,32 @@
             </section>
         {else}
             <div class="container my-5">
-            <h3>Vous devez être inscrit pour écrire un commentaire</h3>
+            <h3 class="fs-4 green-title poppins"><i class="pe-1 fa-solid fa-circle-info"></i>Vous devez être inscrit pour écrire un commentaire</h3>
             </div>
         {/if}
         <section id="forum-comments" class="mb-4">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h3>Commentaires</h3>
+                    {if $arrCommentsTopic|@count > 0}
+                        <h3 class="mb-3 green-title">Commentaires</h3>
+                    {/if}
                         {foreach from=$arrCommentsTopic item=commenttopic}
+                            <div class="position-relative">
                             <div class="mb-3">
-                                <p><strong>Commentaire de :</strong> <a href="{$base_url}user/user?id={$commenttopic.comt_creatorId}">{$commenttopic.comt_creator}</a></p>
-                                <p>{$commenttopic.comt_content}</p>
+                                <p class="padding-bottom0"><strong>Commentaire de :</strong> <a href="{$base_url}user/user?id={$commenttopic.comt_creatorId}">{$commenttopic.comt_creator}</a></p>
                                 <p><small>Posté le {$commenttopic.comt_date|date_format:"%d-%m-%Y %H:%M:%S"}</small></p>
+                                <p>{$commenttopic.comt_content}</p>
                             </div>
                             {if ( isset($user.user_id) && $user.user_id != '' )}
                                 {if ($smarty.session.user.user_role == "admin") || ($smarty.session.user.user_role == "modo") || ($user.user_id == $commenttopic.comt_creatorId)}
-                                    <form action="" method="post">
+                                    <form class="position-absolute top-0 end-0" action="" method="post">
                                         <input type="hidden" name="comtopicId" value="{$commenttopic.comt_id}">
-                                        <button type="submit" class="btn btn-warning" onclick="return confirmDelete()" >Supprimer</button>
+                                        <button type="submit" class="btn btn-danger" onclick="return confirmDelete()" >X</button>
                                     </form>
                                 {/if}
                             {/if}
+                        </div>
                         {/foreach}
                     </div>
                 </div>
@@ -96,7 +100,7 @@
                                 <label>Commentaire</label>
                                 <textarea name="comment" class="form-control"></textarea>
                             </div>
-                            <input type="submit" class="btn btn-success" value="Envoyer">
+                            <input type="submit" class="green-btn" value="Envoyer">
                         </form>
                     </div>
                 </div>

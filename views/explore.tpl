@@ -50,6 +50,10 @@
                     <label for="endbudget" class="form-label">Budget maximal (en €)</label>
                     <input type="text" class="form-control" id="endbudget" name="endbudget" value="{$strEndBudget}">
                 </div>
+
+
+            </div>
+            <div class="row g-3 mb-4">
                 <!-- date -->
                 <div class="col-md-auto">
                     <label for="startdate" class="form-label">Date de début</label>
@@ -69,14 +73,14 @@
                         {/foreach}
                     </select>
                 </div>
-            <!-- tri par date / likes -->
-            <div class="col-md">
-                <label for="sorting" class="form-label">Tri</label>
-                <select id="sorting" class="form-select" name="sorting">
-                    <option type="radio" checked value="0"  /> Par date
-                    <option type="radio" value="1"  /> Par like
-                </select>
-            </div>
+                <!-- tri par date / likes -->
+                <div class="col-md">
+                    <label for="sorting" class="form-label">Tri</label>
+                    <select id="sorting" class="form-select" name="sorting">
+                        <option type="radio" checked value="0" /> Par date
+                        <option type="radio" value="1" /> Par like
+                    </select>
+                </div>
             </div>
             <!-- Bouton de recherche -->
             <div class="row">

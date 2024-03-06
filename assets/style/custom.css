@@ -466,9 +466,16 @@ footer #border-bottom {
 
 /* utrip.tpl */
 
-#utrip-comments .padding-bottom0 {
+.padding-bottom0 {
     margin-bottom: 0 !important;
+    padding-bottom: 0;
 
+}
+
+.edit {
+    margin-top: 2.5rem;
+    color: var(--orange);
+    font-size: 2rem;
 }
 
 /* user.tpl */

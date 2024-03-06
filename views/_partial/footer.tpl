@@ -41,9 +41,10 @@
     </div>
 </footer>
 {block name="js_footer"}
+
 {/block}
 
 
 </body>
-
+<script src="assets/script/fslightbox.js"></script>
 </html>

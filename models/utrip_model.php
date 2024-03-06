@@ -405,7 +405,7 @@
 
 			$strQuery 	= " SELECT com_id, com_content , com_date , com_image, user_pseudo AS 'com_creator', com_user_id AS 'com_creatorId' , com_utrip_id AS 'com_utripId' FROM comments
 							INNER JOIN users ON com_user_id = user_id
-							WHERE com_utrip_id = '".$id."' ORDER BY com_date DESC";
+							WHERE com_utrip_id = '".$id."' ORDER BY com_date";
 
 			return $this->_db->query($strQuery)->fetchAll();			
 		}

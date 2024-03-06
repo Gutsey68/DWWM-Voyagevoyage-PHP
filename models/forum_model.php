@@ -149,7 +149,7 @@
 
 			$strQuery 	= " SELECT comt_id, comt_content , comt_date, user_pseudo AS 'comt_creator', comt_user_id AS 'comt_creatorId' , comt_topic_id AS 'comt_utripId' FROM commenttopic
 							INNER JOIN users ON comt_user_id = user_id
-							WHERE comt_topic_id = '".$id."' ORDER BY comt_date DESC";
+							WHERE comt_topic_id = '".$id."' ORDER BY comt_date";
 
 			return $this->_db->query($strQuery)->fetchAll();			
 		}

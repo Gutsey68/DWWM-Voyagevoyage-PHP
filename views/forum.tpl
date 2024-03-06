@@ -18,13 +18,12 @@
         <div class="form-container">
             <!-- Barre de recherche -->
             <div class="row mb-4">
-                <div class="col-6">
+                <div class="col-9 mt-4">
                     <div class="input-group">
                         <input type="search" class="form-control" name="keywords" placeholder="Recherchez un topic...">
                     </div>
                 </div>
-                <div class="col-2"></div>
-                <div class="col-4">
+                <div class="col-3 mb-5 button-center mt-3">
                     <!-- Bouton de recherche -->
                     <button type="submit" value="Rechercher" class="btn green-btn">
                         <i class="fa-solid fa-magnifying-glass"></i> Rechercher
