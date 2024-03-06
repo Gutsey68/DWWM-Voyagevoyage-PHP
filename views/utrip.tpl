@@ -94,7 +94,7 @@
                 <section id="ad-comment">
                     <div class="form-container ">
                         <div class="row ps-3 pe-3">
-                            <div class="col-12">
+                            <div class="col-12 text-center mb-4">
                                 <h3 class="fs-5 green-title poppins"><i class="pe-1 fa-solid fa-circle-info"></i>Vous devez être inscrit pour écrire un commentaire</h3>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
             <section id="utrip-comments" class="mb-5">
                 <div class="form-container ">
                     <div class="row ps-3 pe-3">
-                        <div class="col-12">
+                        <div class="col-12 pb-2">
                         {if $arrComments|@count > 0}
                             <h3>Commentaires</h3>
                         {/if}
