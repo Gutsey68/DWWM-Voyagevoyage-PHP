@@ -11,7 +11,7 @@
 	<div class="container mt-3 mb-5">
 		<div class="row">
 			{* Information profil *}
-			<div class="col-4">
+			<div class="col-12 col-lg-4">
 				<div class="row">
 					<div class="rounded-5 brown-div shadow-lg mt-5 mb-5 p-5">
 						{* Photo de profil *}
@@ -80,7 +80,7 @@
 				{/if}
 			</div>
 		</div>
-		<div class="col-8">
+		<div class="col-12 col-lg-8">
 			{* 2 derniers articles ajoutés par le user *}
 			<div class="row rounded-5 brown-div shadow-lg mt-5 mb-5 ms-5 p-5">
 				{if $arrUtripsToDisplay|@count > 0}
@@ -98,7 +98,7 @@
 				{/if}
 			</div>
 			<!-- 2 derniers topics ajoutés par le user -->
-			<div class="row rounded-5 brown-div shadow-lg mt-5 mb-5 p-5 ms-5">
+			<div class="row rounded-5 brown-div shadow mt-5 mb-5 p-5 ms-5">
 				{if $arrForumsToDisplay|@count  >0}
 					<div class="mb-5">
 						<h2 class="fs-3 orange">Derniers topics publiés</h2>
