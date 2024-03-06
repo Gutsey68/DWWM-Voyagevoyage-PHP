@@ -1,0 +1,125 @@
+\doxysection{Référence de la classe Utrip\+Ctrl}
+\hypertarget{class_utrip_ctrl}{}\label{class_utrip_ctrl}\index{UtripCtrl@{UtripCtrl}}
+Graphe d\textquotesingle{}héritage de Utrip\+Ctrl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_utrip_ctrl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_a174b8e4c7d4d7363c6f773671defdeff}{home}} ()
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_a78f0682e25d8604a31790e07114aeaa1}{raconte}} ()
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19}{explore}} ()
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_a0b217c97fcec006979318540ef6c37cc}{utrip}} ()
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_ad960fc122349e70360e1c0b72813f6f1}{manage}} ()
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_a95ba47dbce7018701a2484f3cda9ad93}{edit\+\_\+utrip}} ()
+\item 
+\mbox{\hyperlink{class_utrip_ctrl_a9db6f402110fd28d5d03a2d7d44da567}{like}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_ctrl}{Ctrl}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ctrl_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_ctrl_a2a20f8258dc4a87a4d0abe71a722eec0}{affiche\+Tpl}} (\$str\+Tpl, \$bool\+Display=true)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_utrip_ctrl_af64747ef5c908fed2e6d2d918748c515}\label{class_utrip_ctrl_af64747ef5c908fed2e6d2d918748c515} 
+const {\bfseries MAX\+\_\+\+CONTENT} = 220
+\end{DoxyCompactItemize}
+\doxysubsection*{Champs de données hérités de \mbox{\hyperlink{class_ctrl}{Ctrl}}}
+\begin{DoxyCompactItemize}
+\item 
+const {\bfseries BASE\+\_\+\+URL} = "{}http\+://localhost/projet\+\_\+2/"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_ctrl}{Ctrl}}}
+\begin{DoxyCompactItemize}
+\item 
+array {\bfseries \$\+\_\+arr\+Errors} = array()
+\item 
+array {\bfseries \$\+\_\+arr\+Data} = array()
+\item 
+array {\bfseries \$\+\_\+arr\+Mimes\+Type} = array("{}image/jpeg"{}, "{}image/png"{} , "{}image/webp"{})
+\item 
+array {\bfseries \$\+\_\+arr\+Cookie\+Options} = array ()
+\item 
+array {\bfseries \$\+\_\+arr\+Admin\+Pages} = array("{}"{}, "{}"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gère la présentation des articles et des topics de forum sur la page d\textquotesingle{}accueil. Ce contrôleur est responsable de récupérer les derniers articles \doxylink{class_utrip}{Utrip} et les derniers topics de forum pour les afficher sur la page d\textquotesingle{}accueil du site. \begin{DoxyAuthor}{Auteur}
+Gauthier 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_utrip_ctrl_a13bdffdd926f26b825ea57066334ff01}\label{class_utrip_ctrl_a13bdffdd926f26b825ea57066334ff01} 
+\index{UtripCtrl@{UtripCtrl}!delete@{delete}}
+\index{delete@{delete}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode permettant de supprimer un article. Récupère l\textquotesingle{}ID de l\textquotesingle{}article à supprimer depuis \$\+\_\+\+GET et procède à sa suppression via le modèle. Redirige ensuite vers la page de gestion des articles. \Hypertarget{class_utrip_ctrl_a95ba47dbce7018701a2484f3cda9ad93}\label{class_utrip_ctrl_a95ba47dbce7018701a2484f3cda9ad93} 
+\index{UtripCtrl@{UtripCtrl}!edit\_utrip@{edit\_utrip}}
+\index{edit\_utrip@{edit\_utrip}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{edit\_utrip()}{edit\_utrip()}}
+{\footnotesize\ttfamily edit\+\_\+utrip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode permettant de modifier un article. Accessible uniquement par les utilisateurs connectés et autorisés, elle charge les détails de l\textquotesingle{}article à modifier, permet à l\textquotesingle{}utilisateur de modifier les informations et sauvegarde les modifications. \Hypertarget{class_utrip_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19}\label{class_utrip_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19} 
+\index{UtripCtrl@{UtripCtrl}!explore@{explore}}
+\index{explore@{explore}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{explore()}{explore()}}
+{\footnotesize\ttfamily explore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode qui permet d\textquotesingle{}afficher la page contenant tous les articles avec une fonction de recherche. Elle récupère les critères de recherche depuis \$\+\_\+\+POST, récupère les articles correspondants via le modèle, et prépare les données pour l\textquotesingle{}affichage. 
+
+Réimplémentée à partir de \mbox{\hyperlink{class_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19}{Ctrl}}.
+
+\Hypertarget{class_utrip_ctrl_a174b8e4c7d4d7363c6f773671defdeff}\label{class_utrip_ctrl_a174b8e4c7d4d7363c6f773671defdeff} 
+\index{UtripCtrl@{UtripCtrl}!home@{home}}
+\index{home@{home}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{home()}{home()}}
+{\footnotesize\ttfamily home (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Affiche la page d\textquotesingle{}accueil avec les 4 derniers articles \doxylink{class_utrip}{Utrip} et les 2 derniers topics de forum. Cette méthode récupère les données nécessaires via les modèles correspondants et prépare les objets pour l\textquotesingle{}affichage avant de passer le contrôle au template de la page d\textquotesingle{}accueil. \Hypertarget{class_utrip_ctrl_a9db6f402110fd28d5d03a2d7d44da567}\label{class_utrip_ctrl_a9db6f402110fd28d5d03a2d7d44da567} 
+\index{UtripCtrl@{UtripCtrl}!like@{like}}
+\index{like@{like}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{like()}{like()}}
+{\footnotesize\ttfamily like (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode permettant de liker un article. Accessible uniquement par les utilisateurs connectés, elle récupère l\textquotesingle{}ID de l\textquotesingle{}utilisateur et de l\textquotesingle{}article depuis la session et \$\+\_\+\+GET respectivement, puis procède à l\textquotesingle{}ajout d\textquotesingle{}un like via le modèle. \Hypertarget{class_utrip_ctrl_ad960fc122349e70360e1c0b72813f6f1}\label{class_utrip_ctrl_ad960fc122349e70360e1c0b72813f6f1} 
+\index{UtripCtrl@{UtripCtrl}!manage@{manage}}
+\index{manage@{manage}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{manage()}{manage()}}
+{\footnotesize\ttfamily manage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode permettant d\textquotesingle{}afficher les articles pour les gérer. Accessible uniquement aux utilisateurs connectés avec les rôles appropriés, elle récupère la liste de tous les articles pour permettre leur gestion (modification, suppression). \Hypertarget{class_utrip_ctrl_a78f0682e25d8604a31790e07114aeaa1}\label{class_utrip_ctrl_a78f0682e25d8604a31790e07114aeaa1} 
+\index{UtripCtrl@{UtripCtrl}!raconte@{raconte}}
+\index{raconte@{raconte}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{raconte()}{raconte()}}
+{\footnotesize\ttfamily raconte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode qui permet d\textquotesingle{}ajouter un article. Cette méthode récupère les données du formulaire soumis, valide ces données, traite les images téléchargées et insère les informations de l\textquotesingle{}article dans la base de données. Redirige l\textquotesingle{}utilisateur vers la page d\textquotesingle{}exploration en cas de succès. \Hypertarget{class_utrip_ctrl_a0b217c97fcec006979318540ef6c37cc}\label{class_utrip_ctrl_a0b217c97fcec006979318540ef6c37cc} 
+\index{UtripCtrl@{UtripCtrl}!utrip@{utrip}}
+\index{utrip@{utrip}!UtripCtrl@{UtripCtrl}}
+\doxysubsubsection{\texorpdfstring{utrip()}{utrip()}}
+{\footnotesize\ttfamily utrip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode qui permet d\textquotesingle{}afficher une page d\textquotesingle{}article spécifique. Récupère l\textquotesingle{}ID de l\textquotesingle{}article depuis \$\+\_\+\+GET, récupère les détails de l\textquotesingle{}article et les commentaires associés, et gère la suppression de commentaires et la modération de l\textquotesingle{}article si nécessaire. 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/controllers/utrip\+\_\+controller.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,40 @@
+\doxysection{Référence de la classe Smarty\+\_\+\+Internal\+\_\+\+Runtime\+\_\+\+Filter\+Handler}
+\hypertarget{class_smarty___internal___runtime___filter_handler}{}\label{class_smarty___internal___runtime___filter_handler}\index{Smarty\_Internal\_Runtime\_FilterHandler@{Smarty\_Internal\_Runtime\_FilterHandler}}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_smarty___internal___runtime___filter_handler_a5f57119a35d9bffa828f8d66097d7dba}{run\+Filter}} (\$type, \$content, \mbox{\hyperlink{class_smarty___internal___template}{Smarty\+\_\+\+Internal\+\_\+\+Template}} \$template)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_smarty___internal___runtime___filter_handler_a5f57119a35d9bffa828f8d66097d7dba}\label{class_smarty___internal___runtime___filter_handler_a5f57119a35d9bffa828f8d66097d7dba} 
+\index{Smarty\_Internal\_Runtime\_FilterHandler@{Smarty\_Internal\_Runtime\_FilterHandler}!runFilter@{runFilter}}
+\index{runFilter@{runFilter}!Smarty\_Internal\_Runtime\_FilterHandler@{Smarty\_Internal\_Runtime\_FilterHandler}}
+\doxysubsubsection{\texorpdfstring{runFilter()}{runFilter()}}
+{\footnotesize\ttfamily run\+Filter (\begin{DoxyParamCaption}\item[{}]{\$type,  }\item[{}]{\$content,  }\item[{\mbox{\hyperlink{class_smarty___internal___template}{Smarty\+\_\+\+Internal\+\_\+\+Template}}}]{\$template }\end{DoxyParamCaption})}
+
+Run filters over content The filters will be lazy loaded if required class name format\+: Smarty\+\_\+\+Filter\+Type\+\_\+\+Filter\+Name plugin filename format\+: filtertype.\+filtername.\+php Smarty2 filter plugins could be used
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$type} & the type of filter (\textquotesingle{}pre\textquotesingle{},\textquotesingle{}post\textquotesingle{},\textquotesingle{}output\textquotesingle{}) which shall run \\
+\hline
+string & {\em \$content} & the content which shall be processed by the filters \\
+\hline
+\doxylink{class_smarty___internal___template}{Smarty\+\_\+\+Internal\+\_\+\+Template} & {\em \$template} & template object\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{class_smarty_exception}{Smarty\+Exception}} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+string the filtered content 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/libs/smarty/sysplugins/smarty\+\_\+internal\+\_\+runtime\+\_\+filterhandler.\+php\end{DoxyCompactItemize}

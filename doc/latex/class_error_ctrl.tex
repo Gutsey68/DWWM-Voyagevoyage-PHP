@@ -1,0 +1,69 @@
+\doxysection{Référence de la classe Error\+Ctrl}
+\hypertarget{class_error_ctrl}{}\label{class_error_ctrl}\index{ErrorCtrl@{ErrorCtrl}}
+Graphe d\textquotesingle{}héritage de Error\+Ctrl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_error_ctrl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_error_ctrl_ac4e34ae36f699de58782572435eaf331}{show404}} ()
+\item 
+\mbox{\hyperlink{class_error_ctrl_ad32e265714dffdde068ca9dff77a659f}{show403}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_ctrl}{Ctrl}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ctrl_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_ctrl_a2a20f8258dc4a87a4d0abe71a722eec0}{affiche\+Tpl}} (\$str\+Tpl, \$bool\+Display=true)
+\item 
+\mbox{\hyperlink{class_ctrl_afc4c4367ac8d60f9f49dccc53e73dc19}{explore}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Champs de données hérités de \mbox{\hyperlink{class_ctrl}{Ctrl}}}
+\begin{DoxyCompactItemize}
+\item 
+const {\bfseries BASE\+\_\+\+URL} = "{}http\+://localhost/projet\+\_\+2/"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_ctrl}{Ctrl}}}
+\begin{DoxyCompactItemize}
+\item 
+array {\bfseries \$\+\_\+arr\+Errors} = array()
+\item 
+array {\bfseries \$\+\_\+arr\+Data} = array()
+\item 
+array {\bfseries \$\+\_\+arr\+Mimes\+Type} = array("{}image/jpeg"{}, "{}image/png"{} , "{}image/webp"{})
+\item 
+array {\bfseries \$\+\_\+arr\+Cookie\+Options} = array ()
+\item 
+array {\bfseries \$\+\_\+arr\+Admin\+Pages} = array("{}"{}, "{}"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contrôleur pour la gestion des erreurs, étend le contrôleur de base \doxylink{class_ctrl}{Ctrl}. Permet d\textquotesingle{}afficher des pages spécifiques en cas d\textquotesingle{}erreurs HTTP comme 404 ou 403. \begin{DoxyAuthor}{Auteur}
+Groupe1 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_error_ctrl_ad32e265714dffdde068ca9dff77a659f}\label{class_error_ctrl_ad32e265714dffdde068ca9dff77a659f} 
+\index{ErrorCtrl@{ErrorCtrl}!show403@{show403}}
+\index{show403@{show403}!ErrorCtrl@{ErrorCtrl}}
+\doxysubsubsection{\texorpdfstring{show403()}{show403()}}
+{\footnotesize\ttfamily show403 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Génère et affiche la page d\textquotesingle{}erreur 403 -\/ Accès refusé. Configure les données nécessaires au template et appelle la méthode d\textquotesingle{}affichage. \Hypertarget{class_error_ctrl_ac4e34ae36f699de58782572435eaf331}\label{class_error_ctrl_ac4e34ae36f699de58782572435eaf331} 
+\index{ErrorCtrl@{ErrorCtrl}!show404@{show404}}
+\index{show404@{show404}!ErrorCtrl@{ErrorCtrl}}
+\doxysubsubsection{\texorpdfstring{show404()}{show404()}}
+{\footnotesize\ttfamily show404 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Génère et affiche la page d\textquotesingle{}erreur 404 -\/ Page non trouvée. Configure les données nécessaires au template et appelle la méthode d\textquotesingle{}affichage. 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/controllers/error\+\_\+controller.\+php\end{DoxyCompactItemize}

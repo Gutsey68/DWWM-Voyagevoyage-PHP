@@ -1,0 +1,115 @@
+\doxysection{Référence de la classe Smarty\+Compiler\+Exception}
+\hypertarget{class_smarty_compiler_exception}{}\label{class_smarty_compiler_exception}\index{SmartyCompilerException@{SmartyCompilerException}}
+Graphe d\textquotesingle{}héritage de Smarty\+Compiler\+Exception\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_smarty_compiler_exception}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_smarty_compiler_exception_a316ac0c5354ddb105379f6d2d36ff65f}{\+\_\+\+\_\+construct}} (string \$message="{}"{}, int \$code=0, ?string \$filename=null, ?int \$line=null, Throwable \$previous=null)
+\item 
+\mbox{\hyperlink{class_smarty_compiler_exception_a7516ca30af0db3cdbf9a7739b48ce91d}{\+\_\+\+\_\+to\+String}} ()
+\item 
+\mbox{\hyperlink{class_smarty_compiler_exception_a2fbe37ff257f133c2afe4d9e7f3c4a70}{set\+Line}} (\$line)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_smarty_compiler_exception_a99a2b085f0a29bd5d799fdcbb63d261b}{\$source}} = null
+\item 
+\mbox{\hyperlink{class_smarty_compiler_exception_a31059b9e4d0c5af34df20da32232ea9a}{\$desc}} = null
+\item 
+\mbox{\hyperlink{class_smarty_compiler_exception_aa3e9534005fd516d941f6a5569896e01}{\$template}} = null
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs publics statiques hérités de \mbox{\hyperlink{class_smarty_exception}{Smarty\+Exception}}}
+\begin{DoxyCompactItemize}
+\item 
+static {\bfseries \$escape} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_smarty_compiler_exception_a316ac0c5354ddb105379f6d2d36ff65f}\label{class_smarty_compiler_exception_a316ac0c5354ddb105379f6d2d36ff65f} 
+\index{SmartyCompilerException@{SmartyCompilerException}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!SmartyCompilerException@{SmartyCompilerException}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$message = {\ttfamily "{}"{}},  }\item[{int}]{\$code = {\ttfamily 0},  }\item[{?string}]{\$filename = {\ttfamily null},  }\item[{?int}]{\$line = {\ttfamily null},  }\item[{Throwable}]{\$previous = {\ttfamily null} }\end{DoxyParamCaption})}
+
+The constructor of the exception
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$message} & The Exception message to throw. \\
+\hline
+int & {\em \$code} & The Exception code. \\
+\hline
+string | null & {\em \$filename} & The filename where the exception is thrown. \\
+\hline
+int | null & {\em \$line} & The line number where the exception is thrown. \\
+\hline
+Throwable | null & {\em \$previous} & The previous exception used for the exception chaining. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_smarty_compiler_exception_a7516ca30af0db3cdbf9a7739b48ce91d}\label{class_smarty_compiler_exception_a7516ca30af0db3cdbf9a7739b48ce91d} 
+\index{SmartyCompilerException@{SmartyCompilerException}!\_\_toString@{\_\_toString}}
+\index{\_\_toString@{\_\_toString}!SmartyCompilerException@{SmartyCompilerException}}
+\doxysubsubsection{\texorpdfstring{\_\_toString()}{\_\_toString()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{class_smarty_exception_a7516ca30af0db3cdbf9a7739b48ce91d}{Smarty\+Exception}}.
+
+\Hypertarget{class_smarty_compiler_exception_a2fbe37ff257f133c2afe4d9e7f3c4a70}\label{class_smarty_compiler_exception_a2fbe37ff257f133c2afe4d9e7f3c4a70} 
+\index{SmartyCompilerException@{SmartyCompilerException}!setLine@{setLine}}
+\index{setLine@{setLine}!SmartyCompilerException@{SmartyCompilerException}}
+\doxysubsubsection{\texorpdfstring{setLine()}{setLine()}}
+{\footnotesize\ttfamily set\+Line (\begin{DoxyParamCaption}\item[{}]{\$line }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$line} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_smarty_compiler_exception_a31059b9e4d0c5af34df20da32232ea9a}\label{class_smarty_compiler_exception_a31059b9e4d0c5af34df20da32232ea9a} 
+\index{SmartyCompilerException@{SmartyCompilerException}!\$desc@{\$desc}}
+\index{\$desc@{\$desc}!SmartyCompilerException@{SmartyCompilerException}}
+\doxysubsubsection{\texorpdfstring{\$desc}{\$desc}}
+{\footnotesize\ttfamily \$desc = null}
+
+The raw text of the error message
+
+@type string\texorpdfstring{$\vert$}{|}null \Hypertarget{class_smarty_compiler_exception_a99a2b085f0a29bd5d799fdcbb63d261b}\label{class_smarty_compiler_exception_a99a2b085f0a29bd5d799fdcbb63d261b} 
+\index{SmartyCompilerException@{SmartyCompilerException}!\$source@{\$source}}
+\index{\$source@{\$source}!SmartyCompilerException@{SmartyCompilerException}}
+\doxysubsubsection{\texorpdfstring{\$source}{\$source}}
+{\footnotesize\ttfamily \$source = null}
+
+The template source snippet relating to the error
+
+@type string\texorpdfstring{$\vert$}{|}null \Hypertarget{class_smarty_compiler_exception_aa3e9534005fd516d941f6a5569896e01}\label{class_smarty_compiler_exception_aa3e9534005fd516d941f6a5569896e01} 
+\index{SmartyCompilerException@{SmartyCompilerException}!\$template@{\$template}}
+\index{\$template@{\$template}!SmartyCompilerException@{SmartyCompilerException}}
+\doxysubsubsection{\texorpdfstring{\$template}{\$template}}
+{\footnotesize\ttfamily \$template = null}
+
+The resource identifier or template name
+
+@type string\texorpdfstring{$\vert$}{|}null 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/libs/smarty/sysplugins/smartycompilerexception.\+php\end{DoxyCompactItemize}

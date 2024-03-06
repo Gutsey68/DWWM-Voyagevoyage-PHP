@@ -1,0 +1,192 @@
+\doxysection{Référence de la classe Forum\+Model}
+\hypertarget{class_forum_model}{}\label{class_forum_model}\index{ForumModel@{ForumModel}}
+Graphe d\textquotesingle{}héritage de Forum\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_forum_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_forum_model_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_forum_model_a740f5fabe7bc3b46e7c6a972418d30ea}{find\+All}} (int \$int\+Limit=0, \$arr\+Search=array())
+\item 
+\mbox{\hyperlink{class_forum_model_af1e1064a7b998589919bd63ef301f9d2}{insert}} (object \$obj\+Forum)
+\item 
+\mbox{\hyperlink{class_forum_model_abae4e4e1897eb76eb48dd2a1420c9375}{get}} (int \$id)
+\item 
+\mbox{\hyperlink{class_forum_model_a38c538b8aa0e836091f87f85953dec68}{find\+List}} ()
+\item 
+\mbox{\hyperlink{class_forum_model_a92bdb6515f63b29e3a743e981e72d493}{moderate}} (\$obj\+Forum)
+\item 
+\mbox{\hyperlink{class_forum_model_aab788f559c9ebb763f9abd0d969face2}{delete}} (int \$id)
+\item 
+\mbox{\hyperlink{class_forum_model_aacc77078e4e2ddb678c3f5eab63f5d39}{get\+Com}} (int \$id)
+\item 
+\mbox{\hyperlink{class_forum_model_a1367720575e03174b9347c7a97e87c42}{insert\+Comt}} (object \$obj\+Comment\+Topic)
+\item 
+\mbox{\hyperlink{class_forum_model_a1bfff79e372e7368bac4754bf4ba9a87}{delete\+Com}} (int \$com\+Id)
+\item 
+\mbox{\hyperlink{class_forum_model_a7ebe96ef5c84d77347f2ce4506df3ac7}{find\+Forum\+By\+User}} (\$id, int \$int\+Limit=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_model}{Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$\+\_\+db}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_forum_model_a095c5d389db211932136b53f25f39685}\label{class_forum_model_a095c5d389db211932136b53f25f39685} 
+\index{ForumModel@{ForumModel}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructeur de la classe 
+
+Réimplémentée à partir de \mbox{\hyperlink{class_model}{Model}}.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_forum_model_aab788f559c9ebb763f9abd0d969face2}\label{class_forum_model_aab788f559c9ebb763f9abd0d969face2} 
+\index{ForumModel@{ForumModel}!delete@{delete}}
+\index{delete@{delete}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de supprimer l\textquotesingle{}article en BDD 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}article à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Résultat de l\textquotesingle{}opération 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_a1bfff79e372e7368bac4754bf4ba9a87}\label{class_forum_model_a1bfff79e372e7368bac4754bf4ba9a87} 
+\index{ForumModel@{ForumModel}!deleteCom@{deleteCom}}
+\index{deleteCom@{deleteCom}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{deleteCom()}{deleteCom()}}
+{\footnotesize\ttfamily delete\+Com (\begin{DoxyParamCaption}\item[{int}]{\$com\+Id }\end{DoxyParamCaption})}
+
+Supprime un commentaire basé sur son ID. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$com\+Id} & L\textquotesingle{}ID du commentaire à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Renvoie true si la suppression a réussi, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_a740f5fabe7bc3b46e7c6a972418d30ea}\label{class_forum_model_a740f5fabe7bc3b46e7c6a972418d30ea} 
+\index{ForumModel@{ForumModel}!findAll@{findAll}}
+\index{findAll@{findAll}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{findAll()}{findAll()}}
+{\footnotesize\ttfamily find\+All (\begin{DoxyParamCaption}\item[{int}]{\$int\+Limit = {\ttfamily 0},  }\item[{}]{\$arr\+Search = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Méthode de récupération de tous les topics \begin{DoxyReturn}{Renvoie}
+Tableau des topics 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_a7ebe96ef5c84d77347f2ce4506df3ac7}\label{class_forum_model_a7ebe96ef5c84d77347f2ce4506df3ac7} 
+\index{ForumModel@{ForumModel}!findForumByUser@{findForumByUser}}
+\index{findForumByUser@{findForumByUser}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{findForumByUser()}{findForumByUser()}}
+{\footnotesize\ttfamily find\+Forum\+By\+User (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{int}]{\$int\+Limit = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Méthode de récupération de tous les topics d\textquotesingle{}un user 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant de l\textquotesingle{}utilisateur \\
+\hline
+int & {\em \$int\+Limit} & Limite de topics à récupérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Tableau des topics 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_a38c538b8aa0e836091f87f85953dec68}\label{class_forum_model_a38c538b8aa0e836091f87f85953dec68} 
+\index{ForumModel@{ForumModel}!findList@{findList}}
+\index{findList@{findList}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{findList()}{findList()}}
+{\footnotesize\ttfamily find\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}administration de la gestion des topics \begin{DoxyReturn}{Renvoie}
+array Liste des topics pour administration 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_abae4e4e1897eb76eb48dd2a1420c9375}\label{class_forum_model_abae4e4e1897eb76eb48dd2a1420c9375} 
+\index{ForumModel@{ForumModel}!get@{get}}
+\index{get@{get}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer un topic en fonction de son id 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant du topic à récupérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Le détail du topic 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_aacc77078e4e2ddb678c3f5eab63f5d39}\label{class_forum_model_aacc77078e4e2ddb678c3f5eab63f5d39} 
+\index{ForumModel@{ForumModel}!getCom@{getCom}}
+\index{getCom@{getCom}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{getCom()}{getCom()}}
+{\footnotesize\ttfamily get\+Com (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+Méthode permettant de récupérer les comentaires d\textquotesingle{}un topic 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant du topic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array Liste des commentaires 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_af1e1064a7b998589919bd63ef301f9d2}\label{class_forum_model_af1e1064a7b998589919bd63ef301f9d2} 
+\index{ForumModel@{ForumModel}!insert@{insert}}
+\index{insert@{insert}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily insert (\begin{DoxyParamCaption}\item[{object}]{\$obj\+Forum }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}insertion d\textquotesingle{}un topic en BDD 
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Forum} & Objet forum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Résultat de l\textquotesingle{}opération 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_a1367720575e03174b9347c7a97e87c42}\label{class_forum_model_a1367720575e03174b9347c7a97e87c42} 
+\index{ForumModel@{ForumModel}!insertComt@{insertComt}}
+\index{insertComt@{insertComt}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{insertComt()}{insertComt()}}
+{\footnotesize\ttfamily insert\+Comt (\begin{DoxyParamCaption}\item[{object}]{\$obj\+Comment\+Topic }\end{DoxyParamCaption})}
+
+Méthode d\textquotesingle{}insertion d\textquotesingle{}un commentaire en BDD 
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Comment\+Topic} & Objet \doxylink{class_comment_topic}{Comment\+Topic} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Résultat de l\textquotesingle{}opération 
+\end{DoxyReturn}
+\Hypertarget{class_forum_model_a92bdb6515f63b29e3a743e981e72d493}\label{class_forum_model_a92bdb6515f63b29e3a743e981e72d493} 
+\index{ForumModel@{ForumModel}!moderate@{moderate}}
+\index{moderate@{moderate}!ForumModel@{ForumModel}}
+\doxysubsubsection{\texorpdfstring{moderate()}{moderate()}}
+{\footnotesize\ttfamily moderate (\begin{DoxyParamCaption}\item[{}]{\$obj\+Forum }\end{DoxyParamCaption})}
+
+Methode permettant de mettre à jour l\textquotesingle{}article avec les informations de modération 
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$obj\+Article} & Objet article \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Résultat de l\textquotesingle{}opération 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/models/forum\+\_\+model.\+php\end{DoxyCompactItemize}

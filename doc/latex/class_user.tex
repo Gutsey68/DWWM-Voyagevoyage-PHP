@@ -1,0 +1,380 @@
+\doxysection{Référence de la classe User}
+\hypertarget{class_user}{}\label{class_user}\index{User@{User}}
+Graphe d\textquotesingle{}héritage de User\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_user}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_a12251d0c022e9e21c137a105ff683f13}{get\+Id}} ()
+\item 
+\mbox{\hyperlink{class_user_a907c4278050a2eee3f22ed054a5c7414}{set\+Id}} (int \$int\+Id)
+\item 
+\mbox{\hyperlink{class_user_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{class_user_a4535497a6a5797b9456874fa1eaf6923}{set\+Name}} (string \$str\+Name)
+\item 
+\mbox{\hyperlink{class_user_a42c9621713b6dcdfb9edd5a7630b6d93}{get\+Firstname}} ()
+\item 
+\mbox{\hyperlink{class_user_aed9f89569e3846db75b2e7d4c9ed04b1}{set\+Firstname}} (string \$str\+Firstname)
+\item 
+\mbox{\hyperlink{class_user_a7151e41f7b522d26d02102d970e9a309}{get\+Pseudo}} ()
+\item 
+\mbox{\hyperlink{class_user_a1ea6d71122207235a43aa2cbf0dc5df0}{set\+Pseudo}} (string \$str\+Pseudo)
+\item 
+\mbox{\hyperlink{class_user_a02a01849f28e2535e888ae4ec87b20f2}{get\+Email}} ()
+\item 
+\mbox{\hyperlink{class_user_a0ab63de6509e4d094e1665dce5727526}{set\+Email}} (string \$str\+Email)
+\item 
+\mbox{\hyperlink{class_user_a04e0957baeb7acde9c0c86556da2d43f}{get\+Password}} ()
+\item 
+\mbox{\hyperlink{class_user_a2cd953a5aa8a1f8b4eac5bd29b1afe14}{set\+Password}} (string \$str\+Password)
+\item 
+\mbox{\hyperlink{class_user_a5e8a94cd59635ac689687849b9f5cd9d}{get\+Phone}} ()
+\item 
+\mbox{\hyperlink{class_user_a863e49d40e5e9e3a817ae717312f032a}{set\+Phone}} (string \$str\+Phone)
+\item 
+\mbox{\hyperlink{class_user_aa920a3a5752164a80b70baf4552a4bef}{get\+Regisdate}} ()
+\item 
+\mbox{\hyperlink{class_user_a20263d6c1eb929ceb4e05ec26ef5d457}{set\+Regisdate}} (string \$str\+Regisdate)
+\item 
+\mbox{\hyperlink{class_user_a95b03dd016909b7c40e1a711e281eb73}{get\+Regisdate\+Fr}} ()
+\item 
+\mbox{\hyperlink{class_user_a9aeb39eb48bdd2000aa55f7349e2f57a}{get\+Pp}} ()
+\item 
+\mbox{\hyperlink{class_user_aa345bb764e06cf6de7e1f389a1e41aa5}{set\+Pp}} (string \$str\+Pp)
+\item 
+\mbox{\hyperlink{class_user_a0ac8df2a80597d2170389144052c872f}{get\+Ban}} ()
+\item 
+\mbox{\hyperlink{class_user_a5fb869a2cb075c1075e94bcb656ba8e1}{set\+Ban}} (string \$str\+Ban)
+\item 
+\mbox{\hyperlink{class_user_acca061fffb247bb1448878dd7135cd05}{get\+Bio}} ()
+\item 
+\mbox{\hyperlink{class_user_ab43f0f13c2c480874f18385fd010f00f}{set\+Bio}} (string \$str\+Bio)
+\item 
+\mbox{\hyperlink{class_user_a0b2e7098f1c48a7439a42bada5b69689}{get\+Role}} ()
+\item 
+\mbox{\hyperlink{class_user_ae515b90eecb088123eed1fea7a071c99}{set\+Role}} (string \$str\+Role)
+\item 
+\mbox{\hyperlink{class_user_a91fabc9c7c6ebd4973f7587f60453c10}{get\+Pwd\+Hash}} ()
+\item 
+\mbox{\hyperlink{class_user_adb57c3d1b74c19589ba1d641ea1a390e}{get\+Comment}} ()
+\item 
+\mbox{\hyperlink{class_user_add3718a94ae593d519d195919660a383}{set\+Comment}} (string \$str\+Comment)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a9231474670bf1388a216eadd586c43d0}{hydrate}} (\$arr\+Data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_user_acfb9635bf4953126e6d2669f4e25617b}\label{class_user_acfb9635bf4953126e6d2669f4e25617b} 
+string {\bfseries \$\+\_\+str\+Prefixe} = "{}user\+\_\+"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+string {\bfseries \$\+\_\+str\+Prefixe}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe représentant un utilisateur. Hérite de \doxylink{class_entity}{Entity} pour une structure commune et la capacité d\textquotesingle{}hydratation. Gère les informations utilisateur telles que l\textquotesingle{}identifiant, le nom, le prénom, etc. Fournit des getters et setters pour manipuler les propriétés de l\textquotesingle{}utilisateur de manière sécurisée.
+
+\begin{DoxyAuthor}{Auteur}
+Gauthier 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2024 
+\end{DoxyVersion}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_user_a0ac8df2a80597d2170389144052c872f}\label{class_user_a0ac8df2a80597d2170389144052c872f} 
+\index{User@{User}!getBan@{getBan}}
+\index{getBan@{getBan}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getBan()}{getBan()}}
+{\footnotesize\ttfamily get\+Ban (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le statut de bannissement de l\textquotesingle{}utilisateur. Récupère le statut indiquant si l\textquotesingle{}utilisateur est banni ou non. \begin{DoxyReturn}{Renvoie}
+string Le statut de bannissement de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_acca061fffb247bb1448878dd7135cd05}\label{class_user_acca061fffb247bb1448878dd7135cd05} 
+\index{User@{User}!getBio@{getBio}}
+\index{getBio@{getBio}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getBio()}{getBio()}}
+{\footnotesize\ttfamily get\+Bio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour la biographie de l\textquotesingle{}utilisateur. Récupère la biographie définie par l\textquotesingle{}utilisateur dans son profil. \begin{DoxyReturn}{Renvoie}
+string La biographie de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_adb57c3d1b74c19589ba1d641ea1a390e}\label{class_user_adb57c3d1b74c19589ba1d641ea1a390e} 
+\index{User@{User}!getComment@{getComment}}
+\index{getComment@{getComment}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getComment()}{getComment()}}
+{\footnotesize\ttfamily get\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le commentaire associé à l\textquotesingle{}utilisateur. Récupère le commentaire lié à l\textquotesingle{}utilisateur, typiquement utilisé pour des notes internes ou des commentaires de modération. \begin{DoxyReturn}{Renvoie}
+string Le commentaire associé à l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a02a01849f28e2535e888ae4ec87b20f2}\label{class_user_a02a01849f28e2535e888ae4ec87b20f2} 
+\index{User@{User}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily get\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour l\textquotesingle{}email de l\textquotesingle{}utilisateur. Récupère l\textquotesingle{}adresse email de l\textquotesingle{}utilisateur. \begin{DoxyReturn}{Renvoie}
+string L\textquotesingle{}email de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a42c9621713b6dcdfb9edd5a7630b6d93}\label{class_user_a42c9621713b6dcdfb9edd5a7630b6d93} 
+\index{User@{User}!getFirstname@{getFirstname}}
+\index{getFirstname@{getFirstname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getFirstname()}{getFirstname()}}
+{\footnotesize\ttfamily get\+Firstname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le prénom de l\textquotesingle{}utilisateur. Récupère le prénom de l\textquotesingle{}utilisateur. \begin{DoxyReturn}{Renvoie}
+string Le prénom de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a12251d0c022e9e21c137a105ff683f13}\label{class_user_a12251d0c022e9e21c137a105ff683f13} 
+\index{User@{User}!getId@{getId}}
+\index{getId@{getId}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour l\textquotesingle{}identifiant de l\textquotesingle{}utilisateur. Récupère l\textquotesingle{}identifiant unique attribué à l\textquotesingle{}utilisateur lors de sa création. Cet identifiant est utilisé pour référencer l\textquotesingle{}utilisateur dans la base de données. \begin{DoxyReturn}{Renvoie}
+int L\textquotesingle{}identifiant de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a3d0963e68bb313b163a73f2803c64600}\label{class_user_a3d0963e68bb313b163a73f2803c64600} 
+\index{User@{User}!getName@{getName}}
+\index{getName@{getName}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le nom de l\textquotesingle{}utilisateur. Récupère le nom de l\textquotesingle{}utilisateur. \begin{DoxyReturn}{Renvoie}
+string Le nom de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a04e0957baeb7acde9c0c86556da2d43f}\label{class_user_a04e0957baeb7acde9c0c86556da2d43f} 
+\index{User@{User}!getPassword@{getPassword}}
+\index{getPassword@{getPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPassword()}{getPassword()}}
+{\footnotesize\ttfamily get\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le mot de passe de l\textquotesingle{}utilisateur. Récupère le mot de passe non crypté de l\textquotesingle{}utilisateur. Utilisation non recommandée pour des raisons de sécurité. \begin{DoxyReturn}{Renvoie}
+string Le mot de passe en clair de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a5e8a94cd59635ac689687849b9f5cd9d}\label{class_user_a5e8a94cd59635ac689687849b9f5cd9d} 
+\index{User@{User}!getPhone@{getPhone}}
+\index{getPhone@{getPhone}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPhone()}{getPhone()}}
+{\footnotesize\ttfamily get\+Phone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le numéro de téléphone de l\textquotesingle{}utilisateur. Récupère le numéro de téléphone associé au compte de l\textquotesingle{}utilisateur. \begin{DoxyReturn}{Renvoie}
+string Le numéro de téléphone de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a9aeb39eb48bdd2000aa55f7349e2f57a}\label{class_user_a9aeb39eb48bdd2000aa55f7349e2f57a} 
+\index{User@{User}!getPp@{getPp}}
+\index{getPp@{getPp}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPp()}{getPp()}}
+{\footnotesize\ttfamily get\+Pp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour la photo de profil de l\textquotesingle{}utilisateur. Récupère l\textquotesingle{}identifiant unique de la photo de profil de l\textquotesingle{}utilisateur. \begin{DoxyReturn}{Renvoie}
+string L\textquotesingle{}identifiant de la photo de profil de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a7151e41f7b522d26d02102d970e9a309}\label{class_user_a7151e41f7b522d26d02102d970e9a309} 
+\index{User@{User}!getPseudo@{getPseudo}}
+\index{getPseudo@{getPseudo}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPseudo()}{getPseudo()}}
+{\footnotesize\ttfamily get\+Pseudo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le pseudo de l\textquotesingle{}utilisateur. Récupère le pseudo attribué à l\textquotesingle{}utilisateur, utilisé pour l\textquotesingle{}identifier de manière unique sur la plateforme. \begin{DoxyReturn}{Renvoie}
+string Le pseudo de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a91fabc9c7c6ebd4973f7587f60453c10}\label{class_user_a91fabc9c7c6ebd4973f7587f60453c10} 
+\index{User@{User}!getPwdHash@{getPwdHash}}
+\index{getPwdHash@{getPwdHash}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPwdHash()}{getPwdHash()}}
+{\footnotesize\ttfamily get\+Pwd\+Hash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode pour obtenir le hash du mot de passe de l\textquotesingle{}utilisateur. Utilise l\textquotesingle{}algorithme de hachage PASSWORD\+\_\+\+DEFAULT de PHP pour sécuriser le mot de passe avant son stockage ou sa vérification. \begin{DoxyReturn}{Renvoie}
+string Le hash du mot de passe de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_aa920a3a5752164a80b70baf4552a4bef}\label{class_user_aa920a3a5752164a80b70baf4552a4bef} 
+\index{User@{User}!getRegisdate@{getRegisdate}}
+\index{getRegisdate@{getRegisdate}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getRegisdate()}{getRegisdate()}}
+{\footnotesize\ttfamily get\+Regisdate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour la date d\textquotesingle{}inscription de l\textquotesingle{}utilisateur. Récupère la date à laquelle l\textquotesingle{}utilisateur a créé son compte. \begin{DoxyReturn}{Renvoie}
+string La date de création de compte de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a95b03dd016909b7c40e1a711e281eb73}\label{class_user_a95b03dd016909b7c40e1a711e281eb73} 
+\index{User@{User}!getRegisdateFr@{getRegisdateFr}}
+\index{getRegisdateFr@{getRegisdateFr}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getRegisdateFr()}{getRegisdateFr()}}
+{\footnotesize\ttfamily get\+Regisdate\+Fr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode pour obtenir la date d\textquotesingle{}enregistrement de l\textquotesingle{}utilisateur au format français (jj/mm/aaaa). Transforme la date d\textquotesingle{}enregistrement stockée dans la base de données au format standard en une version lisible. \begin{DoxyReturn}{Renvoie}
+string La date d\textquotesingle{}enregistrement formatée au format français. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a0b2e7098f1c48a7439a42bada5b69689}\label{class_user_a0b2e7098f1c48a7439a42bada5b69689} 
+\index{User@{User}!getRole@{getRole}}
+\index{getRole@{getRole}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getRole()}{getRole()}}
+{\footnotesize\ttfamily get\+Role (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter pour le rôle de l\textquotesingle{}utilisateur. Récupère le rôle assigné à l\textquotesingle{}utilisateur (ex \+: admin, user, guest). \begin{DoxyReturn}{Renvoie}
+string Le rôle de l\textquotesingle{}utilisateur. 
+\end{DoxyReturn}
+\Hypertarget{class_user_a5fb869a2cb075c1075e94bcb656ba8e1}\label{class_user_a5fb869a2cb075c1075e94bcb656ba8e1} 
+\index{User@{User}!setBan@{setBan}}
+\index{setBan@{setBan}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setBan()}{setBan()}}
+{\footnotesize\ttfamily set\+Ban (\begin{DoxyParamCaption}\item[{string}]{\$str\+Ban }\end{DoxyParamCaption})}
+
+Setter pour le statut de bannissement de l\textquotesingle{}utilisateur. Définit si l\textquotesingle{}utilisateur est banni ou non. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Ban} & Nouveau statut de bannissement de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_ab43f0f13c2c480874f18385fd010f00f}\label{class_user_ab43f0f13c2c480874f18385fd010f00f} 
+\index{User@{User}!setBio@{setBio}}
+\index{setBio@{setBio}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setBio()}{setBio()}}
+{\footnotesize\ttfamily set\+Bio (\begin{DoxyParamCaption}\item[{string}]{\$str\+Bio }\end{DoxyParamCaption})}
+
+Setter pour la biographie de l\textquotesingle{}utilisateur. Définit la biographie de l\textquotesingle{}utilisateur dans son profil. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Bio} & Nouvelle biographie de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_add3718a94ae593d519d195919660a383}\label{class_user_add3718a94ae593d519d195919660a383} 
+\index{User@{User}!setComment@{setComment}}
+\index{setComment@{setComment}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setComment()}{setComment()}}
+{\footnotesize\ttfamily set\+Comment (\begin{DoxyParamCaption}\item[{string}]{\$str\+Comment }\end{DoxyParamCaption})}
+
+Setter pour le commentaire associé à l\textquotesingle{}utilisateur. Définit un commentaire lié à l\textquotesingle{}utilisateur, pouvant être utilisé pour des notes internes ou des commentaires de modération. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Comment} & Nouveau commentaire associé à l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_a0ab63de6509e4d094e1665dce5727526}\label{class_user_a0ab63de6509e4d094e1665dce5727526} 
+\index{User@{User}!setEmail@{setEmail}}
+\index{setEmail@{setEmail}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setEmail()}{setEmail()}}
+{\footnotesize\ttfamily set\+Email (\begin{DoxyParamCaption}\item[{string}]{\$str\+Email }\end{DoxyParamCaption})}
+
+Setter pour l\textquotesingle{}email de l\textquotesingle{}utilisateur. Définit l\textquotesingle{}adresse email de l\textquotesingle{}utilisateur. Effectue une validation de format d\textquotesingle{}email basique. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Email} & Nouvel email de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_aed9f89569e3846db75b2e7d4c9ed04b1}\label{class_user_aed9f89569e3846db75b2e7d4c9ed04b1} 
+\index{User@{User}!setFirstname@{setFirstname}}
+\index{setFirstname@{setFirstname}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setFirstname()}{setFirstname()}}
+{\footnotesize\ttfamily set\+Firstname (\begin{DoxyParamCaption}\item[{string}]{\$str\+Firstname }\end{DoxyParamCaption})}
+
+Setter pour le prénom de l\textquotesingle{}utilisateur. Définit le prénom de l\textquotesingle{}utilisateur. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Firstname} & Nouveau prénom de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_a907c4278050a2eee3f22ed054a5c7414}\label{class_user_a907c4278050a2eee3f22ed054a5c7414} 
+\index{User@{User}!setId@{setId}}
+\index{setId@{setId}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily set\+Id (\begin{DoxyParamCaption}\item[{int}]{\$int\+Id }\end{DoxyParamCaption})}
+
+Setter pour l\textquotesingle{}identifiant de l\textquotesingle{}utilisateur. Définit l\textquotesingle{}identifiant unique pour l\textquotesingle{}utilisateur. 
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$int\+Id} & Nouvel identifiant de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_a4535497a6a5797b9456874fa1eaf6923}\label{class_user_a4535497a6a5797b9456874fa1eaf6923} 
+\index{User@{User}!setName@{setName}}
+\index{setName@{setName}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily set\+Name (\begin{DoxyParamCaption}\item[{string}]{\$str\+Name }\end{DoxyParamCaption})}
+
+Setter pour le nom de l\textquotesingle{}utilisateur. Définit le nom de l\textquotesingle{}utilisateur. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Name} & Nouveau nom de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_a2cd953a5aa8a1f8b4eac5bd29b1afe14}\label{class_user_a2cd953a5aa8a1f8b4eac5bd29b1afe14} 
+\index{User@{User}!setPassword@{setPassword}}
+\index{setPassword@{setPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setPassword()}{setPassword()}}
+{\footnotesize\ttfamily set\+Password (\begin{DoxyParamCaption}\item[{string}]{\$str\+Password }\end{DoxyParamCaption})}
+
+Setter pour le mot de passe de l\textquotesingle{}utilisateur. Définit le mot de passe de l\textquotesingle{}utilisateur. Le mot de passe n\textquotesingle{}est pas crypté à ce niveau. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Password} & Nouveau mot de passe de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_a863e49d40e5e9e3a817ae717312f032a}\label{class_user_a863e49d40e5e9e3a817ae717312f032a} 
+\index{User@{User}!setPhone@{setPhone}}
+\index{setPhone@{setPhone}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setPhone()}{setPhone()}}
+{\footnotesize\ttfamily set\+Phone (\begin{DoxyParamCaption}\item[{string}]{\$str\+Phone }\end{DoxyParamCaption})}
+
+Setter pour le numéro de téléphone de l\textquotesingle{}utilisateur. Définit le numéro de téléphone associé au compte utilisateur. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Phone} & Nouveau numéro de téléphone de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_aa345bb764e06cf6de7e1f389a1e41aa5}\label{class_user_aa345bb764e06cf6de7e1f389a1e41aa5} 
+\index{User@{User}!setPp@{setPp}}
+\index{setPp@{setPp}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setPp()}{setPp()}}
+{\footnotesize\ttfamily set\+Pp (\begin{DoxyParamCaption}\item[{string}]{\$str\+Pp }\end{DoxyParamCaption})}
+
+Setter pour la photo de profil de l\textquotesingle{}utilisateur. Définit l\textquotesingle{}identifiant unique de la photo de profil de l\textquotesingle{}utilisateur. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Pp} & Nouvel identifiant de la photo de profil de l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_a1ea6d71122207235a43aa2cbf0dc5df0}\label{class_user_a1ea6d71122207235a43aa2cbf0dc5df0} 
+\index{User@{User}!setPseudo@{setPseudo}}
+\index{setPseudo@{setPseudo}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setPseudo()}{setPseudo()}}
+{\footnotesize\ttfamily set\+Pseudo (\begin{DoxyParamCaption}\item[{string}]{\$str\+Pseudo }\end{DoxyParamCaption})}
+
+Setter pour le pseudo de l\textquotesingle{}utilisateur. Attribue ou modifie le pseudo de l\textquotesingle{}utilisateur. Le pseudo est utilisé pour identifier l\textquotesingle{}utilisateur sur la plateforme. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Pseudo} & Le nouveau pseudo à attribuer à l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_a20263d6c1eb929ceb4e05ec26ef5d457}\label{class_user_a20263d6c1eb929ceb4e05ec26ef5d457} 
+\index{User@{User}!setRegisdate@{setRegisdate}}
+\index{setRegisdate@{setRegisdate}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setRegisdate()}{setRegisdate()}}
+{\footnotesize\ttfamily set\+Regisdate (\begin{DoxyParamCaption}\item[{string}]{\$str\+Regisdate }\end{DoxyParamCaption})}
+
+Setter pour la date d\textquotesingle{}inscription de l\textquotesingle{}utilisateur. Définit la date de création du compte utilisateur. 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Regisdate} & Nouvelle date de création du compte utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_ae515b90eecb088123eed1fea7a071c99}\label{class_user_ae515b90eecb088123eed1fea7a071c99} 
+\index{User@{User}!setRole@{setRole}}
+\index{setRole@{setRole}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setRole()}{setRole()}}
+{\footnotesize\ttfamily set\+Role (\begin{DoxyParamCaption}\item[{string}]{\$str\+Role }\end{DoxyParamCaption})}
+
+Setter pour le rôle de l\textquotesingle{}utilisateur. Définit le rôle de l\textquotesingle{}utilisateur (ex \+: admin, user, guest). 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str\+Role} & Nouveau rôle assigné à l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/wamp64/www/projet\+\_\+2/entities/user\+\_\+entity.\+php\end{DoxyCompactItemize}
