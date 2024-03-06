@@ -34,16 +34,11 @@
 						{* Informations du compte *}
 						<div class="col-12 pt-3 ">
 							<h1 class="text-center mb-5 orange">{$objUser->getPseudo()}</h1>
-							<p>Bio : {$objUser->getBio()}</p>
+							<p>{$objUser->getBio()}</p>
 							<p>Date de création de compte :{$objUser->getRegisdateFr()}</p>
 							<p>Rôle :
 								{if ({$objUser->getRole()}=="user")}Utilisateur{elseif ({$objUser->getRole()}=="modo")}Modérateur{elseif ({$objUser->getRole()}=="admin")}Administrateur{/if}
 							</p>
-							{if ( isset($user.user_id) && $user.user_id != '' )
-									&&
-									( $user.user_role == 'admin' || $objUser->getId() == $user.user_id || $user.user_role == 'modo') }
-							<p>Email : <a href="mailto:{$objUser->getEmail()}">{$objUser->getEmail()}</a></p>
-						{/if}
 					</div>
 					{* Partie modification de profil *}
 					{if (isset($smarty.session.user.user_id))}
@@ -88,7 +83,7 @@
 		<div class="col-8">
 			{* 2 derniers articles ajoutés par le user *}
 			<div class="row rounded-5 brown-div shadow-lg mt-5 mb-5 ms-5 p-5">
-				{if $arrUtripsToDisplay|@count < 0}
+				{if $arrUtripsToDisplay|@count > 0}
 					<h2 class="fs-3 orange">Derniers articles publiés</h2>
 					{foreach from=$arrUtripsToDisplay item=objUtrip}
 						{include file="views/utrip_summary.tpl"}

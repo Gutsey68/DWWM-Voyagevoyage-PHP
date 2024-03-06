@@ -21,10 +21,11 @@
                 <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
                 <input class="form-control" id="password" type="password" name="password">
             </div>
-            <input class="btn green-btn" type="submit" value="Se connecter">
+            <input class="fw-bold btn green-btn" type="submit" value="Se connecter">
         </form>
-        <div class="mt-3 mb-3 form-container lead"><a href="user/create_account">Pas de compte ? Inscrivez vous !</a></div>
-        <a href="{$base_url}user/forgetPwd">Mot de passe oublié</a>
+        <div class="fw-bold mt-3 mb-3 form-container lead"><a href="user/create_account">
+        Vous ne possédez pas de compte ? Enregistrez-vous dès à présent.</a></div>
+        <a class="fw-bold" href="{$base_url}user/forgetPwd">Mot de passe oublié</a>
     </div>
 
 {/block}

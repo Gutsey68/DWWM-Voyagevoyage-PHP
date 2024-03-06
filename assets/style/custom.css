@@ -57,6 +57,10 @@ a{
     text-decoration: none; 
 }
 
+.fw-bold {
+    text-decoration: underline !important;
+}
+
 .form-container {
     width: 100%;
     max-width: 50rem;

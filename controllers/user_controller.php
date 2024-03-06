@@ -132,50 +132,58 @@
 	 */
 	public function edit_profile() {
 
-		// Vérifie si l'utilisateur est connecté
-		if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == '') {
-			header("Location:" . parent::BASE_URL);
-			return;
+		// Est-ce que l'utilisateur est connecté ?
+		if (!isset($_SESSION['user']['user_id']) || $_SESSION['user']['user_id'] == ''){
+			header("Location:".parent::BASE_URL);
 		}
 		
-		$arrErrors = []; // Initialisation du tableau d'erreurs et création d'un nouvel objet utilisateur
-		$objUser = new User();
+		$arrErrors	= array();
+		$objUser 	= new User;
 
-		// Récupération de l'objet utilisateur actuel depuis la base de données
-		$objUserModel = new UserModel();
-		$arrUser = $objUserModel->get($_SESSION['user']['user_id']);
+		// Objet à partir de la BDD - à l'affichage du formulaire
+		$objUserModel	= new UserModel;
+		$arrUser		= $objUserModel->get($_SESSION['user']['user_id']);
 		$objUser->hydrate($arrUser);
-
-		if (count($_POST) > 0) {
-
-			// Mise à jour de l'objet utilisateur avec les données soumises
+		
+		// Récupère les valeurs actuelles pour vérification
+		$strActualMail 	= $objUser->getEmail();			
+		$strOldPwd 		= $objUser->getPassword();			
+		
+		// Objet à partir du formulaire - à l'envoi du formulaire
+		if (count($_POST) > 0){
+			// Mettre à jour l'objet
 			$objUser->hydrate($_POST);
 
-			// Vérification si l'email a changé par rapport à l'actuel
-			$boolVerifMail = ($objUser->getEmail() != $arrUser['email']);
+			// Vérifier 
+			$boolVerifMail = ($strActualMail != $objUser->getEmail());
 			$arrErrors = $this->_verifInfos($objUser, $boolVerifMail);
 
-			// Traitement spécifique pour la modification du mot de passe
-			if ($objUser->getPassword() != '') {
-				if (!password_verify($_POST['oldpwd'], $arrUser['password'])) {
-					$arrErrors['pwd'] = "Erreur de mot de passe actuel incorrect";
-				} else {
-
-					// Fusion des erreurs de mot de passe avec d'autres erreurs potentielles
+			if ($objUser->getPassword() != ''){
+				if (password_verify($_POST['oldpwd'], $strOldPwd)){
 					$arrErrors = array_merge($arrErrors, $this->_verifPwd($objUser->getPassword()));
+				}else{
+					$arrErrors['pwd']	= "Erreur de mdp";
 				}
 			}
+			// Mise à jour en BDD
 
-			// Si aucune erreur, mise à jour de l'utilisateur dans la base de données
-			if (empty($arrErrors)) {
+			if(count($arrErrors) == 0){
 				$objUserModel->update($objUser);
+				// $objUserModel->insertPp($objUser);
 
-				// Mise à jour des informations de session si elles ont été modifiées
-				$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
-				$_SESSION['user']['user_name'] = $objUser->getName();
+			// Attention si informations de session modifiées => modifier la session
+			$_SESSION['user']['user_firstname'] = $objUser->getFirstname();
+			$_SESSION['user']['user_name'] 		= $objUser->getName();
+			
+			$userId = $_SESSION['user']['user_id'];
 				
-				header("Location:" . parent::BASE_URL . "user/user?id=" . $_SESSION['user']['user_id']);
+			header("Location:".parent::BASE_URL."user/user?id=$userId");
+				
+			}else{
+				$arrErrors[] = "L'insertion s'est mal passée";
 			}
+
+			
 		}
 		
 		// Préparation des données pour l'affichage

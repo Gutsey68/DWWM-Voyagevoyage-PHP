@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12 text-end mt-5">
-                    <img height="500px" width="600px" src="uploads/{$objUtrip->getImg()}" alt="">
+                <a data-fslightbox="gallery" href="uploads/{$objUtrip->getImg()}"><img class="img-fluid" height="500px" width="600px" src="uploads/{$objUtrip->getImg()}" alt=""></a>
                         {* Modifier / supprimer l'article  *}
                         {if ( isset($user.user_id) && $user.user_id != '' ) 
                         && 
@@ -56,16 +56,18 @@
             </div>
         </div>
     </article>
-    {* Boucle pour afficher les images *}
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            {foreach from=$arrUtripImgs item=$image}
-                <div class="col-3 pb-4">
-                    <a data-fslightbox="gallery" href="uploads/{$image.img_link}"><img height="200px" width="300px" src="uploads/{$image.img_link}" alt=""></a>
-                </div>
-            {/foreach}
+    {* Boucle pour afficher les images seulement si 2 images au moins *}
+    {if $arrUtripImgs|@count > 1}
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                {foreach from=$arrUtripImgs item=$image}
+                    <div class="col-12 col-md-3 pb-4">
+                        <a data-fslightbox="gallery" href="uploads/{$image.img_link}"><img class="img-fluid" height="200px" width="300px" src="uploads/{$image.img_link}" alt=""></a>
+                    </div>
+                {/foreach}
+            </div>
         </div>
-    </div>
+    {/if}
     <div class="row">
         <div class="col-12">
             {* ajouter un commentaire  *}
