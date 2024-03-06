@@ -4,6 +4,7 @@
     --brown: #473A33;
     --orange: #EB8A47;
     --beige: #FBF1DA;
+    --beige-light: #FFFCF4;
     --white: #FFFFFF;
     --black: #000000;
 }
@@ -461,6 +462,13 @@ footer #border-bottom {
 /* show404.tpl */
 .show404img img {
     width: 35%;
+}
+
+/* utrip.tpl */
+
+#utrip-comments .padding-bottom0 {
+    margin-bottom: 0 !important;
+
 }
 
 /* user.tpl */
