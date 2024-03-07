@@ -21,7 +21,7 @@
         <section class="mb-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-12"> {$objForum->getContent()} </div>
+                    <div class="col-12"> {$objForum->getContent()|nl2br} </div>
                 </div>
             </div>
         </section>

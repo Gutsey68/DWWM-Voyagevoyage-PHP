@@ -27,7 +27,7 @@
                         
                         <div class="col-12"><p class="">{count($arrLikes)}<i class="fa-solid fa-heart p-1"></i></p></div>
                     </ul>
-                    <div class="pb-3"> {$objUtrip->getDescription()} </div>
+                    <div class="pb-3"> {$objUtrip->getDescription()|nl2br} </div>
                     <div class="row">
                         {if (isset($smarty.session.user.user_id))}
                             <div class="col-12 button-left"><a class="green-btn pe-5" href="{$base_url}utrip/like?id={$objUtrip->getId()}" alt="Supprimer l'article">
