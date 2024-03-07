@@ -18,7 +18,7 @@
                 <div class="col-md-6 col-xs-12 pt-4 pb-5">
                     {* Titre et contenu *}
                     <h1 class=" green-title">{$objUtrip->getName()}</h1>
-                    <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}">{$objUtrip->getCreator()}</a></p>
+                    <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}"><span class="poppins blue-link">{$objUtrip->getCreator()}<span></a></p>
 
                     <ul class="list-unstyled">
                         <li><i class="fa-solid fa-city"></i> : {$objUtrip->getCity()},  {$objUtrip->getCountry()} ({$objUtrip->getCont()})</li>

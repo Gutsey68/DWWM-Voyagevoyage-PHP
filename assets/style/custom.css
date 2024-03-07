@@ -57,6 +57,10 @@ a{
     text-decoration: none; 
 }
 
+.blue-link {
+    color: #273c75 !important;
+}
+
 .fw-bold {
     text-decoration: underline !important;
 }
