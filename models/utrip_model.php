@@ -45,6 +45,8 @@
 			$strKeywords = $arrSearch['keywords'] ?? "";
 			if ($strKeywords != '') {
 				$strQuery.=$strWhere."(utrip_name LIKE :keywords
+							OR countries_name LIKE :keywords
+							OR regions_name LIKE :keywords
 							OR utrip_description LIKE :keywords
 							OR cities_name LIKE :keywords) ";
 				$strWhere	= " AND ";
