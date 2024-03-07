@@ -115,6 +115,9 @@ class UtripCtrl extends Ctrl {
 				if ($objUtrip->getDescription() == "") {
 					$arrErrors['description'] = "Le contenu est obligatoire";
 				}
+				if ($objUtrip->getBudget() > 10000000000) {
+					$arrErrors['budget'] = "Vous vous êtes fait arnaquer !";
+				}
 				if ($objUtrip->getCity() == "") {
 					$arrErrors['city'] = "La ville est obligatoire";
 				}
