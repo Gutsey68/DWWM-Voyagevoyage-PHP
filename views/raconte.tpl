@@ -7,7 +7,7 @@
                 <h1 class="mb-3" id="raconte-h1">Racontez l'histoire de <span class="fst-italic">votre voyage</span></h1>
             <p>Partagez vos découvertes, inspirez les autres. Chaque aventure compte et enrichit notre monde.</p>
             <p><i class="pe-1 fa-solid fa-circle-info"></i>Vous devez être connecté pour publier.</p>
-            <p><i class="pe-1 fa-solid fa-circle-info"></i>Les articles doivent être validés par les modérateurs avant d'être publiés.</p>
+            <p><i class="pe-1 fa-solid fa-circle-info"></i>Les articles doivent recevoir l'approbation des modérateurs avant leur publication.</p>
             </div>
         </div>
     </div>

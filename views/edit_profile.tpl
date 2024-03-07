@@ -33,10 +33,9 @@
                 </div>
                 <div class="form-group mt-3">
                     <label for="mail">Email</label>
-                    <input type="email" class="form-control" name="mail" id="mail" value="{$objUser->getEmail()}">
+                    <input type="email" class="form-control" name="email" id="email" value="{$objUser->getEmail()}">
                 </div>
             </fieldset>
-
             <fieldset class="col-6">
                 <legend class="green-title">Informations de connexion</legend>
                 <div class="form-group mt-3">

@@ -1,7 +1,7 @@
 {extends file="views/layout.tpl"}
 {block name="contenu"}
-    <div class="container mb-5">
-        <h1 class="mt-5 mb-3">Nouveau sujet</h1>
+    <div class="form-container mb-5">
+        <h1 class="mt-5 mb-3 green-title">Nouveau sujet</h1>
         {if (!isset($user.user_id))}
         <h2>Vous devez être connecté pour publier.</h2>
         {/if}
