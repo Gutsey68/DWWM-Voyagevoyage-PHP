@@ -21,7 +21,7 @@
     <section id='raconte-form' class="form-container">
         <form action="{$base_url}utrip/raconte" method="post" enctype="multipart/form-data">
             <!-- photos système de drag and drop -->
-            <div id="dragndrop" class="container mt-5 mb-5  form-bg">
+            <div id="dragndrop" class="mt-5 mb-5  form-bg">
                 <div class="row">
                     <div class="col-12">
                         <p>Ajoutez jusqu'à 20 photos.</p>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <!-- nom de l'article -->
-            <div class="container mb-3  form-bg">
+            <div class="mb-3  form-bg">
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleName">Titre <span class="text-danger">*</span> :</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleName" name="name"
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <!-- contenu de l'article -->
-            <div class="container mb-3  form-bg">
+            <div class="mb-3  form-bg">
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleContent">Décrivez votre
                             voyage <span class="text-danger">*</span> :</label></div>
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <!-- catégories -->
-            <div class="container mb-3  form-bg">
+            <div class="mb-3  form-bg">
                 <div class="row">
                     <div class="col-md-6 col-12"><label class="form-label" for="articleCategory">Catégorie <span class="text-danger">*</span> :</label></div>
                     <div class="col-md-6 col-12"><select class="form-select" id="articleCategory" name="cat">
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <!-- ville -->
-            <div class="container mb-3  form-bg">
+            <div class="mb-3  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleCity">Ville <span class="text-danger">*</span> :</label></div>
                     <div class="col-md-6 col-12g">
@@ -79,14 +79,14 @@
                 </div>
             </div>
             <!-- budget -->
-            <div class="container mb-5  form-bg">
+            <div class="mb-5  form-bg">
                 <div class="row ">
                     <div class="col-md-6 col-12g"><label for="articleBudget">Budget approximatif (en €) :</label></div>
                     <div class="col-md-6 col-12"><input class="form-control" type="text" id="articleBudget"
                             placeholder="exemple : 1000" value="" name="budget"></div>
                 </div>
             </div>
-            <div class="container mb-3">
+            <div class="mb-3">
                 <div class="row">
                     <div><input class="green-btn" type="submit" value="Soumettre"></div>
                 </div>

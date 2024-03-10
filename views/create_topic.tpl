@@ -3,7 +3,7 @@
     <div class="form-container mb-5">
         <h1 class="mt-5 mb-3 green-title">Nouveau sujet</h1>
         {if (!isset($user.user_id))}
-        <h2>Vous devez être connecté pour publier.</h2>
+            <p><i class="pe-1 fa-solid fa-circle-info"></i>Vous devez être connecté pour publier.</p>
         {/if}
         {if (count($arrErrors) >0) }
             <div class="alert alert-danger form-container mt-5 mb-3">

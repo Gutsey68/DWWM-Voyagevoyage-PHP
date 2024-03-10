@@ -54,7 +54,7 @@
 				</div>
 				{* Partie modération *}
 				{if (isset($user.user_role) && (($user.user_role == "admin" && $user.user_id != $objUser->getId()) || ($user.user_role == "modo" && $objUser->getRole() != "modo" && $objUser->getRole() != "admin")) )}
-					<div class="rounded-5 brown-div shadow-lg mt-5 mb-5 p-5">
+					<div class="rounded-5 brown-div shadow-lg mt-5 mb-5 p-5 padding-user-0">
 						<div class="row">
 							<div class="col-12 text-center mb-5">
 								<h3 class="fs-3 orange">Modération</h3>
@@ -80,11 +80,11 @@
 				{/if}
 			</div>
 		</div>
-		<div class="col-12 col-lg-8">
+		<div class="col-12 col-md-8">
 			{* 2 derniers articles ajoutés par le user *}
-			<div class="row rounded-5 brown-div shadow-lg mt-5 mb-5 ms-5 p-5">
+			<div class="row rounded-5 brown-div shadow-lg mt-5 mb-5 ms-5 p-5 padding-user-0">
 				{if $arrUtripsToDisplay|@count > 0}
-					<h2 class="fs-3 orange">Derniers articles publiés</h2>
+					<div><h2 class="fs-3 orange">Derniers articles publiés</h2></div>
 					{foreach from=$arrUtripsToDisplay item=objUtrip}
 						{include file="views/utrip_summary.tpl"}
 					{/foreach}
@@ -99,7 +99,7 @@
 				{/if}
 			</div>
 			<!-- 2 derniers topics ajoutés par le user -->
-			<div class="row rounded-5 brown-div shadow mt-5 mb-5 p-5 ms-5">
+			<div class="row rounded-5 brown-div shadow mt-5 mb-5 p-5 ms-5 padding-user-0">
 				{if $arrForumsToDisplay|@count  >0}
 					<div class="mb-5">
 						<h2 class="fs-3 orange">Derniers topics publiés</h2>

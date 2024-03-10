@@ -12,10 +12,10 @@
         </div>
     {/if}
     {* Affichage de l'article *}
-    <article class="mt-3 mb-5 p-5 container ">
-        <div class="container">
+    <article class="mt-3 mb-5 p-5 container mobile-mb-0 mobile-mt-0">
+        <div>
             <div class="row">
-                <div class="col-md-6 col-xs-12 pt-4 pb-5">
+                <div class="col-md-6 col-xs-12 pt-4 pb-5 mobile-mb-0">
                     {* Titre et contenu *}
                     <h1 class=" green-title">{$objUtrip->getName()}</h1>
                     <p>Publié le <span>{$objUtrip->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objUtrip->getCreatorId()}"><span class="poppins blue-link">{$objUtrip->getCreator()}<span></a></p>
@@ -23,8 +23,10 @@
                     <ul class="list-unstyled">
                         <li><i class="fa-solid fa-city"></i> : {$objUtrip->getCity()},  {$objUtrip->getCountry()} ({$objUtrip->getCont()})</li>
                         <li><i class="fa-solid fa-list"></i>: {$objUtrip->getCat()}</li>
-                        <li><i class="fa-solid fa-wallet"></i> : {$objUtrip->getBudget()} €</li>
-                        
+                        {* Si le budget n'est pas renseigné il n'est pas affiché *}
+                        {if $objUtrip->getBudget() neq ""}
+                            <li><i class="fa-solid fa-wallet"></i> : {$objUtrip->getBudget()} €</li>
+                        {/if}
                         <div class="col-12"><p class="">{count($arrLikes)}<i class="fa-solid fa-heart p-1"></i></p></div>
                     </ul>
                     <div class="pb-3"> {$objUtrip->getDescription()|nl2br} </div>
@@ -36,12 +38,12 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12 text-end mt-5">
-                <a data-fslightbox="gallery" href="uploads/{$objUtrip->getImg()}"><img class="img-fluid" height="500px" width="600px" src="uploads/{$objUtrip->getImg()}" alt=""></a>
+                <a class="d-none d-md-block" data-fslightbox="gallery" href="uploads/{$objUtrip->getImg()}"><img class="img-fluid" height="500px" width="600px" src="uploads/{$objUtrip->getImg()}" alt=""></a>
                         {* Modifier / supprimer l'article  *}
                         {if ( isset($user.user_id) && $user.user_id != '' ) 
                         && 
                         ( $user.user_role == 'admin' || $objUtrip->getCreatorId() == $user.user_id || $user.user_role == 'modo') }
-                        <div class="container">
+                        <div>
                             <div class="row mt-3">
                                 <div class="col-6 button-center">
                                     <a class="green-btn" href="{$base_url}utrip/edit_utrip?id={$objUtrip->getId()}" alt="Modifier l'article"><i class="ps-1 fa-solid fa-pen-to-square"></i> Modifier l'article</a>
@@ -58,7 +60,7 @@
     </article>
     {* Boucle pour afficher les images seulement si 2 images au moins *}
     {if $arrUtripImgs|@count > 1}
-        <div class="container mt-5 mb-5">
+        <div class="container mt-5 mb-5 mobile-mb-0">
             <div class="row">
                 {foreach from=$arrUtripImgs item=$image}
                     <div class="col-12 col-md-3 pb-4">
@@ -74,7 +76,7 @@
             {if ( isset($user.user_id) && $user.user_id != '' )}
                 <section id="ad-comment" class="mt-3">
                     <div class="form-container ">
-                        <div class="row ps-3 pe-3 pb-3">
+                        <div class="row ps-3 pe-3 pb-3 mobile-mb-0">
                             <div class="col-12">
                                 <h3>Ajouter un commentaire</h3>
                                 <form method="post" action="">
@@ -94,7 +96,7 @@
                 <section id="ad-comment">
                     <div class="form-container ">
                         <div class="row ps-3 pe-3">
-                            <div class="col-12 text-center mb-4">
+                            <div class="col-12 text-center mb-4 mobile-mb-0">
                                 <h3 class="fs-5 green-title poppins"><i class="pe-1 fa-solid fa-circle-info"></i>Vous devez être inscrit pour écrire un commentaire</h3>
                             </div>
                         </div>
@@ -114,7 +116,7 @@
                             {foreach from=$arrComments item=comment}
                                 <div class="position-relative p-1 m-1">
                                     <div class="comment ">
-                                        <p class="padding-bottom0"><strong>Commentaire de :</strong> <a
+                                        <p class="padding-bottom0"><strong>Commentaire de :</strong> <a class="blue-link"
                                                 href="{$base_url}user/user?id={$comment.com_creatorId}">{$comment.com_creator}</a>
                                         </p>
                                         <p><small>Posté le {$comment.com_date|date_format:"%d-%m-%Y- %H:%M:%S"}</small></p>
@@ -137,11 +139,11 @@
         </div>
         <div class="col-12">
             {* Partie modération *}
-            <div class="container">
+            <div class="form-container">
                 <div class="row">
                     {if (isset($smarty.session.user.user_id))}
                         {if ($smarty.session.user.user_role == "modo") || ($smarty.session.user.user_role == "admin") }
-                            <div class="container p-5   col-12">
+                            <div class="p-5   col-12">
                                 <h2 class="green-title">Modération</h2>
                                 <form method="post" action="utrip/utrip?id={$objUtrip->getId()}">
                                     <p>

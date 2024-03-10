@@ -18,10 +18,10 @@
                 </div>
                 <div class="form-group mt-3">
                     <label for="bio">Bio</label>
-                    <textarea class="form-control" rows="3" name="bio" id="bio" value="{$objUser->getBio()}"></textarea>
+                    <textarea class="form-control" rows="3" name="bio" id="bio" value="">{$objUser->getBio()}</textarea>
                 </div>
             </fieldset>
-            <fieldset class="col-6">
+            <fieldset class="col-12 col-md-6">
                 <legend class="green-title">Informations personnelles</legend>
                 <div class="form-group mt-3">
                     <label for="name">Nom</label>
@@ -36,7 +36,7 @@
                     <input type="email" class="form-control" name="email" id="email" value="{$objUser->getEmail()}">
                 </div>
             </fieldset>
-            <fieldset class="col-6">
+            <fieldset class="col-12 col-md-6">
                 <legend class="green-title">Informations de connexion</legend>
                 <div class="form-group mt-3">
                     <label for="password_old">Mot de passe actuel</label>
@@ -54,8 +54,8 @@
             <div class="text-center mt-4">
                 <input type="submit" value="Enregistrer les modifications" class="btn green-btn">
             </div>
-            <div class="pt-5">
-                <p>Pour supprimer vos données personnelles veuillez remplir un formulaire de contact et nous les effacerons dans les plus brefs délais.</p>
+            <div id="supp-info" class="pt-5">
+                <p><i class="pe-1 fa-solid fa-circle-info"></i>Pour supprimer vos données personnelles veuillez remplir un formulaire de contact et nous les effacerons dans les plus brefs délais.</p>
             </div>
         </div>
     </form>

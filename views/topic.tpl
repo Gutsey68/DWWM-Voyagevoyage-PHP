@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h1 class="mb-3 green-title">{$objForum->getTitle()}</h1>
-                        <p>Publié le <span>{$objForum->getDateFr()}</span> par <a href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a></p>
+                        <p>Publié le <span>{$objForum->getDateFr()}</span> par <a class="blue-link" href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a></p>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                         {foreach from=$arrCommentsTopic item=commenttopic}
                             <div class="position-relative">
                             <div class="mb-3">
-                                <p class="padding-bottom0"><strong>Commentaire de :</strong> <a href="{$base_url}user/user?id={$commenttopic.comt_creatorId}">{$commenttopic.comt_creator}</a></p>
+                                <p class="padding-bottom0"><strong>Commentaire de :</strong> <a class="blue-link" href="{$base_url}user/user?id={$commenttopic.comt_creatorId}">{$commenttopic.comt_creator}</a></p>
                                 <p><small>Posté le {$commenttopic.comt_date|date_format:"%d-%m-%Y %H:%M:%S"}</small></p>
                                 <p>{$commenttopic.comt_content}</p>
                             </div>

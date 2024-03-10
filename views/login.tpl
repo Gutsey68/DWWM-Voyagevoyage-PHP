@@ -23,9 +23,9 @@
             </div>
             <input class="fw-bold btn green-btn" type="submit" value="Se connecter">
         </form>
-        <div class="fw-bold mt-3 mb-3 form-container lead"><a href="user/create_account">
+        <div class=" mt-3 mb-3 form-container blue-link"><a href="user/create_account">
         Vous ne possédez pas de compte ? Enregistrez-vous dès à présent.</a></div>
-        <a class="fw-bold" href="{$base_url}user/forgetPwd">Mot de passe oublié</a>
+        <a class=" blue-link" href="{$base_url}user/forgetPwd">Mot de passe oublié</a>
     </div>
 
 {/block}

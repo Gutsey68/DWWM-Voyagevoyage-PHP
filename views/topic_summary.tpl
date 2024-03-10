@@ -3,7 +3,7 @@
 <div class="col-12 resume-topic">
     <div class="card mb-3">
         <div class="card-header">
-            <a href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a>
+            <a class="blue-link" href="{$base_url}user/user?id={$objForum->getCreatorId()}">{$objForum->getCreator()}</a>
         </div>
         <a class="text-decoration-none green-title shadow" href="{$base_url}forum/topic?id={$objForum->getId()}">
             <div class="card-body">

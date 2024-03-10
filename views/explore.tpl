@@ -4,7 +4,7 @@
 
 {block name="contenu"}
     <section id="recit">
-        <div class="container">
+        <div class="container mobile-mb-0">
             <div class="row text-center">
                 <div class="col-12">
                     <h1 class="pb-2">Explorez des récits <span class="fst-italic">inoubliables</span></h1>

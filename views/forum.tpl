@@ -2,28 +2,28 @@
 
 {block name="contenu"}
     <section id="forum">
-        <div class="container">
+        <div class="container mobile-mt-0">
             <div class="row text-center">
                 <div class="col-12">
                     <h1 class="">Bienvenue sur le forum des <span class="fst-italic">voyageurs</span></h1>
                     <p>Échangez conseils et histoires avec une communauté qui partage votre passion pour l'aventure et la découverte.</p>
-                    <div class="button-center mb-5">
+                    <div class="button-center mb-5 mobile-mb-0">
                         <a class="green-btn" href="{$base_url}forum/create_topic"><i class="fa-solid fa-comments"></i> Je crée un topic</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <form name="formSearch" method="post" action="{$base_url}forum/home" class="mb-5">
+    <form name="formSearch" method="post" action="{$base_url}forum/home" class="mb-5 mobile-mb-0">
         <div class="form-container">
             <!-- Barre de recherche -->
             <div class="row mb-4">
-                <div class="col-9 mt-4">
+                <div class="col-12 col-md-9 mt-4">
                     <div class="input-group">
                         <input type="search" class="form-control" name="keywords" placeholder="Recherchez un topic...">
                     </div>
                 </div>
-                <div class="col-3 mb-5 button-center mt-3">
+                <div class="col-12 col-md-3 mb-5 mobile-mb-0 button-center mt-3">
                     <!-- Bouton de recherche -->
                     <button type="submit" value="Rechercher" class="btn green-btn">
                         <i class="fa-solid fa-magnifying-glass"></i> Rechercher

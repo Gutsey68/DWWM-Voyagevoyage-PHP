@@ -32,6 +32,10 @@
 			$arrErrors = [];
 			// Instanciation d'un nouvel objet User
 			$objUser = new User(); 
+			$objUser->setFirstname("");
+			$objUser->setPseudo("");
+			$objUser->setEmail("");
+			$objUser->setName("");
 
 			// Traitement du formulaire lorsqu'il est soumis
 			if (count($_POST) > 0) {
@@ -214,6 +218,8 @@
 		// Récupère les informations actuelles de l'utilisateur depuis la base de données.
 		$objUserModel = new UserModel();
 		$arrUser = $objUserModel->get($_SESSION['user']['user_id']);
+		
+		$objUser ->setPp("");
 
 		// Hydrate l'objet User avec les données récupérées.
 		$objUser->hydrate($arrUser); 
