@@ -631,3 +631,13 @@ footer #border-bottom {
         text-align: center;
     }
 }
+
+@media screen and (min-width: 1081px) {
+    #explore-utrips  {
+        padding-left: 5rem !important;
+    }
+     #histoire-utrips {
+        margin-left: 5rem !important;
+    }
+
+}

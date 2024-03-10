@@ -41,8 +41,8 @@
                 </div>
             </div>
             <article>
-                <div class="container">
-                    <div class="row ">
+                <div  class="container">
+                    <div  id="histoire-utrips" class="row ">
                         {foreach from=$arrUtripsToDisplay item=objUtrip}
                             {include file="views/utrip_summary.tpl"}
                         {/foreach}
